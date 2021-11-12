@@ -79,7 +79,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         absoluteDistanceVector.Sort();
 
-        firstNoteDistance = absoluteDistanceVector[0];
+        firstNoteDistance = absoluteDistanceVector[0] + patternMap.initialDelay*speed;
 
         distanceVector = new List<float>(absoluteDistanceVector.Capacity);
         for (int i = 0; i < absoluteDistanceVector.Count-1; i++)
@@ -95,8 +95,8 @@ public class RhythmControllerUI : MonoBehaviour
 
     private PatternMap GeneratePatternMap()
     {
-        return new PatternMap("default120");
-        //return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
+        //return new PatternMap("default120");
+        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
     }
 
     private void GenerateNotes()
