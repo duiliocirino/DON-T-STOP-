@@ -6,15 +6,17 @@ using System.Linq;
 
 public class RhythmControllerUI : MonoBehaviour
 {
-    public static RhythmControllerUI instance;
-
-    public bool hasStarted = false;
-    public Vector2 noteBufferPosition;
-    public bool noteInHitArea = false;
-
+    public float hitTime = 0.3f; //in fraction of a note
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
+    public GameObject hitZone;
+
+    public static RhythmControllerUI instance;
+    public bool hasStarted = false;
+    public Vector2 noteBufferPosition;
+    public bool noteInHitArea = false;
+    public float noteDespawnDelay;
 
     public PatternMap patternMap;
 
@@ -45,6 +47,16 @@ public class RhythmControllerUI : MonoBehaviour
         GenerateDistanceVector();
 
         GenerateNotes();
+
+        GenerateHitZones();
+    }
+
+    private void GenerateHitZones()
+    {
+        float noteLength = (speed / (BPM / 60));
+        hitZone.GetComponent<BoxCollider2D>().size = new Vector2(noteLength * hitTime, 20);
+
+        noteDespawnDelay = (BPM / 60) * hitTime;
     }
 
     private void GenerateDistanceVector()

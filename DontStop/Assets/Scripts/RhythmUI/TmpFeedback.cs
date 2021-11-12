@@ -23,6 +23,7 @@ public class TmpFeedback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO new input system
         /*if (Input.GetButtonDown("Jump"))
         {
             if (RhythmControllerUI.instance.noteInHitArea)

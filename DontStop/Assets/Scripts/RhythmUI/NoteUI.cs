@@ -18,6 +18,9 @@ public class NoteUI : MonoBehaviour
     {
         if(RhythmControllerUI.instance.hasStarted)
             rectTransform.anchoredPosition += new Vector2(speed * Time.deltaTime, 0);
+
+        if (speed * rectTransform.anchoredPosition.x > 0)
+            StartCoroutine(StopNote());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,18 +31,28 @@ public class NoteUI : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    /*private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "HitArea")
         {
             RhythmControllerUI.instance.noteInHitArea = false;
-            stopNote();
+            speed = 0f;
+            rectTransform.anchoredPosition = RhythmControllerUI.instance.noteBufferPosition;
         }
-    }
+    }*/
 
-    private void stopNote()
+    private IEnumerator StopNote()
     {
+        float tmpSpeed = speed;
         speed = 0f;
+
+        float exededLength = rectTransform.anchoredPosition.x;
+        rectTransform.anchoredPosition -= new Vector2(exededLength, 0);
+
+        yield return new WaitForSeconds(RhythmControllerUI.instance.noteDespawnDelay - exededLength/tmpSpeed);
+
+        RhythmControllerUI.instance.noteInHitArea = false;
+
         rectTransform.anchoredPosition = RhythmControllerUI.instance.noteBufferPosition;
     }
 }

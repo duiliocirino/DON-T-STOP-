@@ -367,12 +367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cefba68bf6d2d4390e60605306a3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasStarted: 0
-  noteBufferPosition: {x: 0, y: 0}
-  noteInHitArea: 0
+  hitTime: 0.2
   notePrefab: {fileID: 4772691777639463006, guid: 39b786f13cdf7ef4dafa85d69c8f5c32, type: 3}
   musicPlayer: {fileID: 0}
   patternMapJSON: {fileID: 4900000, guid: c46615f2a61802540a9d84fc21992328, type: 3}
+  hitZone: {fileID: 3634357421169773367}
+  hasStarted: 0
+  noteBufferPosition: {x: 0, y: 0}
+  noteInHitArea: 0
+  noteDespawnDelay: 0
   patternMap:
     songName: 
     tempoNumerator: 0
