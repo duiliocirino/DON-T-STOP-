@@ -84,7 +84,7 @@
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Pad",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
