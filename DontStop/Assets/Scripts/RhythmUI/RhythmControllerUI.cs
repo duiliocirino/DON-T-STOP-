@@ -146,7 +146,7 @@ public class RhythmControllerUI : MonoBehaviour
                 if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
                     setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance );
                 else
-                    StartCoroutine(delayedSetNextNotes(speed / (firstNoteDistance - rectTransform.sizeDelta.x / 2)));
+                    StartCoroutine(delayedSetNextNotes((firstNoteDistance - (rectTransform.sizeDelta.x / 2))/speed));
 
                 trySetNote();
                 musicPlayer.Play();
@@ -172,7 +172,7 @@ public class RhythmControllerUI : MonoBehaviour
         }
         else
         {
-            StartCoroutine(delayedSetNextNotes(speed/(distanceVector[distanceVectorIndex] - previousNoteDistance)));
+            StartCoroutine(delayedSetNextNotes((distanceVector[distanceVectorIndex] - previousNoteDistance)/speed));
             distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
         }
     }
