@@ -135,12 +135,7 @@ public class RhythmControllerUI : MonoBehaviour
     {
         if (hasStarted)
         {
-            float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
-            if (previousNoteDistance > distanceVector[distanceVectorIndex])
-            {
-                setNextNotes(previousNoteDistance - distanceVector[distanceVectorIndex]);
-                distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
-            }
+            trySetNote();
         }
         else
         {
@@ -148,18 +143,59 @@ public class RhythmControllerUI : MonoBehaviour
             dt += Time.deltaTime;
             if (dt > 1)
             {
-                setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance );
-                float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
-                while (previousNoteDistance > distanceVector[distanceVectorIndex])
-                {
-                    setNextNotes(previousNoteDistance - distanceVector[distanceVectorIndex]);
-                    distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
-                    previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
-                }
+                if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
+                    setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance );
+                else
+                    StartCoroutine(delayedSetNextNotes(speed / (firstNoteDistance - rectTransform.sizeDelta.x / 2)));
+
+                trySetNote();
                 musicPlayer.Play();
                 hasStarted = true;
             }
         }
+    }
+
+    private void trySetNote()
+    {
+        if (settingNextNote)
+            return;
+
+        float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
+        if (distanceVector[distanceVectorIndex] <= rectTransform.sizeDelta.x / 2)
+        {
+            while (previousNoteDistance > distanceVector[distanceVectorIndex])
+            {
+                setNextNotes(previousNoteDistance - distanceVector[distanceVectorIndex]);
+                distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
+                previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
+            }
+        }
+        else
+        {
+            StartCoroutine(delayedSetNextNotes(speed/(distanceVector[distanceVectorIndex] - previousNoteDistance)));
+            distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
+        }
+    }
+
+    private bool settingNextNote = false;
+    private IEnumerator delayedSetNextNotes(float delay)
+    {
+        settingNextNote = true;
+        yield return new WaitForSeconds(delay);
+
+        float barWidth = rectTransform.sizeDelta.x;
+
+        //workingNote = noteBufer[nextNotes];
+        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-barWidth / 2, 0);
+        noteScripts[nextNotes].speed = speed;
+
+        //workingNote = noteBufer[nextNotes + 1];
+        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2(barWidth / 2, 0);
+        noteScripts[nextNotes + 1].speed = -speed;
+
+        previousNotes = nextNotes;
+        nextNotes = (nextNotes + 2) % noteBufer.Count;
+        settingNextNote = false;
     }
 
     private void setNextNotes(float offset)
