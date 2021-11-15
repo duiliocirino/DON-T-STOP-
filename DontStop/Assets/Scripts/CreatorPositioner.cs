@@ -48,15 +48,6 @@ public class CreatorPositioner : MonoBehaviour
                     Quaternion.identity);
                 planeTiles.Add(g);
                 g.name = "MyObject";
-                if (!(emptyTiles.Where(tile =>
-                    tile.transform.position.x == spawnPosition.x - spacing &&
-                    tile.transform.position.z == spawnPosition.z)).Any())
-                {
-                    GameObject empty1 = Instantiate(emptyPrefab,
-                        new Vector3(spawnPosition.x - spacing, -0.1f, spawnPosition.z),
-                        Quaternion.identity);
-                    emptyTiles.Add(empty1);
-                }
 
                 if (!(emptyTiles.Where(tile =>
                     tile.transform.position.x == spawnPosition.x - spacing &&
@@ -86,16 +77,6 @@ public class CreatorPositioner : MonoBehaviour
                         new Vector3(spawnPosition.x + spacing, -0.1f, spawnPosition.z + spacing),
                         Quaternion.identity);
                     emptyTiles.Add(empty4);
-                }
-
-                if (!(emptyTiles.Where(tile =>
-                    tile.transform.position.x == spawnPosition.x + spacing &&
-                    tile.transform.position.z == spawnPosition.z)).Any())
-                {
-                    GameObject empty5 = Instantiate(emptyPrefab,
-                        new Vector3(spawnPosition.x + spacing, -0.1f, spawnPosition.z),
-                        Quaternion.identity);
-                    emptyTiles.Add(empty5);
                 }
             }
         }
