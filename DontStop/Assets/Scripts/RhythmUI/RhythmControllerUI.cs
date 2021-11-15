@@ -6,7 +6,7 @@ using System.Linq;
 
 public class RhythmControllerUI : MonoBehaviour
 {
-    public float hitTime = 0.3f; //in fraction of a note
+    public float hitTime; //in fraction of a note
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
@@ -55,6 +55,7 @@ public class RhythmControllerUI : MonoBehaviour
     {
         float noteLength = (speed / (BPM / 60));
         hitZone.GetComponent<BoxCollider2D>().size = new Vector2(noteLength * hitTime, 20);
+        hitZone.GetComponent<RectTransform>().sizeDelta = new Vector2(noteLength * hitTime, 70);
 
         noteDespawnDelay = (BPM / 60) * hitTime;
     }
@@ -141,7 +142,7 @@ public class RhythmControllerUI : MonoBehaviour
         {
             //TODO New Input System
             dt += Time.deltaTime;
-            if (dt > 1)
+            if (Input.anyKeyDown)
             {
                 if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
                     setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance );

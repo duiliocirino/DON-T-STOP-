@@ -23,8 +23,7 @@ public class TmpFeedback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO new input system
-        /*if (Input.GetButtonDown("Jump"))
+        if (Input.anyKeyDown)
         {
             if (RhythmControllerUI.instance.noteInHitArea)
             {
@@ -34,6 +33,6 @@ public class TmpFeedback : MonoBehaviour
             {
                 image.color = incorrectColor;
             }
-        }*/
+        }
     }
 }
