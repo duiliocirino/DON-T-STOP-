@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlaneLogic : MonoBehaviour
 {
-    bool isPlayerOn = false;
-    [SerializeField] float planeLife = 5f;
-    [SerializeField] private float missPenalty = 0.5f;
-    float timeOn = 0f;
-    private GameObject thisPlane;
+    protected bool isPlayerOn = false;
+    [SerializeField] protected float planeLife = 5f;
+    [SerializeField] protected float missPenalty = 0.5f;
+    protected float timeOn = 0f;
+    protected GameObject thisPlane;
     
     // Start is called before the first frame update
     void Start()
