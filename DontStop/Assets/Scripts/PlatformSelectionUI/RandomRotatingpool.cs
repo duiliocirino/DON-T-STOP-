@@ -11,6 +11,7 @@ public class RandomRotatingPool<T>
     public RandomRotatingPool(List<T> e)
     {
         elements = new List<T>(e);
+        nextElements = new List<T>(e);
         shuffle();
         shuffle();
     }
