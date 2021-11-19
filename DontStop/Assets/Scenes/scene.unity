@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 15
+  m_JumpPower: 16
   m_GravityMultiplier: 3.52
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1.2
@@ -430,6 +430,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+--- !u!1 &519495424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519495426}
+  - component: {fileID: 519495425}
+  m_Layer: 0
+  m_Name: PlaneHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &519495425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519495424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a517161a1eaae4444bea64e93e1c0952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spacing: 15
+  numberOfEmptyTilesSide: 1
+  platformTiles:
+  - {fileID: 575062514}
+  emptyTiles:
+  - {fileID: 1438714989}
+  - {fileID: 1740486636}
+  - {fileID: 1286550975}
+  platformPrefabs:
+  - {fileID: 8389644493575408059, guid: 71c6864ec6c80ba4fac74dc50b88cbbd, type: 3}
+  - {fileID: 3445211769464926404, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+  - {fileID: 8074084810607556476, guid: 16c32a13d9d8d38478ef6bfcea66dce0, type: 3}
+  - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
+  - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
+  obstaclePrefabs:
+  - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
+  - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
+  emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+--- !u!4 &519495426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519495424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6377974, y: -1.6421378, z: 3.765791}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575062514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6626018478929296331, guid: d86dd0a3135a33546b67317656690bd0, type: 3}
@@ -499,7 +560,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907058025
 GameObject:
@@ -740,14 +801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorCamera: {fileID: 1834357895}
-  planeTiles:
-  - {fileID: 575062514}
-  emptyTiles:
-  - {fileID: 1438714989}
-  - {fileID: 1740486636}
-  - {fileID: 1286550975}
-  planePrefab: {fileID: 6626018478929296331, guid: d86dd0a3135a33546b67317656690bd0, type: 3}
-  emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
 --- !u!4 &1304680583
 Transform:
   m_ObjectHideFlags: 0

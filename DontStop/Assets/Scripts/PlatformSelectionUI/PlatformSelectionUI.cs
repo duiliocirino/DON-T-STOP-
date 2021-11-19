@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlatformSelectionUI : MonoBehaviour
 {
+    public static PlatformSelectionUI instance;
+    
+    //TODO: adjust and pick the platforms from the PlaneHandler to have coherency
     public List<GameObject> slots;
     private RandomRotatingPool<GameObject> pool;
     private List<SlotUI> slotScripts = new List<SlotUI>();
@@ -14,6 +17,8 @@ public class PlatformSelectionUI : MonoBehaviour
 
     private void Awake()
     {
+        instance = this; 
+        
         pool = new RandomRotatingPool<GameObject>(PlatformCache.instace.platformPrefabs);
 
         slotScripts = new List<SlotUI>();

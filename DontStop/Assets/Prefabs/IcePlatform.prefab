@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6626018478929296321}
   - component: {fileID: -5934003711258049109}
   m_Layer: 0
-  m_Name: PlaneGeneric
+  m_Name: IcePlatform
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,3 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a2c83a27e91e54f913fd123b27dda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeLife: 5
+  missPenalty: 0.5
