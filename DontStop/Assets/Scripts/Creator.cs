@@ -35,13 +35,13 @@ public class Creator : MonoBehaviour
                 spawnPosition.x = ((int)((spawnPosition.x - (spacing/2)) / spacing)) * spacing;
             else
                 spawnPosition.x = ((int)((spawnPosition.x + (spacing/2)) / spacing)) * spacing;
-            if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, true)))
+            if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, false)))
             {
                 GameObject newPlatform = PlatformSelectionUI.instance.PlaceAndChangeSelectedPlatform();
                 
                 if (newPlatform != null)
                 {
-                    PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z), newPlatform.name);
+                    PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z), newPlatform);
                     PlaneHandler.instance.AddEmptyTiles(spawnPosition);
                 }
             }

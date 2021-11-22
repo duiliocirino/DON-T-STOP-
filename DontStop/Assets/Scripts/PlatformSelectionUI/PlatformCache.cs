@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlatformCache : MonoBehaviour
 {
-    public static PlatformCache instace;
+    public static PlatformCache instance;
 
     public List<GameObject> platformPrefabs;
     public Dictionary<GameObject, Color> platformImmages = new Dictionary<GameObject, Color>();
+    public Dictionary<GameObject, PlaneLogic> platformScripts = new Dictionary<GameObject, PlaneLogic>();
 
     public void Awake()
     {
-        instace = this;
+        instance = this;
         foreach(GameObject p in platformPrefabs)
         {
             platformImmages.Add(p, p.GetComponent<Renderer>().sharedMaterial.color);
+            platformScripts.Add(p, p.GetComponent<PlaneLogic>());
         }
     }
     // Start is called before the first frame update

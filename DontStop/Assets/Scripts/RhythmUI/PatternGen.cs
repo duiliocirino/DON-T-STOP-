@@ -25,8 +25,8 @@ public class PatternGen : MonoBehaviour
         pm.initialDelay = 0;
         pm.pattern = new List<BeatPattern>();
 
-        int trackDuration = 150;
-        BeatPattern bp;
+        //int trackDuration = 150;
+        //BeatPattern bp;
 
         return pm;
     }
