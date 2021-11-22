@@ -9,6 +9,7 @@ TagManager:
   - Plane
   - SpecialPlatform
   - ObstaclePlatform
+  - PlaneHandler
   layers:
   - Default
   - TransparentFX
