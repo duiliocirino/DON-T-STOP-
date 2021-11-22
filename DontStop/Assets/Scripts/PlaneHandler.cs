@@ -79,6 +79,9 @@ public class PlaneHandler : MonoBehaviour
         }
     }
 
+        EnableEmptyTiles(PlatformSelectionUI.instance.GetSelectedPlatformSize());
+    }
+
     public void RemovePlatform(GameObject obj)
     {
         
@@ -124,5 +127,20 @@ public class PlaneHandler : MonoBehaviour
                 .Any() || checkEmpty))
             return true;
         return false;
+    }
+
+    public void ComunicateSelectedPlatformSize(int size)
+    {
+        EnableEmptyTiles(size);
+    }
+
+    public void EnableEmptyTiles(int size)
+    {
+        foreach (GameObject e in emptyTiles)
+        {
+            int platformRadius = size == 0 ? 0 : (size - 1) / 2;
+            int actualLaneNumberRadius = laneNumbersRadius - platformRadius;
+            e.SetActive(-actualLaneNumberRadius * spacing <= e.transform.position.x && e.transform.position.x <= actualLaneNumberRadius * spacing);
+        }
     }
 }

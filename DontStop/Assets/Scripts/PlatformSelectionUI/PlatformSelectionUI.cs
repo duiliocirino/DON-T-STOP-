@@ -19,7 +19,7 @@ public class PlatformSelectionUI : MonoBehaviour
     {
         instance = this; 
         
-        pool = new RandomRotatingPool<GameObject>(PlatformCache.instace.platformPrefabs);
+        pool = new RandomRotatingPool<GameObject>(PlatformCache.instance.platformPrefabs);
 
         slotScripts = new List<SlotUI>();
         foreach (GameObject slot in slots)
@@ -50,6 +50,7 @@ public class PlatformSelectionUI : MonoBehaviour
             if(selectedSlotIndex >= 0 && selectedSlotIndex < slots.Count)
             {
                 slotScripts[selectedSlotIndex].setActive();
+                PlaneHandler.instance.ComunicateSelectedPlatformSize(PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize);
                 print("start: " + selectedSlotIndex);
             }
         }
@@ -73,6 +74,7 @@ public class PlatformSelectionUI : MonoBehaviour
             if (selectedSlotIndex == -1)
             {
                 slotScripts[old].setInactive();
+                PlaneHandler.instance.ComunicateSelectedPlatformSize(0);
                 print("stop: " + old);
             }
         }
@@ -91,7 +93,13 @@ public class PlatformSelectionUI : MonoBehaviour
         }
 
         GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
-        slotScripts[selectedSlotIndex].SetPlatform(pool.GetNext());
+        GameObject nextPlatform = pool.GetNext();
+        slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
         return platform;
+    }
+
+    public int GetSelectedPlatformSize()
+    {
+        return selectedSlotIndex == -1 ? 0 : PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize;
     }
 }

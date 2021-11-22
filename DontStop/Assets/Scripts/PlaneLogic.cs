@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlaneLogic : MonoBehaviour
 {
+    public int platformSize = 1;
     protected bool isPlayerOn = false;
     [SerializeField] protected float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
