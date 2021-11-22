@@ -147,12 +147,8 @@ public class PlaneHandler : MonoBehaviour
 
     public bool IsPlatformPresentRange(float centerX, float centerZ, int radius)
     {
-        Debug.Log("Blank Position = " + centerX + " " + centerZ);
         for (int i = -radius; i<= radius; i++)
         {
-            Debug.Log(i + "] Current radius: " + i);
-            Debug.Log(i + "] X to check: " + (centerX + i * spacing));
-            Debug.Log(i + "] is there a platform: " + IsPlatformPresent(centerX + i * spacing, centerZ, false));
             if (IsPlatformPresent(centerX + i * spacing, centerZ, false))
             {
                 return true;
