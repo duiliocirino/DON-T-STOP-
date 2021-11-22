@@ -41,7 +41,7 @@ public class Creator : MonoBehaviour
                 
                 if (newPlatform != null)
                 {
-                    PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z), newPlatform.name);
+                    PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z), newPlatform);
                     PlaneHandler.instance.AddEmptyTiles(spawnPosition);
                 }
             }
