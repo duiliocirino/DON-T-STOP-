@@ -119,11 +119,11 @@ public class PlaneHandler : MonoBehaviour
         if ((PlatformTiles.Where(tile =>
                     tile.transform.position.x == x &&
                     tile.transform.position.z == z))
-                .Any() &&
+                .Any() ||
             ((EmptyTiles.Where(tile =>
                     tile.transform.position.x == x &&
                     tile.transform.position.z == z))
-                .Any() || checkEmpty))
+                .Any() && checkEmpty))
             return true;
         return false;
     }
@@ -139,7 +139,26 @@ public class PlaneHandler : MonoBehaviour
         {
             int platformRadius = size == 0 ? 0 : (size - 1) / 2;
             int actualLaneNumberRadius = laneNumbersRadius - platformRadius;
-            e.SetActive(-actualLaneNumberRadius * spacing <= e.transform.position.x && e.transform.position.x <= actualLaneNumberRadius * spacing);
+            bool selectedPlaneWontExitBudries = -actualLaneNumberRadius * spacing <= e.transform.position.x && e.transform.position.x <= actualLaneNumberRadius * spacing;
+            bool selectedPlaneWontOverlapObstacle = !IsPlatformPresentRange(e.transform.position.x, e.transform.position.z, platformRadius);
+            e.SetActive(selectedPlaneWontExitBudries && selectedPlaneWontOverlapObstacle);
         }
+    }
+
+    public bool IsPlatformPresentRange(float centerX, float centerZ, int radius)
+    {
+        Debug.Log("Blank Position = " + centerX + " " + centerZ);
+        for (int i = -radius; i<= radius; i++)
+        {
+            Debug.Log(i + "] Current radius: " + i);
+            Debug.Log(i + "] X to check: " + (centerX + i * spacing));
+            Debug.Log(i + "] is there a platform: " + IsPlatformPresent(centerX + i * spacing, centerZ, false));
+            if (IsPlatformPresent(centerX + i * spacing, centerZ, false))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
