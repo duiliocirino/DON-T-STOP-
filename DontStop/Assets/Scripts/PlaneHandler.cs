@@ -77,7 +77,6 @@ public class PlaneHandler : MonoBehaviour
                 }
             }
         }
-    }
 
         EnableEmptyTiles(PlatformSelectionUI.instance.GetSelectedPlatformSize());
     }
