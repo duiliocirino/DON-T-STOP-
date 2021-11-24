@@ -39,7 +39,7 @@ public class PlaneHandler : MonoBehaviour
     
     private void GenerateBadPlatform(Vector3 position)
     {
-        if (Random.Range(0f, 1.0f) > probabilityBadPlat)
+        if (Random.value < probabilityBadPlat)
         {
             int place = Random.Range(-numberOfEmptyTilesSide, numberOfEmptyTilesSide);
             GameObject newPlatform = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count - 1)],
