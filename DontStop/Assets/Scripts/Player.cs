@@ -10,8 +10,6 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-	
-		
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
     [SerializeField] float m_JumpPower = 10f;
@@ -20,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
+
+    private GameObject lastPlatformTouched;
 
     Rigidbody m_Rigidbody;
     Animator m_Animator;
@@ -227,5 +227,17 @@ public class Player : MonoBehaviour
             m_GroundNormal = Vector3.up;
             m_Animator.applyRootMotion = false;
         }
+
+        if (this.transform.position.y < -5.0f)
+        {
+            Vector3 newPos = lastPlatformTouched.transform.position;
+            newPos.y = 0.35f;
+            this.transform.position = newPos;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "SpecialPlatform" || other.gameObject.tag == "ObstaclePlatform") lastPlatformTouched = other.gameObject;
     }
 }

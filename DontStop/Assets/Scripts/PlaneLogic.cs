@@ -27,8 +27,8 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        if (timeOn < planeLife && timeOn >= planeLife * 0.75f) Debug.Log("Only" + (planeLife - timeOn) + "are left for the platform");
-        else if (timeOn >= planeLife)
+        //if (timeOn < planeLife && timeOn >= planeLife * 0.75f) Debug.Log("Only" + (planeLife - timeOn) + "are left for the platform");
+        if (timeOn >= planeLife)
         {
             //Debug.Log("Plane got destroyed");
             // Destroy(thisPlane);
