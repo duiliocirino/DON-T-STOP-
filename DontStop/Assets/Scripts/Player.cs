@@ -175,6 +175,7 @@ public class Player : MonoBehaviour
         {
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
+            else LifeBar.instance.PerfectHit();
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
             m_IsGrounded = false;
