@@ -11651,6 +11651,12 @@ MonoBehaviour:
   - {fileID: 6416204772632808336, guid: 1f29077e76154bc46988e07ecd5746de, type: 3}
   isCreating: 0
   currentZ: 620
+  placingDistance: 0
+  playerTransform: {fileID: 2027869748}
+  cameraTransform: {fileID: 1885842107}
+  preplacedLevelSections:
+  - {fileID: 7661103378257087332}
+  - {fileID: 4914458465844458578}
 --- !u!4 &962897865
 Transform:
   m_ObjectHideFlags: 0
@@ -24152,6 +24158,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+--- !u!4 &2027869748 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+  m_PrefabInstance: {fileID: 2027869747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2030305960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32319,6 +32330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
+--- !u!1 &4914458465844458578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4914458464752284304, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
+  m_PrefabInstance: {fileID: 4914458465844458577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4984142501330557863
 GameObject:
   m_ObjectHideFlags: 0
