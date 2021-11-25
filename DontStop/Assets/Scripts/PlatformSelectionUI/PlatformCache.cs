@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformCache : MonoBehaviour
 {
-    public static PlatformCache instance;
+    public static PlatformCache instance { get; private set; }
 
     public List<GameObject> platformPrefabs;
     public Dictionary<GameObject, Color> platformImmages = new Dictionary<GameObject, Color>();

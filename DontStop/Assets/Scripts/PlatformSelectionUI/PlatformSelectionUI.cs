@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlatformSelectionUI : MonoBehaviour
 {
-    public static PlatformSelectionUI instance;
-    
+    public static PlatformSelectionUI instance { get; private set; }
+
     //TODO: adjust and pick the platforms from the PlaneHandler to have coherency
     public List<GameObject> slots;
     private RandomRotatingPool<GameObject> pool;

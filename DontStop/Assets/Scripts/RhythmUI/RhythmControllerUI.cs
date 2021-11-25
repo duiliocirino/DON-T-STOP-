@@ -12,7 +12,7 @@ public class RhythmControllerUI : MonoBehaviour
     public TextAsset patternMapJSON;
     public GameObject hitZone;
 
-    public static RhythmControllerUI instance;
+    public static RhythmControllerUI instance { get; private set; }
     public bool hasStarted = false;
     public Vector2 noteBufferPosition;
     public bool noteInHitArea = false;
@@ -149,11 +149,19 @@ public class RhythmControllerUI : MonoBehaviour
                 else
                     StartCoroutine(delayedSetNextNotes((firstNoteDistance - (rectTransform.sizeDelta.x / 2))/speed));
 
+                StartCoroutine(delayedStartLifeBar(firstNoteDistance/speed));
+
                 trySetNote();
                 musicPlayer.Play();
                 hasStarted = true;
             }
         }
+    }
+
+    private IEnumerator delayedStartLifeBar(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LifeBar.instance.StartDeplition();
     }
 
     private void trySetNote()
