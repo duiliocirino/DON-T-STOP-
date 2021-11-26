@@ -7,7 +7,6 @@ public class PlatformCache : MonoBehaviour
     public static PlatformCache instance { get; private set; }
 
     public List<GameObject> platformPrefabs;
-    public Dictionary<GameObject, Color> platformImmages = new Dictionary<GameObject, Color>();
     public Dictionary<GameObject, PlaneLogic> platformScripts = new Dictionary<GameObject, PlaneLogic>();
 
     public void Awake()
@@ -15,7 +14,6 @@ public class PlatformCache : MonoBehaviour
         instance = this;
         foreach(GameObject p in platformPrefabs)
         {
-            platformImmages.Add(p, p.GetComponent<Renderer>().sharedMaterial.color);
             platformScripts.Add(p, p.GetComponent<PlaneLogic>());
         }
     }

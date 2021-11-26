@@ -55,6 +55,7 @@ MonoBehaviour:
   platformSize: 1
   planeLife: 5
   missPenalty: 0.5
+  preview: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &19834204754958890
 PrefabInstance:
   m_ObjectHideFlags: 0

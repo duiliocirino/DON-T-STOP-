@@ -25,7 +25,8 @@ public class SlotUI : MonoBehaviour
     public void SetPlatform(GameObject p)
     {
         platform = p;
-        image.color = PlatformCache.instance.platformImmages[platform];
+        image.color = PlatformCache.instance.platformScripts[platform].preview;
+        print(image.color);
     }
 
     public GameObject GetPlatform()
