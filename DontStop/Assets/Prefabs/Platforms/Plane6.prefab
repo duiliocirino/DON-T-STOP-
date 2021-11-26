@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7097122484730645657}
   m_Layer: 0
   m_Name: Plane6
-  m_TagString: Untagged
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
