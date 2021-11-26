@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7006056682198455086}
   - component: {fileID: 8901597995381944009}
   - component: {fileID: 7279266526365003899}
+  - component: {fileID: 6730993889965304024}
   m_Layer: 8
   m_Name: PlaneHighlight
   m_TagString: EmptyPlatform
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6730993889965304024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826234445904105353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4008572, y: 0.49871516, z: 2.3967862}
+  m_Center: {x: -0.0005024672, y: 0.8493128, z: -0.0007680654}

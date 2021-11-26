@@ -38,6 +38,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4160023955947115310}
     m_Modifications:
+    - target: {fileID: 1329309696556961393, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631596660349752942, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1817522645727603133, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -82,9 +90,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1930354015178368874, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2174359070333336848, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245039824536549325, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680033082753637364, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681625763214791686, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879934091998142478, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879934091998142478, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879934091998142478, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879934091998142478, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296481979179319160, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3445211769464926404, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
       propertyPath: m_Name
       value: Plane2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624818549916120871, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725139105012494894, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742466213552257265, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917110415003230857, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383153807322528142, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329156104550231593, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197103882077841848, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739672706359231174, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202743577276857660, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b46b6efc87fa2e04282338e788c10c6e, type: 3}
