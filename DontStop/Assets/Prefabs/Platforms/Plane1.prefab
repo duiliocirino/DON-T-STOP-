@@ -77,6 +77,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -192,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7120903149665134051, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7703335909242342749, guid: f511578de5244d24d8896f01bc37f583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f511578de5244d24d8896f01bc37f583, type: 3}
@@ -210,6 +218,10 @@ PrefabInstance:
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
@@ -277,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 3227732992792230708, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
       propertyPath: m_Name
       value: Stones Tile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227732992792230708, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5553178285680360060, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
       propertyPath: m_RootOrder
@@ -353,6 +369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -419,6 +439,10 @@ PrefabInstance:
     - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_Name
       value: Bush 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8663544549165372022, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_RootOrder
@@ -535,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7120903149665134051, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7703335909242342749, guid: f511578de5244d24d8896f01bc37f583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f511578de5244d24d8896f01bc37f583, type: 3}
@@ -553,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 1911000842864643869, guid: 0a6820ea3b4f3c6468072b085e02a366, type: 3}
       propertyPath: m_Name
       value: Tile Bot 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911000842864643869, guid: 0a6820ea3b4f3c6468072b085e02a366, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8569049185289328770, guid: 0a6820ea3b4f3c6468072b085e02a366, type: 3}
       propertyPath: m_RootOrder
@@ -628,6 +660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Top 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3196648517536708714, guid: 3df9158ae7c86a64ca9128178be2a2f4, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5114996075067899094, guid: 3df9158ae7c86a64ca9128178be2a2f4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -701,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 3227732992792230708, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
       propertyPath: m_Name
       value: Stones Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227732992792230708, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5553178285680360060, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
       propertyPath: m_RootOrder
@@ -777,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stones Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3227732992792230708, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5553178285680360060, guid: abfe5c7e82c96314489525c5f8a9ba7f, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -852,6 +896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Branch 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3296730375315906859, guid: 1a0088c0be5bf6744a7547a285946a2b, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 4705134003227826158, guid: 1a0088c0be5bf6744a7547a285946a2b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -918,6 +966,10 @@ PrefabInstance:
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
@@ -986,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1052,6 +1108,10 @@ PrefabInstance:
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
@@ -1168,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigStone 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971598819797646051, guid: 4fe91b70223fc4d4cb3214cdd8a2491f, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe91b70223fc4d4cb3214cdd8a2491f, type: 3}
 --- !u!4 &7763064508923043434 stripped
@@ -1233,6 +1297,10 @@ PrefabInstance:
     - target: {fileID: 8996524595334523411, guid: cad11d9b98bd5dd4fb9a7f59a4d6a646, type: 3}
       propertyPath: m_Name
       value: LittleStone 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996524595334523411, guid: cad11d9b98bd5dd4fb9a7f59a4d6a646, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2392798525355957416, guid: cad11d9b98bd5dd4fb9a7f59a4d6a646, type: 3}
@@ -1301,6 +1369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigStone 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 971598819797646051, guid: 4fe91b70223fc4d4cb3214cdd8a2491f, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe91b70223fc4d4cb3214cdd8a2491f, type: 3}
 --- !u!4 &8251697579022266560 stripped
@@ -1318,6 +1390,10 @@ PrefabInstance:
     - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_Name
       value: Bush 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
+      propertyPath: m_TagString
+      value: SpecialPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8663544549165372022, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_RootOrder

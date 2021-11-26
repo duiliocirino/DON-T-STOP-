@@ -4370,6 +4370,7 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1.2
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.7
+  lastPlatformTouched: {fileID: 0}
 --- !u!136 &306623007
 CapsuleCollider:
   m_ObjectHideFlags: 0
