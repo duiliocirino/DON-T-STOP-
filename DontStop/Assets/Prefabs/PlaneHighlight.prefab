@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8901597995381944009}
   - component: {fileID: 7279266526365003899}
   - component: {fileID: 1474058089640246244}
-  m_Layer: 1
+  m_Layer: 8
   m_Name: PlaneHighlight
-  m_TagString: Untagged
+  m_TagString: EmptyPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

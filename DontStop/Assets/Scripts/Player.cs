@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
 
-    private GameObject lastPlatformTouched;
+    public GameObject lastPlatformTouched;
 
     Rigidbody m_Rigidbody;
     Animator m_Animator;
@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
     float m_CapsuleHeight;
     Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
-    bool m_Crouching;
 
 
     void Start()
@@ -48,13 +47,14 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Move(Vector3 move, bool crouch, bool jump)
+    public void Move(Vector3 move, bool jump)
     {
 
         // convert the world relative moveInput vector into a local-relative
         // turn amount and forward amount required to head in the desired
         // direction.
         if (move.magnitude > 1f) move.Normalize();
+        m_Rigidbody.MovePosition(transform.position + m_MoveSpeedMultiplier * move * Time.deltaTime);
         move = transform.InverseTransformDirection(move);
         CheckGroundStatus();
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -66,66 +66,23 @@ public class Player : MonoBehaviour
         // control and velocity handling is different when grounded and airborne:
         if (m_IsGrounded)
         {
-            HandleGroundedMovement(crouch, jump);
+            HandleGroundedMovement(jump);
         }
         else
         {
             HandleAirborneMovement();
         }
 
-        ScaleCapsuleForCrouching(crouch);
-        PreventStandingInLowHeadroom();
 
         // send input and other state parameters to the animator
         UpdateAnimator(move);
     }
-
-
-    void ScaleCapsuleForCrouching(bool crouch)
-    {
-        if (m_IsGrounded && crouch)
-        {
-            if (m_Crouching) return;
-            m_Capsule.height = m_Capsule.height / 2f;
-            m_Capsule.center = m_Capsule.center / 2f;
-            m_Crouching = true;
-        }
-        else
-        {
-            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
-            float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-            if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-            {
-                m_Crouching = true;
-                return;
-            }
-            m_Capsule.height = m_CapsuleHeight;
-            m_Capsule.center = m_CapsuleCenter;
-            m_Crouching = false;
-        }
-    }
-
-    void PreventStandingInLowHeadroom()
-    {
-        // prevent standing up in crouch-only zones
-        if (!m_Crouching)
-        {
-            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
-            float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-            if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-            {
-                m_Crouching = true;
-            }
-        }
-    }
-
 
     void UpdateAnimator(Vector3 move)
     {
         // update the animator parameters
         m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
-        m_Animator.SetBool("Crouch", m_Crouching);
         m_Animator.SetBool("OnGround", m_IsGrounded);
         if (!m_IsGrounded)
         {
@@ -168,10 +125,10 @@ public class Player : MonoBehaviour
     }
 
 
-    void HandleGroundedMovement(bool crouch, bool jump)
+    void HandleGroundedMovement(bool jump)
     {
         // check whether conditions are right to allow a jump:
-        if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+        if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
         {
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
@@ -196,14 +153,16 @@ public class Player : MonoBehaviour
     {
         // we implement this function to override the default root motion.
         // this allows us to modify the positional speed before it's applied.
-        if (m_IsGrounded && Time.deltaTime > 0)
+        /*if (m_IsGrounded && Time.deltaTime > 0)
         {
+            Debug.Log("Anime");
             Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
-
+            Debug.Log(v);
+            
             // we preserve the existing y part of the current velocity.
             v.y = m_Rigidbody.velocity.y;
             m_Rigidbody.velocity = v;
-        }
+        }*/
     }
 
 
@@ -229,16 +188,17 @@ public class Player : MonoBehaviour
             m_Animator.applyRootMotion = false;
         }
 
-        if (this.transform.position.y < -5.0f)
+        if (transform.position.y < -4.0f)
         {
             Vector3 newPos = lastPlatformTouched.transform.position;
             newPos.y = 0.35f;
-            this.transform.position = newPos;
+            transform.position = newPos;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("You collided with" + other.gameObject.tag);
         if (other.gameObject.tag == "SpecialPlatform" || other.gameObject.tag == "ObstaclePlatform") lastPlatformTouched = other.gameObject;
     }
 }

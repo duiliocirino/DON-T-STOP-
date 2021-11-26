@@ -11,6 +11,8 @@ TagManager:
   - ObstaclePlatform
   - PlaneHandler
   - NotesHandler
+  - EmptyPlatform
+  - Creator
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - EmptyLayer
   - 
   - 
   - 
