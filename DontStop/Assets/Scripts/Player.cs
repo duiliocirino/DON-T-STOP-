@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
+    [SerializeField] GameObject childMaterial;
+    [SerializeField] ParticleSystem particleSystem;
 
     public GameObject lastPlatformTouched;
 
@@ -193,6 +195,7 @@ public class Player : MonoBehaviour
             Vector3 newPos = lastPlatformTouched.transform.position;
             newPos.y = 0.35f;
             transform.position = newPos;
+
         }
     }
 
@@ -201,4 +204,8 @@ public class Player : MonoBehaviour
         Debug.Log("You collided with" + other.gameObject.tag);
         if (other.gameObject.tag == "SpecialPlatform" || other.gameObject.tag == "ObstaclePlatform") lastPlatformTouched = other.gameObject;
     }
+
+   
+
+
 }
