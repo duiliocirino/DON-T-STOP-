@@ -6,7 +6,7 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     private NotesHandler _notesHandler;
-    [SerializeField] protected float noteLife = 5f;
+    [SerializeField] protected float noteLife = 15f;
     protected float timeOn = 0f;
     
     // Start is called before the first frame update
