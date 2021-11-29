@@ -8923,6 +8923,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 644310937679381613, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: builderCamera
+      value: 
+      objectReference: {fileID: 1834357895}
     - target: {fileID: 2577073123467388500, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_Name
       value: TutorialUI
