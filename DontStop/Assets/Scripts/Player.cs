@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
     [SerializeField] GameObject childMaterial;
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particles;
 
     public GameObject lastPlatformTouched;
 
@@ -133,8 +133,13 @@ public class Player : MonoBehaviour
         if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
         {
             float jumpForce = m_JumpPower;
-            if (!RhythmControllerUI.instance.noteInHitArea) jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
-            else LifeBar.instance.PerfectHit();
+            if (!RhythmControllerUI.instance.noteInHitArea)
+                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
+
+            else {
+                LifeBar.instance.PerfectHit();
+                particles.Play();
+            } 
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
             m_IsGrounded = false;

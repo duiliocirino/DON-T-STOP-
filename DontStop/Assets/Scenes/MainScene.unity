@@ -133,6 +133,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -398367143235661068, guid: d8554dc5b2505ea43ad65183b61b96c2, type: 3}
   m_PrefabInstance: {fileID: 1570380947}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &7106472 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 464141968781854204, guid: d8554dc5b2505ea43ad65183b61b96c2, type: 3}
+  m_PrefabInstance: {fileID: 1570380947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &15893706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4112504727747986, guid: d82a0024cf3346b4695544dd461fb02b, type: 3}
@@ -14700,7 +14705,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176392638}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -14708,7 +14713,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -14775,7 +14780,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14828,7 +14833,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14944,7 +14949,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.84
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15319,7 +15324,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 14
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -15389,7 +15394,7 @@ ParticleSystem:
           m_RotationOrder: 4
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
-    m_SkinnedMeshRenderer: {fileID: 0}
+    m_SkinnedMeshRenderer: {fileID: 7106472}
     m_Sprite: {fileID: 0}
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
@@ -15525,7 +15530,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -19406,11 +19411,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176392638}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.73, y: -2.17, z: 4.6}
+  m_LocalPosition: {x: -0.04, y: 2.44, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1546308358}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1188351724
 PrefabInstance:
@@ -23932,7 +23937,7 @@ MonoBehaviour:
   m_AnimSpeedMultiplier: 2
   m_GroundCheckDistance: 0.75
   childMaterial: {fileID: 7106470}
-  particleSystem: {fileID: 1176392640}
+  particles: {fileID: 1176392640}
   lastPlatformTouched: {fileID: 0}
 --- !u!136 &1546308355
 CapsuleCollider:
@@ -23947,7 +23952,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1546308356
 Rigidbody:
   m_ObjectHideFlags: 0
