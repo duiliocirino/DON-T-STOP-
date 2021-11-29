@@ -5131,12 +5131,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: hitTime
-      value: 0.15
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 907058026}
+    - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: patternMapJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 9d21a7428fa8088408ae48c84a36f808, type: 3}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -24027,8 +24031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 15
-  m_GravityMultiplier: 2
+  m_JumpPower: 25
+  m_GravityMultiplier: 6.5
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 8
   m_AnimSpeedMultiplier: 1
@@ -28670,7 +28674,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -28695,13 +28699,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834357893}
-  m_LocalRotation: {x: 0.1608136, y: -0.29850823, z: 0.07929046, w: 0.93741393}
-  m_LocalPosition: {x: 24.8, y: 25.1, z: -27.8}
+  m_LocalRotation: {x: 0.29990268, y: -0, z: -0, w: 0.9539698}
+  m_LocalPosition: {x: 0, y: 25.7, z: -19.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 20.416, y: -34.747, z: 3.22}
+  m_LocalEulerAnglesHint: {x: 34.904, y: 0, z: 0}
 --- !u!114 &1834357897
 MonoBehaviour:
   m_ObjectHideFlags: 0

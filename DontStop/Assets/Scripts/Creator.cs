@@ -26,9 +26,9 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if (Physics.Raycast(ray, out var hit))
+        if (Physics.Raycast(ray, out var hit, 100, layerMask))
         {
-            //Debug.Log("Left click");
+            //Debug.Log("Left click on " + hit.collider.gameObject.name);
             spawnPosition = hit.point;
             spawnPosition.z = ((int) ((spawnPosition.z + (spacing / 2)) / spacing)) * spacing;
             spawnPosition.y = ((int) ((spawnPosition.y + (spacing / 2)) / spacing)) * spacing;

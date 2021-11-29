@@ -62,7 +62,7 @@ Material:
     - BOOLEAN_USE_WROLDSPACE: 0
     - BOOLEAN_WORLDORIGIN: 0
     - BOOLEAN_WROLDSPACE_OFFEST: 0
-    - _CutoffHeight: 0.71
+    - _CutoffHeight: 1.71
     - _DierctionEdgeWidthScale: 2.24
     - _Dissolve: 0
     - _EdgeColorIntensity: 3.55

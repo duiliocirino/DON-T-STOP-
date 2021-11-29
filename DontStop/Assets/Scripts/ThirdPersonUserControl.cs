@@ -65,7 +65,6 @@ public class ThirdPersonUserControl : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
-        rb.MovePosition(transform.position + m_Move * Time.deltaTime);
         // pass all parameters to the character control script
         m_Character.Move(m_Move, m_Jump);
         m_Jump = false;
