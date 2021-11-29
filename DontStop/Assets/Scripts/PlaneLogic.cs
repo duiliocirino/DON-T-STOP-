@@ -10,13 +10,11 @@ public class PlaneLogic : MonoBehaviour
     [SerializeField] protected float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
     protected float timeOn = 0f;
-    protected GameObject thisPlane;
     public Color preview;
     
     // Start is called before the first frame update
     void Start()
     {
-        thisPlane = this.gameObject;
         if (!RhythmControllerUI.instance.noteInHitArea) planeLife = planeLife * missPenalty;
     }
 
@@ -28,23 +26,20 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        //if (timeOn < planeLife && timeOn >= planeLife * 0.75f) Debug.Log("Only" + (planeLife - timeOn) + "are left for the platform");
+        if (timeOn < planeLife && timeOn >= planeLife * 0.75f) Debug.Log("Only" + (planeLife - timeOn) + "are left for the platform");
         if (timeOn >= planeLife)
         {
-            //Debug.Log("Plane got destroyed");
-            // Destroy(thisPlane);
+            Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("PlayerOnPlane");
         isPlayerOn = true;
     }
 
     private void OnCollisionExit(Collision other)
     {
-        Debug.Log("PlayerOffPlane");
         isPlayerOn = false;
     }
 }

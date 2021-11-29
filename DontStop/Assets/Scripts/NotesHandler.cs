@@ -16,7 +16,8 @@ public class NotesHandler : MonoBehaviour
     public float spawnProbability = 1f;
     public float baseSpawnProbability;
     public float timeSinceLastNote;
-    
+
+    public float slope = 10000;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,11 @@ public class NotesHandler : MonoBehaviour
         
     }
 
+    public void NoteTaken()
+    {
+        notesCollected++;
+    }
+
     void ResetProbability()
     {
         spawnProbability = baseSpawnProbability;
@@ -44,7 +50,7 @@ public class NotesHandler : MonoBehaviour
     void IncreaseSpawnProbability()
     {
         timeSinceLastNote += Time.deltaTime;
-        spawnProbability = 1 - Mathf.Exp(-timeSinceLastNote / 5000);
+        spawnProbability = 1 - Mathf.Exp(-timeSinceLastNote / slope);
     }
 
     /**

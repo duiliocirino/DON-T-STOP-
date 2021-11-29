@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_Dissolve_Dissolve_Direction_Specular
-  m_Shader: {fileID: -6465566751694194690, guid: 1123b3e26fe0f4e49be2689bef2030c2,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 59062b8f7023e18498bd51808a9bcecd, type: 3}
   m_ShaderKeywords: BOOLEAN_DIRECTION_FROM_EULERANGLE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 988a47c87043b1f4597329d87c8c5f9e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -42,22 +41,38 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - BOOLEAN_DIRECTION_FROM_EULERANGLE: 1
     - BOOLEAN_USE_WROLDSPACE: 0
     - BOOLEAN_WORLDORIGIN: 0
     - BOOLEAN_WROLDSPACE_OFFEST: 0
+    - _CutoffHeight: -1.99
     - _DierctionEdgeWidthScale: 2.24
+    - _Dissolve: 0
     - _EdgeColorIntensity: 3.55
-    - _EdgeWidth: 0.619
+    - _EdgeWidth: 0.77
     - _Metallic: 0
-    - _NoiseScale: 145.24
+    - _NoiseScale: 136.17
+    - _NoiseStrength: 0.58
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Smoothness: 1
-    - _UseSpecularMap: 0
+    - _UseSpecularMap: 0.645
     m_Colors:
     - Vector3_2E106ED0: {r: 90, g: 0, b: 0, a: 0}
+    - _Albedo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _DirectionFactor: {r: 90, g: 1.4, b: 0, a: 0}
     - _DissolveDirection: {r: 90, g: 0, b: 0, a: 0}
@@ -67,3 +82,4 @@ Material:
     - _Offest: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

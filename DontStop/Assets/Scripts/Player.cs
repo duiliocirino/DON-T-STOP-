@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
         m_OrigGroundCheckDistance = m_GroundCheckDistance;
     }
 
-
     public void Move(Vector3 move, bool jump)
     {
 
@@ -121,7 +120,7 @@ public class Player : MonoBehaviour
         Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
         m_Rigidbody.AddForce(extraGravityForce);
 
-        m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
+        m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 2.2f;
     }
 
 
@@ -137,7 +136,7 @@ public class Player : MonoBehaviour
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
             m_IsGrounded = false;
             m_Animator.applyRootMotion = false;
-            m_GroundCheckDistance = 0.1f;
+            m_GroundCheckDistance = 2.2f;
         }
     }
 
@@ -177,9 +176,12 @@ public class Player : MonoBehaviour
         // it is also good to note that the transform position in the sample assets is at the base of the character
         if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
         {
-            m_GroundNormal = hitInfo.normal;
-            m_IsGrounded = true;
-            m_Animator.applyRootMotion = true;
+            Debug.Log(hitInfo.collider.tag);
+            {
+                m_GroundNormal = hitInfo.normal;
+                m_IsGrounded = true;
+                m_Animator.applyRootMotion = true;   
+            }
         }
         else
         {
@@ -191,14 +193,13 @@ public class Player : MonoBehaviour
         if (transform.position.y < -4.0f)
         {
             Vector3 newPos = lastPlatformTouched.transform.position;
-            newPos.y = 0.35f;
+            newPos.y = 3.5f;
             transform.position = newPos;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("You collided with" + other.gameObject.tag);
         if (other.gameObject.tag == "SpecialPlatform" || other.gameObject.tag == "ObstaclePlatform") lastPlatformTouched = other.gameObject;
     }
 }

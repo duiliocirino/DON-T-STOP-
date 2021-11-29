@@ -25,10 +25,10 @@ public class Creator : MonoBehaviour
         Vector3 spawnPosition;
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
-        Debug.Log("OnClick called");
-        if (Physics.Raycast(ray, out var hit, 1000, layerMask))
+        //Debug.Log("OnClick called");
+        if (Physics.Raycast(ray, out var hit))
         {
-            Debug.Log("Left click");
+            //Debug.Log("Left click");
             spawnPosition = hit.point;
             spawnPosition.z = ((int) ((spawnPosition.z + (spacing / 2)) / spacing)) * spacing;
             spawnPosition.y = ((int) ((spawnPosition.y + (spacing / 2)) / spacing)) * spacing;
