@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 5305147858803282437}
   - component: {fileID: -745903024475099913}
   m_Layer: 0
-  m_Name: Plane4
+  m_Name: Plane4_broken
   m_TagString: ObstaclePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7448590160026276672, guid: b777a0efa4eeee844a2061f6459bfb2e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8061542430913153960, guid: b777a0efa4eeee844a2061f6459bfb2e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -306,6 +310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass (1)
@@ -381,10 +389,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4172201787302145859, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 5114996075067899094, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -607,10 +615,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4172201787302145859, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 5114996075067899094, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -681,6 +689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 1087224626181478062, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 7038896946776773101, guid: f511578de5244d24d8896f01bc37f583, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -812,6 +824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6944957023945526721, guid: 2754fe213be5eaf409b94575b0aabd8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2754fe213be5eaf409b94575b0aabd8e, type: 3}
 --- !u!4 &9221402645246552373 stripped
@@ -826,6 +842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 1087224626181478062, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 7038896946776773101, guid: f511578de5244d24d8896f01bc37f583, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -893,6 +913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 2002459134760943176, guid: e8ef785b7b64117448a96bb948329292, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3296730375315906859, guid: e8ef785b7b64117448a96bb948329292, type: 3}
       propertyPath: m_Name
       value: Branch 2
@@ -968,6 +992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass (2)
@@ -1099,6 +1127,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6944957023945526721, guid: 2754fe213be5eaf409b94575b0aabd8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2754fe213be5eaf409b94575b0aabd8e, type: 3}
 --- !u!4 &2723023214485051832 stripped
@@ -1113,6 +1145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 4840709871523979, guid: 200459a926f45914ca36855e633befda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_Name
       value: Tile Bot 1 (1)
@@ -1120,10 +1156,6 @@ PrefabInstance:
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_RootOrder
@@ -1191,6 +1223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -1258,6 +1294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 4840709871523979, guid: 200459a926f45914ca36855e633befda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_Name
       value: Tile Bot 1
@@ -1265,10 +1305,6 @@ PrefabInstance:
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_RootOrder
@@ -1336,6 +1372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5305147858803282437}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: e8d2ccbee098ec94a954a38c4f953c91, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: e8d2ccbee098ec94a954a38c4f953c91, type: 3}
       propertyPath: m_Name
       value: Grass (3)

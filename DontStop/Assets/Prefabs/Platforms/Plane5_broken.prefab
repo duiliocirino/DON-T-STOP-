@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8836717246793262056}
   - component: {fileID: -5884012446673253666}
   m_Layer: 0
-  m_Name: Plane5
+  m_Name: Plane5_broken
   m_TagString: ObstaclePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,6 +137,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 1087224626181478062, guid: 2026d0eebc61d0d498d45028aa3f375d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45952aef1cc5e454eb1cf4cda1b3ebe4, type: 2}
     - target: {fileID: 7038896946776773101, guid: 2026d0eebc61d0d498d45028aa3f375d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -204,6 +208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
       propertyPath: m_Name
       value: Grass (1)
@@ -271,6 +279,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -461,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000339086522784859, guid: e7fadc48150ca704795a746dcfacdc8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8410973055383580539, guid: e7fadc48150ca704795a746dcfacdc8f, type: 3}
       propertyPath: m_Name
       value: Tile Decor
@@ -480,6 +496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 4294439128023572961, guid: 0b75adaa575133e43b432bdba63aa813, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 4501045251306008902, guid: 0b75adaa575133e43b432bdba63aa813, type: 3}
       propertyPath: m_Name
       value: Bush 2 (1)
@@ -547,6 +567,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 32b4c487e0aab85409b19e77ac880e0e, type: 3}
       propertyPath: m_Name
       value: Grass (2)
@@ -618,10 +642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Top 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3196648517536708714, guid: 3d3e1647da524af438765070d6d4fc6c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4172201787302145859, guid: 3d3e1647da524af438765070d6d4fc6c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 5114996075067899094, guid: 3d3e1647da524af438765070d6d4fc6c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -688,13 +712,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8836717246793262056}
     m_Modifications:
+    - target: {fileID: 4840709871523979, guid: 48fd3a8d9df976848b807f3bdff3a63e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 1092910722396494324, guid: 48fd3a8d9df976848b807f3bdff3a63e, type: 3}
       propertyPath: m_Name
       value: Tile Bot 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092910722396494324, guid: 48fd3a8d9df976848b807f3bdff3a63e, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 48fd3a8d9df976848b807f3bdff3a63e, type: 3}
       propertyPath: m_RootOrder
@@ -818,6 +842,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7863547370720615135, guid: 449e52ff885e2df46a76a485b398a748, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8566368890868772058, guid: 449e52ff885e2df46a76a485b398a748, type: 3}
       propertyPath: m_Name
       value: Fence
@@ -892,6 +920,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7863547370720615135, guid: 449e52ff885e2df46a76a485b398a748, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8566368890868772058, guid: 449e52ff885e2df46a76a485b398a748, type: 3}
       propertyPath: m_Name
       value: Fence (1)

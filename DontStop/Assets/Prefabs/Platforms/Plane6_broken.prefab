@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7097122484730645657}
   m_Layer: 0
-  m_Name: Plane6
+  m_Name: Plane6_broken
   m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,31 +174,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.46
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.91
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.38
+      value: -2.52
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.070807144
+      value: -0.008732536
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -9.313227e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99749
+      value: 0.9999619
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.7462297e-10
+      value: -7.494237e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 171.879
+      value: 181.001
       objectReference: {fileID: 0}
     - target: {fileID: 8061542430913153960, guid: 8dae05d3f47952b4ea654ded5ea3d5da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -226,6 +226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7097122484730645657}
     m_Modifications:
+    - target: {fileID: 2002459134760943176, guid: 1a0088c0be5bf6744a7547a285946a2b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3296730375315906859, guid: 1a0088c0be5bf6744a7547a285946a2b, type: 3}
       propertyPath: m_Name
       value: Branch 2
@@ -313,10 +317,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SpecialPlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 1911000842864643869, guid: 2b582500fd59acd4085691333e639f9b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 8027790869600712572, guid: 2b582500fd59acd4085691333e639f9b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8569049185289328770, guid: 2b582500fd59acd4085691333e639f9b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -409,11 +413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.73
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.14
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
       propertyPath: m_LocalRotation.w
@@ -479,14 +483,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SpecialPlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 4997576360194210936, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4997576360194210936, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: -7709245319045923293, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0788adf381a2a45a7fee1530e13a46, type: 3}
 --- !u!4 &6548496160222559699 stripped
@@ -641,6 +637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000339086522784859, guid: e7fadc48150ca704795a746dcfacdc8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 8410973055383580539, guid: e7fadc48150ca704795a746dcfacdc8f, type: 3}
       propertyPath: m_Name
       value: Tile Decor
@@ -672,10 +672,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SpecialPlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 3196648517536708714, guid: 3df9158ae7c86a64ca9128178be2a2f4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4172201787302145859, guid: 3df9158ae7c86a64ca9128178be2a2f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 5114996075067899094, guid: 3df9158ae7c86a64ca9128178be2a2f4, type: 3}
       propertyPath: m_RootOrder
       value: 3

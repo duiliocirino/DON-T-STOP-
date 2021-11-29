@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5221072027451782055}
   - component: {fileID: -4035380483775482099}
   m_Layer: 0
-  m_Name: Plane3
+  m_Name: Plane3_broken
   m_TagString: ObstaclePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,6 +63,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5221072027451782055}
     m_Modifications:
+    - target: {fileID: 1087224626181478062, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 7038896946776773101, guid: f511578de5244d24d8896f01bc37f583, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -194,6 +198,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3819463733319277271, guid: 760a160301010754c8406349710830ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 760a160301010754c8406349710830ce, type: 3}
 --- !u!4 &3572652849244925631 stripped
@@ -208,6 +216,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5221072027451782055}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -319,6 +331,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3746493181239098071, guid: b70e65c0a0ae25a4b979477e733863a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 4026147361975875753, guid: b70e65c0a0ae25a4b979477e733863a5, type: 3}
       propertyPath: m_Name
       value: BigStone 2
@@ -349,10 +365,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
-    - target: {fileID: 1991170482874974529, guid: c9136788b99468f4d896217e3b9c17a6, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6763228692723590591, guid: c9136788b99468f4d896217e3b9c17a6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 7060381642040426190, guid: c9136788b99468f4d896217e3b9c17a6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -423,6 +439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5221072027451782055}
     m_Modifications:
+    - target: {fileID: 4294439128023572961, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_Name
       value: Bush 2
@@ -490,6 +510,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5221072027451782055}
     m_Modifications:
+    - target: {fileID: 2698073402067275308, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_Name
       value: Grass (1)
@@ -557,6 +581,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5221072027451782055}
     m_Modifications:
+    - target: {fileID: 4840709871523979, guid: 200459a926f45914ca36855e633befda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_Name
       value: Tile Bot 1
@@ -564,10 +592,6 @@ PrefabInstance:
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_RootOrder
@@ -699,6 +723,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7049672281397132567, guid: 3c35546a5208df9409b96c23d4121d80, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3e172196a43be1489c24aabb90524de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c35546a5208df9409b96c23d4121d80, type: 3}
 --- !u!4 &7584487292814259016 stripped
