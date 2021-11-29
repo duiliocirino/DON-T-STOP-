@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] float m_GroundCheckDistance = 0.1f;
     [SerializeField] GameObject childMaterial;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] CameraShake shaker;
 
     public GameObject lastPlatformTouched;
 
@@ -133,8 +134,11 @@ public class Player : MonoBehaviour
         if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
         {
             float jumpForce = m_JumpPower;
-            if (!RhythmControllerUI.instance.noteInHitArea)
-                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
+            if (!RhythmControllerUI.instance.noteInHitArea) {
+                shaker.Enable();
+                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);           
+            }
+                
 
             else {
                 LifeBar.instance.PerfectHit();
