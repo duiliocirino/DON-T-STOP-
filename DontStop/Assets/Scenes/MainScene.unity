@@ -7434,7 +7434,7 @@ MonoBehaviour:
   spacing: 15
   laneNumbersRadius: 3
   numberOfEmptyTilesSide: 1
-  tutorialPresent: 0
+  tutorialPresent: 1
   platformTiles:
   - {fileID: 2136330881234162556, guid: d86dd0a3135a33546b67317656690bd0, type: 3}
   emptyTiles:
