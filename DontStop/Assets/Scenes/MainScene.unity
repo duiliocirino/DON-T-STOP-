@@ -5101,6 +5101,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 283677317757255843, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 3634357421118593226, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -11893,6 +11897,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923709710}
   m_Mesh: {fileID: -2722653359198835869, guid: c9d2e025acc1c3e4c91e731bd6891a6b, type: 3}
+--- !u!114 &927012691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 386208299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &930983757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35603,6 +35618,7 @@ MonoBehaviour:
   spawnProbability: 1
   baseSpawnProbability: 0
   timeSinceLastNote: 0
+  UI: {fileID: 927012691}
   slope: 10000
 --- !u!4 &1956266387
 Transform:

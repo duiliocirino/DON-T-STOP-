@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class NotesHandler : MonoBehaviour
@@ -17,11 +18,13 @@ public class NotesHandler : MonoBehaviour
     public float baseSpawnProbability;
     public float timeSinceLastNote;
 
+    public Text UI;
+
     public float slope = 10000;
     // Start is called before the first frame update
     void Start()
     {
-        
+        UI.text = "0/" + notesForNextStage;
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class NotesHandler : MonoBehaviour
     public void NoteTaken()
     {
         notesCollected++;
+        UI.text = notesCollected + "/" + notesForNextStage;
     }
 
     void ResetProbability()
