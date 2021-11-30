@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem particles;
     [SerializeField] CameraShake shaker;
 
+
     Rigidbody m_Rigidbody;
     Animator m_Animator;
     bool m_IsGrounded;

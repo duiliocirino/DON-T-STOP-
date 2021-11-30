@@ -17567,7 +17567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009307861}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.04, z: -0}
+  m_LocalPosition: {x: 0, y: 1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1546308358}
@@ -21735,7 +21735,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.47
-      minScalar: 2.55
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -32647,7 +32647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460727444}
   m_LocalRotation: {x: -0.71029407, y: -0, z: -0, w: 0.7039051}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.64, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 0.3922}
   m_Children: []
   m_Father: {fileID: 1546308358}
@@ -36806,7 +36806,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.47
-      minScalar: 20
+      minScalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -38829,6 +38829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnParticles1: {fileID: 1009307864}
+  respawnParticles2: {fileID: 1460727447}
 --- !u!114 &1546308354
 MonoBehaviour:
   m_ObjectHideFlags: 0
