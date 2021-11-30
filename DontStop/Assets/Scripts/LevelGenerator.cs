@@ -47,8 +47,11 @@ public class LevelGenerator : MonoBehaviour
 
     private void TryRemoveLevel()
     {
-        if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize/2)
+        if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize / 2)
+        {
             placedSections.Dequeue();
+            PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
+        }
     }
 
     /*IEnumerator GenerateLevel(){

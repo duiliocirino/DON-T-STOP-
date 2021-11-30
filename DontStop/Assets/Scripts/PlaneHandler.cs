@@ -114,6 +114,13 @@ public class PlaneHandler : MonoBehaviour
         Destroy(obj);
     }
 
+    public void RemoveOldPlanes(float z)
+    {
+        var toRemove = platformTiles.Where(platform => platform.transform.position.z < z);
+        foreach (GameObject platform in toRemove)
+            RemovePlatform(platform);
+    }
+
     /**
      * This method removes an object from the emptyTiles list and then proceeds to destroy it.
      */
