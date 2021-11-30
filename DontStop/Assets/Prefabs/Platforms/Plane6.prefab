@@ -104,6 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097122484730645657}
+  - component: {fileID: 6313249480705136394}
   m_Layer: 0
   m_Name: Plane6
   m_TagString: SpecialPlatform
@@ -132,6 +133,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
+--- !u!114 &6313249480705136394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874577582285161064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a2c83a27e91e54f913fd123b27dda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformSize: 1
+  planeLife: 5
+  missPenalty: 0.5
+  preview: {r: 0, g: 1, b: 1, a: 1}
 --- !u!65 &944162181268986737
 BoxCollider:
   m_ObjectHideFlags: 0
