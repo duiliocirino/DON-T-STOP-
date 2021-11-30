@@ -11,6 +11,8 @@ public class PlaneHandler : MonoBehaviour
     public List<GameObject> EmptyTiles => emptyTiles;
     public List<GameObject> PlatformPrefabs => platformPrefabs;
     public List<GameObject> ObstaclePrefabs => obstaclePrefabs;
+    public ParticleSystem particles;
+    public CameraShake shaker;
 
     public float probabilityBadPlat = 0.20f;
     public float spacing = 15f;
@@ -59,10 +61,15 @@ public class PlaneHandler : MonoBehaviour
         GameObject newPlatform;
         if (!RhythmControllerUI.instance.noteInHitArea)
         {
+            particles.transform.position = position;
+            shaker.Enable();
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
         }
         else
         {
+            particles.transform.position = position;
+            particles.Play();
+            
             newPlatform = Instantiate(prefab, position, Quaternion.identity);
         }
         platformTiles.Add(newPlatform);
