@@ -41,7 +41,7 @@ public class Creator : MonoBehaviour
             if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, false)))
             {
                 GameObject newPlatform;
-                if (!(PlaneHandler.instance.tutorialPresent && spawnPosition.z == 120))
+                if (!(PlaneHandler.instance.tutorialPresent && spawnPosition.z == (PlaneHandler.instance.platformInTutorial-1)* PlaneHandler.instance.spacing))
                     newPlatform = PlatformSelectionUI.instance.PlaceAndChangeSelectedPlatform();
                 else
                     newPlatform = PlatformSelectionUI.instance.PlaceSelectedPlatformAndPutTrampolineNext();

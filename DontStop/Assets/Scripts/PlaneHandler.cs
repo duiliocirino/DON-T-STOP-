@@ -20,6 +20,8 @@ public class PlaneHandler : MonoBehaviour
     public int numberOfEmptyTilesSide = 1;
 
     public bool tutorialPresent;
+    public int platformInTutorial;
+    public int platformSkippedAtTutorialEnd;
 
     [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
@@ -47,8 +49,12 @@ public class PlaneHandler : MonoBehaviour
         if (Random.value < probabilityBadPlat)
         {
             int place = Random.Range(-numberOfEmptyTilesSide, numberOfEmptyTilesSide);
+            Vector3 badPlatformPosition = new Vector3(position.x + (place * spacing), 0.0f, position.z + 2 * spacing);
+            if ((platformInTutorial * spacing) < badPlatformPosition.z && badPlatformPosition.z < ((platformInTutorial + platformSkippedAtTutorialEnd) * spacing))
+                return;
+
             GameObject newPlatform = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count - 1)],
-                new Vector3(position.x + (place * spacing), 0.0f, position.z + 2 * spacing), Quaternion.identity);
+                badPlatformPosition, Quaternion.identity);
             platformTiles.Add(newPlatform);
         }
     }
@@ -83,8 +89,8 @@ public class PlaneHandler : MonoBehaviour
     public void AddEmptyTiles(Vector3 position)
     {
         float zspacing = spacing;
-        if (tutorialPresent && position.z == 135)
-            zspacing += 30;
+        if (tutorialPresent && position.z == platformInTutorial*spacing)
+            zspacing += platformSkippedAtTutorialEnd*spacing;
 
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)
         {
