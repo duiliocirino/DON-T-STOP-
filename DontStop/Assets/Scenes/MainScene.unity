@@ -6323,8 +6323,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.15
+    m_Bias: 0.1
+    m_NormalBias: 0.1
     m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
@@ -11899,6 +11899,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &922607224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7108081481669622832, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
+  m_PrefabInstance: {fileID: 4914458465844458577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &922607225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922607224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UsePipelineSettings: 0
 --- !u!1 &923709710
 GameObject:
   m_ObjectHideFlags: 0
@@ -23662,8 +23680,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.15
+    m_Bias: 0.1
+    m_NormalBias: 0.1
     m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
@@ -29835,8 +29853,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.15
+    m_Bias: 0.1
+    m_NormalBias: 0.1
     m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
@@ -32044,8 +32062,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.15
+    m_Bias: 0.1
+    m_NormalBias: 0.1
     m_NearPlane: 10
     m_CullingMatrixOverride:
       e00: 1
@@ -33735,6 +33753,15 @@ ParticleSystem:
           weightedMode: 0
           inWeight: 0
           outWeight: 0
+        - serializedVersion: 3
+          time: 0.39670512
+          value: 0.13513513
+          inSlope: -1.2114466
+          outSlope: -1.2114466
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
           value: 0
@@ -43658,7 +43685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UsePipelineSettings: 1
+  m_UsePipelineSettings: 0
 --- !u!1 &1853505702
 GameObject:
   m_ObjectHideFlags: 0
@@ -44492,7 +44519,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 102.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -50144,7 +50171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619800662263881754, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 1.54
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4619800662263881754, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -50156,7 +50183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619800662263881754, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NearPlane
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4619800662263881754, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NormalBias
@@ -50204,7 +50231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836445153273199874, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 1.54
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4836445153273199874, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -50216,7 +50243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836445153273199874, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NearPlane
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4836445153273199874, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NormalBias
@@ -53804,7 +53831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258412135631842554, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 1.54
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6258412135631842554, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -53816,7 +53843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258412135631842554, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NearPlane
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6258412135631842554, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NormalBias
@@ -54484,7 +54511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8532861548693868558, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 1.54
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8532861548693868558, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -54496,7 +54523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8532861548693868558, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NearPlane
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8532861548693868558, guid: f034821e0903bbf4a82f6f9ffbe89bd0, type: 3}
       propertyPath: m_Shadows.m_NormalBias
