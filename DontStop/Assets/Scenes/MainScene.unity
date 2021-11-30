@@ -9770,6 +9770,7 @@ GameObject:
   - component: {fileID: 763121989}
   - component: {fileID: 763121991}
   - component: {fileID: 763121990}
+  - component: {fileID: 763121992}
   m_Layer: 0
   m_Name: Box181 (2)
   m_TagString: Untagged
@@ -9840,6 +9841,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763121988}
   m_Mesh: {fileID: 7285761165056339413, guid: c9d2e025acc1c3e4c91e731bd6891a6b, type: 3}
+--- !u!65 &763121992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763121988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.513325, y: 0.06597134, z: 0.57782567}
+  m_Center: {x: -0.00000011937583, y: -5.148505e-10, z: 0.2889128}
 --- !u!1 &773558446
 GameObject:
   m_ObjectHideFlags: 0
@@ -31749,6 +31763,7 @@ GameObject:
   - component: {fileID: 1688734343}
   - component: {fileID: 1688734345}
   - component: {fileID: 1688734344}
+  - component: {fileID: 1688734346}
   m_Layer: 0
   m_Name: Box181 (3)
   m_TagString: Untagged
@@ -31819,6 +31834,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688734342}
   m_Mesh: {fileID: 7285761165056339413, guid: c9d2e025acc1c3e4c91e731bd6891a6b, type: 3}
+--- !u!65 &1688734346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688734342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.513325, y: 0.06597165, z: 0.57782567}
+  m_Center: {x: 0.00000005976558, y: -0.0000009542031, z: 0.2889128}
 --- !u!1001 &1690614581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38583,16 +38611,16 @@ GameObject:
   - component: {fileID: 5227929344856570722}
   - component: {fileID: 2869600957347837647}
   - component: {fileID: 8862907316279430678}
-  - component: {fileID: 2946738887275183856}
+  - component: {fileID: 2946738887275183857}
   m_Layer: 0
   m_Name: Box187
-  m_TagString: Untagged
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!65 &2946738887275183856
-BoxCollider:
+--- !u!64 &2946738887275183857
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -38601,9 +38629,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1055316, y: 5.4985914, z: 0.42108995}
-  m_Center: {x: 0.53075355, y: 1.3695841, z: 0.21054494}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6162170416187524906, guid: c9d2e025acc1c3e4c91e731bd6891a6b, type: 3}
 --- !u!1 &3249773598134116974
 GameObject:
   m_ObjectHideFlags: 0
