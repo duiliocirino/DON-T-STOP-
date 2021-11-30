@@ -15,7 +15,7 @@ public class PlaneLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!RhythmControllerUI.instance.noteInHitArea) planeLife = planeLife * missPenalty;
+        
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class PlaneLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void OnCollisionEnter(Collision other)
     {
         isPlayerOn = true;

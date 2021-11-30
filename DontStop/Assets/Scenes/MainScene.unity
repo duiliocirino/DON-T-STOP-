@@ -7431,6 +7431,7 @@ MonoBehaviour:
   spacing: 15
   laneNumbersRadius: 3
   numberOfEmptyTilesSide: 1
+  tutorialPresent: 0
   platformTiles:
   - {fileID: 2136330881234162556, guid: d86dd0a3135a33546b67317656690bd0, type: 3}
   emptyTiles:
@@ -7444,6 +7445,13 @@ MonoBehaviour:
   - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
   - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
   - {fileID: 4874577582285161064, guid: aa2f529977b16ce41967f1aa6be846d3, type: 3}
+  brokenPlatformPrefabs:
+  - {fileID: 8389644493575408059, guid: a367b1f0196366a46bb4bacf0b7b70d1, type: 3}
+  - {fileID: 3445211769464926404, guid: c4e7b749bceaa19459d07c3836c6b43e, type: 3}
+  - {fileID: 8074084810607556476, guid: 3ae1ff2f47d5c3e4db9b2354a38ee4bb, type: 3}
+  - {fileID: 7883238246922965775, guid: 49208e11a1f5b4e409ed614dfe643e2b, type: 3}
+  - {fileID: 4687489372723083663, guid: 9b2f23762f2e9f249a4f565c27ab5e15, type: 3}
+  - {fileID: 4874577582285161064, guid: a1eb16c5e925eb04d8dace6703a53ab5, type: 3}
   obstaclePrefabs:
   - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
   - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}

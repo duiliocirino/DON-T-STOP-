@@ -22,6 +22,7 @@ public class PlaneHandler : MonoBehaviour
     [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
+    [SerializeField] private List<GameObject> brokenPlatformPrefabs;
 
 
     [SerializeField] private List<GameObject> obstaclePrefabs;
@@ -55,7 +56,15 @@ public class PlaneHandler : MonoBehaviour
      */
     public void AddPlatform(Vector3 position, GameObject prefab)
     {
-        GameObject newPlatform = Instantiate(prefab, position, Quaternion.identity);
+        GameObject newPlatform;
+        if (!RhythmControllerUI.instance.noteInHitArea)
+        {
+            newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
+        }
+        else
+        {
+            newPlatform = Instantiate(prefab, position, Quaternion.identity);
+        }
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
