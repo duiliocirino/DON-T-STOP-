@@ -51,7 +51,7 @@ public class PlatformSelectionUI : MonoBehaviour
             {
                 slotScripts[selectedSlotIndex].setActive();
                 PlaneHandler.instance.ComunicateSelectedPlatformSize(PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize);
-                print("start: " + selectedSlotIndex);
+                //print("start: " + selectedSlotIndex);
             }
         }
         else
@@ -75,7 +75,7 @@ public class PlatformSelectionUI : MonoBehaviour
             {
                 slotScripts[old].setInactive();
                 PlaneHandler.instance.ComunicateSelectedPlatformSize(0);
-                print("stop: " + old);
+                //print("stop: " + old);
             }
         }
     }
@@ -94,6 +94,7 @@ public class PlatformSelectionUI : MonoBehaviour
 
         GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
         GameObject nextPlatform = pool.GetNext();
+
         slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
         return platform;
     }
@@ -101,5 +102,21 @@ public class PlatformSelectionUI : MonoBehaviour
     public int GetSelectedPlatformSize()
     {
         return selectedSlotIndex == -1 ? 0 : PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize;
+    }
+
+    public GameObject PlaceSelectedPlatformAndPutTrampolineNext()
+    {
+        print("aaaaaaaaaaaaa");
+
+        if (selectedSlotIndex < 0 || selectedSlotIndex >= slots.Count)
+        {
+            return null;
+        }
+
+        GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
+        GameObject nextPlatform = PlatformCache.instance.platformPrefabs[5];
+
+        slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
+        return platform;
     }
 }

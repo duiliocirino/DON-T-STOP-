@@ -26,7 +26,7 @@ public class SlotUI : MonoBehaviour
     {
         platform = p;
         image.color = PlatformCache.instance.platformScripts[platform].preview;
-        print(image.color);
+        //print(image.color);
     }
 
     public GameObject GetPlatform()
