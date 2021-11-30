@@ -17,6 +17,8 @@ public class PlaneHandler : MonoBehaviour
     public int laneNumbersRadius = 3; //laneNumbers = 2*laneNumberradius + 1
     public int numberOfEmptyTilesSide = 1;
 
+    public bool tutorialPresent;
+
     [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
@@ -64,10 +66,13 @@ public class PlaneHandler : MonoBehaviour
      */
     public void AddEmptyTiles(Vector3 position)
     {
+        float zspacing = spacing;
+        if (tutorialPresent && position.z == 135)
+            zspacing += 30;
 
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)
         {
-            Vector3 newEmptyPlatformPosition = new Vector3(position.x + (i * spacing), 0.0f, position.z + spacing);
+            Vector3 newEmptyPlatformPosition = new Vector3(position.x + (i * spacing), 0.0f, position.z + zspacing);
             if (-laneNumbersRadius * spacing <= newEmptyPlatformPosition.x && newEmptyPlatformPosition.x <= laneNumbersRadius * spacing)
             {
                 if (!IsPlatformPresent(newEmptyPlatformPosition.x, newEmptyPlatformPosition.z, true))
