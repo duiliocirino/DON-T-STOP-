@@ -49,8 +49,8 @@ public class LevelGenerator : MonoBehaviour
     {
         if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize / 2)
         {
-            placedSections.Dequeue();
             PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
+            Destroy(placedSections.Dequeue());
         }
     }
 
