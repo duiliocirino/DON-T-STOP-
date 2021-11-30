@@ -191,6 +191,9 @@ public class Player : MonoBehaviour
             {
                 m_GroundNormal = hitInfo.normal;
                 m_IsGrounded = true;
+                if (hitInfo.collider.gameObject.CompareTag("SpecialPlatform") ||
+                    hitInfo.collider.gameObject.CompareTag("ObstaclePlatform"))
+                    lastPlatformTouched = hitInfo.collider.gameObject;
                 m_Animator.applyRootMotion = true;   
             }
         }
@@ -207,13 +210,13 @@ public class Player : MonoBehaviour
             Vector3 newPos = lastPlatformTouched.transform.position;
             newPos.y = 3.5f;
             transform.position = newPos;
-
+            m_Rigidbody.velocity = 10 * Vector3.down;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "SpecialPlatform" || other.gameObject.tag == "ObstaclePlatform") lastPlatformTouched = other.gameObject;
+        
     }
 
    
