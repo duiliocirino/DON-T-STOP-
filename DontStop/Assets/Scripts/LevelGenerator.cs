@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
 {
     public GameObject[] levelSections;
     public bool isCreating = false;
+    public float sectionSize;
     public int currentZ = 645;
 
     public float placingDistance;
@@ -40,13 +41,13 @@ public class LevelGenerator : MonoBehaviour
         {
             int sectionNumber = UnityEngine.Random.Range(0, levelSections.Length);
             placedSections.Enqueue(Instantiate(levelSections[sectionNumber], new Vector3(20, -12.6f, currentZ), Quaternion.identity));
-            currentZ += 200;
+            currentZ += (int)sectionSize;
         }
     }
 
     private void TryRemoveLevel()
     {
-        if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - 100)
+        if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize/2)
             placedSections.Dequeue();
     }
 

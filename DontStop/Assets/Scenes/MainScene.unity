@@ -17115,8 +17115,9 @@ MonoBehaviour:
   - {fileID: 122251491954064961, guid: f9d94290b13b0274e882c009558cd518, type: 3}
   - {fileID: 6416204772632808336, guid: 1f29077e76154bc46988e07ecd5746de, type: 3}
   isCreating: 0
+  sectionSize: 200
   currentZ: 620
-  placingDistance: 0
+  placingDistance: 1200
   playerTransform: {fileID: 1546308358}
   cameraTransform: {fileID: 1885842107}
   preplacedLevelSections:
