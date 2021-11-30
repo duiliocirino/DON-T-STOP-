@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -21,8 +22,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject childMaterial;
     [SerializeField] ParticleSystem particles;
     [SerializeField] CameraShake shaker;
-
-    public GameObject lastPlatformTouched;
 
     Rigidbody m_Rigidbody;
     Animator m_Animator;
@@ -74,8 +73,7 @@ public class Player : MonoBehaviour
         {
             HandleAirborneMovement();
         }
-
-
+        
         // send input and other state parameters to the animator
         UpdateAnimator(move);
     }
@@ -187,30 +185,43 @@ public class Player : MonoBehaviour
         // it is also good to note that the transform position in the sample assets is at the base of the character
         if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
         {
-            Debug.Log(hitInfo.collider.tag);
+            //Debug.Log(hitInfo.collider.tag);
             {
                 m_GroundNormal = hitInfo.normal;
                 m_IsGrounded = true;
                 if (hitInfo.collider.gameObject.CompareTag("SpecialPlatform") ||
                     hitInfo.collider.gameObject.CompareTag("ObstaclePlatform"))
-                    lastPlatformTouched = hitInfo.collider.gameObject;
+                    HandleRespawnPlatform(hitInfo.collider.gameObject);
+                
                 m_Animator.applyRootMotion = true;   
             }
         }
         else
         {
-            
             m_IsGrounded = false;
             m_GroundNormal = Vector3.up;
             m_Animator.applyRootMotion = false;
         }
+    }
 
-        if (transform.position.y < -4.0f)
+    private void HandleRespawnPlatform(GameObject platform)
+    {
+        var script = GetComponent<ThirdPersonUserControl>();
+        script.lastObjectPosition = platform.transform.position;
+        var i = 0;
+        while (platform.transform.parent != null)
         {
-            Vector3 newPos = lastPlatformTouched.transform.position;
-            newPos.y = 3.5f;
-            transform.position = newPos;
-            m_Rigidbody.velocity = 10 * Vector3.down;
+            platform = platform.transform.parent.gameObject;
+            i++;
+        }
+        script.lastPlatformPosition = platform.transform.position;
+        script.lastPlatformTouched = platform;
+        Debug.Log("Saving " + platform.name);
+        if (platform.name.Length > 7  && (platform.CompareTag("ObstaclePlatform") || platform.CompareTag("SpecialPlatform")))
+        {
+            script.lastPlatformPrefab =
+                PlaneHandler.instance.GetPrefab(
+                    platform.name.Substring(0, platform.name.Length - 7));
         }
     }
 

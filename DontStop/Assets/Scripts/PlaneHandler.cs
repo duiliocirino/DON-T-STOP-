@@ -97,7 +97,8 @@ public class PlaneHandler : MonoBehaviour
 
     public void RemovePlatform(GameObject obj)
     {
-        
+        platformTiles.Remove(obj);
+        Destroy(obj);
     }
 
     /**
@@ -170,5 +171,19 @@ public class PlaneHandler : MonoBehaviour
         }
 
         return false;
+    }
+
+    public GameObject GetPrefab(string name)
+    {
+        if (name.Length > 5)
+        {
+            if (name.Substring(name.Length - 6) == "broken")
+            {
+                return brokenPlatformPrefabs.First(platform => platform.name == name);
+            }
+            Debug.Log(name);
+            return platformPrefabs.First(platform => platform.name == name);
+        }
+        return null;
     }
 }

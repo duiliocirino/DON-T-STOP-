@@ -11,7 +11,11 @@ public class ThirdPersonUserControl : MonoBehaviour
     private Vector3 m_Move;
     private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
     private Rigidbody rb;
-    
+    protected internal GameObject lastPlatformTouched;
+    protected internal Vector3 lastObjectPosition;
+    protected internal Vector3 lastPlatformPosition;
+    protected internal GameObject lastPlatformPrefab;
+
     private void Start()
     {
         // get the transform of the main camera
@@ -38,9 +42,32 @@ public class ThirdPersonUserControl : MonoBehaviour
         {
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
+        HandleRespawn();
     }
 
-
+    void HandleRespawn()
+    {
+        if (transform.position.y < -5.0f)
+        {
+            if (lastPlatformTouched != null)
+            {
+                Vector3 newPos = lastObjectPosition;
+                newPos.y = 13.5f;
+                transform.position = newPos;
+                rb.velocity = 10 * Vector3.down;
+            }
+            else
+            {
+                // ATTENZIONE
+                GameObject.Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
+                Vector3 newPos = lastObjectPosition;
+                newPos.y = 13.5f;
+                transform.position = newPos;
+                rb.velocity = 10 * Vector3.down;
+            }
+        }
+    }
+    
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
