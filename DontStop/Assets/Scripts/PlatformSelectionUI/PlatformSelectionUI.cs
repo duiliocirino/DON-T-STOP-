@@ -106,8 +106,6 @@ public class PlatformSelectionUI : MonoBehaviour
 
     public GameObject PlaceSelectedPlatformAndPutTrampolineNext()
     {
-        print("aaaaaaaaaaaaa");
-
         if (selectedSlotIndex < 0 || selectedSlotIndex >= slots.Count)
         {
             return null;

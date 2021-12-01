@@ -140,28 +140,26 @@ public class RhythmControllerUI : MonoBehaviour
         }
         else
         {
-            //TODO New Input System
-            dt += Time.deltaTime;
             if (Input.anyKeyDown)
             {
-                if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
-                    setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance );
-                else
-                    StartCoroutine(delayedSetNextNotes((firstNoteDistance - (rectTransform.sizeDelta.x / 2))/speed));
-
-                StartCoroutine(delayedStartLifeBar(firstNoteDistance/speed));
-
-                trySetNote();
-                musicPlayer.Play();
-                hasStarted = true;
+                //start();
             }
         }
     }
 
-    private IEnumerator delayedStartLifeBar(float delay)
+    public void start()
     {
-        yield return new WaitForSeconds(delay);
-        LifeBar.instance.StartDeplition();
+        if (!hasStarted)
+        {
+            if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
+                setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance);
+            else
+                StartCoroutine(delayedSetNextNotes((firstNoteDistance - (rectTransform.sizeDelta.x / 2)) / speed));
+
+            trySetNote();
+            musicPlayer.Play();
+            hasStarted = true;
+        }
     }
 
     private void trySetNote()
