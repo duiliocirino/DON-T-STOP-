@@ -34,10 +34,13 @@ public class RhythmControllerUI : MonoBehaviour
     private int nextNotes = 0;
     private int previousNotes = -1;
 
+    private float barWidth;
+
     private void Awake()
     {
         instance = this;
         rectTransform = GetComponent<RectTransform>();
+        barWidth = rectTransform.sizeDelta.x * 15f / 17f;
 
         //for now I generate the pattern map here;
         patternMap = GeneratePatternMap();
@@ -102,7 +105,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void GenerateNotes()
     {
-        int nNotes = 2*(int)((rectTransform.sizeDelta.x / distanceVector.Min()) + 1);
+        int nNotes = 2*(int)((barWidth / distanceVector.Min()) + 1);
         noteBufer = new List<GameObject>(nNotes);
         noteScripts = new List<NoteUI>(nNotes);
         noteRectTransforms = new List<RectTransform>(nNotes);
@@ -143,10 +146,10 @@ public class RhythmControllerUI : MonoBehaviour
     {
         if (!hasStarted)
         {
-            if (firstNoteDistance <= rectTransform.sizeDelta.x / 2)
-                setNextNotes(rectTransform.sizeDelta.x / 2 - firstNoteDistance);
+            if (firstNoteDistance <= barWidth / 2)
+                setNextNotes(barWidth / 2 - firstNoteDistance);
             else
-                StartCoroutine(delayedSetNextNotes((firstNoteDistance - (rectTransform.sizeDelta.x / 2)) / speed));
+                StartCoroutine(delayedSetNextNotes((firstNoteDistance - (barWidth / 2)) / speed));
 
             trySetNote();
             musicPlayer.Play();
@@ -159,14 +162,14 @@ public class RhythmControllerUI : MonoBehaviour
         if (settingNextNote)
             return;
 
-        float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
-        if (distanceVector[distanceVectorIndex] <= rectTransform.sizeDelta.x / 2)
+        float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (barWidth / 2);
+        if (distanceVector[distanceVectorIndex] <= barWidth / 2)
         {
             while (previousNoteDistance > distanceVector[distanceVectorIndex])
             {
                 setNextNotes(previousNoteDistance - distanceVector[distanceVectorIndex]);
                 distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
-                previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (rectTransform.sizeDelta.x / 2);
+                previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (barWidth / 2);
             }
         }
         else
@@ -182,26 +185,14 @@ public class RhythmControllerUI : MonoBehaviour
         settingNextNote = true;
         yield return new WaitForSeconds(delay);
 
-        float barWidth = rectTransform.sizeDelta.x;
+        setNextNotes(0);
 
-        //workingNote = noteBufer[nextNotes];
-        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-barWidth / 2, 0);
-        noteScripts[nextNotes].speed = speed;
-
-        //workingNote = noteBufer[nextNotes + 1];
-        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2(barWidth / 2, 0);
-        noteScripts[nextNotes + 1].speed = -speed;
-
-        previousNotes = nextNotes;
-        nextNotes = (nextNotes + 2) % noteBufer.Count;
         settingNextNote = false;
     }
 
     private void setNextNotes(float offset)
     {
         //GameObject workingNote;
-
-        float barWidth = rectTransform.sizeDelta.x * 15f/17f;
 
         //workingNote = noteBufer[nextNotes];
         noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-barWidth / 2 + offset, -5);
