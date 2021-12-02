@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject childMaterial;
     [SerializeField] ParticleSystem particles;
     [SerializeField] CameraShake shaker;
+    [SerializeField] SoundChooser goodJumpSound;
+    [SerializeField] SoundChooser badJumpSound;
+    [SerializeField] SoundChooser stepSounds;
 
 
     Rigidbody m_Rigidbody;
@@ -138,11 +141,13 @@ public class Player : MonoBehaviour
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) {
                 shaker.Enable();
-                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);           
+                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
+                badJumpSound.PlayRand();
             }
             else {
                 LifeBar.instance.PerfectHit();
                 particles.Play();
+                goodJumpSound.PlayRand();
             } 
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
@@ -176,7 +181,10 @@ public class Player : MonoBehaviour
         }*/
     }
 
-
+    public void Step()
+    {
+        stepSounds.PlayRand();
+    }
     void CheckGroundStatus()
     {
         RaycastHit hitInfo;
