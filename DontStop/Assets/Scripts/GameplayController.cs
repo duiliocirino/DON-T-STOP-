@@ -47,7 +47,7 @@ public class GameplayController : MonoBehaviour
             {
                 TutorialController.istance.enableDialogBox("Tutorial"+i);
                 yield return new WaitForSecondsRealtime(0.2f);
-                yield return new WaitUntil(() => { return Input.GetMouseButtonDown(0)|| Input.GetMouseButtonDown(0); });
+                yield return new WaitUntil(() => Input.GetMouseButtonDown(0) && !Pause.paused);
                 TutorialController.istance.disableDialogBox("Tutorial" + i);
             }
         }
@@ -71,7 +71,7 @@ public class GameplayController : MonoBehaviour
         TutorialController.istance.enableDialogBox("TutorialJumper");
         TutorialController.istance.enableDialogBox("TutorialCreator");
 
-        yield return new WaitUntil(() => { return RhythmControllerUI.instance.noteInHitArea; });
+        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea);
         LifeBar.instance.StartDeplition();
     }
 
@@ -94,7 +94,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        yield return new WaitUntil(() => { return Input.anyKeyDown; });
+        yield return new WaitUntil(() => Input.anyKeyDown);
         Time.timeScale = oldTimeScale;
         SceneManager.LoadScene("StageSelection");
     }

@@ -27,7 +27,7 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if (Physics.Raycast(ray, out var hit, 100, layerMask))
+        if (Physics.Raycast(ray, out var hit, 100, layerMask) && !Pause.paused)
         {
             if (firstPlace)
             {
