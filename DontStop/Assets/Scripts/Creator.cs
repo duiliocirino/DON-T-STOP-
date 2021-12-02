@@ -36,16 +36,12 @@ public class Creator : MonoBehaviour
             }
 
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
-            spawnPosition = hit.point;
-            spawnPosition.z = ((int) ((spawnPosition.z + (spacing / 2)) / spacing)) * spacing;
-            spawnPosition.y = ((int) ((spawnPosition.y + (spacing / 2)) / spacing)) * spacing;
-            
-            if (hit.point.x < 0)
-                spawnPosition.x = ((int) ((spawnPosition.x - (spacing / 2)) / spacing)) * spacing;
-            else
-                spawnPosition.x = ((int) ((spawnPosition.x + (spacing / 2)) / spacing)) * spacing;
-            
-            if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, false)))
+            GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
+            if (emptyTile != null)
+                spawnPosition = emptyTile.transform.position;
+            else 
+                spawnPosition = Vector3.zero;
+            if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, false)) && emptyTile != null)
             {
                 GameObject newPlatform;
                 if (!(PlaneHandler.instance.tutorialPresent && spawnPosition.z == (PlaneHandler.instance.platformInTutorial-1)* PlaneHandler.instance.spacing))

@@ -211,4 +211,15 @@ public class PlaneHandler : MonoBehaviour
         }
         return null;
     }
+
+    public GameObject GetNearestEmptyTile(Vector3 hitInfoPoint)
+    {
+        var emptyTile = (EmptyTiles.Where(tile =>
+                Math.Abs(tile.transform.position.x - hitInfoPoint.x) < TOLERANCE &&
+                Math.Abs(tile.transform.position.z - hitInfoPoint.z) < TOLERANCE))
+            .First();
+        if (emptyTile != null)
+            return emptyTile;
+        return null;
+    }
 }

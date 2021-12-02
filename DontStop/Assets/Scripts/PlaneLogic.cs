@@ -10,6 +10,7 @@ public class PlaneLogic : MonoBehaviour
     [SerializeField] protected float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
     protected float timeOn = 0f;
+    public Vector3 initialPosition;
     public Color preview;
     public Sprite imagePreview;
     
@@ -17,6 +18,11 @@ public class PlaneLogic : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -47,5 +53,6 @@ public class PlaneLogic : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         isPlayerOn = false;
+        gameObject.transform.position = initialPosition;
     }
 }

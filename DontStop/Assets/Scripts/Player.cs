@@ -225,9 +225,8 @@ public class Player : MonoBehaviour
     private void HandleRespawnPlatform(GameObject platform)
     {
         var script = GetComponent<ThirdPersonUserControl>();
-        if (platform.GetComponent<MeshRenderer>())
-            script.lastObjectPosition = new Vector3(platform.transform.position.x,
-                platform.GetComponent<MeshRenderer>().bounds.extents.y, platform.transform.position.z);
+        if (platform.name == "Box187")
+            script.lastObjectPosition = new Vector3(0, 15, 140);
         else 
             script.lastObjectPosition = platform.transform.position;
         var i = 0;
