@@ -39,7 +39,7 @@ public class GameplayController : MonoBehaviour
         SetPlayerControlActive(false);
 
         //make music + rhythm start
-        RhythmControllerUI.instance.startNotes();
+        RhythmControllerUI.instance.StartNotes();
 
         //show tutorial
         if (Options.istance.tutorial) {
@@ -68,8 +68,8 @@ public class GameplayController : MonoBehaviour
         screenBlurr.gameObject.SetActive(false);
 
         SetPlayerControlActive(true);
-        TutorialController.istance.enableDialogBox("Tutorial");
-        TutorialController.istance.enableDialogBox("Tutorial");
+        //TutorialController.istance.enableDialogBox("Tutorial");
+        //TutorialController.istance.enableDialogBox("Tutorial");
 
         yield return new WaitUntil(() => { return RhythmControllerUI.instance.noteInHitArea; });
         LifeBar.instance.StartDeplition();

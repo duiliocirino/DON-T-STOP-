@@ -22,9 +22,12 @@ public class RhythmControllerUI : MonoBehaviour
 
     private float speed;
     private float BPM;
-    private float firstNoteDistance;
-    private List<float> distanceVector;
-    private int distanceVectorIndex = 0;
+    //private float firstNoteDistance;
+    //private List<float> distanceVector;
+    //private int distanceVectorIndex = 0;
+    private float firstNoteTime;
+    private List<float> timeVector;
+    private int timeVectorIndex = 1;
 
     private RectTransform rectTransform;
 
@@ -47,7 +50,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         speed = patternMap.noteSpeed;
         BPM = patternMap.BPM;
-        GenerateDistanceVector();
+        GenerateTimeVector();
 
         GenerateNotes();
 
@@ -63,7 +66,7 @@ public class RhythmControllerUI : MonoBehaviour
         noteDespawnDelay = (60/BPM) * hitTime;
     }
 
-    private void GenerateDistanceVector()
+    /*private void GenerateDistanceVector()
     {
         List<float> absoluteDistanceVector = new List<float>();
 
@@ -92,43 +95,35 @@ public class RhythmControllerUI : MonoBehaviour
         }
         distanceVector.Add(absoluteDistanceVector[0] + (baseDistance - absoluteDistanceVector[absoluteDistanceVector.Count - 1]));
 
-        /*print(distanceVector.Count);
-        foreach (var a in distanceVector)
-            print(a);*/
-    }
+        //print(distanceVector.Count);
+        //foreach (var a in distanceVector)
+            //print(a);
+    }*/
 
     private void GenerateTimeVector()
     {
-        List<float> absoluteDistanceVector = new List<float>();
-
-        float measureLength = (speed / (BPM / 60)) * patternMap.tempoDenominator;
-        float baseDistance = 0;
+        timeVector = new List<float>();
+        float measureTime = (60/BPM) * patternMap.tempoDenominator;
+        float baseTime = 0;
         foreach (BeatPattern bp in patternMap.pattern)
         {
             foreach (float notePosition in bp.notePositions)
             {
                 if (notePosition >= 0 && notePosition < bp.numMeasures)
                 {
-                    absoluteDistanceVector.Add(baseDistance + measureLength * notePosition);
+                    timeVector.Add(baseTime + measureTime * notePosition);
                 }
             }
-            baseDistance += measureLength * bp.numMeasures;
+            baseTime += measureTime * bp.numMeasures;
         }
 
-        absoluteDistanceVector.Sort();
+        timeVector.Sort();
 
-        firstNoteDistance = absoluteDistanceVector[0] + patternMap.initialDelay * speed;
+        firstNoteTime = timeVector[0] + patternMap.initialDelay;
 
-        distanceVector = new List<float>(absoluteDistanceVector.Capacity);
-        for (int i = 0; i < absoluteDistanceVector.Count - 1; i++)
-        {
-            distanceVector.Add(absoluteDistanceVector[i + 1] - absoluteDistanceVector[i]);
-        }
-        distanceVector.Add(absoluteDistanceVector[0] + (baseDistance - absoluteDistanceVector[absoluteDistanceVector.Count - 1]));
-
-        /*print(distanceVector.Count);
-        foreach (var a in distanceVector)
-            print(a);*/
+        //print(timeVector.Count);
+        //foreach (var a in timeVector)
+            //print(a);
     }
 
     private PatternMap GeneratePatternMap()
@@ -139,7 +134,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void GenerateNotes()
     {
-        int nNotes = 2*(int)((barWidth / distanceVector.Min()) + 1);
+        int nNotes = 20;//2*(int)((barWidth / (timeVector.Min()*speed)) + 1);
         noteBufer = new List<GameObject>(nNotes);
         noteScripts = new List<NoteUI>(nNotes);
         noteRectTransforms = new List<RectTransform>(nNotes);
@@ -172,10 +167,59 @@ public class RhythmControllerUI : MonoBehaviour
     {
         if (hasStarted)
         {
-            trySetNote();
+            //trySetNote();
+            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed < musicPlayer.time)
+            {
+                //print("timeVector[timeVectorIndex] " + timeVector[timeVectorIndex]);
+                //print("(barWidth / 2) / speed " + (barWidth / 2) / speed);
+                //print("musicPlayer.time " + musicPlayer.time);
+                setNextNotes(musicPlayer.time * speed - (timeVector[timeVectorIndex] * speed - (barWidth / 2)));
+                timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
+            }
         }
     }
 
+    public void StartNotes()
+    {
+        if (!hasStarted)
+        {
+            //print("Hi");
+            if (firstNoteTime * speed <= barWidth / 2)
+            {
+                //print("if");
+                setNextNotes(barWidth / 2 - firstNoteTime * speed);
+                if (settingNextNote)
+                    return;
+
+                float previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (barWidth / 2);
+                if (timeVector[timeVectorIndex] * speed <= barWidth / 2)
+                {
+                    while (previousNoteDistance > timeVector[timeVectorIndex])
+                    {
+                        setNextNotes(previousNoteDistance - timeVector[timeVectorIndex] * speed);
+                        timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
+                        previousNoteDistance = noteRectTransforms[previousNotes].anchoredPosition.x + (barWidth / 2);
+                        //print("p");
+                    }
+                }
+                else
+                {
+                    StartCoroutine(delayedSetNextNotes(timeVector[timeVectorIndex] - previousNoteDistance / speed));
+                }
+            }
+            else
+            {
+                //print("else");
+                StartCoroutine(delayedSetNextNotes(firstNoteTime - (barWidth / 2) / speed));
+            }
+            //print("Hi2");
+
+            musicPlayer.Play();
+            hasStarted = true;
+        }
+    }
+
+    /*
     public void startNotes()
     {
         if (!hasStarted)
@@ -212,6 +256,7 @@ public class RhythmControllerUI : MonoBehaviour
             distanceVectorIndex = (distanceVectorIndex + 1) % distanceVector.Count;
         }
     }
+    */
 
     private bool settingNextNote = false;
     private IEnumerator delayedSetNextNotes(float delay)
@@ -239,4 +284,5 @@ public class RhythmControllerUI : MonoBehaviour
         previousNotes = nextNotes;
         nextNotes = (nextNotes + 2) % noteBufer.Count;
     }
+
 }
