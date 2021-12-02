@@ -7,6 +7,9 @@ public class PlatformSelectionUI : MonoBehaviour
 {
     public static PlatformSelectionUI instance { get; private set; }
 
+    public List<GameObject> platformPrefabs;
+    public Dictionary<GameObject, PlaneLogic> platformScripts = new Dictionary<GameObject, PlaneLogic>();
+
     //TODO: adjust and pick the platforms from the PlaneHandler to have coherency
     public List<GameObject> slots;
     private RandomRotatingPool<GameObject> pool;
@@ -17,10 +20,19 @@ public class PlatformSelectionUI : MonoBehaviour
 
     private void Awake()
     {
-        instance = this; 
-        
-        pool = new RandomRotatingPool<GameObject>(PlatformCache.instance.platformPrefabs);
+        instance = this;
 
+        foreach (GameObject p in platformPrefabs)
+        {
+            platformScripts.Add(p, p.GetComponent<PlaneLogic>());
+        }
+
+        pool = new RandomRotatingPool<GameObject>(platformPrefabs);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         slotScripts = new List<SlotUI>();
         foreach (GameObject slot in slots)
         {
@@ -30,11 +42,6 @@ public class PlatformSelectionUI : MonoBehaviour
             script.SetPlatform(p);
             script.setInactive();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
     }
 
     // Update is called once per frame
@@ -50,7 +57,7 @@ public class PlatformSelectionUI : MonoBehaviour
             if(selectedSlotIndex >= 0 && selectedSlotIndex < slots.Count)
             {
                 slotScripts[selectedSlotIndex].setActive();
-                PlaneHandler.instance.ComunicateSelectedPlatformSize(PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize);
+                PlaneHandler.instance.ComunicateSelectedPlatformSize(platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize);
                 //print("start: " + selectedSlotIndex);
             }
         }
@@ -101,7 +108,7 @@ public class PlatformSelectionUI : MonoBehaviour
 
     public int GetSelectedPlatformSize()
     {
-        return selectedSlotIndex == -1 ? 0 : PlatformCache.instance.platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize;
+        return selectedSlotIndex == -1 ? 0 : platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize;
     }
 
     public GameObject PlaceSelectedPlatformAndPutTrampolineNext()
@@ -112,7 +119,7 @@ public class PlatformSelectionUI : MonoBehaviour
         }
 
         GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
-        GameObject nextPlatform = PlatformCache.instance.platformPrefabs[5];
+        GameObject nextPlatform = platformPrefabs[5];
 
         slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
         return platform;
