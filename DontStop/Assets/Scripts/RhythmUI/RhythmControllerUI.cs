@@ -10,7 +10,6 @@ public class RhythmControllerUI : MonoBehaviour
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
-    public GameObject hitZone;
 
     public static RhythmControllerUI instance { get; private set; }
     public bool hasStarted = false;
@@ -54,8 +53,6 @@ public class RhythmControllerUI : MonoBehaviour
     private void GenerateHitZones()
     {
         float noteLength = (speed / (BPM / 60));
-        hitZone.GetComponent<BoxCollider2D>().size = new Vector2(noteLength * hitTime, 20);
-        hitZone.GetComponent<RectTransform>().sizeDelta = new Vector2(noteLength * hitTime, 70);
 
         noteDespawnDelay = (BPM / 60) * hitTime;
     }
@@ -131,19 +128,11 @@ public class RhythmControllerUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    private float dt = 0;
     void Update()
     {
         if (hasStarted)
         {
             trySetNote();
-        }
-        else
-        {
-            if (Input.anyKeyDown)
-            {
-                //start();
-            }
         }
     }
 
@@ -209,14 +198,14 @@ public class RhythmControllerUI : MonoBehaviour
     {
         //GameObject workingNote;
 
-        float barWidth = rectTransform.sizeDelta.x;
+        float barWidth = rectTransform.sizeDelta.x * 15f/17f;
 
         //workingNote = noteBufer[nextNotes];
-        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-barWidth / 2 + offset, 0);
+        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-barWidth / 2 + offset, -5);
         noteScripts[nextNotes].speed = speed;
 
         //workingNote = noteBufer[nextNotes + 1];
-        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2(barWidth / 2 - offset, 0);
+        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2(barWidth / 2 - offset, -5);
         noteScripts[nextNotes + 1].speed = -speed;
 
         previousNotes = nextNotes;
