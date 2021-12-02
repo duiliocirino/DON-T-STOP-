@@ -5299,11 +5299,36 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_Color.a
+      value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8246b49403903b04ebfdaac38ad23a25, type: 3}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7813464087240084514, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8771374324512600125, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
 --- !u!1001 &393776396
 PrefabInstance:
@@ -9323,7 +9348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6447933641334997561, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763169217321087855, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
@@ -11553,6 +11578,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04be9f92ebf58b46b2204ac3aaa8785, type: 3}
+--- !u!1 &852502934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 569769166986544104, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 386208299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &852502935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852502934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 10, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!4 &852828555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4925868257544670, guid: fd4804b84d34a784ea6831ede116af4c, type: 3}
@@ -12171,7 +12216,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 90aff7832f5dab34b9f7a816c27d001e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48e50beaa3e503e48934a44ac94d4da7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12375,7 +12420,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
   m_PrefabInstance: {fileID: 386208299}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 852502934}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
