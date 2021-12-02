@@ -15,8 +15,8 @@ public class LifeBar : MonoBehaviour
     private float perfectHitDistanceGained;
 
     private RectTransform rectTransform;
-    private Vector2 startingPosition;
-    private float positionXLimit;
+    private float startingWidth;
+    private float widthLimit;
 
     private List<Action> onLimitReached = new List<Action>();
 
@@ -35,8 +35,8 @@ public class LifeBar : MonoBehaviour
         depletionSpeed = depletionRate * rectTransform.sizeDelta.x;
         perfectHitDistanceGained = perfectHitBonus * rectTransform.sizeDelta.x;
 
-        startingPosition = rectTransform.anchoredPosition;
-        positionXLimit = startingPosition.x - rectTransform.sizeDelta.x;
+        startingWidth = rectTransform.sizeDelta.x;
+        widthLimit = 0;
 
         deplitionHasStarted = false;
     }
@@ -46,13 +46,13 @@ public class LifeBar : MonoBehaviour
     {
         if (deplitionHasStarted)
         {
-            Vector2 newPosition = rectTransform.anchoredPosition - new Vector2(depletionSpeed * Time.deltaTime, 0);
-            if (newPosition.x < positionXLimit)
+            float newWidth = rectTransform.sizeDelta.x - depletionSpeed * Time.deltaTime;
+            if (newWidth < widthLimit)
             {
-                newPosition.x = positionXLimit;
+                newWidth = widthLimit;
             }
-            rectTransform.anchoredPosition = newPosition;
-            if (newPosition.x == positionXLimit) OnLimitReached();
+            rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
+            if (newWidth == widthLimit) OnLimitReached();
         }
     }
 
@@ -64,12 +64,12 @@ public class LifeBar : MonoBehaviour
 
     public void PerfectHit()
     {
-        Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(perfectHitDistanceGained, 0);
-        if (newPosition.x > startingPosition.x)
+        float newWidth = rectTransform.sizeDelta.x + perfectHitDistanceGained;
+        if (newWidth > startingWidth)
         {
-            newPosition.x = startingPosition.x;
+            newWidth = startingWidth;
         }
-        rectTransform.anchoredPosition = newPosition;
+        rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
     }
 
     public void RegisterLimitReachedBehaviour(Action a)
