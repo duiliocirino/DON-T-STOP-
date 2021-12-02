@@ -1,0 +1,116 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameplayController : MonoBehaviour
+{
+    public Image screenBlurr;
+    public Text countdown;
+    public GameObject gameOver;
+    public ThirdPersonUserControl jumperControls;
+    public PlayerInput creatorControls;
+    public PlatformSelectionUI platformSelectionControls;
+
+    private String[] baseTutorials = { "NoteBarDialogBox", "LifeBarDialogBox", "PlatformChoicheDialogBox" };
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine(OnGameStart());
+
+        if (Options.istance.gameEnds)
+        {
+            LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
+        }
+    }
+
+    private IEnumerator OnGameStart()
+    {
+        //Initialize overlay
+        screenBlurr.gameObject.SetActive(true);
+        countdown.text = "";
+        countdown.gameObject.SetActive(true);
+
+        SetPlayerControlActive(false);
+
+        //make music + rhythm start
+        RhythmControllerUI.instance.start();
+
+        //show tutorial
+        if (Options.istance.tutorial) {
+            ShowTutorial();
+            yield return new WaitUntil(() => { return Input.anyKeyDown; });
+            RemoveTutorial();
+        }
+
+        //show countdown
+        for(int i=3; i>0; i--)
+        {
+            countdown.text = i.ToString();
+            yield return new WaitForSecondsRealtime(0.5f);
+            countdown.text = "";
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+        countdown.text = "GO!;";
+        yield return new WaitForSecondsRealtime(1f);
+
+        countdown.gameObject.SetActive(false);
+        screenBlurr.gameObject.SetActive(false);
+
+        SetPlayerControlActive(true);
+
+        yield return new WaitUntil(() => { return RhythmControllerUI.instance.noteInHitArea; });
+        LifeBar.instance.StartDeplition();
+    }
+
+    private void SetPlayerControlActive(bool active)
+    {
+        jumperControls.enabled = active;
+        creatorControls.enabled = active;
+        platformSelectionControls.enabled = active;
+    }
+
+    private void ShowTutorial()
+    {
+        foreach(string name in baseTutorials)
+        {
+            TutorialController.istance.enableDialogBox(name);
+        }
+    }
+
+    private void RemoveTutorial()
+    {
+        foreach (string name in baseTutorials)
+        {
+            TutorialController.istance.disableDialogBox(name);
+        }
+    }
+
+    private void GameOver()
+    {
+        SetPlayerControlActive(false);
+        screenBlurr.gameObject.SetActive(true);
+        gameOver.SetActive(true);
+        StartCoroutine(makeTimeStop());
+    }
+
+    private IEnumerator makeTimeStop()
+    {
+        float oldTimeScale = Time.timeScale;
+        Time.timeScale = 0;
+        yield return new WaitUntil(() => { return Input.anyKeyDown; });
+        Time.timeScale = oldTimeScale;
+        SceneManager.LoadScene("StageSelection");
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
