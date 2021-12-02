@@ -12504,9 +12504,9 @@ MonoBehaviour:
   spacing: 15
   laneNumbersRadius: 3
   numberOfEmptyTilesSide: 1
-  tutorialPresent: 0
-  platformInTutorial: 0
-  platformSkippedAtTutorialEnd: 0
+  tutorialPresent: 1
+  platformInTutorial: 8
+  platformSkippedAtTutorialEnd: 3
   TOLERANCE: 10
   platformTiles:
   - {fileID: 249027896}
