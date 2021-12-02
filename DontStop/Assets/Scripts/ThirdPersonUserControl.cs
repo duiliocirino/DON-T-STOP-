@@ -60,7 +60,7 @@ public class ThirdPersonUserControl : MonoBehaviour
             else
             {
                 // ATTENZIONE
-                GameObject.Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
+                Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
                 Vector3 newPos = lastObjectPosition;
                 newPos.y = 13.5f;
                 transform.position = newPos;

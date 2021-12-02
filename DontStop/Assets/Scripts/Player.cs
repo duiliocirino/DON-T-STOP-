@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
 
+    private Vector3 velocity = Vector3.zero;
 
     void Start()
     {
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
         // turn amount and forward amount required to head in the desired
         // direction.
         if (move.magnitude > 1f) move.Normalize();
+        //gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, transform.position, ref velocity, m_MoveSpeedMultiplier * Time.deltaTime);
+        
         m_Rigidbody.MovePosition(transform.position + m_MoveSpeedMultiplier * move * Time.deltaTime);
         move = transform.InverseTransformDirection(move);
         CheckGroundStatus();
@@ -122,7 +126,7 @@ public class Player : MonoBehaviour
         Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
         m_Rigidbody.AddForce(extraGravityForce);
 
-        m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 2.2f;
+        m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.11f;
     }
 
 
@@ -136,8 +140,6 @@ public class Player : MonoBehaviour
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(0.2f, 0.5f);           
             }
-                
-
             else {
                 LifeBar.instance.PerfectHit();
                 particles.Play();
@@ -146,7 +148,7 @@ public class Player : MonoBehaviour
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
             m_IsGrounded = false;
             m_Animator.applyRootMotion = false;
-            m_GroundCheckDistance = 2.2f;
+            m_GroundCheckDistance = 0.11f;
         }
     }
 
@@ -208,7 +210,11 @@ public class Player : MonoBehaviour
     private void HandleRespawnPlatform(GameObject platform)
     {
         var script = GetComponent<ThirdPersonUserControl>();
-        script.lastObjectPosition = platform.transform.position;
+        if (platform.GetComponent<MeshRenderer>())
+            script.lastObjectPosition = new Vector3(platform.transform.position.x,
+                platform.GetComponent<MeshRenderer>().bounds.extents.y, platform.transform.position.z);
+        else 
+            script.lastObjectPosition = platform.transform.position;
         var i = 0;
         while (platform.transform.parent != null)
         {

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class PlaneHandler : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class PlaneHandler : MonoBehaviour
     public bool tutorialPresent;
     public int platformInTutorial;
     public int platformSkippedAtTutorialEnd;
+
+    public float TOLERANCE = 10;
 
     [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
@@ -152,12 +156,12 @@ public class PlaneHandler : MonoBehaviour
     public bool IsPlatformPresent(float x, float z, bool checkEmpty)
     {
         if ((PlatformTiles.Where(tile =>
-                    tile.transform.position.x == x &&
-                    tile.transform.position.z == z))
+                    Math.Abs(tile.transform.position.x - x) < TOLERANCE &&
+                    Math.Abs(tile.transform.position.z - z) < TOLERANCE))
                 .Any() ||
             ((EmptyTiles.Where(tile =>
-                    tile.transform.position.x == x &&
-                    tile.transform.position.z == z))
+                    Math.Abs(tile.transform.position.x - x) < TOLERANCE &&
+                    Math.Abs(tile.transform.position.z - z) < TOLERANCE))
                 .Any() && checkEmpty))
             return true;
         return false;
