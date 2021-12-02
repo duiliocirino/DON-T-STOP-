@@ -11,6 +11,7 @@ public class PlaneLogic : MonoBehaviour
     [SerializeField] protected float missPenalty = 0.5f;
     protected float timeOn = 0f;
     public Color preview;
+    public Sprite imagePreview;
     
     // Start is called before the first frame update
     void Start()
