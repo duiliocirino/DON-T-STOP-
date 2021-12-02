@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class GameplayController : MonoBehaviour
 {
     public Image screenBlurr;
-    public Text countdown;
+    public Image countdown;
+    public Sprite[] sprites321;
+    public Image go;
     public GameObject gameOver;
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
@@ -32,13 +34,11 @@ public class GameplayController : MonoBehaviour
     {
         //Initialize overlay
         screenBlurr.gameObject.SetActive(true);
-        countdown.text = "";
-        countdown.gameObject.SetActive(true);
 
         SetPlayerControlActive(false);
 
         //make music + rhythm start
-        RhythmControllerUI.instance.start();
+        RhythmControllerUI.instance.startNotes();
 
         //show tutorial
         if (Options.istance.tutorial) {
@@ -48,17 +48,18 @@ public class GameplayController : MonoBehaviour
         }
 
         //show countdown
-        for(int i=3; i>0; i--)
+        for(int i=2; i>=0; i--)
         {
-            countdown.text = i.ToString();
+            countdown.sprite = sprites321[i];
+            countdown.gameObject.SetActive(true);
             yield return new WaitForSecondsRealtime(0.5f);
-            countdown.text = "";
+            countdown.gameObject.SetActive(false);
             yield return new WaitForSecondsRealtime(0.5f);
         }
-        countdown.text = "GO!;";
+        go.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
 
-        countdown.gameObject.SetActive(false);
+        go.gameObject.SetActive(false);
         screenBlurr.gameObject.SetActive(false);
 
         SetPlayerControlActive(true);

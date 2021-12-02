@@ -139,7 +139,7 @@ public class RhythmControllerUI : MonoBehaviour
         }
     }
 
-    public void start()
+    public void startNotes()
     {
         if (!hasStarted)
         {
