@@ -113,7 +113,7 @@ public class RhythmControllerUI : MonoBehaviour
         {
             GameObject note = Instantiate(notePrefab, noteBufferPosition, Quaternion.identity);
             note.transform.SetParent(this.transform, false);
-            note.transform.SetSiblingIndex(1);
+            note.transform.SetSiblingIndex(0);
 
             noteBufer.Add(note);
             NoteUI script = note.GetComponent<NoteUI>();
