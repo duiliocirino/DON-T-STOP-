@@ -10,6 +10,7 @@ public class RhythmControllerUI : MonoBehaviour
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
+    public BoxCollider2D hitZone;
 
     public static RhythmControllerUI instance { get; private set; }
     public bool hasStarted = false;
@@ -52,9 +53,11 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void GenerateHitZones()
     {
-        float noteLength = (speed / (BPM / 60));
+        float noteLength = speed * (60/BPM);
 
-        noteDespawnDelay = (BPM / 60) * hitTime;
+        hitZone.size = new Vector2(noteLength * hitTime, 50);
+
+        noteDespawnDelay = (60/BPM) * hitTime;
     }
 
     private void GenerateDistanceVector()

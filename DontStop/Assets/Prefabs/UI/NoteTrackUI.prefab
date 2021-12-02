@@ -499,7 +499,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20, y: 50}
   m_EdgeRadius: 0
 --- !u!50 &3634357421169773372
 Rigidbody2D:
@@ -694,6 +694,7 @@ MonoBehaviour:
   notePrefab: {fileID: 4772691777639463006, guid: 39b786f13cdf7ef4dafa85d69c8f5c32, type: 3}
   musicPlayer: {fileID: 0}
   patternMapJSON: {fileID: 4900000, guid: c46615f2a61802540a9d84fc21992328, type: 3}
+  hitZone: {fileID: 3634357421169773363}
   hasStarted: 0
   noteBufferPosition: {x: 0, y: 0}
   noteInHitArea: 0
