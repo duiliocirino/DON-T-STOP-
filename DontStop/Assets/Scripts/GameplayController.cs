@@ -17,8 +17,6 @@ public class GameplayController : MonoBehaviour
     public PlayerInput creatorControls;
     public PlatformSelectionUI platformSelectionControls;
 
-    private String[] baseTutorials = { "NoteBarDialogBox", "LifeBarDialogBox", "PlatformChoicheDialogBox" };
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +32,9 @@ public class GameplayController : MonoBehaviour
     {
         //Initialize overlay
         screenBlurr.gameObject.SetActive(true);
+        countdown.gameObject.SetActive(false);
+        go.gameObject.SetActive(false);
+        gameOver.SetActive(false);
 
         SetPlayerControlActive(false);
 
@@ -42,9 +43,13 @@ public class GameplayController : MonoBehaviour
 
         //show tutorial
         if (Options.istance.tutorial) {
-            ShowTutorial();
-            yield return new WaitUntil(() => { return Input.anyKeyDown; });
-            RemoveTutorial();
+            for (int i = 1; i <= 6; i++)
+            {
+                TutorialController.istance.enableDialogBox("Tutorial"+i);
+                yield return new WaitForSecondsRealtime(0.2f);
+                yield return new WaitUntil(() => { return Input.anyKeyDown; });
+                TutorialController.istance.disableDialogBox("Tutorial" + i);
+            }
         }
 
         //show countdown
@@ -73,22 +78,6 @@ public class GameplayController : MonoBehaviour
         jumperControls.enabled = active;
         creatorControls.enabled = active;
         platformSelectionControls.enabled = active;
-    }
-
-    private void ShowTutorial()
-    {
-        foreach(string name in baseTutorials)
-        {
-            TutorialController.istance.enableDialogBox(name);
-        }
-    }
-
-    private void RemoveTutorial()
-    {
-        foreach (string name in baseTutorials)
-        {
-            TutorialController.istance.disableDialogBox(name);
-        }
     }
 
     private void GameOver()

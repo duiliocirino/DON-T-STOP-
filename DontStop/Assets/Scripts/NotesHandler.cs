@@ -43,6 +43,12 @@ public class NotesHandler : MonoBehaviour
     {
         notesCollected++;
         UI.text = notesCollected + "/" + notesForNextStage;
+        if (notesCollected == notesForNextStage) OnEnoughNotesCollected();
+    }
+
+    private void OnEnoughNotesCollected()
+    {
+        TutorialController.istance.showDialogBox("StageUnlocked", 3f);
     }
 
     void ResetProbability()
