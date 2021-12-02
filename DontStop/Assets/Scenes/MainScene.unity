@@ -47062,7 +47062,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a29b7fbf4919ea44ea231df17cf67c56, type: 3}
   go: {fileID: 432712684}
   gameOver: {fileID: 882447088}
-  jumperControls: {fileID: 0}
+  jumperControls: {fileID: 1052596296}
   creatorControls: {fileID: 1304680584}
   platformSelectionControls: {fileID: 493698884}
 --- !u!114 &2056025808
