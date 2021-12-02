@@ -97,6 +97,40 @@ public class RhythmControllerUI : MonoBehaviour
             print(a);*/
     }
 
+    private void GenerateTimeVector()
+    {
+        List<float> absoluteDistanceVector = new List<float>();
+
+        float measureLength = (speed / (BPM / 60)) * patternMap.tempoDenominator;
+        float baseDistance = 0;
+        foreach (BeatPattern bp in patternMap.pattern)
+        {
+            foreach (float notePosition in bp.notePositions)
+            {
+                if (notePosition >= 0 && notePosition < bp.numMeasures)
+                {
+                    absoluteDistanceVector.Add(baseDistance + measureLength * notePosition);
+                }
+            }
+            baseDistance += measureLength * bp.numMeasures;
+        }
+
+        absoluteDistanceVector.Sort();
+
+        firstNoteDistance = absoluteDistanceVector[0] + patternMap.initialDelay * speed;
+
+        distanceVector = new List<float>(absoluteDistanceVector.Capacity);
+        for (int i = 0; i < absoluteDistanceVector.Count - 1; i++)
+        {
+            distanceVector.Add(absoluteDistanceVector[i + 1] - absoluteDistanceVector[i]);
+        }
+        distanceVector.Add(absoluteDistanceVector[0] + (baseDistance - absoluteDistanceVector[absoluteDistanceVector.Count - 1]));
+
+        /*print(distanceVector.Count);
+        foreach (var a in distanceVector)
+            print(a);*/
+    }
+
     private PatternMap GeneratePatternMap()
     {
         //return new PatternMap("default120");

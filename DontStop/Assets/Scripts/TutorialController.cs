@@ -11,7 +11,6 @@ public class TutorialController : MonoBehaviour
 
     private Dictionary<string, GameObject> dialogBoxes = new Dictionary<string, GameObject>();
     private RectTransform rectTransform;
-    private RectTransform weakPlatformDialogBoxRectTransform;
 
     private void Awake()
     {
@@ -21,7 +20,6 @@ public class TutorialController : MonoBehaviour
         foreach (Transform child in transform)
             dialogBoxes.Add(child.name, child.gameObject);
 
-        weakPlatformDialogBoxRectTransform = dialogBoxes["WeakPlatformDialogBox"].GetComponent<RectTransform>();
     }
 
     // Start is called before the first frame update
@@ -36,17 +34,8 @@ public class TutorialController : MonoBehaviour
         
     }
 
-    public void enableDialogBox(string boxName, Vector3 position = new Vector3())
+    public void enableDialogBox(string boxName)
     {
-        if (boxName.Equals("WeakPlatformDialogBox"))
-        {
-            Vector2 platformCanvasPosition = builderCamera.WorldToViewportPoint(position);
-            platformCanvasPosition = new Vector2(
-                (platformCanvasPosition.x * rectTransform.sizeDelta.x) - (rectTransform.sizeDelta.x * 0.5f),
-                (platformCanvasPosition.y * rectTransform.sizeDelta.y) - (rectTransform.sizeDelta.y * 0.5f));
-            weakPlatformDialogBoxRectTransform.position = platformCanvasPosition;
-        }
-
         dialogBoxes[boxName].SetActive(true);
     }
 
@@ -55,9 +44,9 @@ public class TutorialController : MonoBehaviour
         dialogBoxes[boxName].SetActive(false);
     }
 
-    public IEnumerator showDialogBox(string boxName, float time, Vector3 position = new Vector3())
+    public IEnumerator showDialogBox(string boxName, float time)
     {
-        enableDialogBox(boxName, position);
+        enableDialogBox(boxName);
         yield return new WaitForSeconds(time);
         disableDialogBox(boxName);
     }
