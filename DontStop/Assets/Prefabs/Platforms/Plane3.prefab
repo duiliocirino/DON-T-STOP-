@@ -57,6 +57,7 @@ MonoBehaviour:
   planeLife: 5
   missPenalty: 0.5
   preview: {r: 0, g: 0, b: 1, a: 1}
+  imagePreview: {fileID: 21300000, guid: afb32979ff89adf4ea0df586f0ed1fdd, type: 3}
 --- !u!54 &180115615550096527
 Rigidbody:
   m_ObjectHideFlags: 0
