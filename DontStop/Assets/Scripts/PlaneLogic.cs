@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlaneLogic : MonoBehaviour
 {
     public int platformSize = 1;
-    protected bool isPlayerOn = false;
+    public bool isPlayerOn = false;
     [SerializeField] protected float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
     protected float timeOn = 0f;
@@ -26,13 +26,18 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        //if (timeOn < planeLife && timeOn >= planeLife * 0.75f) Debug.Log("Only" + (planeLife - timeOn) + "are left for the platform");
+        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn) ShakePlatform();
         if (timeOn >= planeLife)
         {
             PlaneHandler.instance.RemovePlatform(gameObject);
         }
     }
-    
+
+    void ShakePlatform()
+    {
+        gameObject.transform.position += new Vector3(Mathf.Sin(100 * (timeOn - planeLife * 0.8f)), 0, 0);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         isPlayerOn = true;

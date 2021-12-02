@@ -201,7 +201,7 @@ public class PlaneHandler : MonoBehaviour
             {
                 return brokenPlatformPrefabs.First(platform => platform.name == name);
             }
-            Debug.Log(name);
+            //Debug.Log(name);
             return platformPrefabs.First(platform => platform.name == name);
         }
         return null;

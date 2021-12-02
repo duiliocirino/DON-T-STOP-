@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
         }
         script.lastPlatformPosition = platform.transform.position;
         script.lastPlatformTouched = platform;
-        Debug.Log("Saving " + platform.name);
+        //Debug.Log("Saving " + platform.name);
         if (platform.name.Length > 7  && (platform.CompareTag("ObstaclePlatform") || platform.CompareTag("SpecialPlatform")))
         {
             script.lastPlatformPrefab =
