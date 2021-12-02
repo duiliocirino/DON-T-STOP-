@@ -68,8 +68,8 @@ public class GameplayController : MonoBehaviour
         screenBlurr.gameObject.SetActive(false);
 
         SetPlayerControlActive(true);
-        //TutorialController.istance.enableDialogBox("Tutorial");
-        //TutorialController.istance.enableDialogBox("Tutorial");
+        TutorialController.istance.enableDialogBox("TutorialJumper");
+        TutorialController.istance.enableDialogBox("TutorialCreator");
 
         yield return new WaitUntil(() => { return RhythmControllerUI.instance.noteInHitArea; });
         LifeBar.instance.StartDeplition();

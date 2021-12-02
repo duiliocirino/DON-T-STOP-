@@ -14137,7 +14137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963590676613986765, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4071119450362191536, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_Pivot.x
@@ -17052,7 +17052,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

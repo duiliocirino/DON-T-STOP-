@@ -133,11 +133,18 @@ public class Player : MonoBehaviour
     }
 
 
+    private bool firstJump = true;
     void HandleGroundedMovement(bool jump)
     {
         // check whether conditions are right to allow a jump:
         if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
         {
+            if (firstJump)
+            {
+                TutorialController.istance.disableDialogBox("TutorialJumper");
+                firstJump = false;
+            }
+
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) {
                 shaker.Enable();

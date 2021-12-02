@@ -18,7 +18,8 @@ public class Creator : MonoBehaviour
     {
         // controls = new PlayerControls();
     }
-    
+
+    private bool firstPlace = true;
     private void OnClickCreate()
     {
         spacing = PlaneHandler.instance.spacing;
@@ -28,6 +29,12 @@ public class Creator : MonoBehaviour
         //Debug.Log("OnClick called");
         if (Physics.Raycast(ray, out var hit, 100, layerMask))
         {
+            if (firstPlace)
+            {
+                TutorialController.istance.disableDialogBox("TutorialCreator");
+                firstPlace = false;
+            }
+
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
             spawnPosition = hit.point;
             spawnPosition.z = ((int) ((spawnPosition.z + (spacing / 2)) / spacing)) * spacing;
