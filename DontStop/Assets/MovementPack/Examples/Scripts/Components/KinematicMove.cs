@@ -52,7 +52,8 @@ namespace ECM.Examples.Components
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.isKinematic = true;
-
+            transform.position -= new Vector3(0, 0, offset.z / 2);
+            
             _startPosition = transform.position;
             _targetPosition = _startPosition + offset;
         }
