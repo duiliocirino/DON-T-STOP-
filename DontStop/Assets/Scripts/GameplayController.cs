@@ -47,7 +47,7 @@ public class GameplayController : MonoBehaviour
             {
                 TutorialController.istance.enableDialogBox("Tutorial"+i);
                 yield return new WaitForSecondsRealtime(0.2f);
-                yield return new WaitUntil(() => { return Input.anyKeyDown; });
+                yield return new WaitUntil(() => { return Input.GetMouseButtonDown(0)|| Input.GetMouseButtonDown(0); });
                 TutorialController.istance.disableDialogBox("Tutorial" + i);
             }
         }
