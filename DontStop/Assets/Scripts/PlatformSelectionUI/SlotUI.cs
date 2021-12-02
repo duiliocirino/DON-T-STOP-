@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SlotUI : MonoBehaviour
 {
+    public Image unselectedUI;
     public Image selectedUI;
 
     private GameObject platform;
@@ -42,10 +43,12 @@ public class SlotUI : MonoBehaviour
     public void setActive()
     {
         selectedUI.enabled = true;
+        unselectedUI.enabled = false;
     }
 
     public void setInactive()
     {
+        unselectedUI.enabled = true;
         selectedUI.enabled = false;
     }
 }
