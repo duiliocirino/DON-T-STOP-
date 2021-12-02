@@ -38107,6 +38107,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04be9f92ebf58b46b2204ac3aaa8785, type: 3}
+--- !u!114 &1435808917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 133350143573312400, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
+  m_PrefabInstance: {fileID: 8448687472248187280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f638ea0ebf1fbc4f8b4abe59478a289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1438714989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
@@ -56382,23 +56393,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1435808917}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
+      value: Pause, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8233840152928765731, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
