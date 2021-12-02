@@ -31,6 +31,7 @@ public class PlaneHandler : MonoBehaviour
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
     [SerializeField] private List<GameObject> brokenPlatformPrefabs;
+    [SerializeField] AudioSource sound_goodPlatform;
 
 
     [SerializeField] private List<GameObject> obstaclePrefabs;
@@ -79,7 +80,7 @@ public class PlaneHandler : MonoBehaviour
         {
             particles.transform.position = position;
             particles.Play();
-            
+            sound_goodPlatform.Play();
             newPlatform = Instantiate(prefab, position, Quaternion.identity);
         }
         platformTiles.Add(newPlatform);
