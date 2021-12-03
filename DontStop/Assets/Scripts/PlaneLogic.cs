@@ -34,12 +34,24 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn) ShakePlatform();
-        if (timeOn >= planeLife)
+        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn)
         {
             fallingPlatformParticles.Play();
+            ShakePlatform();
+        }
+        if (timeOn >= planeLife)
+        {
+
+            //WaitForParticles();  
             PlaneHandler.instance.RemovePlatform(gameObject);
         }
+    }
+    IEnumerator WaitForParticles()
+    {      
+        fallingPlatformParticles.Play();
+    
+        yield return new WaitForSeconds(fallingPlatformParticles.main.duration);
+
     }
 
     void ShakePlatform()
