@@ -23325,6 +23325,8 @@ MonoBehaviour:
   goodJumpSound: {fileID: 1052596300}
   badJumpSound: {fileID: 1052596302}
   stepSounds: {fileID: 1052596303}
+  minMissPenalty: 0.6
+  maxMissPenalty: 0.4
 --- !u!136 &1052596298
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46032,7 +46034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 20
+  notesForNextStage: 15
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5

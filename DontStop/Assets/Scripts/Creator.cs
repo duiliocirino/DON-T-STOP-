@@ -35,6 +35,13 @@ public class Creator : MonoBehaviour
                 firstPlace = false;
             }
 
+            if (!RhythmControllerUI.instance.noteInHitArea) {
+                // TODO: aggiungere malus
+            }
+            else {
+                LifeBar.instance.PerfectHit();
+            } 
+
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
             GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
             if (emptyTile != null)
