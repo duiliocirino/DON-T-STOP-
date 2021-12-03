@@ -14240,6 +14240,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6385805833043017940, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_Name
+      value: BadPlatformTutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 6447933641334997561, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
       value: 0
