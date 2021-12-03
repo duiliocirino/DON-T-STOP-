@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     [SerializeField] float m_GroundCheckDistance = 0.1f;
     [SerializeField] GameObject childMaterial;
     [SerializeField] ParticleSystem particles;
-    [SerializeField] ParticleSystem badParticles;
     [SerializeField] CameraShake shaker;
     [SerializeField] SoundChooser goodJumpSound;
     [SerializeField] SoundChooser badJumpSound;
@@ -147,7 +146,6 @@ public class Player : MonoBehaviour
             if (!RhythmControllerUI.instance.noteInHitArea) {
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
-                badParticles.Play();
                 badJumpSound.PlayRand();
             }
             else {

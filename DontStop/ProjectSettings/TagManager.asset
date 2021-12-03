@@ -13,8 +13,6 @@ TagManager:
   - NotesHandler
   - EmptyPlatform
   - Creator
-  - SecondCamera
-  - Stadium
   layers:
   - Default
   - TransparentFX
@@ -22,8 +20,8 @@ TagManager:
   - StadiumLights
   - Water
   - UI
-  - RunnerLayer
-  - CreatorLayer
+  - 
+  - 
   - EmptyLayer
   - 
   - 

@@ -19,11 +19,6 @@ public class SceneController : MonoBehaviour
         
     }
 
-    void OnCancel()
-    {
-        Debug.Log("cancel");
-    }
-
     public void ChangeScene(string sceneName)
     {
         loadingScreen.SetActive(true);
