@@ -88,6 +88,7 @@ public class PlaneHandler : MonoBehaviour
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
+        AddEmptyTiles(position);
     }
 
     /**

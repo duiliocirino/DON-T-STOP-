@@ -27,7 +27,7 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if (Physics.Raycast(ray, out var hit, 100, layerMask) && !Pause.paused)
+        if (Physics.Raycast(ray, out var hit, 60, layerMask) && !Pause.paused)
         {
             if (firstPlace)
             {
@@ -60,8 +60,6 @@ public class Creator : MonoBehaviour
                 {
                     PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z),
                         newPlatform);
-
-                    PlaneHandler.instance.AddEmptyTiles(spawnPosition);
                 }
             }
         }
