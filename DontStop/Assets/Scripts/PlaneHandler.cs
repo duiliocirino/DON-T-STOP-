@@ -95,7 +95,7 @@ public class PlaneHandler : MonoBehaviour
     {
         float zspacing = spacing;
         if (tutorialPresent && position.z == platformInTutorial*spacing)
-            zspacing += platformSkippedAtTutorialEnd*spacing;
+            zspacing += platformSkippedAtTutorialEnd*spacing - 10;
 
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)
         {

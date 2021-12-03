@@ -36,19 +36,16 @@ public class Player : MonoBehaviour
     float m_TurnAmount;
     float m_ForwardAmount;
     Vector3 m_GroundNormal;
-    float m_CapsuleHeight;
-    Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
-
-    private Vector3 velocity = Vector3.zero;
+    
+    public float minMissPenalty = 0.6f;
+    public float maxMissPenalty = 0.4f;
 
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Capsule = GetComponent<CapsuleCollider>();
-        m_CapsuleHeight = m_Capsule.height;
-        m_CapsuleCenter = m_Capsule.center;
 
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         m_OrigGroundCheckDistance = m_GroundCheckDistance;
@@ -148,7 +145,7 @@ public class Player : MonoBehaviour
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) {
                 shaker.Enable();
-                jumpForce = jumpForce * Random.Range(0.2f, 0.5f);
+                jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
                 badJumpSound.PlayRand();
             }
             else {
