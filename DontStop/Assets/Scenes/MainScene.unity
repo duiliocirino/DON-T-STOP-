@@ -5196,7 +5196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: hitTime
-      value: 0.18
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: musicPlayer
