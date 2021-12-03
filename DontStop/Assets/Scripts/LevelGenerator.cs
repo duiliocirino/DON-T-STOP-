@@ -49,7 +49,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize / 2)
         {
-            PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
+            //Cocnurrency problem: PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
             Destroy(placedSections.Dequeue());
         }
     }

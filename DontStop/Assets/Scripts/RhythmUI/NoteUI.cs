@@ -32,8 +32,8 @@ public class NoteUI : MonoBehaviour
 
         if (speed * rectTransform.anchoredPosition.x > 0)
         {
-            float time = musicPlayer.time;
-            print(timeToReachCenter + "(T) vs (A)" + time + "; (D)" + (time-timeToReachCenter));
+            //float time = musicPlayer.time;
+            //print(timeToReachCenter + "(T) vs (A)" + time + "; (D)" + (time-timeToReachCenter));
             StartCoroutine(StopNote());
         }
     }
