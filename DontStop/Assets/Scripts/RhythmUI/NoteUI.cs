@@ -46,16 +46,6 @@ public class NoteUI : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "HitArea")
-        {
-            RhythmControllerUI.instance.noteInHitArea = false;
-            speed = 0f;
-            rectTransform.anchoredPosition = RhythmControllerUI.instance.noteBufferPosition;
-        }
-    }*/
-
     private IEnumerator StopNote()
     {
         float tmpSpeed = speed;
@@ -65,6 +55,8 @@ public class NoteUI : MonoBehaviour
         rectTransform.anchoredPosition -= new Vector2(exededLength, 0);
 
         yield return new WaitForSeconds(RhythmControllerUI.instance.noteDespawnDelay - exededLength/tmpSpeed);
+
+        //RhythmControllerUI.instance.NextHitTime();
 
         RhythmControllerUI.instance.noteInHitArea = false;
 

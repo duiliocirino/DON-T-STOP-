@@ -39,6 +39,10 @@ public class RhythmControllerUI : MonoBehaviour
 
     private float barWidth;
 
+    /*private float startOKTime = 0;
+    private float endOKTime = 0;
+    private int nextTimeIndex = 0;*/
+
     private void Awake()
     {
         instance = this;
@@ -170,8 +174,11 @@ public class RhythmControllerUI : MonoBehaviour
     {
         if (hasStarted)
         {
+            float musicTime = musicPlayer.time;
+            //noteInHitArea = startOKTime <= musicTime && musicTime <= endOKTime;
+
             //trySetNote();
-            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed < musicPlayer.time)
+            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed < musicTime)
             {
                 //print("timeVector[timeVectorIndex] " + timeVector[timeVectorIndex]);
                 //print("(barWidth / 2) / speed " + (barWidth / 2) / speed);
@@ -206,6 +213,11 @@ public class RhythmControllerUI : MonoBehaviour
                 noteScripts[nextNotes + 1].timeToReachCenter = firstNoteTime;
 
                 timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
+
+                /*startOKTime = firstNoteTime - ((60 / BPM) * hitTime);
+                endOKTime = firstNoteTime + ((60 / BPM) * hitTime);
+                nextTimeIndex = (nextTimeIndex + 1) % timeVector.Count;*/
+
                 /*if (settingNextNote)
                     return;
 
@@ -328,5 +340,12 @@ public class RhythmControllerUI : MonoBehaviour
         previousNotes = nextNotes;
         nextNotes = (nextNotes + 2) % noteBufer.Count;
     }
+
+    /*public void NextHitTime()
+    {
+        startOKTime = timeVector[nextTimeIndex] - ((60 / BPM) * hitTime);
+        endOKTime = timeVector[nextTimeIndex] + ((60 / BPM) * hitTime);
+        nextTimeIndex = (nextTimeIndex + 1) % timeVector.Count;
+    }*/
 
 }

@@ -23,7 +23,7 @@ public class PlaneHandler : MonoBehaviour
 
     public bool tutorialPresent;
     public int platformInTutorial;
-    public int platformSkippedAtTutorialEnd;
+    public float platformSkippedAtTutorialEnd;
 
     public float TOLERANCE = 10;
 
