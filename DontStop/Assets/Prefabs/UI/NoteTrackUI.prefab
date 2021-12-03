@@ -986,8 +986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b3bc78743b2644a9e21eea89547c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depletionRate: 0.1
+  depletionRate: 0.07
   perfectHitBonus: 0.2
+  barelyHitBonus: 0.1
+  worstMissPenality: 0.15
+  betterMissPenality: 0.07
 --- !u!1 &8014476551713390719
 GameObject:
   m_ObjectHideFlags: 0

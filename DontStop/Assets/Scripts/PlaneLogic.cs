@@ -9,6 +9,7 @@ public class PlaneLogic : MonoBehaviour
     public bool isPlayerOn = false;
     [SerializeField] protected float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
+    [SerializeField] ParticleSystem fallingPlatformParticles;
     protected float timeOn = 0f;
     public Vector3 initialPosition;
     public Color preview;
@@ -33,11 +34,24 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn) ShakePlatform();
+        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn)
+        {
+            fallingPlatformParticles.Play();
+            ShakePlatform();
+        }
         if (timeOn >= planeLife)
         {
+
+            //WaitForParticles();  
             PlaneHandler.instance.RemovePlatform(gameObject);
         }
+    }
+    IEnumerator WaitForParticles()
+    {      
+        fallingPlatformParticles.Play();
+    
+        yield return new WaitForSeconds(fallingPlatformParticles.main.duration);
+
     }
 
     void ShakePlatform()

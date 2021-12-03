@@ -36,7 +36,7 @@ public class RhythmControllerUI : MonoBehaviour
     private List<RectTransform> noteRectTransforms;
     private int nextNotes = 0;
     private int previousNotes = -1;
-
+    private bool pulsatingPlayed;
     private float barWidth;
 
     /*private float startOKTime = 0;
@@ -178,6 +178,13 @@ public class RhythmControllerUI : MonoBehaviour
             float musicTime = musicPlayer.time;
             //noteInHitArea = startOKTime <= musicTime && musicTime <= endOKTime;
 
+            if (!noteInHitArea && pulsatingPlayed)
+                pulsatingPlayed = false;
+            if(noteInHitArea && !pulsatingPlayed)
+            {
+                hitZone.GetComponent<Animator>().Play("PulsatingKey");
+                pulsatingPlayed = true;
+            }
             //TODO fix the loop better
             if (!loopFix)
             {
