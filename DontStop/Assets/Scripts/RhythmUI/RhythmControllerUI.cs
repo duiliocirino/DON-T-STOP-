@@ -169,6 +169,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     }
 
+    bool loopFix = false;
     // Update is called once per frame
     void Update()
     {
@@ -176,6 +177,18 @@ public class RhythmControllerUI : MonoBehaviour
         {
             float musicTime = musicPlayer.time;
             //noteInHitArea = startOKTime <= musicTime && musicTime <= endOKTime;
+
+            //TODO fix the loop better
+            if (!loopFix)
+            {
+                if (musicTime > firstNoteTime)
+                    loopFix = true;
+            }
+            else
+            {
+                if (musicTime < timeVector[0])
+                    timeVectorIndex = 0;
+            }
 
             //trySetNote();
             if (timeVector[timeVectorIndex] - (barWidth / 2) / speed < musicTime)
@@ -188,8 +201,11 @@ public class RhythmControllerUI : MonoBehaviour
                 timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
             }
 
-            if (Input.GetKeyDown(KeyCode.P))
+            /*if (Input.GetKeyDown(KeyCode.P))
                 print(musicPlayer.time);
+
+            if (Input.GetKeyDown(KeyCode.L))
+                musicPlayer.time = 4.5f * 60;*/
         }
     }
 

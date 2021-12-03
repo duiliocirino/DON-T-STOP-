@@ -55,7 +55,7 @@ public class PlaneHandler : MonoBehaviour
         {
             int place = Random.Range(-numberOfEmptyTilesSide, numberOfEmptyTilesSide);
             Vector3 badPlatformPosition = new Vector3(position.x + (place * spacing), 0.0f, position.z + 2 * spacing);
-            if ((platformInTutorial * spacing) < badPlatformPosition.z && badPlatformPosition.z < ((platformInTutorial + platformSkippedAtTutorialEnd) * spacing))
+            if (/*(platformInTutorial * spacing) < badPlatformPosition.z &&*/ badPlatformPosition.z < ((platformInTutorial + platformSkippedAtTutorialEnd + 3) * spacing))
                 return;
 
             GameObject newPlatform = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count - 1)],
