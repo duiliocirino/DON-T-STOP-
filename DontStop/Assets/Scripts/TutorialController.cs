@@ -44,7 +44,12 @@ public class TutorialController : MonoBehaviour
         dialogBoxes[boxName].SetActive(false);
     }
 
-    public IEnumerator showDialogBox(string boxName, float time)
+    public void showDialogBox(string boxName, float time)
+    {
+        StartCoroutine(_showDialogBox(boxName, time));
+    }
+
+    private IEnumerator _showDialogBox(string boxName, float time)
     {
         enableDialogBox(boxName);
         yield return new WaitForSeconds(time);
