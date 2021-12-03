@@ -22375,7 +22375,7 @@ MonoBehaviour:
   isCreating: 0
   sectionSize: 200
   currentZ: 620
-  placingDistance: 1200
+  placingDistance: 800
   playerTransform: {fileID: 1052596294}
   cameraTransform: {fileID: 1885842107}
   preplacedLevelSections:
