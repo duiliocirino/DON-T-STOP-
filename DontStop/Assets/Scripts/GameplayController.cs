@@ -16,6 +16,8 @@ public class GameplayController : MonoBehaviour
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
     public PlatformSelectionUI platformSelectionControls;
+    public Transform playerPosition;
+    public Text distanceText;
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +86,10 @@ public class GameplayController : MonoBehaviour
 
     private void GameOver()
     {
+        Pause.canBePaused = false;
         SetPlayerControlActive(false);
+        TutorialController.istance.disableAllDialogBoxes();
+        distanceText.text = "  DISTANCE REACHED: " + (playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z) + "m";
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
         StartCoroutine(makeTimeStop());
@@ -94,7 +99,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        yield return new WaitUntil(() => Input.anyKeyDown);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
         Time.timeScale = oldTimeScale;
         SceneManager.LoadScene("StageSelection");
     }
