@@ -17,6 +17,7 @@ public class NotesHandler : MonoBehaviour
     public float spawnProbability = 1f;
     public float baseSpawnProbability;
     public float timeSinceLastNote;
+    [SerializeField] AudioSource noteTakenSound;
 
     public Text UI;
 
@@ -41,6 +42,7 @@ public class NotesHandler : MonoBehaviour
 
     public void NoteTaken()
     {
+        noteTakenSound.Play();
         notesCollected++;
         UI.text = notesCollected + "/" + notesForNextStage;
         if (notesCollected == notesForNextStage) OnEnoughNotesCollected();

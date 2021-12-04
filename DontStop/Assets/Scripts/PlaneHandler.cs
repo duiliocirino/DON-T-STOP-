@@ -33,6 +33,7 @@ public class PlaneHandler : MonoBehaviour
     [SerializeField] private List<GameObject> platformPrefabs;
     [SerializeField] private List<GameObject> brokenPlatformPrefabs;
     [SerializeField] AudioSource sound_goodPlatform;
+    [SerializeField] SoundChooser sound_badPlatform;
 
 
     [SerializeField] private List<GameObject> obstaclePrefabs;
@@ -75,6 +76,7 @@ public class PlaneHandler : MonoBehaviour
         {
             particles.transform.position = position;
             wrongRhythmParticles.Play();
+            sound_badPlatform.PlayRand();
             shaker.Enable();
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
         }

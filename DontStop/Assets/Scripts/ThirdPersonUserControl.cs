@@ -17,6 +17,7 @@ public class ThirdPersonUserControl : MonoBehaviour
     protected internal GameObject lastPlatformPrefab;
     [SerializeField] ParticleSystem respawnParticles1;
     [SerializeField] ParticleSystem respawnParticles2;
+    [SerializeField] AudioSource spawnSound;
     private void Start()
     {
         // get the transform of the main camera
@@ -66,6 +67,7 @@ public class ThirdPersonUserControl : MonoBehaviour
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
+            spawnSound.Play();
             respawnParticles1.Play();
             respawnParticles2.Play();
         }
