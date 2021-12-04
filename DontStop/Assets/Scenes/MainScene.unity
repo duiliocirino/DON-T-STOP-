@@ -33609,8 +33609,11 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 230b40703fa0c5b4cbb8bf1fc9eefa75, type: 3}
   - {fileID: 8300000, guid: 68699a239d30a94469bcbf348a3546a8, type: 3}
-  - {fileID: 8300000, guid: 934b0d3b6064c2d4686d9c1229360773, type: 3}
+  - {fileID: 8300000, guid: 8dc65c9040f5e9b468dc30544a663c55, type: 3}
   - {fileID: 8300000, guid: a1d3ae8a2ec631a419e71193da29a934, type: 3}
+  - {fileID: 8300000, guid: 547b519b43b1f1b429f3de92ca45c8fd, type: 3}
+  - {fileID: 8300000, guid: afd08749af4681a428ed486eed6db315, type: 3}
+  - {fileID: 8300000, guid: fd0c3bab4b91bf346b89f82de9e9e2bd, type: 3}
   source: {fileID: 1052596306}
 --- !u!1001 &1053820084
 PrefabInstance:

@@ -15,7 +15,7 @@ public class SoundChooser : MonoBehaviour
 
     public void PlayRandWithExclusion()
     {
-        int numClip = UnityEngine.Random.Range(0, clips.Length + 6);
+        int numClip = UnityEngine.Random.Range(0, clips.Length + 9);
         if (numClip < clips.Length)
         {
             var clip = clips[numClip];

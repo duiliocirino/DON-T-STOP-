@@ -64,6 +64,11 @@ public class PlaneLogic : MonoBehaviour
         isPlayerOn = true;
     }
 
+    private void OnCollisionStay(Collision other)
+    {
+        isPlayerOn = true;
+    }
+
     private void OnCollisionExit(Collision other)
     {
         isPlayerOn = false;
