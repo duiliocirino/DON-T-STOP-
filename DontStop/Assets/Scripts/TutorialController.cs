@@ -44,6 +44,14 @@ public class TutorialController : MonoBehaviour
         dialogBoxes[boxName].SetActive(false);
     }
 
+    public void disableAllDialogBoxes()
+    {
+        foreach (GameObject box in dialogBoxes.Values)
+        {
+            box.SetActive(false);
+        }
+    }
+
     public void showDialogBox(string boxName, float time)
     {
         StartCoroutine(_showDialogBox(boxName, time));

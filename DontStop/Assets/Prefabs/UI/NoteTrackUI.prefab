@@ -68,7 +68,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8246b49403903b04ebfdaac38ad23a25, type: 3}
+    m_Font: {fileID: 12800000, guid: a4ffea67aad2bea489ea09c1a5130462, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -721,6 +721,7 @@ MonoBehaviour:
     noteSpeed: 0
     initialDelay: 0
     pattern: []
+  usableBarFraction: 0.88235295
 --- !u!1 &3634357422718633830
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class Pause : MonoBehaviour
 {
     public static bool paused = false;
 
+    public static bool canBePaused = true;
+
     public GameObject menu;
 
     private float oldTimeScale;
@@ -20,7 +22,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canBePaused)
         {
             if (paused)
             {
