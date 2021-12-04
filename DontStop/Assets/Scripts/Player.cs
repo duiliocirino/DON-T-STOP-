@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
 
             float jumpForce = m_JumpPower;
             if (!RhythmControllerUI.instance.noteInHitArea) {
+                LifeBar.instance.BetterMiss();
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
                 badParticles.Play();

@@ -51,6 +51,7 @@ public class ThirdPersonUserControl : MonoBehaviour
     {
         if (transform.position.y < -5.0f)
         {
+            LifeBar.instance.WorstMiss();
             if (lastPlatformTouched != null)
             {
                 Vector3 newPos = lastObjectPosition + Vector3.up * 3;
