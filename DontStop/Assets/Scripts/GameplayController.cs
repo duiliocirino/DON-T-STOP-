@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GameplayController : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class GameplayController : MonoBehaviour
             {
                 TutorialController.istance.enableDialogBox("Tutorial"+i);
                 yield return new WaitForSecondsRealtime(0.2f);
-                yield return new WaitUntil(() => Input.GetMouseButtonDown(0) && !Pause.paused);
+                yield return new WaitUntil(() => (Input.GetMouseButtonDown(0) || CrossPlatformInputManager.GetButtonDown("Jump")) && !Pause.paused);
                 TutorialController.istance.disableDialogBox("Tutorial" + i);
             }
         }
@@ -92,17 +93,17 @@ public class GameplayController : MonoBehaviour
         distanceText.text = "  DISTANCE REACHED: " + (playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z) + "m";
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
-        StartCoroutine(makeTimeStop());
+        //StartCoroutine(makeTimeStop());
     }
 
-    private IEnumerator makeTimeStop()
-    {
-        float oldTimeScale = Time.timeScale;
-        Time.timeScale = 0;
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
-        Time.timeScale = oldTimeScale;
-        SceneManager.LoadScene("StageSelection");
-    }
+    //private IEnumerator makeTimeStop()
+    //{
+    //    float oldTimeScale = Time.timeScale;
+    //    Time.timeScale = 0;
+    //    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+    //    Time.timeScale = oldTimeScale;
+    //    SceneManager.LoadScene("MainMenu");
+    //}
 
 
     // Update is called once per frame

@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef53d208bd38b2a40ba5de98a280f71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteLife: 25
+  noteLife: 30
   firstBlink: 10
   secondBlink: 20
 --- !u!136 &4663643127960030385

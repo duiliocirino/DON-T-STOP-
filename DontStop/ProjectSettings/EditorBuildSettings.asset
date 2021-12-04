@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/WarningScene.unity
+    guid: e160999a07e27154cb0eda220632778b
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7733783f3dbe9584da97d95fcf31fd49
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 8a081ae3e2b8f3f4ebb1beac161d004f
-  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 3312a3d0cc84548419a519fa45953f14
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 8a081ae3e2b8f3f4ebb1beac161d004f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 09bd354250fa2e04c9b849c5e7cbb152, type: 2}
