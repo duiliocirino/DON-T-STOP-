@@ -5228,7 +5228,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 9d21a7428fa8088408ae48c84a36f808, type: 3}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: usableBarFraction
-      value: 0.8
+      value: 0.88235295
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
