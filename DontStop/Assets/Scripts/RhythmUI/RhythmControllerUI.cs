@@ -37,6 +37,8 @@ public class RhythmControllerUI : MonoBehaviour
     private int nextNotes = 0;
     private int previousNotes = -1;
     private bool pulsatingPlayed;
+
+    public float usableBarFraction = 15f/17f;
     private float barWidth;
 
     /*private float startOKTime = 0;
@@ -47,7 +49,7 @@ public class RhythmControllerUI : MonoBehaviour
     {
         instance = this;
         rectTransform = GetComponent<RectTransform>();
-        barWidth = rectTransform.sizeDelta.x * 15f / 17f;
+        barWidth = rectTransform.sizeDelta.x * usableBarFraction;
 
         //for now I generate the pattern map here;
         patternMap = GeneratePatternMap();
@@ -198,7 +200,7 @@ public class RhythmControllerUI : MonoBehaviour
             }
 
             //trySetNote();
-            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed < musicTime)
+            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
             {
                 //print("timeVector[timeVectorIndex] " + timeVector[timeVectorIndex]);
                 //print("(barWidth / 2) / speed " + (barWidth / 2) / speed);
