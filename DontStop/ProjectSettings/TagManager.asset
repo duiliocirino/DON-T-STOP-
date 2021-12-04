@@ -15,6 +15,8 @@ TagManager:
   - Creator
   - SecondCamera
   - Stadium
+  - TempCamera
+  - MenuMusic
   layers:
   - Default
   - TransparentFX

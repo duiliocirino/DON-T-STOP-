@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SceneController : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class SceneController : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         loadingScreen.SetActive(true);
+        if(sceneName == "MainMenu")
+        {
+            var videoPlayer = FindObjectOfType<VideoPlayer>();
+            var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
+            Destroy(music);
+            Destroy(videoPlayer);
+        }
+
         SceneManager.LoadScene(sceneName);
     }
 
@@ -34,6 +43,10 @@ public class SceneController : MonoBehaviour
     {
         if (stageButtonData.clickable)
         {
+            var videoPlayer = FindObjectOfType<VideoPlayer>();
+            var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
+            Destroy(music);
+            Destroy(videoPlayer);
             loadingScreen.SetActive(true);
             SceneManager.LoadScene(stageButtonData.scene);
         }

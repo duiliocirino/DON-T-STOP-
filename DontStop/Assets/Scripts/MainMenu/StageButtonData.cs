@@ -8,16 +8,16 @@ public class StageButtonData : MonoBehaviour
     public string scene;
     public bool clickable;
 
-    private GameObject lockBackground;
+    //private GameObject lockBackground;
     private Button button;
 
     // Start is called before the first frame update
     void Start()
     {
-        lockBackground = transform.Find("LockBackground").gameObject;
+        //lockBackground = transform.Find("LockBackground").gameObject;
         button = GetComponent<Button>();
 
-        lockBackground.SetActive(!clickable);
+        //lockBackground.SetActive(!clickable);
         button.enabled = clickable;
     }
 
@@ -26,7 +26,7 @@ public class StageButtonData : MonoBehaviour
     {
         if(clickable != button.enabled)
         {
-            lockBackground.SetActive(!clickable);
+            //lockBackground.SetActive(!clickable);
             button.enabled = clickable;
         }
     }
