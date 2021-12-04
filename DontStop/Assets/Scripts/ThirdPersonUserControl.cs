@@ -53,8 +53,7 @@ public class ThirdPersonUserControl : MonoBehaviour
         {
             if (lastPlatformTouched != null)
             {
-                Vector3 newPos = lastObjectPosition;
-                newPos.y = 13.5f;
+                Vector3 newPos = lastObjectPosition + Vector3.up * 3;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
@@ -62,8 +61,7 @@ public class ThirdPersonUserControl : MonoBehaviour
             {
                 // ATTENZIONE
                 Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
-                Vector3 newPos = lastObjectPosition;
-                newPos.y = 13.5f;
+                Vector3 newPos = lastObjectPosition + Vector3.up * 3;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
