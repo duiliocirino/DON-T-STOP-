@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7097122484730645657}
   - component: {fileID: -5310416525293680443}
   - component: {fileID: -4391183872228810898}
+  - component: {fileID: -3087603416590008935}
   m_Layer: 0
   m_Name: Plane6_broken
   m_TagString: SpecialPlatform
@@ -171,6 +172,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3087603416590008935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874577582285161064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b9c94a07213104b9f93fb91866a199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &944162181268986737
 BoxCollider:
   m_ObjectHideFlags: 0
