@@ -36,7 +36,7 @@ public class Creator : MonoBehaviour
             }
 
             if (!RhythmControllerUI.instance.noteInHitArea) {
-                // TODO: aggiungere malus
+                LifeBar.instance.WorstMiss();
             }
             else {
                 LifeBar.instance.PerfectHit();
