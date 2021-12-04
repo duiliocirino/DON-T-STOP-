@@ -16,6 +16,8 @@ public class GameplayController : MonoBehaviour
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
     public PlatformSelectionUI platformSelectionControls;
+    public Transform playerPosition;
+    public Text distanceText;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +87,7 @@ public class GameplayController : MonoBehaviour
     private void GameOver()
     {
         SetPlayerControlActive(false);
+        distanceText.text = "  DISTANCE REACHED: " + (int) playerPosition.position.z + "m";
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
         StartCoroutine(makeTimeStop());
