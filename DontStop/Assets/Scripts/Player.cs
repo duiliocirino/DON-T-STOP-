@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] SoundChooser goodJumpSound;
     [SerializeField] SoundChooser badJumpSound;
     [SerializeField] SoundChooser stepSounds;
+    [SerializeField] SoundChooser applauseSound;
 
 
     Rigidbody m_Rigidbody;
@@ -154,6 +155,7 @@ public class Player : MonoBehaviour
                 LifeBar.instance.PerfectHit();
                 particles.Play();
                 goodJumpSound.PlayRand();
+                applauseSound.PlayRandWithExclusion();
             } 
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);

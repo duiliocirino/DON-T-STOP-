@@ -13,6 +13,16 @@ public class SoundChooser : MonoBehaviour
         source.PlayOneShot(clip);
     }
 
+    public void PlayRandWithExclusion()
+    {
+        int numClip = UnityEngine.Random.Range(0, clips.Length + 6);
+        if (numClip < clips.Length)
+        {
+            var clip = clips[numClip];
+            source.PlayOneShot(clip);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

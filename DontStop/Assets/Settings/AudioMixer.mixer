@@ -69,6 +69,7 @@ AudioMixerController:
     - 640ddc8d630ebae41b0bfba94d55ff94
     - 64a2f8580bda5744e82b3b0a9a99d6d6
     - 863ae0baab630f245b3583fc44fbfe40
+    - 7d1b26d82a92ea946af33942900ae04c
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -85,6 +86,7 @@ AudioMixerGroupController:
   - {fileID: -6064067702198420889}
   - {fileID: 5178076070590930985}
   - {fileID: 6921202623517879733}
+  - {fileID: 4606519869755609808}
   m_Volume: bfcbbcd1645c2624fb36f963302a3f54
   m_Pitch: 5dd1f50cfa00d4746bca7e926a50430c
   m_Send: 00000000000000000000000000000000
@@ -119,10 +121,44 @@ AudioMixerSnapshotController:
   m_SnapshotID: 26d2cdd4a51a34a48aa9a1a997022d04
   m_FloatValues:
     bfcbbcd1645c2624fb36f963302a3f54: -0.08374829
+    72beeef369da1454e84d40885001a889: -16.035946
     2227815b144183f48a0075645dc12831: -10.867776
     4c748d3cb7d92f841afef5d6d02fac24: -5.7224774
     626ab01e95a5e084595bd5f46647f436: -19.928473
   m_TransitionOverrides: {}
+--- !u!244 &3890633843127317339
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 6b476ff8ed831074290d36c600a8634f
+  m_EffectName: Attenuation
+  m_MixLevel: 3e3be3e099b83d040b983be958387b9a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &4606519869755609808
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Public
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 7d1b26d82a92ea946af33942900ae04c
+  m_Children: []
+  m_Volume: 72beeef369da1454e84d40885001a889
+  m_Pitch: 2c06a862508b03342b174a881c7fa18d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 3890633843127317339}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &5178076070590930985
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
