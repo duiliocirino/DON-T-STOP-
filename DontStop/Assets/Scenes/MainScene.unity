@@ -5148,7 +5148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 283677317757255843, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1110013711953792266, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_LocalScale.x
@@ -5334,6 +5334,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5185406412982057000, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185406412982057000, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_Text
+      value: 14/20
+      objectReference: {fileID: 0}
     - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_Color.a
       value: 0.79607844
@@ -5354,6 +5366,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 8246b49403903b04ebfdaac38ad23a25, type: 3}
+    - target: {fileID: 5501760081184333503, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7813464087240084514, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
