@@ -86,8 +86,10 @@ public class GameplayController : MonoBehaviour
 
     private void GameOver()
     {
+        Pause.canBePaused = false;
         SetPlayerControlActive(false);
-        distanceText.text = "  DISTANCE REACHED: " + (int) playerPosition.position.z + "m";
+        TutorialController.istance.disableAllDialogBoxes();
+        distanceText.text = "  DISTANCE REACHED: " + (playerPosition.position.z<0 ? 0 : (int)playerPosition.position.z) + "m";
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
         StartCoroutine(makeTimeStop());
@@ -97,7 +99,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        yield return new WaitUntil(() => Input.anyKeyDown);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
         Time.timeScale = oldTimeScale;
         SceneManager.LoadScene("StageSelection");
     }
