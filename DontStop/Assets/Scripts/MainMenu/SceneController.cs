@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
         loadingScreen.SetActive(true);
         if(sceneName == "MainMenu")
         {
-            var videoPlayer = FindObjectOfType<VideoPlayer>();
+            var videoPlayer = GameObject.FindGameObjectsWithTag("MenuVideo")[0];
             var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
             Destroy(music);
             Destroy(videoPlayer);
@@ -39,16 +39,25 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void LoadStage(StageButtonData stageButtonData)
+    public void LoadStage()
+    {
+        var videoPlayer = FindObjectOfType<VideoPlayer>();
+        var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
+        Destroy(music);
+        Destroy(videoPlayer);
+        loadingScreen.SetActive(true);
+        string scene = SelectedStage.istance.selectedStage;
+        Destroy(SelectedStage.istance.gameObject);
+        SceneManager.LoadScene(scene);
+    }
+
+    public void LoadPlayerSelectionScreen(StageButtonData stageButtonData)
     {
         if (stageButtonData.clickable)
         {
-            var videoPlayer = FindObjectOfType<VideoPlayer>();
-            var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
-            Destroy(music);
-            Destroy(videoPlayer);
             loadingScreen.SetActive(true);
-            SceneManager.LoadScene(stageButtonData.scene);
+            SelectedStage.istance.selectedStage = stageButtonData.scene;
+            SceneManager.LoadScene("PlayerSelectionScene");
         }
     }
 
