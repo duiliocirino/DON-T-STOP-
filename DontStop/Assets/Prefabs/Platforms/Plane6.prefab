@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformSize: 1
   isPlayerOn: 0
-  planeLife: 5
+  planeLife: 7
   missPenalty: 0.5
   fallingPlatformParticles: {fileID: 2368675856927938976}
   initialPosition: {x: 0, y: 0, z: 0}
@@ -191,7 +191,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5021910704428768889}
-  m_Material: {fileID: 13400000, guid: 08841d0ee403a9a4094cfecc4f07a897, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

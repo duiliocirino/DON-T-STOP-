@@ -99,7 +99,7 @@ public class PlaneHandler : MonoBehaviour
     public void AddEmptyTiles(Vector3 position)
     {
         float zspacing = spacing;
-        if (tutorialPresent && position.z == platformInTutorial*spacing)
+        if (tutorialPresent && Math.Abs(position.z - platformInTutorial*spacing) < TOLERANCE)
             zspacing += platformSkippedAtTutorialEnd*spacing - 10;
 
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)

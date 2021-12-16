@@ -50,9 +50,9 @@ public class PlatformSelectionUI : MonoBehaviour
         //TODO switch input system
         if(selectedSlotIndex < 0 || selectedSlotIndex >= slots.Count)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
-            if (Input.GetKeyDown(KeyCode.Alpha2)) selectedSlotIndex = 1;
-            if (Input.GetKeyDown(KeyCode.Alpha3)) selectedSlotIndex = 2;
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) selectedSlotIndex = 0;
+            if (Input.GetKeyDown(KeyCode.DownArrow)) selectedSlotIndex = 1;
+            if (Input.GetKeyDown(KeyCode.RightArrow)) selectedSlotIndex = 2;
 
             if(selectedSlotIndex >= 0 && selectedSlotIndex < slots.Count)
             {
@@ -67,13 +67,13 @@ public class PlatformSelectionUI : MonoBehaviour
             switch (selectedSlotIndex)
             {
                 case 0:
-                    if (Input.GetKeyUp(KeyCode.Alpha1)) selectedSlotIndex = -1;
+                    if (Input.GetKeyUp(KeyCode.LeftArrow)) selectedSlotIndex = -1;
                     break;
                 case 1:
-                    if (Input.GetKeyUp(KeyCode.Alpha2)) selectedSlotIndex = -1;
+                    if (Input.GetKeyUp(KeyCode.DownArrow)) selectedSlotIndex = -1;
                     break;
                 case 2:
-                    if (Input.GetKeyUp(KeyCode.Alpha3)) selectedSlotIndex = -1;
+                    if (Input.GetKeyUp(KeyCode.RightArrow)) selectedSlotIndex = -1;
                     break;
                 default: break;
             }

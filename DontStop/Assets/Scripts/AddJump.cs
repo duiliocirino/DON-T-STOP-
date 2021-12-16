@@ -19,6 +19,6 @@ public class AddJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        other.rigidbody.AddForce(Vector3.up * 50);
+        other.rigidbody.AddForce(Vector3.up * 2800);
     }
 }
