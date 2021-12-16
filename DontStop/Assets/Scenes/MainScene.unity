@@ -32455,8 +32455,8 @@ MonoBehaviour:
   sectionSize: 200
   currentZ: 620
   placingDistance: 800
-  playerTransform: {fileID: 1996549365}
-  cameraTransform: {fileID: 1996549365}
+  playerTransform: {fileID: 1052596294}
+  cameraTransform: {fileID: 1885842107}
   preplacedLevelSections:
   - {fileID: 7661103378257087332}
   - {fileID: 4914458465844458578}
@@ -50135,8 +50135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f772542a37d3f7649b218100a4fca366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorial: 1
-  gameEnds: 1
+  tutorial: 0
+  gameEnds: 0
 --- !u!4 &1546256697
 Transform:
   m_ObjectHideFlags: 0
