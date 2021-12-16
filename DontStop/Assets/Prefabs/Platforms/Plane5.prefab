@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTime: 3
-  _offset: {x: 0, y: 0, z: 7}
+  _offset: {x: 0, y: 0, z: 6}
 --- !u!1 &4762038984507120930
 GameObject:
   m_ObjectHideFlags: 0
