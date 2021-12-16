@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTime: 3
-  _offset: {x: 0, y: 0, z: 7}
+  _offset: {x: 0, y: 0, z: 6}
 --- !u!54 &3679571797803137407
 Rigidbody:
   m_ObjectHideFlags: 0
