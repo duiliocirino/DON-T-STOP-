@@ -9,9 +9,13 @@ public class Options : MonoBehaviour
     public bool tutorial;
     public bool gameEnds;
 
+    public string oldScene = "MainMenu";
+    public int graphicsQuality = 1;
+
     private void Awake()
     {
         istance = this;
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     // Start is called before the first frame update
