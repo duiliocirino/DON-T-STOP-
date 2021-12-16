@@ -37,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void TryPlaceLevel()
     {
-        if(Math.Abs(currentZ- playerTransform.position.z) < placingDistance)
+        if(Math.Abs(currentZ - playerTransform.position.z) < placingDistance)
         {
             int sectionNumber = UnityEngine.Random.Range(0, levelSections.Length);
             placedSections.Enqueue(Instantiate(levelSections[sectionNumber], new Vector3(20, -12.6f, currentZ), Quaternion.identity));
@@ -49,7 +49,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (placedSections.Count != 0 && placedSections.Peek().transform.position.z < cameraTransform.position.z - sectionSize / 2)
         {
-            //Cocnurrency problem: PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
+            PlaneHandler.instance.RemoveOldPlanes(cameraTransform.position.z);
             Destroy(placedSections.Dequeue());
         }
     }

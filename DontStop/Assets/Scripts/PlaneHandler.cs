@@ -126,9 +126,14 @@ public class PlaneHandler : MonoBehaviour
 
     public void RemoveOldPlanes(float z)
     {
-        var toRemove = platformTiles.Where(platform => platform.transform.position.z < z);
-        foreach (GameObject platform in toRemove)
+        List<GameObject> toRemove = platformTiles.Where(platform => platform.transform.position.z < z).ToList();
+        print(toRemove.Count());
+        for (int i = toRemove.Count()-1; i>=0; i--)
+        {
+            GameObject platform = toRemove[i];
+            toRemove.RemoveAt(i);
             RemovePlatform(platform);
+        }
     }
 
     /**
