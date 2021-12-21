@@ -50,7 +50,7 @@ public class NotesHandler : MonoBehaviour
 
     private void OnEnoughNotesCollected()
     {
-        TutorialController.istance.showDialogBox("StageUnlocked", 3f);
+        //TutorialController.instance.showDialogBox("StageUnlocked", 3f);
     }
 
     void ResetProbability()

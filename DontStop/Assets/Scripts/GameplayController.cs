@@ -33,26 +33,103 @@ public class GameplayController : MonoBehaviour
 
     private IEnumerator OnGameStart()
     {
-        //Initialize overlay
-        screenBlurr.gameObject.SetActive(true);
-        countdown.gameObject.SetActive(false);
-        go.gameObject.SetActive(false);
-        gameOver.SetActive(false);
-
-        SetPlayerControlActive(false);
-
         //make music + rhythm start
         RhythmControllerUI.instance.StartNotes();
+        
+        if (Options.istance.tutorial)
+        {
+            //Initialize overlay
+            screenBlurr.gameObject.SetActive(true);
+            countdown.gameObject.SetActive(false);
+            go.gameObject.SetActive(false);
+            gameOver.SetActive(false);
 
-        //show tutorial
-        if (Options.istance.tutorial) {
-            for (int i = 1; i <= 6; i++)
+            //Initialise tutorial
+            SetPlayerControlActive(false);
+            TutorialController.instance.disableAllDialogBoxes();
+
+            TutorialController.instance.enableDialogBox(0);
+            yield return new WaitForSecondsRealtime(3f);
+            TutorialController.instance.disableDialogBox(0);
+
+            TutorialController.instance.enableDialogBox(1);
+            yield return new WaitForSecondsRealtime(8f);
+            TutorialController.instance.disableDialogBox(1);
+
+            TutorialController.instance.enableDialogBox(2);
+            yield return new WaitForSecondsRealtime(2f);
+            SetPlayerControlActive(true);
+            screenBlurr.gameObject.SetActive(false);
+            yield return new WaitUntil(() =>
+                (CrossPlatformInputManager.GetButtonDown("Horizontal") ||
+                 CrossPlatformInputManager.GetButtonDown("Vertical"))
+                && !Pause.paused);
+            yield return new WaitForSecondsRealtime(2f);
+            SetPlayerControlActive(false);
+            TutorialController.instance.disableDialogBox(2);
+
+            screenBlurr.gameObject.SetActive(true);
+            TutorialController.instance.enableDialogBox(14);
+            yield return new WaitForSecondsRealtime(2.5f);
+            TutorialController.instance.disableDialogBox(14);
+
+            TutorialController.instance.enableDialogBox(3);
+            yield return new WaitForSecondsRealtime(2f);
+            SetPlayerControlActive(true);
+            screenBlurr.gameObject.SetActive(false);
+            StartCoroutine(CheckFirstGoodJump());
+            StartCoroutine(CheckFirstBadJump());
+            yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
+            yield return new WaitForSecondsRealtime(4f);
+            SetPlayerControlActive(false);
+            TutorialController.instance.disableDialogBox(3);
+
+            screenBlurr.gameObject.SetActive(true);
+            TutorialController.instance.enableDialogBox(4);
+            yield return new WaitForSecondsRealtime(8f);
+            TutorialController.instance.disableDialogBox(4);
+
+            bool platformCreated = false;
+            StartCoroutine(CheckFirstGoodCreation());
+            StartCoroutine(CheckFirstBadCreation());
+            while (!platformCreated)
             {
-                TutorialController.istance.enableDialogBox("Tutorial"+i);
+                TutorialController.instance.enableDialogBox(5);
                 yield return new WaitForSecondsRealtime(0.2f);
-                yield return new WaitUntil(() => (Input.GetMouseButtonDown(0) || CrossPlatformInputManager.GetButtonDown("Jump")) && !Pause.paused);
-                TutorialController.istance.disableDialogBox("Tutorial" + i);
+                screenBlurr.gameObject.SetActive(false);
+                yield return new WaitUntil(() =>
+                    (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) ||
+                     Input.GetKeyDown(KeyCode.RightArrow)) && !Pause.paused);
+                TutorialController.instance.disableDialogBox(5);
+
+                TutorialController.instance.enableDialogBox(6);
+                yield return new WaitUntil(() =>
+                    (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
+                     Input.GetKeyUp(KeyCode.RightArrow) || Input.GetMouseButtonDown(0)) && !Pause.paused);
+                if (Input.GetMouseButtonDown(0))
+                    platformCreated = true;
+                TutorialController.instance.disableDialogBox(6);
             }
+
+            screenBlurr.gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(4f);
+
+            TutorialController.instance.enableDialogBox(13);
+            yield return new WaitForSecondsRealtime(6.5f);
+            TutorialController.instance.disableDialogBox(13);
+            
+            StartCoroutine(CheckFirstFall());
+        }
+
+        screenBlurr.gameObject.SetActive(false);
+        SetPlayerControlActive(true);
+        LifeBar.instance.StartDeplition();
+        
+        //TODO: gestire 9 e highlights
+
+        /*//show tutorial
+        if (Options.istance.tutorial) {
+            
         }
 
         //show countdown
@@ -64,18 +141,76 @@ public class GameplayController : MonoBehaviour
             countdown.gameObject.SetActive(false);
             yield return new WaitForSecondsRealtime(0.5f);
         }
+        
         go.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
-
         go.gameObject.SetActive(false);
-        screenBlurr.gameObject.SetActive(false);
+        */
+    }
 
-        SetPlayerControlActive(true);
-        TutorialController.istance.enableDialogBox("TutorialJumper");
-        TutorialController.istance.enableDialogBox("TutorialCreator");
+    IEnumerator CheckFirstFall()
+    {
+        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
+                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+                                         !IsDialogActive() && !Pause.paused);
+        TutorialController.instance.enableDialogBox(10);
+        yield return new WaitForSecondsRealtime(3.5f);
+        TutorialController.instance.disableDialogBox(10);
+    }
+    
+    IEnumerator CheckFirstGoodJump()
+    {
+        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
+                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+                                         !Pause.paused);
+        TutorialController.instance.disableDialogBox(3);
+        TutorialController.instance.enableDialogBox(9);
+        yield return new WaitForSecondsRealtime(3.5f);
+        TutorialController.instance.disableDialogBox(9);
+    }
 
-        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea);
-        LifeBar.instance.StartDeplition();
+    IEnumerator CheckFirstBadJump()
+    {
+        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
+                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+                                         !Pause.paused);
+        TutorialController.instance.disableDialogBox(3);
+        TutorialController.instance.enableDialogBox(10);
+        yield return new WaitForSecondsRealtime(3.5f);
+        TutorialController.instance.disableDialogBox(10);
+    }
+
+    IEnumerator CheckFirstGoodCreation()
+    {
+        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
+                                         (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
+                                         !Pause.paused);
+        TutorialController.instance.disableDialogBox(6);
+        TutorialController.instance.enableDialogBox(11);
+        yield return new WaitForSecondsRealtime(3.5f);
+        TutorialController.instance.disableDialogBox(11);
+    }
+
+    IEnumerator CheckFirstBadCreation()
+    {
+        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
+                                         (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
+                                         !Pause.paused);
+        TutorialController.instance.disableDialogBox(6);
+        TutorialController.instance.enableDialogBox(12);
+        yield return new WaitForSecondsRealtime(3.5f);
+        TutorialController.instance.disableDialogBox(12);
+    }
+
+    private bool IsDialogActive()
+    {
+        foreach (var dialogBox in TutorialController.instance.dialogBoxes)
+        {
+            if (dialogBox.activeSelf) return true;
+        }
+        return false;
     }
 
     private void SetPlayerControlActive(bool active)
@@ -89,7 +224,7 @@ public class GameplayController : MonoBehaviour
     {
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
-        TutorialController.istance.disableAllDialogBoxes();
+        TutorialController.instance.disableAllDialogBoxes();
         distanceText.text = "  DISTANCE REACHED: " + (playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z) + "m";
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);

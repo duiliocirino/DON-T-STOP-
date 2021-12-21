@@ -31,7 +31,7 @@ public class Creator : MonoBehaviour
         {
             if (firstPlace)
             {
-                TutorialController.istance.disableDialogBox("TutorialCreator");
+                //TutorialController.instance.disableDialogBox("TutorialCreator");
                 firstPlace = false;
             }
 

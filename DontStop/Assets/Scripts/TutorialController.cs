@@ -5,21 +5,17 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    public static TutorialController istance { get; private set; }
+    public static TutorialController instance { get; private set; }
 
     public Camera builderCamera;
 
-    private Dictionary<string, GameObject> dialogBoxes = new Dictionary<string, GameObject>();
+    public List<GameObject> dialogBoxes = new List<GameObject>();
     private RectTransform rectTransform;
 
     private void Awake()
     {
-        istance = this;
+        instance = this;
         rectTransform = GetComponent<RectTransform>();
-
-        foreach (Transform child in transform)
-            dialogBoxes.Add(child.name, child.gameObject);
-
     }
 
     // Start is called before the first frame update
@@ -34,33 +30,33 @@ public class TutorialController : MonoBehaviour
         
     }
 
-    public void enableDialogBox(string boxName)
+    public void enableDialogBox(int i)
     {
-        dialogBoxes[boxName].SetActive(true);
+        dialogBoxes[i].SetActive(true);
     }
 
-    public void disableDialogBox(string boxName)
+    public void disableDialogBox(int i)
     {
-        dialogBoxes[boxName].SetActive(false);
+        dialogBoxes[i].SetActive(false);
     }
 
     public void disableAllDialogBoxes()
     {
-        foreach (GameObject box in dialogBoxes.Values)
+        foreach (GameObject box in dialogBoxes)
         {
             box.SetActive(false);
         }
     }
 
-    public void showDialogBox(string boxName, float time)
+    public void showDialogBox(int i, float time)
     {
-        StartCoroutine(_showDialogBox(boxName, time));
+        StartCoroutine(_showDialogBox(i, time));
     }
 
-    private IEnumerator _showDialogBox(string boxName, float time)
+    private IEnumerator _showDialogBox(int i, float time)
     {
-        enableDialogBox(boxName);
+        enableDialogBox(i);
         yield return new WaitForSeconds(time);
-        disableDialogBox(boxName);
+        disableDialogBox(i);
     }
 }

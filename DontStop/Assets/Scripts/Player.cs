@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
         {
             if (firstJump)
             {
-                TutorialController.istance.disableDialogBox("TutorialJumper");
+                //TutorialController.instance.disableDialogBox("TutorialJumper");
                 firstJump = false;
             }
 

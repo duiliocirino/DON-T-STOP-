@@ -24,7 +24,7 @@ public class BadPlatformTutorial : MonoBehaviour
         {
             if (other.tag.Equals("Player"))
             {
-                TutorialController.istance.showDialogBox("BadPlatformTutorial", 10);
+                //TutorialController.instance.showDialogBox("BadPlatformTutorial", 10);
                 alreadyShown = true;
             }
         }
