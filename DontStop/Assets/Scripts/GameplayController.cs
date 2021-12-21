@@ -53,7 +53,7 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableDialogBox(0);
 
             TutorialController.instance.enableDialogBox(1);
-            yield return new WaitForSecondsRealtime(8f);
+            yield return new WaitForSecondsRealtime(10f);
             TutorialController.instance.disableDialogBox(1);
 
             TutorialController.instance.enableDialogBox(2);
@@ -80,10 +80,12 @@ public class GameplayController : MonoBehaviour
             StartCoroutine(CheckFirstGoodJump());
             StartCoroutine(CheckFirstBadJump());
             yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
-            yield return new WaitForSecondsRealtime(4f);
+            yield return new WaitForSecondsRealtime(7f);
             SetPlayerControlActive(false);
             TutorialController.instance.disableDialogBox(3);
 
+            TutorialController.instance.disableAllDialogBoxes();
+            
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(4);
             yield return new WaitForSecondsRealtime(8f);
@@ -92,6 +94,8 @@ public class GameplayController : MonoBehaviour
             bool platformCreated = false;
             StartCoroutine(CheckFirstGoodCreation());
             StartCoroutine(CheckFirstBadCreation());
+            SetCreatorControlActive(true);
+            
             while (!platformCreated)
             {
                 TutorialController.instance.enableDialogBox(5);
@@ -107,12 +111,15 @@ public class GameplayController : MonoBehaviour
                     (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
                      Input.GetKeyUp(KeyCode.RightArrow) || Input.GetMouseButtonDown(0)) && !Pause.paused);
                 if (Input.GetMouseButtonDown(0))
+                {
                     platformCreated = true;
+                }
+
                 TutorialController.instance.disableDialogBox(6);
             }
 
             screenBlurr.gameObject.SetActive(true);
-            yield return new WaitForSecondsRealtime(4f);
+            yield return new WaitForSecondsRealtime(7f);
 
             TutorialController.instance.enableDialogBox(13);
             yield return new WaitForSecondsRealtime(6.5f);
@@ -150,33 +157,38 @@ public class GameplayController : MonoBehaviour
 
     IEnumerator CheckFirstFall()
     {
-        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
-                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+        yield return new WaitUntil(() => GameObject.FindWithTag("Player").transform.position.y < -4f && 
                                          !IsDialogActive() && !Pause.paused);
-        TutorialController.instance.enableDialogBox(10);
+        TutorialController.instance.enableDialogBox(8);
         yield return new WaitForSecondsRealtime(3.5f);
-        TutorialController.instance.disableDialogBox(10);
+        TutorialController.instance.disableDialogBox(8);
     }
     
     IEnumerator CheckFirstGoodJump()
     {
         yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
-                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+                                         CrossPlatformInputManager.GetButtonDown("Jump") &&
+                                         GameObject.FindWithTag("Player").GetComponent<Animator>().GetBool("OnGround") &&
+                                         GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().isActiveAndEnabled &&
                                          !Pause.paused);
         TutorialController.instance.disableDialogBox(3);
+        TutorialController.instance.disableDialogBox(10);
         TutorialController.instance.enableDialogBox(9);
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(6.5f);
         TutorialController.instance.disableDialogBox(9);
     }
 
     IEnumerator CheckFirstBadJump()
     {
         yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
-                                         CrossPlatformInputManager.GetButtonDown("Jump") && 
+                                         CrossPlatformInputManager.GetButtonDown("Jump") &&
+                                         GameObject.FindWithTag("Player").GetComponent<Animator>().GetBool("OnGround") &&
+                                         GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().isActiveAndEnabled &&
                                          !Pause.paused);
         TutorialController.instance.disableDialogBox(3);
+        TutorialController.instance.disableDialogBox(9);
         TutorialController.instance.enableDialogBox(10);
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(6.5f);
         TutorialController.instance.disableDialogBox(10);
     }
 
@@ -187,8 +199,9 @@ public class GameplayController : MonoBehaviour
                                           Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
                                          !Pause.paused);
         TutorialController.instance.disableDialogBox(6);
+        TutorialController.instance.disableDialogBox(12);
         TutorialController.instance.enableDialogBox(11);
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(6.5f);
         TutorialController.instance.disableDialogBox(11);
     }
 
@@ -199,8 +212,9 @@ public class GameplayController : MonoBehaviour
                                           Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
                                          !Pause.paused);
         TutorialController.instance.disableDialogBox(6);
+        TutorialController.instance.disableDialogBox(11);
         TutorialController.instance.enableDialogBox(12);
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(6.5f);
         TutorialController.instance.disableDialogBox(12);
     }
 
@@ -216,6 +230,21 @@ public class GameplayController : MonoBehaviour
     private void SetPlayerControlActive(bool active)
     {
         jumperControls.enabled = active;
+        if (active == false)
+        {
+            var player = GameObject.FindWithTag("Player");
+            var animator = player.GetComponent<Animator>();
+            animator.SetFloat("Forward", 0);
+            animator.SetFloat("Turn", 0);
+            animator.SetFloat("Jump", 0);
+            animator.SetFloat("JumpLeg", 0);
+            animator.SetBool("OnGround", true);
+        }
+        SetCreatorControlActive(active);
+    }
+
+    private void SetCreatorControlActive(bool active)
+    {
         creatorControls.enabled = active;
         platformSelectionControls.enabled = active;
     }
@@ -239,7 +268,6 @@ public class GameplayController : MonoBehaviour
     //    Time.timeScale = oldTimeScale;
     //    SceneManager.LoadScene("MainMenu");
     //}
-
 
     // Update is called once per frame
     void Update()
