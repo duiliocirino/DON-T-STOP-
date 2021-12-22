@@ -15,8 +15,6 @@ public class AssignCamera : MonoBehaviour
         if (videoPlayer.targetCamera == null)
                 videoPlayer.targetCamera = videoCam;
 
-        
-        
     }
 
     // Update is called once per frame
