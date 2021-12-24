@@ -19,6 +19,12 @@ public class GameplayController : MonoBehaviour
     public PlatformSelectionUI platformSelectionControls;
     public Transform playerPosition;
     public Text distanceText;
+    public NotesHandler notesHandler;
+
+    private void Awake()
+    {
+        notesHandler.onEnoughNotesCollected.Add(SaveData);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -254,10 +260,21 @@ public class GameplayController : MonoBehaviour
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
-        distanceText.text = "  DISTANCE REACHED: " + (playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z) + "m";
+        distanceText.text = "  DISTANCE REACHED: " + DistanceReached() + "m";
+        SaveData();
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
         //StartCoroutine(makeTimeStop());
+    }
+
+    private int DistanceReached()
+    {
+        return playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z;
+    }
+
+    public void SaveData()
+    {
+        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
     }
 
     //private IEnumerator makeTimeStop()
