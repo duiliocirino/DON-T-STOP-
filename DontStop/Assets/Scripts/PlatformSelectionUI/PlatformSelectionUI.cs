@@ -100,9 +100,16 @@ public class PlatformSelectionUI : MonoBehaviour
         }
 
         GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
-        GameObject nextPlatform = pool.GetNext();
 
-        slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
+        if (savedPlatforms == null)
+        {
+            GameObject nextPlatform = pool.GetNext();
+            slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
+        }
+        else
+        {
+            RestorePlatforms();
+        }
         return platform;
     }
 
@@ -111,17 +118,32 @@ public class PlatformSelectionUI : MonoBehaviour
         return selectedSlotIndex == -1 ? 0 : platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize;
     }
 
+    private GameObject[] savedPlatforms = null;
     public GameObject PlaceSelectedPlatformAndPutTrampolineNext()
     {
-        if (selectedSlotIndex < 0 || selectedSlotIndex >= slots.Count)
+        GameObject platform = PlaceAndChangeSelectedPlatform();
+        GameObject trampoline = platformPrefabs[5];
+
+        savedPlatforms = new GameObject[slotScripts.Count];
+        for(int i=0; i<slotScripts.Count; i++)
         {
-            return null;
+            savedPlatforms[i] = slotScripts[i].GetPlatform();
+            slotScripts[i].SetPlatform(trampoline);
         }
 
-        GameObject platform = slotScripts[selectedSlotIndex].GetPlatform();
-        GameObject nextPlatform = platformPrefabs[5];
-
-        slotScripts[selectedSlotIndex].SetPlatform(nextPlatform);
         return platform;
     }
+
+    private void RestorePlatforms()
+    {
+        for (int i = 0; i < slotScripts.Count; i++)
+        {
+            slotScripts[i].SetPlatform(savedPlatforms[i]);
+        }
+
+        savedPlatforms = null;
+    }
+
 }
+
+
