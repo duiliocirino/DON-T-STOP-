@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02df5e98c64798f4bae0f97b8f923978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformPrefabs: []
   slots:
   - {fileID: 5642540024035617330}
   - {fileID: 4624716705066042597}
@@ -224,11 +225,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 710191430984871773, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 710191430984871773, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 710191430984871773, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -352,11 +353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7156941264176583759, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 280
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 7156941264176583759, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7156941264176583759, guid: 3c1875d10864b314c9eee5a61a0a6296, type: 3}
       propertyPath: m_AnchoredPosition.y
