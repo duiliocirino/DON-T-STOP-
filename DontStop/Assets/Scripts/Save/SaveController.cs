@@ -10,7 +10,7 @@ public class SaveController : MonoBehaviour
 
     public SaveData save;
 
-    private string saveFilePath = Application.persistentDataPath + "/save.dat";
+    private string saveFilePath;
 
     private void Awake()
     {
@@ -23,6 +23,8 @@ public class SaveController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        saveFilePath = Application.persistentDataPath + "/save.dat";
 
         if (File.Exists(saveFilePath))
         {
