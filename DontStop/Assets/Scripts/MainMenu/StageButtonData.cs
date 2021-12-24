@@ -5,46 +5,33 @@ using UnityEngine.UI;
 
 public class StageButtonData : MonoBehaviour
 {
-    public string scene;
-    public bool clickable;
+    public int stageNumber = 0;
+    public string scene = "MainScene";
 
     //private GameObject lockBackground;
     private Button button;
-    private Image buttonImage;
-    private Color activeColor = new Color(1, 1, 1);
-    private Color inactiveColor = new Color(0.66f, 0.66f, 0.66f);
+
+    private void Awake()
+    {
+        //lockBackground = transform.Find("LockBackground").gameObject;
+        button = GetComponent<Button>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //lockBackground = transform.Find("LockBackground").gameObject;
-        button = GetComponent<Button>();
-        buttonImage = GetComponent<Image>();
-
         //lockBackground.SetActive(!clickable);
-        setInterractable(clickable);
+        setInterractable(SaveController.istance.save.levelDatas[stageNumber].unlocked);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(clickable != button.interactable)
-        {
-            //lockBackground.SetActive(!clickable);
-            setInterractable(clickable);
-        }
+
     }
 
     private void setInterractable(bool b)
     {
         button.interactable = b;
-        if (clickable)
-        {
-            buttonImage.color = activeColor;
-        }
-        else
-        {
-            buttonImage.color = inactiveColor;
-        }
     }
 }

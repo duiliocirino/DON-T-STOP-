@@ -10,6 +10,7 @@ public class Pause : MonoBehaviour
     public static bool canBePaused = true;
 
     public GameObject menu;
+    public GameplayController gameplayController;
 
     private float oldTimeScale;
 
@@ -57,6 +58,7 @@ public class Pause : MonoBehaviour
     public void GoToMainMenu()
     {
         OnResume();
+        gameplayController.SaveData();
         SceneManager.LoadScene("MainMenu");
     }
 }

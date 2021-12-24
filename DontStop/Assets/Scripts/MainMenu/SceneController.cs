@@ -47,18 +47,15 @@ public class SceneController : MonoBehaviour
         Destroy(videoPlayer);
         loadingScreen.SetActive(true);
         string scene = SelectedStage.istance.selectedStage;
-        Destroy(SelectedStage.istance.gameObject);
         SceneManager.LoadScene(scene);
     }
 
     public void LoadPlayerSelectionScreen(StageButtonData stageButtonData)
     {
-        if (stageButtonData.clickable)
-        {
-            loadingScreen.SetActive(true);
-            SelectedStage.istance.selectedStage = stageButtonData.scene;
-            SceneManager.LoadScene("PlayerSelectionScene");
-        }
+        loadingScreen.SetActive(true);
+        SelectedStage.istance.selectedStage = stageButtonData.scene;
+        SelectedStage.istance.stageNumber = stageButtonData.stageNumber;
+        SceneManager.LoadScene("PlayerSelectionScene");
     }
 
     public void ExitApplication()

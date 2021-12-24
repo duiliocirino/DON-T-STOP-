@@ -19,6 +19,8 @@ public class NotesHandler : MonoBehaviour
     public float timeSinceLastNote;
     [SerializeField] AudioSource noteTakenSound;
 
+    public List<Action> onEnoughNotesCollected = new List<Action>();
+
     public Text UI;
 
     public float slope = 10000;
@@ -51,6 +53,8 @@ public class NotesHandler : MonoBehaviour
     private void OnEnoughNotesCollected()
     {
         //TutorialController.instance.showDialogBox("StageUnlocked", 3f);
+        foreach (Action a in onEnoughNotesCollected)
+            a.Invoke();
     }
 
     void ResetProbability()
