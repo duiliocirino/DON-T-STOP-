@@ -12,6 +12,7 @@ public class PatternMap
     public float BPM;
     public float noteSpeed;
     public float initialDelay;
+    public int numberOfNotesSkippedOnFirstPlay;
     public List<BeatPattern> pattern;
 
     public PatternMap()
