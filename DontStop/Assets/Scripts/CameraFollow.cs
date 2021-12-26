@@ -22,7 +22,8 @@ public class CameraFollow : MonoBehaviour
     {
         var playerPosition = _player.position;
         _cameraPosition.x = playerPosition.x + _initialOffset.x;
+        _cameraPosition.y = transform.position.y;
         _cameraPosition.z = playerPosition.z + _initialOffset.z;
-        transform.position = new Vector3(_cameraPosition.x, transform.position.y, _cameraPosition.z);
+        transform.position = _cameraPosition;
     }
 }

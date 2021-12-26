@@ -153,7 +153,7 @@ public class PlaneHandler : MonoBehaviour
         List<GameObject> temp = new List<GameObject>();
         
         foreach (var tile in emptyTiles.Where(
-            tile => tile.transform.position.z == position.z))
+            tile => Math.Abs(tile.transform.position.z - position.z) < TOLERANCE))
         {
             temp.Add(tile);
         }

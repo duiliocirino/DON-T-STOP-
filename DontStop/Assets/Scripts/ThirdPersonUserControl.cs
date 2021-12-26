@@ -47,7 +47,7 @@ public class ThirdPersonUserControl : MonoBehaviour
         HandleRespawn();
     }
 
-    void HandleRespawn()
+    public void HandleRespawn()
     {
         if (transform.position.y < -5.0f)
         {

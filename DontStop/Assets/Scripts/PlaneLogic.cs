@@ -7,7 +7,7 @@ public class PlaneLogic : MonoBehaviour
 {
     public int platformSize = 1;
     public bool isPlayerOn = false;
-    [SerializeField] protected float planeLife = 5f;
+    [SerializeField] public float planeLife = 5f;
     [SerializeField] protected float missPenalty = 0.5f;
     [SerializeField] ParticleSystem fallingPlatformParticles;
     protected float timeOn = 0f;

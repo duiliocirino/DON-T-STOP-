@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,8 @@ public class GameplayController : MonoBehaviour
     public Transform playerPosition;
     public Text distanceText;
     public NotesHandler notesHandler;
+    public GameObject initialPlatform;
+    public GameObject lastPlatformTouched;
 
     private void Awake()
     {
@@ -49,17 +52,20 @@ public class GameplayController : MonoBehaviour
             countdown.gameObject.SetActive(false);
             go.gameObject.SetActive(false);
             gameOver.SetActive(false);
+            //RhythmControllerUI.instance.hitTime = 3;
 
             //Initialise tutorial
             SetPlayerControlActive(false);
             TutorialController.instance.disableAllDialogBoxes();
 
             TutorialController.instance.enableDialogBox(0);
-            yield return new WaitForSecondsRealtime(3f);
+            //yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(0);
-
+            
             TutorialController.instance.enableDialogBox(1);
-            yield return new WaitForSecondsRealtime(10f);
+            //yield return new WaitForSecondsRealtime(6f);
+            yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(1);
 
             TutorialController.instance.enableDialogBox(2);
@@ -75,31 +81,98 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableDialogBox(2);
 
             screenBlurr.gameObject.SetActive(true);
-            TutorialController.instance.enableDialogBox(14);
+            TutorialController.instance.enableDialogBox(15);
             yield return new WaitForSecondsRealtime(2.5f);
-            TutorialController.instance.disableDialogBox(14);
+            TutorialController.instance.disableDialogBox(15);
 
+            RhythmControllerUI.instance.noteInHitArea = true;
+            var platform = PlaneHandler.instance.PlatformPrefabs[0];
+            platform.GetComponent<PlaneLogic>().planeLife = 800;
+            PlaneHandler.instance.AddPlatform(new Vector3(0,0,PlaneHandler.instance.spacing), platform);
+            //RhythmControllerUI.instance.hitTime = 0.35f;
             TutorialController.instance.enableDialogBox(3);
             yield return new WaitForSecondsRealtime(2f);
             SetPlayerControlActive(true);
             screenBlurr.gameObject.SetActive(false);
-            StartCoroutine(CheckFirstGoodJump());
-            StartCoroutine(CheckFirstBadJump());
-            yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
-            yield return new WaitForSecondsRealtime(7f);
-            SetPlayerControlActive(false);
+            bool jumpPerformed = false;
+            while (!jumpPerformed)
+            {
+                yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
+                yield return new WaitForSecondsRealtime(1.5f);
+                if (GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched != initialPlatform)
+                {
+                    jumpPerformed = true;
+                    TutorialController.instance.hitAlwaysTrue = false;
+                    lastPlatformTouched = GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched;
+                    while (lastPlatformTouched.transform.parent != null)
+                    {
+                        lastPlatformTouched = lastPlatformTouched.transform.parent.gameObject;
+                    }
+                }
+            }
             TutorialController.instance.disableDialogBox(3);
-
-            TutorialController.instance.disableAllDialogBoxes();
-            
-            screenBlurr.gameObject.SetActive(true);
+            SetPlayerControlActive(false);
+            RhythmControllerUI.instance.noteInHitArea = true;
+            platform = PlaneHandler.instance.PlatformPrefabs[1];
+            platform.GetComponent<PlaneLogic>().planeLife = 800;
+            PlaneHandler.instance.AddPlatform(new Vector3(0,0,2 * PlaneHandler.instance.spacing), platform);
             TutorialController.instance.enableDialogBox(4);
-            yield return new WaitForSecondsRealtime(8f);
+            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(4);
 
-            bool platformCreated = false;
-            StartCoroutine(CheckFirstGoodCreation());
-            StartCoroutine(CheckFirstBadCreation());
+            screenBlurr.gameObject.SetActive(true);
+            TutorialController.instance.enableDialogBox(5);
+            yield return MakeTimeStop();
+            TutorialController.instance.disableDialogBox(5);
+            screenBlurr.gameObject.SetActive(false);
+
+            yield return new WaitUntil((() => RhythmControllerUI.instance.noteInHitArea));
+            
+            screenBlurr.gameObject.SetActive(true);
+            TutorialController.instance.enableDialogBox(6);
+            SetPlayerControlActive(true);
+            yield return MakeTimeStopJump();
+            TutorialController.instance.disableDialogBox(6);
+            screenBlurr.gameObject.SetActive(false);
+            TutorialController.instance.enableDialogBox(7);
+
+            jumpPerformed = false;
+            while (!jumpPerformed)
+            { 
+                yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
+                var rightJump = RhythmControllerUI.instance.noteInHitArea;
+                if (!rightJump)
+                {
+                    StartCoroutine(Retry());
+                }
+                yield return new WaitForSecondsRealtime(1f);
+                if (GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched != lastPlatformTouched &&
+                    rightJump)
+                {
+                    jumpPerformed = true;
+                    lastPlatformTouched = GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched;
+                }
+                if(GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched != lastPlatformTouched &&
+                        !rightJump)
+                {
+                    GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched =
+                        lastPlatformTouched;
+                    GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastObjectPosition =
+                        lastPlatformTouched.transform.position;
+                    GameObject.FindWithTag("Player").transform.position += Vector3.down*100;
+                    GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().HandleRespawn();
+                }
+            }
+            TutorialController.instance.disableDialogBox(7);
+            
+            screenBlurr.gameObject.SetActive(true);
+            TutorialController.instance.enableDialogBox(15);
+            yield return new WaitForSecondsRealtime(2.5f);
+            TutorialController.instance.disableDialogBox(15);
+
+
+            /*bool platformCreated = false;
             SetCreatorControlActive(true);
             
             while (!platformCreated)
@@ -131,7 +204,7 @@ public class GameplayController : MonoBehaviour
             yield return new WaitForSecondsRealtime(6.5f);
             TutorialController.instance.disableDialogBox(13);
             
-            StartCoroutine(CheckFirstFall());
+            StartCoroutine(CheckFirstFall());*/
         }
 
         screenBlurr.gameObject.SetActive(false);
@@ -159,6 +232,35 @@ public class GameplayController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         go.gameObject.SetActive(false);
         */
+    }
+    
+    private IEnumerator MakeTimeStop()
+    {
+        float oldTimeScale = Time.timeScale;
+        RhythmControllerUI.instance.musicPlayer.Pause();
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitUntil((() => Input.anyKeyDown));
+        Time.timeScale = oldTimeScale;
+        RhythmControllerUI.instance.musicPlayer.Play();
+    }
+    
+    private IEnumerator MakeTimeStopJump()
+    {
+        float oldTimeScale = Time.timeScale;
+        RhythmControllerUI.instance.musicPlayer.Pause();
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitUntil((() => CrossPlatformInputManager.GetButtonDown("Jump")));
+        Time.timeScale = oldTimeScale;
+        RhythmControllerUI.instance.musicPlayer.Play();
+    }
+    
+    IEnumerator Retry()
+    {
+        TutorialController.instance.enableDialogBox(16);
+        yield return new WaitForSecondsRealtime(2.5f);
+        TutorialController.instance.disableDialogBox(16);
     }
 
     IEnumerator CheckFirstFall()
@@ -276,15 +378,6 @@ public class GameplayController : MonoBehaviour
     {
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
     }
-
-    //private IEnumerator makeTimeStop()
-    //{
-    //    float oldTimeScale = Time.timeScale;
-    //    Time.timeScale = 0;
-    //    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
-    //    Time.timeScale = oldTimeScale;
-    //    SceneManager.LoadScene("MainMenu");
-    //}
 
     // Update is called once per frame
     void Update()

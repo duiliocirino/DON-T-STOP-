@@ -145,18 +145,20 @@ public class Player : MonoBehaviour
             }
 
             float jumpForce = m_JumpPower;
-            if (!RhythmControllerUI.instance.noteInHitArea) {
+            if (RhythmControllerUI.instance.noteInHitArea || TutorialController.instance.hitAlwaysTrue) 
+            {
+                LifeBar.instance.PerfectHit();
+                particles.Play();
+                goodJumpSound.PlayRand();
+                applauseSound.PlayRandWithExclusion();
+            }
+            else 
+            {
                 LifeBar.instance.BetterMiss();
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
                 badParticles.Play();
                 badJumpSound.PlayRand();
-            }
-            else {
-                LifeBar.instance.PerfectHit();
-                particles.Play();
-                goodJumpSound.PlayRand();
-                applauseSound.PlayRandWithExclusion();
             } 
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);
