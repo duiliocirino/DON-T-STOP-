@@ -19896,6 +19896,22 @@ PrefabInstance:
       propertyPath: builderCamera
       value: 
       objectReference: {fileID: 1834357895}
+    - target: {fileID: 824079135506495927, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 143.939
+      objectReference: {fileID: 0}
+    - target: {fileID: 824079135506495927, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 134.751
+      objectReference: {fileID: 0}
+    - target: {fileID: 824079135506495927, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 554.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 824079135506495927, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 365.13
+      objectReference: {fileID: 0}
     - target: {fileID: 2577073123467388500, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_Name
       value: TutorialUI
@@ -19992,6 +20008,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4208762145588162916, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208762145588162916, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208762145588162916, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbf1dedc020d43a489f8895dee433fde, type: 2}
+    - target: {fileID: 4310624338564690850, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310624338564690850, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4717794749847147094, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -20011,6 +20047,14 @@ PrefabInstance:
     - target: {fileID: 6763169217321087855, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880891459118310802, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_Name
+      value: VFX_ButtonGlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910050050873254567, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
