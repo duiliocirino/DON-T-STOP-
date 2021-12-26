@@ -13,6 +13,8 @@ public class Settings : MonoBehaviour
 
     public bool fullScreen { private set; get; }
 
+    public float volume { private set; get; }
+
     private void Awake()
     {
         if (istance == null)
@@ -74,6 +76,15 @@ public class Settings : MonoBehaviour
             Screen.fullScreen = fullScreen;
         }
 
+        if (!PlayerPrefs.HasKey("volume"))
+        {
+            SetVolume(0.75f);
+        }
+        else
+        {
+            volume = PlayerPrefs.GetFloat("volume");
+        }
+
         PlayerPrefs.Save();
     }
 
@@ -122,6 +133,7 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(r.width, r.height, fullScreen);
         PlayerPrefs.SetInt("resolutionWidth", r.width);
         PlayerPrefs.SetInt("resolutionHeight", r.height);
+        PlayerPrefs.Save();
     }
 
     public void SetFullScreen(bool isFullScreen)
@@ -129,5 +141,16 @@ public class Settings : MonoBehaviour
         fullScreen = isFullScreen;
         PlayerPrefs.SetInt("fullScreen", isFullScreen ? 1:0);
         Screen.fullScreen = isFullScreen;
+        PlayerPrefs.Save();
+    }
+
+    public void SetVolume(float vol)
+    {
+        if (0 <= vol && vol <= 1)
+        {
+            volume = vol;
+            PlayerPrefs.SetFloat("volume", volume);
+            PlayerPrefs.Save();
+        }
     }
 }

@@ -10,6 +10,7 @@ public class SettingsChanger : MonoBehaviour
     public Dropdown quality;
     public Dropdown resolution;
     public Toggle fullScreen;
+    public Slider volume;
 
     private SceneController sceneController;
 
@@ -40,6 +41,7 @@ public class SettingsChanger : MonoBehaviour
         resolution.AddOptions(options);
         resolution.RefreshShownValue();
         resolution.value = Settings.istance.resolutionIndex;
+        volume.value = Settings.istance.volume;
 
         fullScreen.isOn = Settings.istance.fullScreen;
     }
@@ -69,5 +71,10 @@ public class SettingsChanger : MonoBehaviour
     public void OnFullScreenChange()
     {
         Settings.istance.SetFullScreen(fullScreen.isOn);
+    }
+
+    public void OnVolumeChange()
+    {
+        Settings.istance.SetVolume(volume.value);
     }
 }
