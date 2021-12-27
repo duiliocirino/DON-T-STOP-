@@ -72,20 +72,20 @@ public class PlaneHandler : MonoBehaviour
     public void AddPlatform(Vector3 position, GameObject prefab)
     {
         GameObject newPlatform;
-        if (!RhythmControllerUI.instance.noteInHitArea)
+        if (RhythmControllerUI.instance.noteInHitArea || TutorialController.instance.hitAlwaysTrue)
+        {
+            particles.transform.position = position;
+            particles.Play();
+            sound_goodPlatform.PlayRand();
+            newPlatform = Instantiate(prefab, position, Quaternion.identity);
+        }
+        else
         {
             particles.transform.position = position;
             wrongRhythmParticles.Play();
             sound_badPlatform.PlayRand();
             shaker.Enable();
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
-        }
-        else
-        {
-            particles.transform.position = position;
-            particles.Play();
-            sound_goodPlatform.PlayRand();
-            newPlatform = Instantiate(prefab, position, Quaternion.identity);
         }
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
@@ -144,7 +144,16 @@ public class PlaneHandler : MonoBehaviour
         emptyTiles.Remove(obj);
         Destroy(obj);
     }
-    
+
+    public void PopPlatform()
+    {
+        var platformTile = PlatformTiles[PlatformTiles.Count - 1];
+        var position = platformTile.transform.position;
+        RemoveSameLayerEmptyTiles(position + Vector3.forward * spacing);
+        RemovePlatform(platformTile);
+        AddEmptyTiles(position - Vector3.forward * spacing);
+    }
+
     /**
      * This method removes all the empty tiles from the z-layer where the Creator put a new platform.
      */

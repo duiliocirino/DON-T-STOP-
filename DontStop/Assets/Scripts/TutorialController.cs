@@ -8,7 +8,7 @@ public class TutorialController : MonoBehaviour
     public static TutorialController instance { get; private set; }
 
     public Camera builderCamera;
-    public bool hitAlwaysTrue = true;
+    public bool hitAlwaysTrue = false;
 
     public List<GameObject> dialogBoxes = new List<GameObject>();
     private RectTransform rectTransform;

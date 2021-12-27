@@ -9705,7 +9705,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4024618913334074426, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8e7cc4cc1e1bb464b85c4f0344637d8a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 550f45fa7d0d4c84b89f097c29b1724f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -37664,7 +37664,7 @@ MonoBehaviour:
   distanceText: {fileID: 1099534836}
   notesHandler: {fileID: 1630794757}
   initialPlatform: {fileID: 398601575}
-  lastPlatformTouched: {fileID: 0}
+  lastPlatform: {fileID: 0}
 --- !u!114 &1150586830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39543,7 +39543,7 @@ PrefabInstance:
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: patternMapJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 9d21a7428fa8088408ae48c84a36f808, type: 3}
+      objectReference: {fileID: 4900000, guid: 6ee14184cb1d55047855ad305789a012, type: 3}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295

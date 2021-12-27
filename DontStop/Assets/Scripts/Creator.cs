@@ -20,6 +20,8 @@ public class Creator : MonoBehaviour
     }
 
     private bool firstPlace = true;
+    private double TOLERANCE = 5;
+
     private void OnClickCreate()
     {
         spacing = PlaneHandler.instance.spacing;
@@ -51,7 +53,7 @@ public class Creator : MonoBehaviour
             if (!(PlaneHandler.instance.IsPlatformPresent(spawnPosition.x, spawnPosition.z, false)) && emptyTile != null)
             {
                 GameObject newPlatform;
-                if (!(PlaneHandler.instance.tutorialPresent && spawnPosition.z == (PlaneHandler.instance.platformInTutorial-1)* PlaneHandler.instance.spacing))
+                if (!(PlaneHandler.instance.tutorialPresent && Math.Abs(spawnPosition.z - (PlaneHandler.instance.platformInTutorial-1)* PlaneHandler.instance.spacing) < TOLERANCE))
                     newPlatform = PlatformSelectionUI.instance.PlaceAndChangeSelectedPlatform();
                 else
                     newPlatform = PlatformSelectionUI.instance.PlaceSelectedPlatformAndPutTrampolineNext();
