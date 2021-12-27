@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class Settings : MonoBehaviour
     public bool fullScreen { private set; get; }
 
     public float volume { private set; get; }
+
+    public AudioMixer mixer;
 
     private void Awake()
     {
@@ -83,6 +87,7 @@ public class Settings : MonoBehaviour
         else
         {
             volume = PlayerPrefs.GetFloat("volume");
+            SetMixerVolume(volume);
         }
 
         PlayerPrefs.Save();
@@ -146,11 +151,24 @@ public class Settings : MonoBehaviour
 
     public void SetVolume(float vol)
     {
-        if (0 <= vol && vol <= 1)
+        if (0f <= vol && vol <= 1f)
         {
             volume = vol;
+            SetMixerVolume(vol);
             PlayerPrefs.SetFloat("volume", volume);
             PlayerPrefs.Save();
+        }
+    }
+
+    private void SetMixerVolume(float vol)
+    {
+        if (vol < 0.0001f)
+        {
+            mixer.SetFloat("MasterVolume", -80f);
+        }
+        else
+        {
+            mixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
         }
     }
 }
