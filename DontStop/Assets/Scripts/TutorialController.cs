@@ -9,6 +9,7 @@ public class TutorialController : MonoBehaviour
 
     public Camera builderCamera;
     public bool hitAlwaysTrue = false;
+    public bool firstFall;
 
     public List<GameObject> dialogBoxes = new List<GameObject>();
     private RectTransform rectTransform;

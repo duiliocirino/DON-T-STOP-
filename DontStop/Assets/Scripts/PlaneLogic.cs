@@ -36,6 +36,7 @@ public class PlaneLogic : MonoBehaviour
 
         if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn)
         {
+            TutorialController.instance.firstFall = true;
             fallingPlatformParticles.Play();
             ShakePlatform();
         }
