@@ -5,15 +5,25 @@ using UnityEngine.Video;
 
 public class DontDestroy : MonoBehaviour
 {
+    private static bool created = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        created = true;
     }
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject.transform);
+        if (!created) 
+        {
+            DontDestroyOnLoad(gameObject.transform);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
 

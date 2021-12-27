@@ -28,14 +28,6 @@ public class SceneController : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         loadingScreen.SetActive(true);
-        if(sceneName == "MainMenu")
-        {
-            var videoPlayer = GameObject.FindGameObjectsWithTag("MenuVideo")[0];
-            var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
-            Destroy(music);
-            Destroy(videoPlayer);
-        }
-
         SceneManager.LoadScene(sceneName);
     }
 
