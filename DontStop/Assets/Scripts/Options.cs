@@ -17,7 +17,10 @@ public class Options : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!tutorial)
+        {
+            TutorialController.instance.hitAlwaysTrue = false;
+        }
     }
 
     // Update is called once per frame
