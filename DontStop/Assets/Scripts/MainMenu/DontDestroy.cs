@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static bool created = false;
+    public static bool created = false;
 
     // Start is called before the first frame update
     void Start()
