@@ -33,7 +33,6 @@ public class RhythmControllerUI : MonoBehaviour
     private List<NoteUI> noteScripts;
     private List<RectTransform> noteRectTransforms;
     private int nextNotes = 0;
-    private int previousNotes = -1;
     private bool pulsatingPlayed;
 
     public float usableBarFraction = 15f/17f;
@@ -175,10 +174,9 @@ public class RhythmControllerUI : MonoBehaviour
             }
             previousTime = musicTime;
 
-            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
+            if (timeVectorIndex < timeVector.Count && timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
             {
                 setNextNotes();
-                timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
             }
         }
     }
@@ -197,7 +195,7 @@ public class RhythmControllerUI : MonoBehaviour
                 noteScripts[nextNotes + 1].speed = -speed;
                 noteScripts[nextNotes + 1].timeToReachCenter = firstNoteTime;
 
-                timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
+                timeVectorIndex++;
             }
 
             musicPlayer.Play();
@@ -207,7 +205,9 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void setNextNotes()
     {
-        Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
+        if (timeVectorIndex >= timeVector.Count) return;
+
+        //Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
         noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay)*speed, -5);
         noteScripts[nextNotes].speed = speed;
         noteScripts[nextNotes].timeToReachCenter = timeVector[timeVectorIndex];
@@ -216,8 +216,8 @@ public class RhythmControllerUI : MonoBehaviour
         noteScripts[nextNotes + 1].speed = -speed;
         noteScripts[nextNotes + 1].timeToReachCenter = timeVector[timeVectorIndex];
 
-        previousNotes = nextNotes;
         nextNotes = (nextNotes + 2) % noteBufer.Count;
-    }
 
+        timeVectorIndex++;
+    }
 }
