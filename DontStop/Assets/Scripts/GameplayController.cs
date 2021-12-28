@@ -241,8 +241,8 @@ public class GameplayController : MonoBehaviour
                                                   Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
                     Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
                 var rightTime = RhythmControllerUI.instance.noteInHitArea;
-                if (!rightTime || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
-                    Input.GetKeyUp(KeyCode.RightArrow))
+                if (!rightTime && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                                   Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0))
                 {
                     PlaneHandler.instance.PopPlatform();
                     StartCoroutine(RetryCreator());
@@ -264,6 +264,8 @@ public class GameplayController : MonoBehaviour
             yield return new WaitForSecondsRealtime(2.5f);
             yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(18);
+
+            StartCoroutine(CheckFirstFallingPlatform());
         }
 
         screenBlurr.gameObject.SetActive(false);
@@ -328,17 +330,18 @@ public class GameplayController : MonoBehaviour
     
     private IEnumerator CheckFirstFallingPlatform()
     {
+        yield return new WaitUntil(() => TutorialController.instance.firstFall);
         yield return new WaitForSecondsRealtime(0.5f);
+        screenBlurr.gameObject.SetActive(true);
         TutorialController.instance.enableDialogBox(8);
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1f);
-        yield return new WaitUntil(() => (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) &&
-                                         !Pause.paused && PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform);
+        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitUntil((() => Input.anyKeyDown));
         Time.timeScale = oldTimeScale;
         RhythmControllerUI.instance.musicPlayer.Play();
+        screenBlurr.gameObject.SetActive(false);
         TutorialController.instance.disableDialogBox(8);
     }
     
@@ -356,15 +359,6 @@ public class GameplayController : MonoBehaviour
         TutorialController.instance.disableDialogBox(17);
     }
 
-    IEnumerator CheckFirstFall()
-    {
-        yield return new WaitUntil(() => GameObject.FindWithTag("Player").transform.position.y < -4f && 
-                                         !IsDialogActive() && !Pause.paused);
-        TutorialController.instance.enableDialogBox(8);
-        yield return new WaitForSecondsRealtime(3.5f);
-        TutorialController.instance.disableDialogBox(8);
-    }
-    
     IEnumerator CheckFirstGoodJump()
     {
         yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
@@ -378,47 +372,6 @@ public class GameplayController : MonoBehaviour
         yield return new WaitForSecondsRealtime(6.5f);
         TutorialController.instance.disableDialogBox(9);
     }
-
-    IEnumerator CheckFirstBadJump()
-    {
-        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
-                                         CrossPlatformInputManager.GetButtonDown("Jump") &&
-                                         GameObject.FindWithTag("Player").GetComponent<Animator>().GetBool("OnGround") &&
-                                         GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().isActiveAndEnabled &&
-                                         !Pause.paused);
-        TutorialController.instance.disableDialogBox(3);
-        TutorialController.instance.disableDialogBox(9);
-        TutorialController.instance.enableDialogBox(10);
-        yield return new WaitForSecondsRealtime(6.5f);
-        TutorialController.instance.disableDialogBox(10);
-    }
-
-    IEnumerator CheckFirstGoodCreation()
-    {
-        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
-                                         (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
-                                         !Pause.paused);
-        TutorialController.instance.disableDialogBox(6);
-        TutorialController.instance.disableDialogBox(12);
-        TutorialController.instance.enableDialogBox(11);
-        yield return new WaitForSecondsRealtime(6.5f);
-        TutorialController.instance.disableDialogBox(11);
-    }
-
-    IEnumerator CheckFirstBadCreation()
-    {
-        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
-                                         (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
-                                         !Pause.paused);
-        TutorialController.instance.disableDialogBox(6);
-        TutorialController.instance.disableDialogBox(11);
-        TutorialController.instance.enableDialogBox(12);
-        yield return new WaitForSecondsRealtime(6.5f);
-        TutorialController.instance.disableDialogBox(12);
-    }
-
     private bool IsDialogActive()
     {
         foreach (var dialogBox in TutorialController.instance.dialogBoxes)
