@@ -142,16 +142,27 @@ public class RhythmControllerUI : MonoBehaviour
     private void GenerateNotes()
     {
         int nTimes = timeVector.Count;
-        List<float> timeVectorDifferences = new List<float>();
+        Debug.Log(nTimes);
+        List<float> timeVectorDifferences = new List<float>(nTimes);
         for(int i=0; i< nTimes - 1; i++)
         {
             timeVectorDifferences.Add(timeVector[i + 1] - timeVector[i]);
         }
-        if (musicPlayer.clip.length - timeVector[nTimes - 1] >= 0)
+        if (musicPlayer.clip.length - timeVector[nTimes - 1] >= 60 / BPM)
+        {
             timeVectorDifferences.Add(musicPlayer.clip.length - timeVector[nTimes - 1] + timeVector[0]);
+        }
         else
-            timeVectorDifferences[nTimes - 1] = timeVectorDifferences[nTimes - 2];
+        {
+            timeVectorDifferences.Add(timeVectorDifferences[nTimes - 2]);
+        }
+
+        //foreach (float f in timeVectorDifferences)
+            //Debug.Log(f);
+
         int nNotes = 2*(int)((barWidth / (timeVectorDifferences.Min()*speed)) + 1);
+        //Debug.Log(nNotes);
+
         noteBufer = new List<GameObject>(nNotes);
         noteScripts = new List<NoteUI>(nNotes);
         noteRectTransforms = new List<RectTransform>(nNotes);
@@ -159,6 +170,7 @@ public class RhythmControllerUI : MonoBehaviour
         noteBufferPosition = new Vector2(0, -300);
         //Vector2 hitZonePosition = new Vector2(0, -5);
 
+        
         for (int i = 0; i < nNotes; i++)
         {
             GameObject note = Instantiate(notePrefab, noteBufferPosition, Quaternion.identity);

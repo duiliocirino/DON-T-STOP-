@@ -34,7 +34,6 @@ public class PatternGen : MonoBehaviour
             bp.numMeasures = 1;
             bp.notePositions = new List<float>();
             bp.notePositions.Add((float)0 / 4);
-            bp.notePositions.Add((float)2 / 4);
             pm.pattern.Add(bp);
         }
 
