@@ -11,6 +11,7 @@ public class RhythmControllerUI : MonoBehaviour
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
     public BoxCollider2D hitZone;
+    public Animator pulsatingKeyAnimator;
 
     public static RhythmControllerUI instance { get; private set; }
     public bool hasStarted = false;
@@ -44,6 +45,8 @@ public class RhythmControllerUI : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         barWidth = rectTransform.sizeDelta.x * usableBarFraction;
 
+        pulsatingKeyAnimator = hitZone.GetComponent<Animator>();
+
         patternMap = GeneratePatternMap();
 
         speed = patternMap.noteSpeed;
@@ -56,13 +59,10 @@ public class RhythmControllerUI : MonoBehaviour
         GenerateHitZones();
     }
 
-    private void GenerateHitZones()
+    private PatternMap GeneratePatternMap()
     {
-        float noteLength = speed * (60/BPM);
-
-        hitZone.size = new Vector2(noteLength * hitTime, 50);
-
-        noteDespawnDelay = (60/BPM) * hitTime;
+        //return new PatternMap("default120");
+        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
     }
 
     private void GenerateTimeVector()
@@ -89,12 +89,6 @@ public class RhythmControllerUI : MonoBehaviour
         //print(timeVector.Count);
         //foreach (var a in timeVector)
             //print(a);
-    }
-
-    private PatternMap GeneratePatternMap()
-    {
-        //return new PatternMap("default120");
-        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
     }
 
     private void GenerateNotes()
@@ -144,6 +138,15 @@ public class RhythmControllerUI : MonoBehaviour
         }
     }
 
+    private void GenerateHitZones()
+    {
+        float noteLength = speed * (60 / BPM);
+
+        hitZone.size = new Vector2(noteLength * hitTime, 50);
+
+        noteDespawnDelay = (60 / BPM) * hitTime;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,7 +165,7 @@ public class RhythmControllerUI : MonoBehaviour
                 pulsatingPlayed = false;
             if(noteInHitArea && !pulsatingPlayed)
             {
-                hitZone.GetComponent<Animator>().Play("PulsatingKey");
+                pulsatingKeyAnimator.Play("PulsatingKey");
                 pulsatingPlayed = true;
             }
 
@@ -204,6 +207,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void setNextNotes()
     {
+        Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
         noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay)*speed, -5);
         noteScripts[nextNotes].speed = speed;
         noteScripts[nextNotes].timeToReachCenter = timeVector[timeVectorIndex];
