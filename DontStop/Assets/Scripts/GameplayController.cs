@@ -23,6 +23,8 @@ public class GameplayController : MonoBehaviour
     public NotesHandler notesHandler;
     public GameObject initialPlatform;
     public GameObject lastPlatform;
+    private bool badJump;
+    private bool badCreate;
 
     private void Awake()
     {
@@ -144,6 +146,7 @@ public class GameplayController : MonoBehaviour
                 var rightJump = RhythmControllerUI.instance.noteInHitArea;
                 if (!rightJump)
                 {
+                    badJump = true;
                     StartCoroutine(Retry());
                 }
                 yield return new WaitForSecondsRealtime(1f);
@@ -244,6 +247,7 @@ public class GameplayController : MonoBehaviour
                 if (!rightTime && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                    Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0))
                 {
+                    badCreate = true;
                     PlaneHandler.instance.PopPlatform();
                     StartCoroutine(RetryCreator());
                 }
@@ -266,6 +270,8 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableDialogBox(18);
 
             StartCoroutine(CheckFirstFallingPlatform());
+            if (badJump) StartCoroutine(CheckFirstBadJump());
+            if (badCreate) StartCoroutine(CheckFirstBadCreation());
         }
 
         screenBlurr.gameObject.SetActive(false);
@@ -333,7 +339,7 @@ public class GameplayController : MonoBehaviour
         yield return new WaitUntil(() => TutorialController.instance.firstFall);
         yield return new WaitForSecondsRealtime(0.5f);
         screenBlurr.gameObject.SetActive(true);
-        TutorialController.instance.enableDialogBox(8);
+        TutorialController.instance.enableDialogBox(19);
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
         Time.timeScale = 0;
@@ -342,7 +348,7 @@ public class GameplayController : MonoBehaviour
         Time.timeScale = oldTimeScale;
         RhythmControllerUI.instance.musicPlayer.Play();
         screenBlurr.gameObject.SetActive(false);
-        TutorialController.instance.disableDialogBox(8);
+        TutorialController.instance.disableDialogBox(19);
     }
     
     IEnumerator Retry()
@@ -359,19 +365,29 @@ public class GameplayController : MonoBehaviour
         TutorialController.instance.disableDialogBox(17);
     }
 
-    IEnumerator CheckFirstGoodJump()
+    IEnumerator CheckFirstBadJump()
     {
-        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
+        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
                                          CrossPlatformInputManager.GetButtonDown("Jump") &&
                                          GameObject.FindWithTag("Player").GetComponent<Animator>().GetBool("OnGround") &&
                                          GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().isActiveAndEnabled &&
                                          !Pause.paused);
-        TutorialController.instance.disableDialogBox(3);
-        TutorialController.instance.disableDialogBox(10);
-        TutorialController.instance.enableDialogBox(9);
+        TutorialController.instance.enableDialogBox(20);
         yield return new WaitForSecondsRealtime(6.5f);
-        TutorialController.instance.disableDialogBox(9);
+        TutorialController.instance.disableDialogBox(20);
     }
+
+    IEnumerator CheckFirstBadCreation()
+    {
+        yield return new WaitUntil(() => !RhythmControllerUI.instance.noteInHitArea && 
+                                         (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                                          Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) && 
+                                         !Pause.paused);
+        TutorialController.instance.enableDialogBox(21);
+        yield return new WaitForSecondsRealtime(6.5f);
+        TutorialController.instance.disableDialogBox(21);
+    }
+
     private bool IsDialogActive()
     {
         foreach (var dialogBox in TutorialController.instance.dialogBoxes)
