@@ -83,7 +83,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         timeVector.Sort();
 
-        firstNoteTime = timeVector[0] + patternMap.initialDelay;
+        firstNoteTime = timeVector[patternMap.numberOfNotesSkippedOnFirstPlay] + patternMap.initialDelay;
 
         //print(timeVector.Count);
         //foreach (var a in timeVector)
