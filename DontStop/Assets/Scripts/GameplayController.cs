@@ -238,15 +238,18 @@ public class GameplayController : MonoBehaviour
             PlaneHandler.instance.PopPlatform();
             SetCreatorControlActive(true);
             platformCreated = false;
+            int numPlat = PlaneHandler.instance.PlatformTiles.Count;
             while (!platformCreated)
-            { 
+            {
+                SetCreatorControlActive(true);
                 yield return new WaitUntil(() => (((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                                     Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0)) ||
                                                   Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
-                    Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
+                                                  Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
+                
+                SetCreatorControlActive(false);
                 var rightTime = RhythmControllerUI.instance.noteInHitArea;
-                if (!rightTime && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                   Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0))
+                if (!rightTime && numPlat != PlaneHandler.instance.PlatformTiles.Count)
                 {
                     PlaneHandler.instance.PopPlatform();
                     StartCoroutine(RetryCreator());
@@ -264,10 +267,11 @@ public class GameplayController : MonoBehaviour
             yield return new WaitForSecondsRealtime(1.5f);
             TutorialController.instance.disableDialogBox(15);
             
+            screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(18);
-            yield return new WaitForSecondsRealtime(2.5f);
-            yield return new WaitUntil((() => Input.anyKeyDown));
+            yield return MakeTimeStop();
             TutorialController.instance.disableDialogBox(18);
+            screenBlurr.gameObject.SetActive(false);
 
             StartCoroutine(CheckFirstFallingPlatform());
         }
