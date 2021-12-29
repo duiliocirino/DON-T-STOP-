@@ -33,10 +33,9 @@ public class RhythmControllerUI : MonoBehaviour
     private List<NoteUI> noteScripts;
     private List<RectTransform> noteRectTransforms;
     private int nextNotes = 0;
-    private int previousNotes = -1;
     private bool pulsatingPlayed;
 
-    public float usableBarFraction = 15f/17f;
+    public float usableBarFraction = 15f / 17f;
     private float barWidth;
 
     private void Awake()
@@ -68,7 +67,7 @@ public class RhythmControllerUI : MonoBehaviour
     private void GenerateTimeVector()
     {
         timeVector = new List<float>();
-        float measureTime = (60/BPM) * patternMap.tempoDenominator;
+        float measureTime = (60 / BPM) * patternMap.tempoDenominator;
         float baseTime = 0;
         foreach (BeatPattern bp in patternMap.pattern)
         {
@@ -88,7 +87,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         //print(timeVector.Count);
         //foreach (var a in timeVector)
-            //print(a);
+        //print(a);
     }
 
     private void GenerateNotes()
@@ -96,7 +95,7 @@ public class RhythmControllerUI : MonoBehaviour
         int nTimes = timeVector.Count;
         //Debug.Log(nTimes);
         List<float> timeVectorDifferences = new List<float>(nTimes);
-        for(int i=0; i< nTimes - 1; i++)
+        for (int i = 0; i < nTimes - 1; i++)
         {
             timeVectorDifferences.Add(timeVector[i + 1] - timeVector[i]);
         }
@@ -110,9 +109,9 @@ public class RhythmControllerUI : MonoBehaviour
         }
 
         //foreach (float f in timeVectorDifferences)
-            //Debug.Log(f);
+        //Debug.Log(f);
 
-        int nNotes = 2*(int)((barWidth / (timeVectorDifferences.Min()*speed)) + 1);
+        int nNotes = 2 * (int)((barWidth / (timeVectorDifferences.Min() * speed)) + 1);
         //Debug.Log(nNotes);
 
         noteBufer = new List<GameObject>(nNotes);
@@ -121,7 +120,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         noteBufferPosition = new Vector2(0, -300);
 
-        
+
         for (int i = 0; i < nNotes; i++)
         {
             GameObject note = Instantiate(notePrefab, noteBufferPosition, Quaternion.identity);
@@ -163,7 +162,7 @@ public class RhythmControllerUI : MonoBehaviour
 
             if (!noteInHitArea && pulsatingPlayed)
                 pulsatingPlayed = false;
-            if(noteInHitArea && !pulsatingPlayed)
+            if (noteInHitArea && !pulsatingPlayed)
             {
                 pulsatingKeyAnimator.Play("PulsatingKey");
                 pulsatingPlayed = true;
@@ -175,10 +174,9 @@ public class RhythmControllerUI : MonoBehaviour
             }
             previousTime = musicTime;
 
-            if (timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
+            if (timeVectorIndex < timeVector.Count && timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
             {
                 setNextNotes();
-                timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
             }
         }
     }
@@ -197,7 +195,7 @@ public class RhythmControllerUI : MonoBehaviour
                 noteScripts[nextNotes + 1].speed = -speed;
                 noteScripts[nextNotes + 1].timeToReachCenter = firstNoteTime;
 
-                timeVectorIndex = (timeVectorIndex + 1) % timeVector.Count;
+                timeVectorIndex++;
             }
 
             musicPlayer.Play();
@@ -207,8 +205,10 @@ public class RhythmControllerUI : MonoBehaviour
 
     private void setNextNotes()
     {
-        Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
-        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay)*speed, -5);
+        if (timeVectorIndex >= timeVector.Count) return;
+
+        //Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
+        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5);
         noteScripts[nextNotes].speed = speed;
         noteScripts[nextNotes].timeToReachCenter = timeVector[timeVectorIndex];
 
@@ -216,8 +216,8 @@ public class RhythmControllerUI : MonoBehaviour
         noteScripts[nextNotes + 1].speed = -speed;
         noteScripts[nextNotes + 1].timeToReachCenter = timeVector[timeVectorIndex];
 
-        previousNotes = nextNotes;
         nextNotes = (nextNotes + 2) % noteBufer.Count;
-    }
 
+        timeVectorIndex++;
+    }
 }
