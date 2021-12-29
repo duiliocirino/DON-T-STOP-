@@ -206,6 +206,7 @@ public class GameplayController : MonoBehaviour
                 TutorialController.instance.disableDialogBox(10);
             }
             TutorialController.instance.hitAlwaysTrue = false;
+            SetCreatorControlActive(false);
 
             screenBlurr.gameObject.SetActive(true);
             // PLANE DISRUPTION
@@ -231,9 +232,11 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableDialogBox(13);
             screenBlurr.gameObject.SetActive(false);
             
+            SetCreatorControlActive(false);
             TutorialController.instance.enableDialogBox(14);
             yield return new WaitForSecondsRealtime(1.5f);
             PlaneHandler.instance.PopPlatform();
+            SetCreatorControlActive(true);
             platformCreated = false;
             while (!platformCreated)
             { 
