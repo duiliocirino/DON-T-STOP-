@@ -12,22 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7733783f3dbe9584da97d95fcf31fd49
   - enabled: 1
-    path: Assets/Scenes/Settings.unity
-    guid: a4fb3bf6413e98f429b6d9393fe3570a
-  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 3312a3d0cc84548419a519fa45953f14
-  - enabled: 1
-    path: Assets/Scenes/PlayerSelectionScene.unity
-    guid: 993805d96a52303419e6be9563efb4ec
-  - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
-    guid: b0fc20a2ed1d260439cd443160034c20
   - enabled: 1
     path: Assets/Scenes/Stage1Scene.unity
     guid: 8a081ae3e2b8f3f4ebb1beac161d004f
   - enabled: 1
-    path: Assets/Scenes/Stage2Scene.unity
-    guid: 660756361c6bf7343b4a4b21c763b0fd
+    path: Assets/Scenes/Settings.unity
+    guid: a4fb3bf6413e98f429b6d9393fe3570a
+  - enabled: 1
+    path: Assets/Scenes/PlayerSelectionScene.unity
+    guid: 993805d96a52303419e6be9563efb4ec
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 09bd354250fa2e04c9b849c5e7cbb152, type: 2}

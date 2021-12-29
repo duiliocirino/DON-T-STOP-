@@ -28,7 +28,7 @@ public class PatternGen : MonoBehaviour
 
         BeatPattern bp;
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 26; i++)
         {
             bp = new BeatPattern();
             bp.numMeasures = 1;
