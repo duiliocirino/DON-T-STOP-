@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static bool created = false;
+    public static bool created = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class DontDestroy : MonoBehaviour
 
     private void Awake()
     {
-        if (!created) 
+        if (!created)
         {
             DontDestroyOnLoad(gameObject.transform);
         }
@@ -23,13 +23,13 @@ public class DontDestroy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -422,7 +422,9 @@ public class GameplayController : MonoBehaviour
 
     public void SaveData()
     {
+#if !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
+#endif
     }
 
     // Update is called once per frame
