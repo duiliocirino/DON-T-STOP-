@@ -38829,6 +38829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91039ebd0089fc7418525e4b2b8aef09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayController: {fileID: 1150586829}
 --- !u!1001 &1369665357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43589,7 +43590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 8
+  notesForNextStage: 0
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5

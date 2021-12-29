@@ -27,6 +27,7 @@ public class GameplayController : MonoBehaviour
     private void Awake()
     {
         notesHandler.onEnoughNotesCollected.Add(SaveData);
+        notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
     }
 
     // Start is called before the first frame update
@@ -424,6 +425,13 @@ public class GameplayController : MonoBehaviour
     {
 #if !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
+#endif
+    }
+
+    public void UnlockNextStage()
+    {
+#if !UNITY_EDITOR
+        SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
 #endif
     }
 

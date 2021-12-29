@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndTutorial : MonoBehaviour
 {
     private BoxCollider thisCollider;
+    public GameplayController gameplayController;
 
     private void Awake()
     {
@@ -28,7 +29,8 @@ public class EndTutorial : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             thisCollider.enabled = false;
-            Debug.Log("Rrrrrrrrrrrrrrr");
+            gameplayController.UnlockNextStage();
+            gameplayController.SaveData();
         }
     }
 }
