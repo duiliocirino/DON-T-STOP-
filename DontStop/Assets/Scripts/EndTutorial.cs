@@ -24,8 +24,9 @@ public class EndTutorial : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
+        print("aaaa");
         if (other.gameObject.tag == "Player")
         {
             thisCollider.enabled = false;
