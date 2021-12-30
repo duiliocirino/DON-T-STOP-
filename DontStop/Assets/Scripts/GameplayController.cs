@@ -29,6 +29,7 @@ public class GameplayController : MonoBehaviour
     private void Awake()
     {
         notesHandler.onEnoughNotesCollected.Add(SaveData);
+        notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
     }
 
     // Start is called before the first frame update
@@ -208,6 +209,7 @@ public class GameplayController : MonoBehaviour
                 TutorialController.instance.disableDialogBox(10);
             }
             TutorialController.instance.hitAlwaysTrue = false;
+            SetCreatorControlActive(false);
 
             screenBlurr.gameObject.SetActive(true);
             // PLANE DISRUPTION
@@ -233,19 +235,24 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableDialogBox(13);
             screenBlurr.gameObject.SetActive(false);
             
+            SetCreatorControlActive(false);
             TutorialController.instance.enableDialogBox(14);
             yield return new WaitForSecondsRealtime(1.5f);
             PlaneHandler.instance.PopPlatform();
+            SetCreatorControlActive(true);
             platformCreated = false;
+            int numPlat = PlaneHandler.instance.PlatformTiles.Count;
             while (!platformCreated)
-            { 
+            {
+                SetCreatorControlActive(true);
                 yield return new WaitUntil(() => (((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                                     Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0)) ||
                                                   Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
-                    Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
+                                                  Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
+                
+                SetCreatorControlActive(false);
                 var rightTime = RhythmControllerUI.instance.noteInHitArea;
-                if (!rightTime && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                   Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0))
+                if (!rightTime && numPlat != PlaneHandler.instance.PlatformTiles.Count)
                 {
                     badCreate = true;
                     PlaneHandler.instance.PopPlatform();
@@ -264,10 +271,11 @@ public class GameplayController : MonoBehaviour
             yield return new WaitForSecondsRealtime(1.5f);
             TutorialController.instance.disableDialogBox(15);
             
+            screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(18);
-            yield return new WaitForSecondsRealtime(2.5f);
-            yield return new WaitUntil((() => Input.anyKeyDown));
+            yield return MakeTimeStop();
             TutorialController.instance.disableDialogBox(18);
+            screenBlurr.gameObject.SetActive(false);
 
             StartCoroutine(CheckFirstFallingPlatform());
             if (badJump) StartCoroutine(CheckFirstBadJump());
@@ -438,7 +446,16 @@ public class GameplayController : MonoBehaviour
 
     public void SaveData()
     {
+#if !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
+#endif
+    }
+
+    public void UnlockNextStage()
+    {
+#if !UNITY_EDITOR
+        SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
+#endif
     }
 
     // Update is called once per frame

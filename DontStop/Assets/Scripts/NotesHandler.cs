@@ -27,7 +27,11 @@ public class NotesHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UI.text = "0/" + notesForNextStage;
+        string text = "0";
+        if (notesForNextStage != 0)
+            text += "/" + notesForNextStage;
+
+        UI.text = text;
     }
 
     // Update is called once per frame
@@ -46,7 +50,13 @@ public class NotesHandler : MonoBehaviour
     {
         noteTakenSound.Play();
         notesCollected++;
-        UI.text = notesCollected + "/" + notesForNextStage;
+
+        string text = notesCollected.ToString();
+        if (notesForNextStage!=0)
+            text += "/" + notesForNextStage;
+
+        UI.text = text;
+
         if (notesCollected == notesForNextStage) OnEnoughNotesCollected();
     }
 

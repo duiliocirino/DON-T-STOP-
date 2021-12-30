@@ -57,8 +57,14 @@ public class Pause : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        OnResume();
+        Time.timeScale = oldTimeScale;
+        paused = false;
+
         gameplayController.SaveData();
+
+        DontDestroy.created = false;
+
         SceneManager.LoadScene("MainMenu");
     }
 }
+
