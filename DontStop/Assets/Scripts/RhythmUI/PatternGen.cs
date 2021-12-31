@@ -27,8 +27,11 @@ public class PatternGen : MonoBehaviour
         pm.pattern = new List<BeatPattern>();
 
         BeatPattern bp;
+        float duration = 60 * 3 + 40;
+        float measureTime = (60 / pm.BPM) * pm.tempoDenominator;
+        int nMeasures = (int)(duration / measureTime) + 1;
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < nMeasures; i++)
         {
             bp = new BeatPattern();
             bp.numMeasures = 1;
