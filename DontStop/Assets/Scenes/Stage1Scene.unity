@@ -37532,7 +37532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3072626787295390446, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_Name
-      value: YellowText
+      value: Countdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072626787295390446, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_Pivot.x
@@ -37544,7 +37548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_AnchorMax.x
