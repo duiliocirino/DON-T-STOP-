@@ -12,6 +12,7 @@ public class GameplayController : MonoBehaviour
 {
     public Image screenBlurr;
     public Text countdown;
+    public GameObject nextStageUnlocked;
     public GameObject gameOver;
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
@@ -48,12 +49,12 @@ public class GameplayController : MonoBehaviour
         screenBlurr.gameObject.SetActive(true);
         countdown.gameObject.SetActive(false);
         gameOver.SetActive(false);
+        SetPlayerControlActive(false);
 
         if (Options.istance.tutorial)
         {
 
             //Initialise tutorial
-            SetPlayerControlActive(false);
             TutorialController.instance.disableAllDialogBoxes();
 
             TutorialController.instance.enableDialogBox(0);
@@ -432,9 +433,17 @@ public class GameplayController : MonoBehaviour
 
     public void UnlockNextStage()
     {
+        StartCoroutine(ShowNextStaheUnlocked());
 #if !UNITY_EDITOR
         SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
 #endif
+    }
+
+    private IEnumerator ShowNextStaheUnlocked()
+    {
+        nextStageUnlocked.SetActive(true);
+        yield return new WaitForSecondsRealtime(5);
+        nextStageUnlocked.SetActive(false);
     }
 
     // Update is called once per frame
