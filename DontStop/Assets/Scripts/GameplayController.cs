@@ -11,9 +11,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class GameplayController : MonoBehaviour
 {
     public Image screenBlurr;
-    public Image countdown;
-    public Sprite[] sprites321;
-    public Image go;
+    public Text countdown;
     public GameObject gameOver;
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
@@ -45,14 +43,14 @@ public class GameplayController : MonoBehaviour
     {
         //make music + rhythm start
         RhythmControllerUI.instance.StartNotes();
-        
+
+        //Initialize overlay
+        screenBlurr.gameObject.SetActive(true);
+        countdown.gameObject.SetActive(false);
+        gameOver.SetActive(false);
+
         if (Options.istance.tutorial)
         {
-            //Initialize overlay
-            screenBlurr.gameObject.SetActive(true);
-            countdown.gameObject.SetActive(false);
-            go.gameObject.SetActive(false);
-            gameOver.SetActive(false);
 
             //Initialise tutorial
             SetPlayerControlActive(false);
@@ -275,30 +273,27 @@ public class GameplayController : MonoBehaviour
 
             StartCoroutine(CheckFirstFallingPlatform());
         }
+        else
+        {
+            //show countdown
+            for (int i = 3; i > 0; i--)
+            {
+                countdown.text = i.ToString();
+                countdown.gameObject.SetActive(true);
+                yield return new WaitForSecondsRealtime(0.5f);
+                countdown.gameObject.SetActive(false);
+                yield return new WaitForSecondsRealtime(0.5f);
+            }
+
+            countdown.text = "GO!";
+            countdown.gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(1f);
+            countdown.gameObject.SetActive(false);
+        }
 
         screenBlurr.gameObject.SetActive(false);
         SetPlayerControlActive(true);
         LifeBar.instance.StartDeplition();
-
-        /*//show tutorial
-        if (Options.istance.tutorial) {
-            
-        }
-
-        //show countdown
-        for(int i=2; i>=0; i--)
-        {
-            countdown.sprite = sprites321[i];
-            countdown.gameObject.SetActive(true);
-            yield return new WaitForSecondsRealtime(0.5f);
-            countdown.gameObject.SetActive(false);
-            yield return new WaitForSecondsRealtime(0.5f);
-        }
-        
-        go.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(1f);
-        go.gameObject.SetActive(false);
-        */
     }
     
     private IEnumerator MakeTimeStop()
