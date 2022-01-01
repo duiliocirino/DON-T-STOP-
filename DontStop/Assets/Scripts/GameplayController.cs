@@ -292,6 +292,7 @@ public class GameplayController : MonoBehaviour
             countdown.gameObject.SetActive(false);
         }
 
+        TutorialController.instance.hitAlwaysTrue = false;
         screenBlurr.gameObject.SetActive(false);
         SetPlayerControlActive(true);
         LifeBar.instance.StartDeplition();
@@ -313,7 +314,6 @@ public class GameplayController : MonoBehaviour
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1f);
         yield return new WaitUntil((() => CrossPlatformInputManager.GetButtonDown("Jump")));
         Time.timeScale = oldTimeScale;
         RhythmControllerUI.instance.musicPlayer.Play();
@@ -324,7 +324,6 @@ public class GameplayController : MonoBehaviour
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1f);
         yield return new WaitUntil(() => (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                           Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) &&
                                          !Pause.paused && PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform);

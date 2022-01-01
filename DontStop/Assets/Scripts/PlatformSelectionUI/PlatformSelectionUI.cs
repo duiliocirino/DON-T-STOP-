@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlatformSelectionUI : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class PlatformSelectionUI : MonoBehaviour
     private List<SlotUI> slotScripts = new List<SlotUI>();
 
     private int selectedSlotIndex = -1;
-    
+    public Camera camera;
+    public Material previewMaterial;
+    private Dictionary<string, Material> formerMaterial = new Dictionary<string, Material>();
+    private GameObject lastPreview;
+    private GameObject lastEmptyTile;
 
     private void Awake()
     {
@@ -26,7 +31,7 @@ public class PlatformSelectionUI : MonoBehaviour
         {
             platformScripts.Add(p, p.GetComponent<PlaneLogic>());
         }
-
+        
         pool = new RandomRotatingPool<GameObject>(platformPrefabs);
     }
 
@@ -59,6 +64,7 @@ public class PlatformSelectionUI : MonoBehaviour
                 slotScripts[selectedSlotIndex].setActive();
                 PlaneHandler.instance.ComunicateSelectedPlatformSize(platformScripts[slotScripts[selectedSlotIndex].GetPlatform()].platformSize);
                 //print("start: " + selectedSlotIndex);
+                CreatePlatformPreview();
             }
         }
         else
@@ -83,6 +89,7 @@ public class PlatformSelectionUI : MonoBehaviour
                 slotScripts[old].setInactive();
                 PlaneHandler.instance.ComunicateSelectedPlatformSize(0);
                 //print("stop: " + old);
+                DismantlePlatformPreview();
             }
         }
     }
@@ -90,6 +97,58 @@ public class PlatformSelectionUI : MonoBehaviour
     public void SetSelectedSlotIndex(int index)
     {
         selectedSlotIndex = index;
+    }
+
+    public void CreatePlatformPreview()
+    {
+        var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        int layerMask = 1 << 8;
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+             Input.GetKey(KeyCode.RightArrow)) &&
+            Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
+        {
+            lastEmptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
+            Vector3 tilePos = lastEmptyTile.transform.position;
+            if(lastEmptyTile != null)
+            {
+                lastEmptyTile.GetComponent<MeshRenderer>().enabled = false;
+            }
+            GameObject platformPrefab = slotScripts[selectedSlotIndex].GetPlatform();
+            lastPreview = Instantiate(platformPrefab, tilePos, Quaternion.identity);
+            var colliders = lastPreview.GetComponentsInChildren<BoxCollider>();
+            foreach (var collider in colliders)
+            {
+                Destroy(collider);
+            }
+            var renderers = lastPreview.GetComponentsInChildren<MeshRenderer>();
+            foreach (var meshRenderer in renderers)
+            {
+                formerMaterial.Add(meshRenderer.gameObject.name, meshRenderer.material);
+                Debug.Log(formerMaterial[meshRenderer.gameObject.name].name);
+                meshRenderer.material = previewMaterial;
+                Debug.Log("Lul  " + formerMaterial[meshRenderer.gameObject.name].name);
+            }
+        }
+    }
+
+    private void DismantlePlatformPreview()
+    {
+        if (lastPreview != null)
+        {
+            var renderers = lastPreview.GetComponentsInChildren<MeshRenderer>();
+            foreach (var meshRenderer in renderers)
+            {
+                meshRenderer.material = formerMaterial[meshRenderer.gameObject.name];
+            }
+            if(lastEmptyTile != null)
+            {
+                lastEmptyTile.GetComponent<MeshRenderer>().enabled = true;
+            }
+
+            Destroy(lastPreview);
+            formerMaterial = new Dictionary<string, Material>();
+            lastPreview = null;
+        }
     }
 
     public GameObject PlaceAndChangeSelectedPlatform()

@@ -44173,6 +44173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorCamera: {fileID: 1448546634}
+  maxDistance: 45
 --- !u!4 &1447130782
 Transform:
   m_ObjectHideFlags: 0
@@ -46923,6 +46924,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1448546634}
+    - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: previewMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f1461113e00ee4448abba2e61b1efb59, type: 2}
     - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
       propertyPath: platformPrefabs.Array.size
       value: 6
@@ -66469,6 +66478,10 @@ PrefabInstance:
     - target: {fileID: 4260750861781467438, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335964406193244656, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
