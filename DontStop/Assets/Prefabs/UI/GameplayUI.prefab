@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenBlurr: {fileID: 4260750862961658876}
   countdown: {fileID: 3238123755277128869}
+  nextStageUnlocked: {fileID: 0}
   gameOver: {fileID: 4260750861781467438}
   jumperControls: {fileID: 0}
   creatorControls: {fileID: 0}
@@ -401,11 +402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -422,6 +423,10 @@ PrefabInstance:
     - target: {fileID: 3528444954591185867, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 4260750861543451627}
+    - target: {fileID: 3528444954591185867, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}

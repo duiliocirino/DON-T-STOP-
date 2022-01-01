@@ -60,11 +60,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = oldTimeScale;
         paused = false;
 
-        gameplayController.SaveData();
-
-        DontDestroy.created = false;
-
-        SceneManager.LoadScene("MainMenu");
+        gameplayController.GoToMainMenu();
     }
 }
 

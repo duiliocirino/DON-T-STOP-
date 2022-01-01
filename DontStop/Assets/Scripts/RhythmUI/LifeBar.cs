@@ -130,4 +130,9 @@ public class LifeBar : MonoBehaviour
     {
         deplitionHasStarted = true;
     }
+
+    public void StopDeplition()
+    {
+        deplitionHasStarted = false;
+    }
 }

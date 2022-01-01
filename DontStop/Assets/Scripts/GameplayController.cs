@@ -385,7 +385,7 @@ public class GameplayController : MonoBehaviour
         return false;
     }
 
-    private void SetPlayerControlActive(bool active)
+    public void SetPlayerControlActive(bool active)
     {
         jumperControls.enabled = active;
         if (active == false)
@@ -444,6 +444,24 @@ public class GameplayController : MonoBehaviour
         nextStageUnlocked.SetActive(true);
         yield return new WaitForSecondsRealtime(5);
         nextStageUnlocked.SetActive(false);
+    }
+
+    public void GoToMainMenu()
+    {
+        SaveData();
+
+        DontDestroy.created = false;
+
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GoToStageSelection()
+    {
+        SaveData();
+
+        DontDestroy.created = false;
+
+        SceneManager.LoadScene("StageSelection");
     }
 
     // Update is called once per frame
