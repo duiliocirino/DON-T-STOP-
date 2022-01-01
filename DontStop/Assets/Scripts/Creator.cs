@@ -21,6 +21,7 @@ public class Creator : MonoBehaviour
 
     private bool firstPlace = true;
     private double TOLERANCE = 5;
+    public int maxDistance = 45;
 
     private void OnClickCreate()
     {
@@ -31,7 +32,7 @@ public class Creator : MonoBehaviour
         //Debug.Log("OnClick called");
         if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
              Input.GetKey(KeyCode.RightArrow)) &&
-            Physics.Raycast(ray, out var hit, 60, layerMask) && !Pause.paused)
+            Physics.Raycast(ray, out var hit, maxDistance, layerMask) && !Pause.paused)
         {
             if (firstPlace)
             {
