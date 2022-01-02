@@ -8,6 +8,7 @@ public class EndTutorial : MonoBehaviour
     public GameplayController gameplayController;
     public GameObject background;
     public GameObject endOfTutorialUI;
+    public AudioSource endTutorialMusic;
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class EndTutorial : MonoBehaviour
             thisCollider.enabled = false;
             gameplayController.SetPlayerControlActive(false);
             LifeBar.instance.StopDeplition();
+            RhythmControllerUI.instance.musicPlayer.Stop();
+            endTutorialMusic.Play();
             gameplayController.UnlockNextStage();
             gameplayController.SaveData();
             background.SetActive(true);
@@ -44,6 +47,8 @@ public class EndTutorial : MonoBehaviour
     {
         endOfTutorialUI.SetActive(false);
         background.SetActive(false);
+        endTutorialMusic.Stop();
+        RhythmControllerUI.instance.musicPlayer.Play();
         LifeBar.instance.StartDeplition();
         gameplayController.SetPlayerControlActive(true);
     }
