@@ -38434,7 +38434,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75.5
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -38460,7 +38460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117597590}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 30, z: -21}
+  m_LocalPosition: {x: 0, y: 30, z: -16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1890412057}
@@ -41026,7 +41026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: hitTime
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: musicPlayer
