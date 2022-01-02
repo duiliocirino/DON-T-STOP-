@@ -363,9 +363,12 @@ public class GameplayController : MonoBehaviour
         LifeBar.instance.PerfectHit();
         LifeBar.instance.PerfectHit();
         LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
         yield return new WaitForSecondsRealtime(3);
         screenBlurr.gameObject.SetActive(false);
         LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
+        LifeBar.instance.UnregisterLimitReachedBehaviour(FirstGameOver);
         TutorialController.instance.disableDialogBox(20);
     }
     
