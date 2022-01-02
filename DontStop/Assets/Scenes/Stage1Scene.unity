@@ -5137,7 +5137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565384, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421926565385, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_Color.a
@@ -11047,6 +11047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorCamera: {fileID: 608207391}
+  maxDistance: 45
 --- !u!4 &493935185
 Transform:
   m_ObjectHideFlags: 0
