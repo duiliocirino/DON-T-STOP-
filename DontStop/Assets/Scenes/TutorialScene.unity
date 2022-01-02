@@ -41150,7 +41150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: depletionRate
-      value: 0.02
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: barelyHitBonus
@@ -41162,11 +41162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: worstMissPenality
-      value: 0.05
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: betterMissPenality
-      value: 0.03
+      value: 0.018
       objectReference: {fileID: 0}
     - target: {fileID: 8977123270992405284, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_IsActive
