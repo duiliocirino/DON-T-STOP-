@@ -48,7 +48,6 @@ public class Note : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("You collided with " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Player"))
         {
             _notesHandler.NoteTaken();
