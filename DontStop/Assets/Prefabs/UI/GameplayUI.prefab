@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenBlurr: {fileID: 4260750862961658876}
   countdown: {fileID: 3238123755277128869}
-  nextStageUnlocked: {fileID: 0}
+  nextStageUnlocked: {fileID: 4244477002070845079}
   gameOver: {fileID: 4260750861781467438}
   jumperControls: {fileID: 0}
   creatorControls: {fileID: 0}
@@ -312,6 +312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
+--- !u!1 &4244477002070845079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3072626787295390446, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
+  m_PrefabInstance: {fileID: 1171851318582054009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6335964406193244656 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
