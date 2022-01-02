@@ -156,7 +156,7 @@ public class PlaneHandler : MonoBehaviour
         var position = platformTile.transform.position;
         RemoveSameLayerEmptyTiles(position + Vector3.forward * spacing);
         RemovePlatform(platformTile);
-        AddEmptyTiles(PlatformTiles[PlatformTiles.Count - 1].transform.position - Vector3.forward * spacing);
+        AddEmptyTiles(PlatformTiles[PlatformTiles.Count - 1].transform.position);
     }
 
     /**
