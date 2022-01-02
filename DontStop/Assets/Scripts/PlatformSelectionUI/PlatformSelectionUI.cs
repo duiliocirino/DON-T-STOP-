@@ -134,9 +134,7 @@ public class PlatformSelectionUI : MonoBehaviour
             foreach (var meshRenderer in renderers)
             {
                 formerMaterial.Add(meshRenderer.gameObject.name, meshRenderer.material);
-                Debug.Log(formerMaterial[meshRenderer.gameObject.name].name);
                 meshRenderer.material = previewMaterial;
-                Debug.Log("Lul  " + formerMaterial[meshRenderer.gameObject.name].name);
             }
         }
     }
@@ -211,6 +209,11 @@ public class PlatformSelectionUI : MonoBehaviour
         }
 
         savedPlatforms = null;
+    }
+
+    public bool isSlotSelected()
+    {
+        return 0 <= selectedSlotIndex && selectedSlotIndex < slots.Count;
     }
 
 }

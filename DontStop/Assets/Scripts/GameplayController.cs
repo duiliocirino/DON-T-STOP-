@@ -38,6 +38,12 @@ public class GameplayController : MonoBehaviour
         {
             LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
         }
+
+        if (Options.istance.tutorial)
+        {
+            LifeBar.instance.UnregisterLimitReachedBehaviour(GameOver);
+            LifeBar.instance.RegisterLimitReachedBehaviour(FirstGameOver);
+        }
     }
 
     private IEnumerator OnGameStart()
@@ -53,7 +59,6 @@ public class GameplayController : MonoBehaviour
 
         if (Options.istance.tutorial)
         {
-
             //Initialise tutorial
             TutorialController.instance.disableAllDialogBoxes();
 
@@ -346,6 +351,26 @@ public class GameplayController : MonoBehaviour
         screenBlurr.gameObject.SetActive(false);
         TutorialController.instance.disableDialogBox(19);
     }
+
+    private void FirstGameOver()
+    {
+        StartCoroutine(NoGameOverThisTime());
+    }
+    private IEnumerator NoGameOverThisTime()
+    {
+        screenBlurr.gameObject.SetActive(true);
+        TutorialController.instance.enableDialogBox(20);
+        LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
+        LifeBar.instance.PerfectHit();
+        yield return new WaitForSecondsRealtime(3);
+        screenBlurr.gameObject.SetActive(false);
+        LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
+        LifeBar.instance.UnregisterLimitReachedBehaviour(FirstGameOver);
+        TutorialController.instance.disableDialogBox(20);
+    }
     
     IEnumerator Retry()
     {
@@ -440,7 +465,7 @@ public class GameplayController : MonoBehaviour
     private IEnumerator ShowNextStaheUnlocked()
     {
         nextStageUnlocked.SetActive(true);
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(10);
         nextStageUnlocked.SetActive(false);
     }
 

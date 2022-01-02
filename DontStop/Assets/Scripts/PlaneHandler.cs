@@ -92,6 +92,9 @@ public class PlaneHandler : MonoBehaviour
             shaker.Enable();
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
         }
+
+        if (Options.istance.tutorial) newPlatform.GetComponent<PlaneLogic>().planeLife *= 3;
+
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
@@ -156,7 +159,7 @@ public class PlaneHandler : MonoBehaviour
         var position = platformTile.transform.position;
         RemoveSameLayerEmptyTiles(position + Vector3.forward * spacing);
         RemovePlatform(platformTile);
-        AddEmptyTiles(PlatformTiles[PlatformTiles.Count - 1].transform.position - Vector3.forward * spacing);
+        AddEmptyTiles(PlatformTiles[PlatformTiles.Count - 1].transform.position);
     }
 
     /**

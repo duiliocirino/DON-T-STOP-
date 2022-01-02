@@ -16,7 +16,7 @@ public class Note : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void Awake()
@@ -46,9 +46,17 @@ public class Note : MonoBehaviour
         _outline.OutlineWidth = Mathf.Abs(4.5f * Mathf.Cos(frequency * (timeOn - noteLife * zeroTime)));
     }
 
-    private void OnCollisionEnter(Collision other)
+    /*private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("You collided with " + other.gameObject.tag);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _notesHandler.NoteTaken();
+            Destroy(gameObject);
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag("Player"))
         {
             _notesHandler.NoteTaken();

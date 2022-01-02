@@ -30,8 +30,8 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-             Input.GetKey(KeyCode.RightArrow)) &&
+        if (/*(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+             Input.GetKey(KeyCode.RightArrow))*/ PlatformSelectionUI.instance.isSlotSelected() &&
             Physics.Raycast(ray, out var hit, maxDistance, layerMask) && !Pause.paused)
         {
             if (firstPlace)
