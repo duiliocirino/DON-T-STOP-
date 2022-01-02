@@ -92,6 +92,9 @@ public class PlaneHandler : MonoBehaviour
             shaker.Enable();
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
         }
+
+        if (Options.istance.tutorial) newPlatform.GetComponent<PlaneLogic>().planeLife *= 3;
+
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
