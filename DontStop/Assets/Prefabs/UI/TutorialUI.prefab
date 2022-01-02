@@ -45717,7 +45717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062233847203673523, guid: 5759c9b3d9f465c47bd8ac50f2b6fb77, type: 3}
       propertyPath: m_Text
-      value: 'YOU WERE NOT ON RHYTHM
+      value: 'BAD TIMNG
 
         THE PLATFORM WILL FALL EARLIER!'
       objectReference: {fileID: 0}
