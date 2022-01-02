@@ -91,6 +91,14 @@ public class PlatformSelectionUI : MonoBehaviour
                 //print("stop: " + old);
                 DismantlePlatformPreview();
             }
+            
+            var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            int layerMask = 1 << 8;
+            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                 Input.GetKey(KeyCode.RightArrow)) &&
+                Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
+                if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point))
+                    CreatePlatformPreview();
         }
     }
 
@@ -101,6 +109,8 @@ public class PlatformSelectionUI : MonoBehaviour
 
     public void CreatePlatformPreview()
     {
+        if(lastPreview != null)
+            DismantlePlatformPreview();
         var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
