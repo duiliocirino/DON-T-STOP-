@@ -211,6 +211,11 @@ public class PlatformSelectionUI : MonoBehaviour
         savedPlatforms = null;
     }
 
+    public bool isSlotSelected()
+    {
+        return 0 <= selectedSlotIndex && selectedSlotIndex < slots.Count;
+    }
+
 }
 
 

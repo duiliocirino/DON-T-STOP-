@@ -465,7 +465,7 @@ public class GameplayController : MonoBehaviour
     private IEnumerator ShowNextStaheUnlocked()
     {
         nextStageUnlocked.SetActive(true);
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(10);
         nextStageUnlocked.SetActive(false);
     }
 
