@@ -141,7 +141,7 @@ public class PlatformSelectionUI : MonoBehaviour
         }
     }
 
-    private void DismantlePlatformPreview()
+    public void DismantlePlatformPreview()
     {
         if (lastPreview != null)
         {

@@ -72,6 +72,7 @@ public class PlaneHandler : MonoBehaviour
     public void AddPlatform(Vector3 position, GameObject prefab)
     {
         GameObject newPlatform;
+        PlatformSelectionUI.instance.DismantlePlatformPreview();
         if (RhythmControllerUI.instance.noteInHitArea || TutorialController.instance.hitAlwaysTrue)
         {
             particles.transform.position = position;
