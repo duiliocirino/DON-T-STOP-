@@ -6576,7 +6576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165240224502171017, guid: 27293eb8f2c649241bab9a1887b3cc35, type: 3}
       propertyPath: m_AnchorMax.x
@@ -43787,18 +43787,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7796394941131116403, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
-      propertyPath: m_Color.b
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796394941131116403, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
-      propertyPath: m_Color.g
-      value: 0.80784315
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796394941131116403, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7882353
-      objectReference: {fileID: 0}
     - target: {fileID: 8557708919514284604, guid: 6db73f25c1758ea48b842db824caa266, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -77957,8 +77945,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3528444953097451538}
   - {fileID: 108711816}
+  - {fileID: 3528444953097451538}
   - {fileID: 3528444954639421844}
   m_Father: {fileID: 1898485671}
   m_RootOrder: 4
@@ -78063,7 +78051,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: To stage selection
+  m_Text: "To stage \nselection"
 --- !u!114 &3528444953097451536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78115,7 +78103,7 @@ RectTransform:
   m_Children:
   - {fileID: 3528444954680206172}
   m_Father: {fileID: 1775225302408368036}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -78422,7 +78410,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Continue playing
 --- !u!1 &3528444954680206175
 GameObject:
   m_ObjectHideFlags: 0
