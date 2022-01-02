@@ -334,7 +334,6 @@ public class GameplayController : MonoBehaviour
     private IEnumerator CheckFirstFallingPlatform()
     {
         yield return new WaitUntil(() => TutorialController.instance.firstFall);
-        yield return new WaitForSecondsRealtime(0.5f);
         screenBlurr.gameObject.SetActive(true);
         TutorialController.instance.enableDialogBox(19);
         float oldTimeScale = Time.timeScale;

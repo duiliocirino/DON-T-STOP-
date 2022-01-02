@@ -72,7 +72,11 @@ public class PlaneHandler : MonoBehaviour
     public void AddPlatform(Vector3 position, GameObject prefab)
     {
         GameObject newPlatform;
-        PlatformSelectionUI.instance.DismantlePlatformPreview();
+        if (PlatformSelectionUI.instance.lastPreview != null)
+        {
+            PlatformSelectionUI.instance.DismantlePlatformPreview();
+        }
+        
         if (RhythmControllerUI.instance.noteInHitArea || TutorialController.instance.hitAlwaysTrue)
         {
             particles.transform.position = position;
@@ -239,7 +243,7 @@ public class PlaneHandler : MonoBehaviour
             var emptyTile = (EmptyTiles.Where(tile =>
                     Math.Abs(tile.transform.position.x - hitInfoPoint.x) < TOLERANCE &&
                     Math.Abs(tile.transform.position.z - hitInfoPoint.z) < TOLERANCE))
-                .First();
+                .FirstOrDefault();
             if (emptyTile != null)
                 return emptyTile;
         }

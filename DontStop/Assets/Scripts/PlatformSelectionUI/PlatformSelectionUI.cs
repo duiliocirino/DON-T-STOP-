@@ -20,7 +20,7 @@ public class PlatformSelectionUI : MonoBehaviour
     public Camera camera;
     public Material previewMaterial;
     private Dictionary<string, Material> formerMaterial = new Dictionary<string, Material>();
-    private GameObject lastPreview;
+    public GameObject lastPreview;
     private GameObject lastEmptyTile;
 
     private void Awake()
@@ -97,7 +97,7 @@ public class PlatformSelectionUI : MonoBehaviour
             if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                  Input.GetKey(KeyCode.RightArrow)) &&
                 Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
-                if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point))
+                if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point) && PlaneHandler.instance.GetNearestEmptyTile(hit.point) != null)
                     CreatePlatformPreview();
         }
     }
