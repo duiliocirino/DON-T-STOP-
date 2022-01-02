@@ -336,7 +336,7 @@ public class GameplayController : MonoBehaviour
         yield return new WaitUntil(() => TutorialController.instance.firstFall);
         yield return new WaitForSecondsRealtime(0.5f);
         screenBlurr.gameObject.SetActive(true);
-        TutorialController.instance.enableDialogBox(8);
+        TutorialController.instance.enableDialogBox(19);
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
         Time.timeScale = 0;
@@ -345,7 +345,7 @@ public class GameplayController : MonoBehaviour
         Time.timeScale = oldTimeScale;
         RhythmControllerUI.instance.musicPlayer.Play();
         screenBlurr.gameObject.SetActive(false);
-        TutorialController.instance.disableDialogBox(8);
+        TutorialController.instance.disableDialogBox(19);
     }
     
     IEnumerator Retry()
