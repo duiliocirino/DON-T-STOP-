@@ -33,7 +33,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadStage()
     {
-        var videoPlayer = FindObjectOfType<VideoPlayer>();
+        var videoPlayer = GameObject.FindGameObjectsWithTag("MenuVideo")[0];
         var music = GameObject.FindGameObjectsWithTag("MenuMusic")[0];
         Destroy(music);
         Destroy(videoPlayer);
