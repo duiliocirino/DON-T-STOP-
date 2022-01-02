@@ -19504,8 +19504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f772542a37d3f7649b218100a4fca366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorial: 0
-  gameEnds: 0
+  tutorial: 1
+  gameEnds: 1
 --- !u!4 &611143889
 Transform:
   m_ObjectHideFlags: 0
