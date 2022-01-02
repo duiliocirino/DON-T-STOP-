@@ -641,7 +641,7 @@ RectTransform:
   m_GameObject: {fileID: 3634357421926565391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8905068, y: 0.779852, z: 1}
   m_Children:
   - {fileID: 3634357421169773360}
   - {fileID: 3634357421752386543}
@@ -649,11 +649,11 @@ RectTransform:
   m_Father: {fileID: 3634357422718633826}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -430}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1700, y: 250}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3634357421926565386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -709,6 +709,7 @@ MonoBehaviour:
   musicPlayer: {fileID: 0}
   patternMapJSON: {fileID: 4900000, guid: c46615f2a61802540a9d84fc21992328, type: 3}
   hitZone: {fileID: 3634357421169773363}
+  pulsatingKeyAnimator: {fileID: 0}
   hasStarted: 0
   noteBufferPosition: {x: 0, y: 0}
   noteInHitArea: 0
@@ -720,6 +721,7 @@ MonoBehaviour:
     BPM: 0
     noteSpeed: 0
     initialDelay: 0
+    numberOfNotesSkippedOnFirstPlay: 0
     pattern: []
   usableBarFraction: 0.88235295
 --- !u!1 &3634357422718633830
