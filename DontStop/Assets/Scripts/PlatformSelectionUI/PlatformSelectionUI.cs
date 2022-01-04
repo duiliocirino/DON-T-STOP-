@@ -22,6 +22,7 @@ public class PlatformSelectionUI : MonoBehaviour
     private Dictionary<string, Material> formerMaterial = new Dictionary<string, Material>();
     public GameObject lastPreview;
     private GameObject lastEmptyTile;
+    private List<GameObject> nearEmptyTiles = new List<GameObject>();
 
     private void Awake()
     {
@@ -119,11 +120,31 @@ public class PlatformSelectionUI : MonoBehaviour
         {
             lastEmptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
             Vector3 tilePos = lastEmptyTile.transform.position;
+            GameObject platformPrefab = slotScripts[selectedSlotIndex].GetPlatform();
             if(lastEmptyTile != null)
             {
+                if (GetSelectedPlatformSize() > 1)
+                {
+                    var emptyPosition = lastEmptyTile.transform.position;
+                    var sxTile = PlaneHandler.instance.GetNearestEmptyTile(
+                        emptyPosition + Vector3.left * PlaneHandler.instance.spacing);
+                    var dxTile = PlaneHandler.instance.GetNearestEmptyTile(
+                        emptyPosition + Vector3.right * PlaneHandler.instance.spacing);
+
+                    lastEmptyTile.transform.position = emptyPosition;
+                    if (sxTile != null)
+                    {
+                        nearEmptyTiles.Add(sxTile);
+                        sxTile.GetComponent<MeshRenderer>().enabled = false;
+                    }
+                    if (dxTile != null)
+                    {
+                        nearEmptyTiles.Add(dxTile);
+                        dxTile.GetComponent<MeshRenderer>().enabled = false;
+                    }
+                }
                 lastEmptyTile.GetComponent<MeshRenderer>().enabled = false;
             }
-            GameObject platformPrefab = slotScripts[selectedSlotIndex].GetPlatform();
             lastPreview = Instantiate(platformPrefab, tilePos, Quaternion.identity);
             var colliders = lastPreview.GetComponentsInChildren<BoxCollider>();
             foreach (var collider in colliders)
@@ -150,6 +171,14 @@ public class PlatformSelectionUI : MonoBehaviour
             }
             if(lastEmptyTile != null)
             {
+                if (nearEmptyTiles.Count > 0)
+                {
+                    foreach (var tile in nearEmptyTiles)
+                    {
+                        tile.GetComponent<MeshRenderer>().enabled = true;
+                    }
+                    nearEmptyTiles.Clear();
+                }
                 lastEmptyTile.GetComponent<MeshRenderer>().enabled = true;
             }
 
