@@ -67,7 +67,8 @@ public class RhythmControllerUI : MonoBehaviour
     private void GenerateTimeVector()
     {
         timeVector = new List<float>();
-        float measureTime = (60 / BPM) * patternMap.tempoDenominator;
+        float noteTime = (60 / BPM);
+        float measureTime = noteTime * patternMap.tempoNumerator;
         float baseTime = 0;
         foreach (BeatPattern bp in patternMap.pattern)
         {
@@ -78,7 +79,10 @@ public class RhythmControllerUI : MonoBehaviour
                     timeVector.Add(baseTime + measureTime * notePosition);
                 }
             }
-            baseTime += measureTime * bp.numMeasures;
+            float thisMeasureTime = measureTime;
+            if (bp.tempoNumerator != default && bp.tempoDenominator != default && bp.tempoNumerator != patternMap.tempoNumerator && bp.tempoDenominator != patternMap.tempoDenominator)
+                thisMeasureTime = noteTime * bp.tempoNumerator;
+        baseTime += thisMeasureTime * bp.numMeasures;
         }
 
         timeVector.Sort();
