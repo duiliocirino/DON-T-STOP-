@@ -26394,7 +26394,7 @@ MonoBehaviour:
   spacing: 13.2
   laneNumbersRadius: 4
   numberOfEmptyTilesSide: 1
-  tutorialPresent: 1
+  tutorialPresent: 0
   platformInTutorial: 9
   platformSkippedAtTutorialEnd: 4
   TOLERANCE: 9
@@ -33245,7 +33245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 8
+  notesForNextStage: 0
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
