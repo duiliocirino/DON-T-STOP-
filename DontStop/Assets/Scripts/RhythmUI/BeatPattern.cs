@@ -7,6 +7,8 @@ public class BeatPattern
 {
     public int numMeasures;
     public List<float> notePositions;
+    public int tempoNumerator;
+    public int tempoDenominator;
 
     private int _worstNotesPerMeasure = -1;
     public float worstNotesPerMeasure()
