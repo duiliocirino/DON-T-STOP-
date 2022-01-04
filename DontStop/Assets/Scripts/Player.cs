@@ -38,7 +38,10 @@ public class Player : MonoBehaviour
     float m_TurnAmount;
     float m_ForwardAmount;
     Vector3 m_GroundNormal;
+    float m_CapsuleHeight;
+    Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
+    bool m_Crouching;
     
     public float minMissPenalty = 0.6f;
     public float maxMissPenalty = 0.4f;
@@ -48,12 +51,14 @@ public class Player : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Capsule = GetComponent<CapsuleCollider>();
+        m_CapsuleHeight = m_Capsule.height;
+        m_CapsuleCenter = m_Capsule.center;
 
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         m_OrigGroundCheckDistance = m_GroundCheckDistance;
     }
 
-    public void Move(Vector3 move, bool jump)
+    public void Move(Vector3 move, bool crouch, bool jump)
     {
 
         // convert the world relative moveInput vector into a local-relative
@@ -74,15 +79,55 @@ public class Player : MonoBehaviour
         // control and velocity handling is different when grounded and airborne:
         if (m_IsGrounded)
         {
-            HandleGroundedMovement(jump);
+            HandleGroundedMovement(crouch, jump);
         }
         else
         {
             HandleAirborneMovement();
         }
         
+        ScaleCapsuleForCrouching(crouch);
+        PreventStandingInLowHeadroom();
+        
         // send input and other state parameters to the animator
         UpdateAnimator(move);
+    }
+    void ScaleCapsuleForCrouching(bool crouch)
+    {
+        if (m_IsGrounded && crouch)
+        {
+            if (m_Crouching) return;
+            m_Capsule.height = m_Capsule.height / 2f;
+            m_Capsule.center = m_Capsule.center / 2f;
+            m_Crouching = true;
+        }
+        else
+        {
+            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
+            float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
+            if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            {
+                m_Crouching = true;
+                return;
+            }
+            m_Capsule.height = m_CapsuleHeight;
+            m_Capsule.center = m_CapsuleCenter;
+            m_Crouching = false;
+        }
+    }
+    
+    void PreventStandingInLowHeadroom()
+    {
+        // prevent standing up in crouch-only zones
+        if (!m_Crouching)
+        {
+            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
+            float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
+            if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            {
+                m_Crouching = true;
+            }
+        }
     }
 
     void UpdateAnimator(Vector3 move)
@@ -90,6 +135,7 @@ public class Player : MonoBehaviour
         // update the animator parameters
         m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+        m_Animator.SetBool("Crouch", m_Crouching);
         m_Animator.SetBool("OnGround", m_IsGrounded);
         if (!m_IsGrounded)
         {
@@ -132,10 +178,10 @@ public class Player : MonoBehaviour
     }
 
 
-    void HandleGroundedMovement(bool jump)
+    void HandleGroundedMovement(bool crouch, bool jump)
     {
         // check whether conditions are right to allow a jump:
-        if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+        if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
         {
             float jumpForce = m_JumpPower;
             if (RhythmControllerUI.instance.noteInHitArea || (Options.istance.tutorial && TutorialController.instance.hitAlwaysTrue)) 
@@ -204,6 +250,8 @@ public class Player : MonoBehaviour
             {
                 m_GroundNormal = hitInfo.normal;
                 m_IsGrounded = true;
+                m_Crouching = true;
+                m_Animator.SetBool("Crouch", true);
                 if (hitInfo.collider.gameObject.CompareTag("SpecialPlatform") ||
                     hitInfo.collider.gameObject.CompareTag("ObstaclePlatform"))
                     HandleRespawnPlatform(hitInfo.collider.gameObject);
