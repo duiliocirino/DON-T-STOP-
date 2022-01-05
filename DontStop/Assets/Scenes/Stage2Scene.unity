@@ -43760,6 +43760,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 197653797}
+    - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: previewMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f1461113e00ee4448abba2e61b1efb59, type: 2}
+    - target: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
       propertyPath: platformPrefabs.Array.size
       value: 6
       objectReference: {fileID: 0}
