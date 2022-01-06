@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 1266921342}
   - component: {fileID: 1266921341}
   - component: {fileID: 1266921343}
+  - component: {fileID: 1266921344}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: MenuMusic
@@ -1104,6 +1105,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52259f64abc34e34783c9ad679448e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1266921344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266921340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1164a7a5d30894a9bc172eec174c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceHeight: 1080
+  referenceWidth: 1920
 --- !u!1 &1342655187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342655188}
   - component: {fileID: 1342655189}
+  - component: {fileID: 1342655190}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1186,6 +1202,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1342655190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342655187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1164a7a5d30894a9bc172eec174c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceHeight: 1080
+  referenceWidth: 1920
 --- !u!1 &1448488586
 GameObject:
   m_ObjectHideFlags: 0

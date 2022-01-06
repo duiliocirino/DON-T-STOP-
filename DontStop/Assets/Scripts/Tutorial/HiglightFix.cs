@@ -17,7 +17,9 @@ public class HiglightFix : MonoBehaviour
     {
         float actualHeight = 1920 * Screen.height/Screen.width;
 
-        rectTransform.anchoredPosition += new Vector2(0, (actualHeight/2) - (1080/2));
+        float multiplier = (2*rectTransform.anchorMin.y)-1;
+
+        rectTransform.anchoredPosition += multiplier * new Vector2(0, (actualHeight/2) - (1080/2));
     }
 
     // Update is called once per frame
