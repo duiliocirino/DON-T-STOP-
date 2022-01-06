@@ -390,15 +390,15 @@ public class GameplayController : MonoBehaviour
     {
         TutorialController.instance.disableDialogBox(7);
         TutorialController.instance.enableDialogBox(16);
-        yield return new WaitForSecondsRealtime(2.5f);
+        yield return new WaitForSecondsRealtime(4.5f);
         TutorialController.instance.disableDialogBox(16);
     }
     
     IEnumerator RetryCreator()
     {
         TutorialController.instance.disableDialogBox(14);
-        TutorialController.instance.enableDialogBox(17);
-        yield return new WaitForSecondsRealtime(2.5f);
+        TutorialController.instance.enableDialogBox(17);    
+        yield return new WaitForSecondsRealtime(4.5f);
         TutorialController.instance.disableDialogBox(17);
     }
 

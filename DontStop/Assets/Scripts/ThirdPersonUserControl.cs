@@ -54,15 +54,17 @@ public class ThirdPersonUserControl : MonoBehaviour
             LifeBar.instance.WorstMiss();
             if (lastPlatformTouched != null)
             {
-                Vector3 newPos = lastObjectPosition + Vector3.up * 3;
+                Vector3 newPos = lastObjectPosition + Vector3.up;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
             else
             {
                 // ATTENZIONE
+                float spacing = PlaneHandler.instance.spacing;
+                lastPlatformPosition.y = (float) Math.Round((lastPlatformPosition.y / spacing)) * spacing;
                 Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
-                Vector3 newPos = lastObjectPosition + Vector3.up * 3;
+                Vector3 newPos = lastObjectPosition + Vector3.up;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
