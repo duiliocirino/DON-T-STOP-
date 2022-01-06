@@ -21,7 +21,7 @@ public class Creator : MonoBehaviour
 
     private bool firstPlace = true;
     private double TOLERANCE = 5;
-    public int maxDistance = 45;
+    public int maxDistance = 35;
 
     private void OnClickCreate()
     {
