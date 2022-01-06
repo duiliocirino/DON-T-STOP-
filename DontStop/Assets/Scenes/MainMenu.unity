@@ -734,7 +734,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 0
-  m_AspectRatio: 2
+  m_AspectRatio: 0
   m_DataSource: 0
   m_PlaybackSpeed: 1.02
   m_AudioOutputMode: 2
@@ -1795,6 +1795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113358025}
   - component: {fileID: 2113358026}
+  - component: {fileID: 2113358027}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -1867,3 +1868,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2113358027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113358024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1164a7a5d30894a9bc172eec174c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceHeight: 1080
+  referenceWidth: 1920
