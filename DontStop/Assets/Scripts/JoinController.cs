@@ -15,7 +15,7 @@ public class JoinController : MonoBehaviour
     private void Start()
     {
 
-        bounds = new Rect(Screen.width / 1.7f, 0, Screen.width / 2, Screen.height);
+        bounds = new Rect(0/*Screen.width / 1.7f*/, 0, Screen.width /*/ 2*/, Screen.height);
         StartButton.interactable = false;
     }
 
