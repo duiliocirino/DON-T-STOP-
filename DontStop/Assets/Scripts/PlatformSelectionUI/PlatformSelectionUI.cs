@@ -87,10 +87,7 @@ public class PlatformSelectionUI : MonoBehaviour
 
             if (selectedSlotIndex == -1)
             {
-                slotScripts[old].setInactive();
-                PlaneHandler.instance.ComunicateSelectedPlatformSize(0);
-                //print("stop: " + old);
-                DismantlePlatformPreview();
+                DisableOldSlot(old);
             }
             
             var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -101,6 +98,14 @@ public class PlatformSelectionUI : MonoBehaviour
                 if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point) && PlaneHandler.instance.GetNearestEmptyTile(hit.point) != null)
                     CreatePlatformPreview();
         }
+    }
+
+    private void DisableOldSlot(int old)
+    {
+        slotScripts[old].setInactive();
+        PlaneHandler.instance.ComunicateSelectedPlatformSize(0);
+        //print("stop: " + old);
+        DismantlePlatformPreview();
     }
 
     public void SetSelectedSlotIndex(int index)
@@ -245,6 +250,10 @@ public class PlatformSelectionUI : MonoBehaviour
         return 0 <= selectedSlotIndex && selectedSlotIndex < slots.Count;
     }
 
+    public void ForceSelectedSlotReset()
+    {
+        DisableOldSlot(selectedSlotIndex);
+    }
 }
 
 

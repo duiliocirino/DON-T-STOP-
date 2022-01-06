@@ -312,6 +312,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
+        PlatformSelectionUI.instance.ForceSelectedSlotReset();
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(2f);
         yield return new WaitUntil((() => Input.anyKeyDown));
@@ -323,6 +324,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
+        PlatformSelectionUI.instance.ForceSelectedSlotReset();
         Time.timeScale = 0;
         yield return new WaitUntil((() => CrossPlatformInputManager.GetButtonDown("Jump")));
         Time.timeScale = oldTimeScale;
@@ -333,6 +335,7 @@ public class GameplayController : MonoBehaviour
     {
         float oldTimeScale = Time.timeScale;
         RhythmControllerUI.instance.musicPlayer.Pause();
+        PlatformSelectionUI.instance.ForceSelectedSlotReset();
         Time.timeScale = 0;
         yield return new WaitUntil(() => (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                           Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) &&
