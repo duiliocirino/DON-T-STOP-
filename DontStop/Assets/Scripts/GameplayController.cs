@@ -22,6 +22,8 @@ public class GameplayController : MonoBehaviour
     public NotesHandler notesHandler;
     public GameObject initialPlatform;
     public GameObject lastPlatform;
+    public GameObject platformChoiceUI;
+    public GameObject lifebar;
 
     private void Awake()
     {
@@ -60,6 +62,8 @@ public class GameplayController : MonoBehaviour
         if (Options.istance.tutorial)
         {
             //Initialise tutorial
+            platformChoiceUI.SetActive(false);
+            lifebar.SetActive(false);
             TutorialController.instance.disableAllDialogBoxes();
 
             TutorialController.instance.enableDialogBox(0);
@@ -183,7 +187,7 @@ public class GameplayController : MonoBehaviour
 
             //CREATOR
             SetPlayerControlActive(false);
-            
+            platformChoiceUI.SetActive(true);
             TutorialController.instance.enableDialogBox(8);
             yield return new WaitForSecondsRealtime(6f);
             yield return new WaitUntil((() => Input.anyKeyDown));
@@ -278,6 +282,7 @@ public class GameplayController : MonoBehaviour
             
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(18);
+            lifebar.SetActive(true);
             yield return MakeTimeStop();
             TutorialController.instance.disableDialogBox(18);
             screenBlurr.gameObject.SetActive(false);
