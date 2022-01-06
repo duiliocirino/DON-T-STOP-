@@ -252,7 +252,7 @@ public class PlatformSelectionUI : MonoBehaviour
 
     public void ForceSelectedSlotReset()
     {
-        DisableOldSlot(selectedSlotIndex);
+        if(isSlotSelected()) DisableOldSlot(selectedSlotIndex);
     }
 }
 
