@@ -121,7 +121,7 @@ public class PlatformSelectionUI : MonoBehaviour
         int layerMask = 1 << 8;
         if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
              Input.GetKey(KeyCode.RightArrow)) &&
-            Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
+            Physics.Raycast(ray, out var hit, 35, layerMask) && !Pause.paused)
         {
             lastEmptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
             Vector3 tilePos = lastEmptyTile.transform.position;
@@ -252,7 +252,7 @@ public class PlatformSelectionUI : MonoBehaviour
 
     public void ForceSelectedSlotReset()
     {
-        DisableOldSlot(selectedSlotIndex);
+        if(isSlotSelected()) DisableOldSlot(selectedSlotIndex);
     }
 }
 
