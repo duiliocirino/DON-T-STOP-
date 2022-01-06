@@ -75,6 +75,7 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.enableDialogBox(2);
             yield return new WaitForSecondsRealtime(2f);
             SetPlayerControlActive(true);
+            SetCreatorControlActive(false);
             screenBlurr.gameObject.SetActive(false);
             yield return new WaitUntil(() =>
                 (CrossPlatformInputManager.GetButtonDown("Horizontal") ||
@@ -98,6 +99,7 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.enableDialogBox(3);
             yield return new WaitForSecondsRealtime(2f);
             SetPlayerControlActive(true);
+            SetCreatorControlActive(false);
             screenBlurr.gameObject.SetActive(false);
             bool jumpPerformed = false;
             while (!jumpPerformed)
@@ -137,6 +139,7 @@ public class GameplayController : MonoBehaviour
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(6);
             SetPlayerControlActive(true);
+            SetCreatorControlActive(false);
             yield return MakeTimeStopJump();
             TutorialController.instance.disableDialogBox(6);
             screenBlurr.gameObject.SetActive(false);
@@ -144,7 +147,8 @@ public class GameplayController : MonoBehaviour
 
             jumpPerformed = false;
             while (!jumpPerformed)
-            { 
+            {
+                yield return null;
                 yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
                 var rightJump = RhythmControllerUI.instance.noteInHitArea;
                 if (!rightJump)
@@ -152,7 +156,8 @@ public class GameplayController : MonoBehaviour
                     StartCoroutine(Retry());
                 }
                 yield return new WaitForSecondsRealtime(1f);
-                if (GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched != lastPlatform &&
+                if (GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched == 
+                    PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] &&
                     rightJump)
                 {
                     jumpPerformed = true;
@@ -367,13 +372,12 @@ public class GameplayController : MonoBehaviour
         LifeBar.instance.PerfectHit();
         yield return new WaitForSecondsRealtime(3);
         screenBlurr.gameObject.SetActive(false);
-        LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
-        LifeBar.instance.UnregisterLimitReachedBehaviour(FirstGameOver);
         TutorialController.instance.disableDialogBox(20);
     }
     
     IEnumerator Retry()
     {
+        TutorialController.instance.disableDialogBox(7);
         TutorialController.instance.enableDialogBox(16);
         yield return new WaitForSecondsRealtime(2.5f);
         TutorialController.instance.disableDialogBox(16);
@@ -381,6 +385,7 @@ public class GameplayController : MonoBehaviour
     
     IEnumerator RetryCreator()
     {
+        TutorialController.instance.disableDialogBox(14);
         TutorialController.instance.enableDialogBox(17);
         yield return new WaitForSecondsRealtime(2.5f);
         TutorialController.instance.disableDialogBox(17);
@@ -454,15 +459,21 @@ public class GameplayController : MonoBehaviour
 #endif
     }
 
+    public void EnableRealGameOver()
+    {
+        LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
+        LifeBar.instance.UnregisterLimitReachedBehaviour(FirstGameOver);
+    }
+
     public void UnlockNextStage()
     {
-        StartCoroutine(ShowNextStaheUnlocked());
+        StartCoroutine(ShowNextStageUnlocked());
 #if !UNITY_EDITOR
         SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
 #endif
     }
 
-    private IEnumerator ShowNextStaheUnlocked()
+    private IEnumerator ShowNextStageUnlocked()
     {
         nextStageUnlocked.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
