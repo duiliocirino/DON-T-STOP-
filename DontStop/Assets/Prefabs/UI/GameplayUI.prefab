@@ -128,6 +128,9 @@ MonoBehaviour:
   notesHandler: {fileID: 0}
   initialPlatform: {fileID: 0}
   lastPlatform: {fileID: 0}
+  platformChoiceUI: {fileID: 0}
+  lifebar: {fileID: 0}
+  lifebarScript: {fileID: 0}
 --- !u!1 &4260750862961658877
 GameObject:
   m_ObjectHideFlags: 0

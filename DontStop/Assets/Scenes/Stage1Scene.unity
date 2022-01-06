@@ -30104,6 +30104,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4646933745565138, guid: 4983f395b2610de4e9f688a87bbd9af9, type: 3}
   m_PrefabInstance: {fileID: 2069284886}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2110616039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5970836095298117729, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+  m_PrefabInstance: {fileID: 126410076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2118374038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30344,7 +30355,7 @@ PrefabInstance:
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: jumperControls
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2110616039}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: playerPosition
       value: 
