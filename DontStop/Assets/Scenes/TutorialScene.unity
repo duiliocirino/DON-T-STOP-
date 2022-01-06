@@ -41628,6 +41628,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1305169811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 679351754875553384, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1305169806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1306599825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44571,7 +44576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorCamera: {fileID: 1448546634}
-  maxDistance: 45
+  maxDistance: 35
 --- !u!4 &1447130782
 Transform:
   m_ObjectHideFlags: 0
@@ -47614,7 +47619,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1656508194260084630, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
   m_PrefabInstance: {fileID: 1613466450}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1613466453}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02df5e98c64798f4bae0f97b8f923978, type: 3}
@@ -47623,6 +47628,11 @@ MonoBehaviour:
 --- !u!224 &1613466452 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7989942272821915105, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+  m_PrefabInstance: {fileID: 1613466450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1613466453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1761003279959071, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
   m_PrefabInstance: {fileID: 1613466450}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1614168940
@@ -66822,6 +66832,14 @@ PrefabInstance:
       value: TutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: Lifebar
+      value: 
+      objectReference: {fileID: 1305169811}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: lifebar
+      value: 
+      objectReference: {fileID: 1305169811}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: notesHandler
       value: 
       objectReference: {fileID: 1630794757}
@@ -66841,6 +66859,10 @@ PrefabInstance:
       propertyPath: initialPlatform
       value: 
       objectReference: {fileID: 398601575}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: platformChoiceUI
+      value: 
+      objectReference: {fileID: 1613466453}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: platformSelectionControls
       value: 
