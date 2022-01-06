@@ -24,6 +24,7 @@ public class GameplayController : MonoBehaviour
     public GameObject lastPlatform;
     public GameObject platformChoiceUI;
     public GameObject lifebar;
+    public LifeBar lifebarScript;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class GameplayController : MonoBehaviour
             //Initialise tutorial
             platformChoiceUI.SetActive(false);
             lifebar.SetActive(false);
+            lifebarScript.enabled = false;
             TutorialController.instance.disableAllDialogBoxes();
 
             TutorialController.instance.enableDialogBox(0);
@@ -283,6 +285,7 @@ public class GameplayController : MonoBehaviour
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(18);
             lifebar.SetActive(true);
+            lifebarScript.enabled = true;
             yield return MakeTimeStop();
             TutorialController.instance.disableDialogBox(18);
             screenBlurr.gameObject.SetActive(false);
