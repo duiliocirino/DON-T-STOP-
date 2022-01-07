@@ -76,6 +76,8 @@ public class LifeBar : MonoBehaviour
 
     public void PerfectHit()
     {
+        if (gameObject.activeInHierarchy == false) return;
+
         float newWidth = rectTransform.sizeDelta.x + perfectHitDistanceGained;
         if (newWidth > startingWidth)
         {
@@ -86,6 +88,8 @@ public class LifeBar : MonoBehaviour
 
     public void BarelyHit()
     {
+        if (gameObject.activeInHierarchy == false) return;
+
         float newWidth = rectTransform.sizeDelta.x + barelyHitDistanceGained;
         if (newWidth > startingWidth)
         {
@@ -96,6 +100,8 @@ public class LifeBar : MonoBehaviour
 
     public void WorstMiss()
     {
+        if (gameObject.activeInHierarchy == false) return;
+
         float newWidth = rectTransform.sizeDelta.x - worstMissDistanceLoss;
         if (newWidth < widthLimit)
         {
@@ -107,6 +113,8 @@ public class LifeBar : MonoBehaviour
 
     public void BetterMiss()
     {
+        if (gameObject.activeInHierarchy == false) return;
+
         float newWidth = rectTransform.sizeDelta.x - betterMissDistanceLoss;
         if (newWidth < widthLimit)
         {
