@@ -11,7 +11,8 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //SaveController.istance.UnlockStage(1);
+        //SaveController.istance.UnlockStage(2);
     }
 
     // Update is called once per frame
