@@ -301,6 +301,8 @@ public class GameplayController : MonoBehaviour
         }
         else
         {
+            LifeBar.instance.RegisterLimitReachedBehaviour(GameOver);
+
             //show countdown
             for (int i = 3; i > 0; i--)
             {
