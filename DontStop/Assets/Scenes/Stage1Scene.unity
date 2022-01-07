@@ -8152,7 +8152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorCamera: {fileID: 608207391}
-  maxDistance: 45
+  maxDistance: 35
 --- !u!4 &493935185
 Transform:
   m_ObjectHideFlags: 0
