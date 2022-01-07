@@ -25,7 +25,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape) || Gamepad.current[UnityEngine.InputSystem.LowLevel.GamepadButton.Start].isPressed) && canBePaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && canBePaused)
         {
             if (paused)
             {

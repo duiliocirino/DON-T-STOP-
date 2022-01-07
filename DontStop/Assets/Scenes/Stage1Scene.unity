@@ -30359,7 +30359,7 @@ PrefabInstance:
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: playerPosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 126410077}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: creatorControls
       value: 
