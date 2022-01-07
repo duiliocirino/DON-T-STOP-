@@ -90,7 +90,7 @@ public class NotesHandler : MonoBehaviour
             float rangeX = PlaneHandler.instance.laneNumbersRadius * PlaneHandler.instance.spacing;
             float displacementZ = Random.Range(minSpawnRangeZ, maxSpawnRangeZ);
             float leftX = Math.Max(-rangeX, lastPlatformPosition.x - (displacementZ * PlaneHandler.instance.spacing));
-            float rightX = Math.Min(rangeX, displacementZ * PlaneHandler.instance.spacing);
+            float rightX = Math.Min(rangeX, lastPlatformPosition.x + displacementZ * PlaneHandler.instance.spacing);
             Vector3 newNotePosition = new Vector3(Random.Range(leftX, rightX), Random.value, lastPlatformPosition.z + displacementZ * PlaneHandler.instance.spacing);
             if ((PlaneHandler.instance.platformInTutorial * PlaneHandler.instance.spacing) >= newNotePosition.z || newNotePosition.z >= ((PlaneHandler.instance.platformInTutorial + PlaneHandler.instance.platformSkippedAtTutorialEnd + 1) * PlaneHandler.instance.spacing))
                 GameObject.Instantiate(notePrefab, newNotePosition, Quaternion.identity);
