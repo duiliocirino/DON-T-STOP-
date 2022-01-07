@@ -18,6 +18,10 @@ public class LevelGenerator : MonoBehaviour
     public GameObject[] preplacedLevelSections;
     private Queue<GameObject> placedSections;
 
+    private void Awake()
+    {
+        DynamicGI.UpdateEnvironment();
+    }
     void Start()
     {
         placedSections = new Queue<GameObject>(preplacedLevelSections);
