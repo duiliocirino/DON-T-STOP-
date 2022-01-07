@@ -21345,6 +21345,7 @@ MonoBehaviour:
   respawnParticles1: {fileID: 5970836095343192702}
   respawnParticles2: {fileID: 5970836095720812899}
   spawnSound: {fileID: 5970836095298117728}
+  controlsEnabled: 1
 --- !u!114 &5970836095298117731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21441,7 +21442,7 @@ MonoBehaviour:
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
   m_JumpPower: 35
-  m_GravityMultiplier: 7.5
+  m_GravityMultiplier: 10
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 10
   m_AnimSpeedMultiplier: 1
