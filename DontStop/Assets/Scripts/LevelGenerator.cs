@@ -40,7 +40,7 @@ public class LevelGenerator : MonoBehaviour
         if(Math.Abs(currentZ - playerTransform.position.z) < placingDistance)
         {
             int sectionNumber = UnityEngine.Random.Range(0, levelSections.Length);
-            placedSections.Enqueue(Instantiate(levelSections[sectionNumber], new Vector3(20, -12.6f, currentZ), Quaternion.identity));
+            placedSections.Enqueue(Instantiate(levelSections[sectionNumber], new Vector3(8, -12.6f, currentZ), Quaternion.identity));
             currentZ += (int)sectionSize;
         }
     }
