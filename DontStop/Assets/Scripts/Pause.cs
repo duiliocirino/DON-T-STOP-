@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Pause : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && canBePaused)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Gamepad.current[UnityEngine.InputSystem.LowLevel.GamepadButton.Start].isPressed) && canBePaused)
         {
             if (paused)
             {

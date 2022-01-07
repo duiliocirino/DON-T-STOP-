@@ -10348,6 +10348,7 @@ MonoBehaviour:
   respawnParticles1: {fileID: 1906909270}
   respawnParticles2: {fileID: 1339284124}
   spawnSound: {fileID: 1594040389}
+  controlsEnabled: 1
 --- !u!82 &1594040386
 AudioSource:
   m_ObjectHideFlags: 0
