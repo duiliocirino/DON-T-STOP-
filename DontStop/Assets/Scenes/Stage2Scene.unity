@@ -9831,6 +9831,10 @@ PrefabInstance:
       propertyPath: camTransform
       value: 
       objectReference: {fileID: 197653798}
+    - target: {fileID: 5970836095298117743, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: m_MoveSpeedMultiplier
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6149122915304359822, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -22698,23 +22702,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: depletionRate
-      value: 0.02
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: barelyHitBonus
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
-      propertyPath: perfectHitBonus
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: perfectHitBonus
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: worstMissPenality
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: betterMissPenality
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8977123270992405284, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_IsActive
