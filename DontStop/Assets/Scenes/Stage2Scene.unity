@@ -9099,6 +9099,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1554718770}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: jumperControls
+      value: 
+      objectReference: {fileID: 1047560232}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: playerPosition
+      value: 
+      objectReference: {fileID: 359185533}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: creatorControls
       value: 
       objectReference: {fileID: 1336199546}
@@ -10537,6 +10545,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4345878849055200, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
   m_PrefabInstance: {fileID: 1046765693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047560232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5970836095298117729, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+  m_PrefabInstance: {fileID: 954788799}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1077161183
 PrefabInstance:
   m_ObjectHideFlags: 0
