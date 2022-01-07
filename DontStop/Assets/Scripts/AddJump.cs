@@ -19,8 +19,11 @@ public class AddJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        other.gameObject.GetComponent<Animator>().SetBool("OnTrampoline", true);
-        other.rigidbody.AddForce(Vector3.up * 2800);
+        if (other.relativeVelocity.y != 0)
+        {
+            other.gameObject.GetComponent<Animator>().SetBool("OnTrampoline", true);
+            other.rigidbody.AddForce(Vector3.up * 2800);
+        }
     }
 
     private void OnCollisionExit(Collision other)
