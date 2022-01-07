@@ -21444,7 +21444,7 @@ MonoBehaviour:
   m_JumpPower: 37
   m_GravityMultiplier: 10
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 15
+  m_MoveSpeedMultiplier: 11
   m_AnimSpeedMultiplier: 1.5
   m_GroundCheckDistance: 0.11
   childMaterial: {fileID: 1554488079516257399}
