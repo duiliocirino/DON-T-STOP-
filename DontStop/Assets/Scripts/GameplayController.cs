@@ -463,6 +463,7 @@ public class GameplayController : MonoBehaviour
     {
         creatorControls.enabled = active;
         platformSelectionControls.enabled = active;
+        if(!active) PlatformSelectionUI.instance.ForceSelectedSlotReset();
     }
 
     private void GameOver()
