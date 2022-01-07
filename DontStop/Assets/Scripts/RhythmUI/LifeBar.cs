@@ -26,6 +26,7 @@ public class LifeBar : MonoBehaviour
     private RectTransform rectTransform;
     private float startingWidth;
     private float widthLimit;
+    private bool limitReached = false;
 
     private List<Action> onLimitReached = new List<Action>();
 
@@ -64,12 +65,26 @@ public class LifeBar : MonoBehaviour
                 newWidth = widthLimit;
             }
             rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
-            if (newWidth == widthLimit) OnLimitReached();
+            CheckLimit();
+        }
+    }
+
+    private void CheckLimit()
+    {
+        if (rectTransform.sizeDelta.x == widthLimit && !limitReached)
+        {
+            limitReached = true;
+            OnLimitReached();
+        }
+        if(limitReached && rectTransform.sizeDelta.x > widthLimit)
+        {
+            limitReached = false;
         }
     }
 
     private void OnLimitReached()
     {
+        //print("limit reached");
         foreach (Action a in onLimitReached)
             a.Invoke();
     }
@@ -108,7 +123,7 @@ public class LifeBar : MonoBehaviour
             newWidth = widthLimit;
         }
         rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
-        if (newWidth == widthLimit) OnLimitReached();
+        CheckLimit();
     }
 
     public void BetterMiss()
@@ -121,7 +136,7 @@ public class LifeBar : MonoBehaviour
             newWidth = widthLimit;
         }
         rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
-        if (newWidth == widthLimit) OnLimitReached();
+        CheckLimit();
     }
 
     public void RegisterLimitReachedBehaviour(Action a)
