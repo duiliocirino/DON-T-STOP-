@@ -426,7 +426,7 @@ public class GameplayController : MonoBehaviour
 
     public void SetPlayerControlActive(bool active)
     {
-        jumperControls.enabled = active;
+        jumperControls.controlsEnabled = active;
         if (active == false)
         {
             var player = GameObject.FindWithTag("Player");
