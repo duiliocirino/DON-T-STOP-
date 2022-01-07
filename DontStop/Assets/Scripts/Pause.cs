@@ -25,7 +25,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && canBePaused)
+        if (CrossPlatformInputManager.GetButtonDown("Cancel") && canBePaused)
         {
             if (paused)
             {

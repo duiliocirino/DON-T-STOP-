@@ -91,8 +91,8 @@ public class GameplayController : MonoBehaviour
             SetCreatorControlActive(false);
             screenBlurr.gameObject.SetActive(false);
             yield return new WaitUntil(() =>
-                (CrossPlatformInputManager.GetButtonDown("Horizontal") ||
-                 CrossPlatformInputManager.GetButtonDown("Vertical"))
+                (CrossPlatformInputManager.GetAxis("Horizontal") != 0 ||
+                 CrossPlatformInputManager.GetAxis("Vertical") != 0)
                 && !Pause.paused);
             yield return new WaitForSecondsRealtime(2f);
             SetPlayerControlActive(false);
