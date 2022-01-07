@@ -11,15 +11,13 @@ public class Pause : MonoBehaviour
 
     public GameObject menu;
     public GameplayController gameplayController;
-
-    private float oldTimeScale;
+    private int stopperID = -1;
 
     // Start is called before the first frame update
     void Start()
     {
         paused = false;
         canBePaused = true;
-        oldTimeScale = Time.timeScale;
     }
 
     // Update is called once per frame
@@ -41,23 +39,21 @@ public class Pause : MonoBehaviour
     private void OnPause()
     {
         menu.SetActive(true);
-        oldTimeScale = Time.timeScale;
-        RhythmControllerUI.instance.musicPlayer.Pause();
-        Time.timeScale = 0f;
+        stopperID = gameplayController.stopTime();
         paused = true;
     }
 
     public void OnResume()
     {
-        Time.timeScale = oldTimeScale;
-        RhythmControllerUI.instance.musicPlayer.Play();
+        gameplayController.resumeTime(stopperID);
         menu.SetActive(false);
         paused = false;
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = oldTimeScale;
+        gameplayController.resumeTime(stopperID);
+        RhythmControllerUI.instance.musicPlayer.Pause();
         paused = false;
 
         gameplayController.GoToMainMenu();

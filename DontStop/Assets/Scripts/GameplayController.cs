@@ -26,10 +26,17 @@ public class GameplayController : MonoBehaviour
     public GameObject lifebar;
     public LifeBar lifebarScript;
 
+    private float oldTimeScale;
+    private int lastTimeStopper = -1;
+    private int currentTimeStopper = 0;
+    private const int MAX_TIME_STOPPERS = 100;
+
     private void Awake()
     {
         notesHandler.onEnoughNotesCollected.Add(SaveData);
         notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
+
+        oldTimeScale = Time.timeScale;
     }
 
     // Start is called before the first frame update
@@ -318,52 +325,64 @@ public class GameplayController : MonoBehaviour
     
     private IEnumerator MakeTimeStop()
     {
-        float oldTimeScale = Time.timeScale;
-        RhythmControllerUI.instance.musicPlayer.Pause();
-        PlatformSelectionUI.instance.ForceSelectedSlotReset();
-        Time.timeScale = 0;
+        int ID = stopTime();
         yield return new WaitForSecondsRealtime(2f);
         yield return new WaitUntil((() => Input.anyKeyDown));
-        Time.timeScale = oldTimeScale;
-        RhythmControllerUI.instance.musicPlayer.Play();
+        resumeTime(ID);
     }
     
     private IEnumerator MakeTimeStopJump()
     {
-        float oldTimeScale = Time.timeScale;
-        RhythmControllerUI.instance.musicPlayer.Pause();
-        PlatformSelectionUI.instance.ForceSelectedSlotReset();
-        Time.timeScale = 0;
+        int ID = stopTime();
         yield return new WaitUntil((() => CrossPlatformInputManager.GetButtonDown("Jump")));
-        Time.timeScale = oldTimeScale;
-        RhythmControllerUI.instance.musicPlayer.Play();
+        resumeTime(ID);
     }
     
     private IEnumerator MakeTimeStopCreate()
     {
-        float oldTimeScale = Time.timeScale;
-        RhythmControllerUI.instance.musicPlayer.Pause();
-        PlatformSelectionUI.instance.ForceSelectedSlotReset();
-        Time.timeScale = 0;
+        int ID = stopTime();
         yield return new WaitUntil(() => (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                           Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) &&
                                          !Pause.paused && PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform);
-        Time.timeScale = oldTimeScale;
-        RhythmControllerUI.instance.musicPlayer.Play();
+        resumeTime(ID);
     }
-    
+
+    public int stopTime()
+    {
+        currentTimeStopper = (currentTimeStopper + 1) % MAX_TIME_STOPPERS;
+
+        if (lastTimeStopper == -1)
+        {
+            oldTimeScale = Time.timeScale;
+            RhythmControllerUI.instance.musicPlayer.Pause();
+            PlatformSelectionUI.instance.ForceSelectedSlotReset();
+            Time.timeScale = 0;
+            lastTimeStopper = currentTimeStopper;
+        }
+
+        return currentTimeStopper;
+    }
+
+    public void resumeTime(int timeStopperID)
+    {
+        if (lastTimeStopper == timeStopperID)
+        {
+            Time.timeScale = oldTimeScale;
+            RhythmControllerUI.instance.musicPlayer.Play();
+            lastTimeStopper = -1;
+        }
+    }
+
+
     private IEnumerator CheckFirstFallingPlatform()
     {
         yield return new WaitUntil(() => TutorialController.instance.firstFall);
         screenBlurr.gameObject.SetActive(true);
         TutorialController.instance.enableDialogBox(19);
-        float oldTimeScale = Time.timeScale;
-        RhythmControllerUI.instance.musicPlayer.Pause();
-        Time.timeScale = 0;
+        int ID = stopTime();
         yield return new WaitForSecondsRealtime(1.5f);
         yield return new WaitUntil((() => Input.anyKeyDown));
-        Time.timeScale = oldTimeScale;
-        RhythmControllerUI.instance.musicPlayer.Play();
+        resumeTime(ID);
         screenBlurr.gameObject.SetActive(false);
         TutorialController.instance.disableDialogBox(19);
     }
