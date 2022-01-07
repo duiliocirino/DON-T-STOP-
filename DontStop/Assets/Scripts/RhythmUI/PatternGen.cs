@@ -8,16 +8,16 @@ public class PatternGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string filename = "Tutorial.json";
+        string filename = "Level2.json";
 
-        File.WriteAllText("Assets/PatternMaps/" + filename, JsonUtility.ToJson(defaultPattern()));
+        File.WriteAllText("Assets/PatternMaps/" + filename, JsonUtility.ToJson(Level2()));
     }
 
     private PatternMap defaultPattern()
     {
         PatternMap pm = new PatternMap();
 
-        pm.BPM = 85;
+        pm.BPM = 95;
         pm.noteSpeed = 400;
         pm.tempoNumerator = 4;
         pm.tempoDenominator = 4;
@@ -157,6 +157,381 @@ public class PatternGen : MonoBehaviour
             bp.notePositions.Add((float)3 / 4);
             pm.pattern.Add(bp);
         }
+
+        return pm;
+    }
+
+    private PatternMap Level2()
+    {
+        PatternMap pm = new PatternMap();
+
+        pm.BPM = 100;
+        pm.noteSpeed = 400;
+        pm.tempoNumerator = 4;
+        pm.tempoDenominator = 4;
+        pm.songName = "120BPMTestTrack";
+        pm.initialDelay = 0;
+        pm.pattern = new List<BeatPattern>();
+
+        BeatPattern bp;
+
+        // riff A
+        for (int i = 0; i < 2; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 2;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            bp.notePositions.Add((float)4 / 4);
+            bp.notePositions.Add((float)5 / 4);
+            bp.notePositions.Add((float)6 / 4);
+            bp.notePositions.Add((float)7.5 / 4);
+            pm.pattern.Add(bp);
+
+
+            bp = new BeatPattern();
+            bp.numMeasures = 2;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            //bp.notePositions.Add((float)4 / 4);
+            //bp.notePositions.Add((float)5 / 4);
+            bp.notePositions.Add((float)6 / 4);
+            bp.notePositions.Add((float)7.5 / 4);
+            pm.pattern.Add(bp);
+        }
+        // section B  
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)0.75 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)2.75 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)2.5 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        bp.notePositions.Add((float)3.5 / 4);
+        pm.pattern.Add(bp);
+
+        // riff C  
+        for (int i = 0; i < 2; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 2;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)1 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        bp.notePositions.Add((float)4 / 4);
+        bp.notePositions.Add((float)5 / 4);
+        bp.notePositions.Add((float)6 / 4);
+        bp.notePositions.Add((float)7 / 4);
+        pm.pattern.Add(bp);
+
+
+        // section D  
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)1.5 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        pm.pattern.Add(bp);
+
+        // repeat riff A
+        for (int i = 0; i < 2; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 2;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            bp.notePositions.Add((float)4 / 4);
+            bp.notePositions.Add((float)5 / 4);
+            bp.notePositions.Add((float)6 / 4);
+            bp.notePositions.Add((float)7.5 / 4);
+            pm.pattern.Add(bp);
+
+
+            bp = new BeatPattern();
+            bp.numMeasures = 2;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            //bp.notePositions.Add((float)4 / 4);
+            //bp.notePositions.Add((float)5 / 4);
+            bp.notePositions.Add((float)6 / 4);
+            bp.notePositions.Add((float)7.5 / 4);
+            pm.pattern.Add(bp);
+        }
+
+
+        // repeat section B  
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)0.75 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)2.75 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)2.5 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        bp.notePositions.Add((float)3.5 / 4);
+        pm.pattern.Add(bp);
+
+
+
+        // repeat riff C  
+        for (int i = 0; i < 2; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 2;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)1 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        bp.notePositions.Add((float)4 / 4);
+        bp.notePositions.Add((float)5 / 4);
+        bp.notePositions.Add((float)6 / 4);
+        bp.notePositions.Add((float)7 / 4);
+        pm.pattern.Add(bp);
+
+
+
+        // repeat section D  
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)1.5 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        pm.pattern.Add(bp);
+
+        // riff E  
+        for (int i = 0; i < 3; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)1.5 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        pm.pattern.Add(bp);
+
+
+        // repeat section D (2)  
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)1.5 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        pm.pattern.Add(bp);
+
+
+        // section F  
+        for (int i = 0; i < 16; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1.5 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        // repeat section B with stop 
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)0.75 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)2.75 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        pm.pattern.Add(bp);
+
+
+        // repeat section B (2)
+        for (int i = 0; i < 7; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)0.75 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)2.75 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        bp = new BeatPattern();
+        bp.numMeasures = 1;
+        bp.tempoNumerator = 4;
+        bp.tempoDenominator = 4;
+        bp.notePositions = new List<float>();
+        bp.notePositions.Add((float)0 / 4);
+        bp.notePositions.Add((float)0.75 / 4);
+        bp.notePositions.Add((float)2 / 4);
+        bp.notePositions.Add((float)2.5 / 4);
+        bp.notePositions.Add((float)3 / 4);
+        bp.notePositions.Add((float)3.5 / 4);
+        pm.pattern.Add(bp);
+
+
 
         return pm;
     }
