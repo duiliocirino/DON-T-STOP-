@@ -84,7 +84,7 @@ public class LifeBar : MonoBehaviour
 
     private void OnLimitReached()
     {
-        print("limit reached");
+        //print("limit reached");
         foreach (Action a in onLimitReached)
             a.Invoke();
     }
