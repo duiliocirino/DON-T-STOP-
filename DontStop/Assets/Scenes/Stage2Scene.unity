@@ -11926,7 +11926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial: 0
-  gameEnds: 0
+  gameEnds: 1
 --- !u!4 &1246922963
 Transform:
   m_ObjectHideFlags: 0
