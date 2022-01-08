@@ -24532,6 +24532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 96013039}
   wrongRhythmParticles: {fileID: 669343818}
+  hitZoneCreatorParticle: {fileID: 1305169813}
   shaker: {fileID: 845812125}
   probabilityBadPlat: 0.2
   spacing: 13.2
@@ -30502,6 +30503,16 @@ Animator:
 --- !u!1 &1305169811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 679351754875553384, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1305169806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1305169812 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8949228017959076902, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1305169806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1305169813 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3624202872765220022, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
   m_PrefabInstance: {fileID: 1305169806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1306599825
@@ -57768,6 +57779,10 @@ PrefabInstance:
       propertyPath: badParticles
       value: 
       objectReference: {fileID: 826085226}
+    - target: {fileID: 5970836095298117743, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: hitZoneParticles
+      value: 
+      objectReference: {fileID: 1305169812}
     - target: {fileID: 6149122915304359822, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_RootOrder
       value: 2

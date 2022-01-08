@@ -9836,6 +9836,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 197653798}
     - target: {fileID: 5970836095298117743, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: hitZoneParticles
+      value: 
+      objectReference: {fileID: 1903626121}
+    - target: {fileID: 5970836095298117743, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_MoveSpeedMultiplier
       value: 11
       objectReference: {fileID: 0}
@@ -11415,6 +11419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 1595406698}
   wrongRhythmParticles: {fileID: 686782942}
+  hitZoneCreatorParticle: {fileID: 1903626122}
   shaker: {fileID: 1154709030}
   probabilityBadPlat: 0.2
   spacing: 13.2
@@ -21135,6 +21140,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!198 &1903626121 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8949228017959076902, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1903626116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1903626122 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3624202872765220022, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1903626116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1917636299
 PrefabInstance:
   m_ObjectHideFlags: 0
