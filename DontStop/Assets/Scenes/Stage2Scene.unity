@@ -9841,6 +9841,10 @@ PrefabInstance:
       propertyPath: m_MoveSpeedMultiplier
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117749, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6149122915304359822, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_RootOrder
       value: 0
