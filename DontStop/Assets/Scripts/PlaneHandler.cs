@@ -26,6 +26,8 @@ public class PlaneHandler : MonoBehaviour
     public int platformInTutorial;
     public float platformSkippedAtTutorialEnd;
 
+    public float stagePlaneLifeModifier = 1;
+
     public float TOLERANCE = 10;
 
     [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
@@ -100,7 +102,7 @@ public class PlaneHandler : MonoBehaviour
             newPlatform = Instantiate(brokenPlatformPrefabs[platformPrefabs.IndexOf(prefab)], position, Quaternion.identity);
         }
 
-        if (Options.istance.tutorial) newPlatform.GetComponent<PlaneLogic>().planeLife *= 3;
+        newPlatform.GetComponent<PlaneLogic>().planeLife *= stagePlaneLifeModifier;
 
         platformTiles.Add(newPlatform);
         RemoveSameLayerEmptyTiles(position);
