@@ -296,6 +296,10 @@ public class GameplayController : MonoBehaviour
             yield return MakeTimeStop();
             TutorialController.instance.disableDialogBox(18);
             screenBlurr.gameObject.SetActive(false);
+            
+            TutorialController.instance.enableDialogBox(21);
+            yield return new WaitForSecondsRealtime(3.5f);
+            TutorialController.instance.disableDialogBox(21);
 
             StartCoroutine(CheckFirstFallingPlatform());
         }
