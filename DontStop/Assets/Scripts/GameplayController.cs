@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -78,12 +77,12 @@ public class GameplayController : MonoBehaviour
 
             TutorialController.instance.enableDialogBox(0);
             yield return new WaitForSecondsRealtime(3f);
-            yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
+            yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(0);
             
             TutorialController.instance.enableDialogBox(1);
             yield return new WaitForSecondsRealtime(6f);
-            yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
+            yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(1);
 
             TutorialController.instance.enableDialogBox(2);
@@ -107,8 +106,8 @@ public class GameplayController : MonoBehaviour
             RhythmControllerUI.instance.noteInHitArea = true;
             TutorialController.instance.hitAlwaysTrue = true;
             var platform = PlaneHandler.instance.PlatformPrefabs[0];
+            platform.GetComponent<PlaneLogic>().planeLife = 800;
             PlaneHandler.instance.AddPlatform(new Vector3(0,0,PlaneHandler.instance.spacing), platform);
-            PlaneHandler.instance.PlatformTiles.Last().GetComponent<PlaneLogic>().planeLife = 800;
             //RhythmControllerUI.instance.hitTime = 0.35f;
             TutorialController.instance.enableDialogBox(3);
             yield return new WaitForSecondsRealtime(2f);
