@@ -277,7 +277,7 @@ public class Player : MonoBehaviour
     {
         var script = GetComponent<ThirdPersonUserControl>();
         if (platform.name == "Box187")
-            script.lastObjectPosition = new Vector3(0, 15, 140);
+            script.lastObjectPosition = new Vector3(0, 15, 155);
         else 
             script.lastObjectPosition = platform.transform.position;
         
