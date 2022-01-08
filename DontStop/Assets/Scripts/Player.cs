@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject childMaterial;
     [SerializeField] ParticleSystem particles;
     [SerializeField] ParticleSystem badParticles;
+    [SerializeField] ParticleSystem hitZoneParticles;
     [SerializeField] CameraShake shaker;
     [SerializeField] SoundChooser goodJumpSound;
     [SerializeField] SoundChooser badJumpSound;
@@ -186,13 +187,18 @@ public class Player : MonoBehaviour
             float jumpForce = m_JumpPower;
             if (RhythmControllerUI.instance.noteInHitArea || (Options.istance.tutorial && TutorialController.instance.hitAlwaysTrue)) 
             {
+                
                 LifeBar.instance.PerfectHit();
+                hitZoneParticles.Stop();
+                hitZoneParticles.Play();
+     
                 particles.Play();
                 goodJumpSound.PlayRand();
                 applauseSound.PlayRandWithExclusion();
             }
             else 
             {
+         
                 LifeBar.instance.BetterMiss();
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
