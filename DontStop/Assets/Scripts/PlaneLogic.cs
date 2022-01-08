@@ -60,7 +60,7 @@ public class PlaneLogic : MonoBehaviour
 
     void ShakePlatform()
     {
-        if (Time.timeScale != 0) gameObject.transform.position += new Vector3(Mathf.Sin(50 * (timeOn - planeLife * 0.8f)), 0, 0);
+        gameObject.transform.position += new Vector3(Mathf.Sin(50 * (timeOn - planeLife * 0.8f)), 0, 0);
     }
 
     private void OnCollisionEnter(Collision other)
