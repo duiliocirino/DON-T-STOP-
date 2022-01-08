@@ -30,9 +30,7 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if (/*(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-             Input.GetKey(KeyCode.RightArrow))*/ PlatformSelectionUI.instance.isSlotSelected() &&
-            Physics.Raycast(ray, out var hit, maxDistance, layerMask) && !Pause.paused)
+        if (PlatformSelectionUI.instance.isSlotSelected() && !Pause.paused)
         {
             if (firstPlace)
             {
@@ -48,7 +46,8 @@ public class Creator : MonoBehaviour
             } 
 
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
-            GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
+            //GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
+            GameObject emptyTile = PlatformSelectionUI.instance.lastPreview;
             if (emptyTile != null)
                 spawnPosition = emptyTile.transform.position;
             else 
