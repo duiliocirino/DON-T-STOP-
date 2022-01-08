@@ -58,12 +58,11 @@ public class PlaneHandler : MonoBehaviour
     {
         if (Random.value < probabilityBadPlat)
         {
-            print("spawning bad platform");
             int lowRange = -numberOfEmptyTilesSide;
             while (position.x + (lowRange * spacing) < -laneNumbersRadius * spacing) lowRange++;
             int highRange = numberOfEmptyTilesSide;
             while (position.x + (highRange * spacing) > laneNumbersRadius * spacing) highRange--;
-            print(lowRange + " " + highRange);
+
             int place = Random.Range(lowRange, highRange);
 
             Vector3 badPlatformPosition = new Vector3(position.x + (place * spacing), 0.0f, position.z + 2 * spacing);
