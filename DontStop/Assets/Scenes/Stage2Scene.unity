@@ -9829,6 +9829,58 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0dafc042fdef3a743880d1a66ed3c220, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5170d92a312e37459a470ef2127855b, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b0d6322b4a99094a87755bc6d08fb05, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc45d658da0b5644fb5af1d16cd4e747, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5265f0d32face504ca0a75b34bf5bb6d, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e952d00bf1dc6824c87c5cd7f36eb654, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6de2aaee5ef146140991f460d4f59b2c, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a060567e8e0187a4dbcc8a7328bc5474, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5cb78f64aebf40646936dfe8812ff5c8, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 262355ab28762ca4ea17501e420aa9e9, type: 3}
+    - target: {fileID: 5970836095298117741, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 262355ab28762ca4ea17501e420aa9e9, type: 3}
     - target: {fileID: 5970836095298117742, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: camTransform
       value: 
@@ -11267,10 +11319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 9fe77601acfdc014aaab153a882f65ff, type: 3}
-  - {fileID: 8300000, guid: 091c3c417c7a1e84b8f777eccfbc0072, type: 3}
-  - {fileID: 8300000, guid: 780a278ef720b8947a37b968efb76658, type: 3}
-  - {fileID: 8300000, guid: 4e2f97a5b5d503d4b9388be7875605d0, type: 3}
+  - {fileID: 8300000, guid: 76d7faa041f086a4d9ae0f9b61b6a421, type: 3}
+  - {fileID: 8300000, guid: 5ed062993ae4b2141bc61a4bbae7f54f, type: 3}
+  - {fileID: 8300000, guid: 9edff02cec42613419fd01bf5907df20, type: 3}
+  - {fileID: 8300000, guid: 3aea824e3979b7f4f8bc195eb2cef3ad, type: 3}
   source: {fileID: 1154709029}
 --- !u!114 &1154709028
 MonoBehaviour:
@@ -11285,11 +11337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 1dfb9f7178a911a44aa82784c97ad72a, type: 3}
-  - {fileID: 8300000, guid: c3c4363b885870a42a920f0b228e4ef0, type: 3}
-  - {fileID: 8300000, guid: ddc13d48e1b277c46898dff09161b764, type: 3}
-  - {fileID: 8300000, guid: 956a41a178833184eb2648af72aca2be, type: 3}
-  - {fileID: 8300000, guid: e80281a08db10e8488b9411858d14014, type: 3}
+  - {fileID: 8300000, guid: 80cbc4fdeaa89944881224509d2e3bf3, type: 3}
+  - {fileID: 8300000, guid: a0f038072734f8c448e997d155b8f544, type: 3}
+  - {fileID: 8300000, guid: 37816e29309a24f41b66c21dcf1d639a, type: 3}
   source: {fileID: 1154709029}
 --- !u!82 &1154709029
 AudioSource:
@@ -13427,7 +13477,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2046002847810243917, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3474606aff0bf5c4ab08ce2b9c97c796, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e9ff81a24e154a5468bc05262771522d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.669
   m_Pitch: 1
