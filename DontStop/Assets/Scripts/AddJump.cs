@@ -6,10 +6,10 @@ using UnityEngine;
 public class AddJump : MonoBehaviour
 {
     public float ySppedTreshold = 0;
+    public float force = 2800;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class AddJump : MonoBehaviour
         if (other.relativeVelocity.y <= -ySppedTreshold || other.relativeVelocity.y >= ySppedTreshold)
         {
             other.gameObject.GetComponent<Animator>().SetBool("OnTrampoline", true);
-            other.rigidbody.AddForce(Vector3.up * 2800);
+            other.rigidbody.AddForce(Vector3.up * force);
         }
     }
 

@@ -277,8 +277,8 @@ public class Player : MonoBehaviour
     private void HandleRespawnPlatform(GameObject platform)
     {
         var script = GetComponent<ThirdPersonUserControl>();
-        if (platform.name == "Box187")
-            script.lastObjectPosition = new Vector3(0, 15, 155);
+        if (platform.name == "Box187" || platform.name == "Box187 (1)")
+            script.lastObjectPosition = new Vector3(0, 15, 143);
         else 
             script.lastObjectPosition = platform.transform.position;
         
