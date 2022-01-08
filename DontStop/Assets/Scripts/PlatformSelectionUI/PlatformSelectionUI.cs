@@ -92,8 +92,7 @@ public class PlatformSelectionUI : MonoBehaviour
             
             var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
             int layerMask = 1 << 8;
-            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                 Input.GetKey(KeyCode.RightArrow)) &&
+            if (isSlotSelected() &&
                 Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
                 if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point) && PlaneHandler.instance.GetNearestEmptyTile(hit.point) != null)
                     CreatePlatformPreview();

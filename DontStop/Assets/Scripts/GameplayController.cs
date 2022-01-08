@@ -118,7 +118,7 @@ public class GameplayController : MonoBehaviour
             while (!jumpPerformed)
             {
                 yield return new WaitUntil(() => CrossPlatformInputManager.GetButtonDown("Jump") && !Pause.paused);
-                yield return new WaitForSecondsRealtime(1.5f);
+                yield return new WaitForSecondsRealtime(1f);
                 if (GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().lastPlatformTouched != initialPlatform)
                 {
                     jumpPerformed = true;
@@ -188,14 +188,14 @@ public class GameplayController : MonoBehaviour
                 }
             }
             TutorialController.instance.disableDialogBox(7);
-            
+            SetPlayerControlActive(false);
+
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(15);
             yield return new WaitForSecondsRealtime(2.5f);
             TutorialController.instance.disableDialogBox(15);
 
             //CREATOR
-            SetPlayerControlActive(false);
             platformChoiceUI.SetActive(true);
             TutorialController.instance.enableDialogBox(8);
             yield return new WaitForSecondsRealtime(6f);
@@ -261,24 +261,19 @@ public class GameplayController : MonoBehaviour
             SetCreatorControlActive(true);
             platformCreated = false;
             int numPlat = PlaneHandler.instance.PlatformTiles.Count;
+            var rightTime = false;
             while (!platformCreated)
             {
                 SetCreatorControlActive(true);
-                yield return new WaitUntil(() => (((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                                    Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0)) ||
-                                                  Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
-                                                  Input.GetKeyUp(KeyCode.RightArrow)) && !Pause.paused);
-                
+                yield return new WaitUntil(() => numPlat != PlaneHandler.instance.PlatformTiles.Count && !Pause.paused);
                 SetCreatorControlActive(false);
-                var rightTime = RhythmControllerUI.instance.noteInHitArea;
+                rightTime = RhythmControllerUI.instance.noteInHitArea;
                 if (!rightTime && numPlat != PlaneHandler.instance.PlatformTiles.Count)
                 {
                     PlaneHandler.instance.PopPlatform();
                     StartCoroutine(RetryCreator());
                 }
-                if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                      Input.GetKey(KeyCode.RightArrow)) && Input.GetMouseButtonDown(0) &&
-                    rightTime && PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform)
+                if (rightTime && numPlat < PlaneHandler.instance.PlatformTiles.Count)
                 {
                     platformCreated = true;
                 }
