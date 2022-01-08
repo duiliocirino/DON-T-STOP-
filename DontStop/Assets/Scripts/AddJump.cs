@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AddJump : MonoBehaviour
 {
+    public float ySppedTreshold = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class AddJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.relativeVelocity.y != 0)
+        if (other.relativeVelocity.y <= -ySppedTreshold || other.relativeVelocity.y >= ySppedTreshold)
         {
             other.gameObject.GetComponent<Animator>().SetBool("OnTrampoline", true);
             other.rigidbody.AddForce(Vector3.up * 2800);
