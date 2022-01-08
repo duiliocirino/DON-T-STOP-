@@ -57,15 +57,18 @@ public class ThirdPersonUserControl : MonoBehaviour
             LifeBar.instance.WorstMiss();
             if (lastPlatformTouched != null)
             {
+                if (!lastPlatformTouched.activeInHierarchy)
+                {
+                    // ATTENZIONE
+                    GameObject newPlatform = Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
+                    PlaneHandler.instance.platformTiles.Add(newPlatform);
+                    PlaneHandler.instance.RemovePlatform(lastPlatformTouched);
+                    lastPlatformTouched = newPlatform;
+                    
+                }
+
                 Vector3 newPos = lastObjectPosition + Vector3.up;
-                transform.position = newPos;
-                rb.velocity = 10 * Vector3.down;
-            }
-            else
-            {
-                // ATTENZIONE
-                Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
-                Vector3 newPos = lastObjectPosition + Vector3.up;
+                newPos.x = lastPlatformPosition.x;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }

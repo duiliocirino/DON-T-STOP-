@@ -47,7 +47,7 @@ public class PlaneLogic : MonoBehaviour
         {
 
             //WaitForParticles();  
-            PlaneHandler.instance.RemovePlatform(gameObject);
+            PlaneHandler.instance.DisablePlatform(gameObject);
         }
     }
     IEnumerator WaitForParticles()
