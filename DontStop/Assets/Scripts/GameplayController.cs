@@ -305,6 +305,26 @@ public class GameplayController : MonoBehaviour
         }
         else
         {
+            if (SceneManager.GetActiveScene().name == "Stage1Scene")
+            {
+                screenBlurr.gameObject.SetActive(true);
+                TutorialController.instance.enableDialogBox(0);
+                yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
+                TutorialController.instance.disableDialogBox(0);
+                yield return new WaitForSecondsRealtime(0.5f);
+                TutorialController.instance.enableDialogBox(1);
+                yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
+                TutorialController.instance.disableDialogBox(1);
+                screenBlurr.gameObject.SetActive(false);
+            }
+            if (SceneManager.GetActiveScene().name == "Stage2Scene")
+            {
+                screenBlurr.gameObject.SetActive(true);
+                TutorialController.instance.enableDialogBox(0);
+                yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
+                TutorialController.instance.disableDialogBox(0);
+                screenBlurr.gameObject.SetActive(false);
+            }
             //show countdown
             for (int i = 3; i > 0; i--)
             {
