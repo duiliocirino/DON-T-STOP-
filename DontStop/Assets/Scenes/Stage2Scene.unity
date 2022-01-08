@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.42
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: d11d338e6a849d84f85a289f91b3fa00, type: 2}
@@ -11480,7 +11480,7 @@ MonoBehaviour:
   tutorialPresent: 0
   platformInTutorial: 9
   platformSkippedAtTutorialEnd: 4
-  stagePlaneLifeModifier: 1
+  stagePlaneLifeModifier: 0.7
   TOLERANCE: 9
   platformTiles:
   - {fileID: 1757414688}
