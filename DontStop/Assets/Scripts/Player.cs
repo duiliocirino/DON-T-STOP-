@@ -67,8 +67,9 @@ public class Player : MonoBehaviour
         // direction.
         if (move.magnitude > 1f) move.Normalize();
         //gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, transform.position, ref velocity, m_MoveSpeedMultiplier * Time.deltaTime);
-        
-        m_Rigidbody.MovePosition(transform.position + m_MoveSpeedMultiplier * move * Time.deltaTime);
+        float turnMultiplier = 1;
+        if (m_ForwardAmount < 0) turnMultiplier = 1 + m_ForwardAmount;
+        m_Rigidbody.MovePosition(transform.position + turnMultiplier * m_MoveSpeedMultiplier * move * Time.deltaTime);
         move = transform.InverseTransformDirection(move);
         CheckGroundStatus();
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);

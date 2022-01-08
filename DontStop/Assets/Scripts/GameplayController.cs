@@ -297,6 +297,7 @@ public class GameplayController : MonoBehaviour
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(21);
             yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
             TutorialController.instance.disableDialogBox(21);
             screenBlurr.gameObject.SetActive(false);
 
