@@ -404,7 +404,10 @@ public class GameplayController : MonoBehaviour
         LifeBar.instance.PerfectHit();
         LifeBar.instance.PerfectHit();
         LifeBar.instance.PerfectHit();
-        yield return new WaitForSecondsRealtime(3);
+        int ID = stopTime();
+        yield return new WaitForSecondsRealtime(4);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        resumeTime(ID);
         screenBlurr.gameObject.SetActive(false);
         TutorialController.instance.disableDialogBox(20);
     }
@@ -423,28 +426,6 @@ public class GameplayController : MonoBehaviour
         TutorialController.instance.enableDialogBox(17);    
         yield return new WaitForSecondsRealtime(4.5f);
         TutorialController.instance.disableDialogBox(17);
-    }
-
-    IEnumerator CheckFirstGoodJump()
-    {
-        yield return new WaitUntil(() => RhythmControllerUI.instance.noteInHitArea && 
-                                         CrossPlatformInputManager.GetButtonDown("Jump") &&
-                                         GameObject.FindWithTag("Player").GetComponent<Animator>().GetBool("OnGround") &&
-                                         GameObject.FindWithTag("Player").GetComponent<ThirdPersonUserControl>().isActiveAndEnabled &&
-                                         !Pause.paused);
-        TutorialController.instance.disableDialogBox(3);
-        TutorialController.instance.disableDialogBox(10);
-        TutorialController.instance.enableDialogBox(9);
-        yield return new WaitForSecondsRealtime(6.5f);
-        TutorialController.instance.disableDialogBox(9);
-    }
-    private bool IsDialogActive()
-    {
-        foreach (var dialogBox in TutorialController.instance.dialogBoxes)
-        {
-            if (dialogBox.activeSelf) return true;
-        }
-        return false;
     }
 
     public void SetPlayerControlActive(bool active)
