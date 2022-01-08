@@ -11198,7 +11198,7 @@ MonoBehaviour:
   tutorialPresent: 1
   platformInTutorial: 9
   platformSkippedAtTutorialEnd: 4
-  stagePlaneLifeModifier: 1
+  stagePlaneLifeModifier: 0.9
   TOLERANCE: 9
   platformTiles:
   - {fileID: 1720557484}
