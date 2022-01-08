@@ -279,6 +279,8 @@ public class GameplayController : MonoBehaviour
                 }
             }
             TutorialController.instance.disableDialogBox(14);
+            TutorialController.instance.disableDialogBox(17);
+
             
             TutorialController.instance.enableDialogBox(15);
             yield return new WaitForSecondsRealtime(1.5f);
