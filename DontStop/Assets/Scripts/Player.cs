@@ -274,14 +274,13 @@ public class Player : MonoBehaviour
             script.lastObjectPosition = new Vector3(0, 15, 140);
         else 
             script.lastObjectPosition = platform.transform.position;
-        var i = 0;
+        
         while (platform.transform.parent != null)
-        {
             platform = platform.transform.parent.gameObject;
-            i++;
-        }
-        if (platform.name != "BaseStadium")
-            script.lastPlatformPosition = platform.GetComponent<PlaneLogic>().initialPosition;
+        
+        var planeLogic = platform.GetComponent<PlaneLogic>();
+        if(planeLogic != null)
+            script.lastPlatformPosition = planeLogic.initialPosition;
         script.lastPlatformTouched = platform;
         //Debug.Log("Saving " + platform.name);
         if (platform.name.Length > 7  && (platform.CompareTag("ObstaclePlatform") || platform.CompareTag("SpecialPlatform")))
