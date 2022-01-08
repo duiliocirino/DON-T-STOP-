@@ -92,8 +92,7 @@ public class PlatformSelectionUI : MonoBehaviour
             
             var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
             int layerMask = 1 << 8;
-            if (isSlotSelected() &&
-                Physics.Raycast(ray, out var hit, 45, layerMask) && !Pause.paused)
+            if (isSlotSelected() && Physics.Raycast(ray, out var hit, 35, layerMask) && !Pause.paused)
                 if (lastEmptyTile != PlaneHandler.instance.GetNearestEmptyTile(hit.point) && PlaneHandler.instance.GetNearestEmptyTile(hit.point) != null)
                     CreatePlatformPreview();
         }
@@ -118,9 +117,7 @@ public class PlatformSelectionUI : MonoBehaviour
             DismantlePlatformPreview();
         var ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) ||
-             Input.GetKey(KeyCode.RightArrow)) &&
-            Physics.Raycast(ray, out var hit, 35, layerMask) && !Pause.paused)
+        if (isSlotSelected() && Physics.Raycast(ray, out var hit, 35, layerMask) && !Pause.paused)
         {
             lastEmptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
             Vector3 tilePos = lastEmptyTile.transform.position;
@@ -252,6 +249,7 @@ public class PlatformSelectionUI : MonoBehaviour
     public void ForceSelectedSlotReset()
     {
         if(isSlotSelected()) DisableOldSlot(selectedSlotIndex);
+        selectedSlotIndex = -1;
     }
 }
 
