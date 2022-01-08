@@ -24381,10 +24381,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 9fe77601acfdc014aaab153a882f65ff, type: 3}
-  - {fileID: 8300000, guid: 091c3c417c7a1e84b8f777eccfbc0072, type: 3}
-  - {fileID: 8300000, guid: 780a278ef720b8947a37b968efb76658, type: 3}
-  - {fileID: 8300000, guid: 4e2f97a5b5d503d4b9388be7875605d0, type: 3}
+  - {fileID: 8300000, guid: 3dcb0246bcbb50546a52bd0b65dfaf53, type: 3}
+  - {fileID: 8300000, guid: 966b39ef54345794e839e42a88ade3aa, type: 3}
+  - {fileID: 8300000, guid: 171ea8981bb91c340acf5580a41c40d8, type: 3}
+  - {fileID: 8300000, guid: f193bc87ef6041549a5d18fb6d8a7eac, type: 3}
+  - {fileID: 8300000, guid: 0c4e94cce6d44d142afb9e5d23e200a2, type: 3}
   source: {fileID: 845812124}
 --- !u!114 &845812123
 MonoBehaviour:
@@ -57731,6 +57732,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 76c718c08bda65342bda74ac3754c22f, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ec3a350c5e25d7c478e8ce7c090e3fa5, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d90cf23128c10a143ba1f1f41abd0ccc, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6efe7a96a03d37b418cbcf187a228cc7, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8376f867c8f21b47b697aea07af8f9b, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8376f867c8f21b47b697aea07af8f9b, type: 3}
     - target: {fileID: 5970836095298117742, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: camTransform
       value: 
