@@ -30,10 +30,11 @@ public class PlaneHandler : MonoBehaviour
 
     public float TOLERANCE = 10;
 
-    [SerializeField] private List<GameObject> platformTiles = new List<GameObject>();
+    [SerializeField] internal List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
     [SerializeField] private List<GameObject> brokenPlatformPrefabs;
+
     [SerializeField] SoundChooser sound_goodPlatform;
     [SerializeField] SoundChooser sound_badPlatform;
 
@@ -139,6 +140,15 @@ public class PlaneHandler : MonoBehaviour
     {
         platformTiles.Remove(obj);
         Destroy(obj);
+    }
+
+    internal void DisablePlatform(GameObject gameObject)
+    {
+        GameObject platform = platformTiles.Find(it => it == gameObject);
+        if (platform != null)
+        {
+            platform.SetActive(false);
+        }
     }
 
     public void RemoveOldPlanes(float z)
