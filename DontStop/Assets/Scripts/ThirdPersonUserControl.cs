@@ -64,8 +64,6 @@ public class ThirdPersonUserControl : MonoBehaviour
             else
             {
                 // ATTENZIONE
-                float spacing = PlaneHandler.instance.spacing;
-                lastPlatformPosition.y = (float) Math.Round((lastPlatformPosition.y / spacing)) * spacing;
                 Instantiate(lastPlatformPrefab, lastPlatformPosition, Quaternion.identity);
                 Vector3 newPos = lastObjectPosition + Vector3.up;
                 transform.position = newPos;
