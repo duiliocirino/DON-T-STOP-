@@ -280,7 +280,8 @@ public class Player : MonoBehaviour
             platform = platform.transform.parent.gameObject;
             i++;
         }
-        script.lastPlatformPosition = platform.transform.position;
+        if (platform.name != "BaseStadium")
+            script.lastPlatformPosition = platform.GetComponent<PlaneLogic>().initialPosition;
         script.lastPlatformTouched = platform;
         //Debug.Log("Saving " + platform.name);
         if (platform.name.Length > 7  && (platform.CompareTag("ObstaclePlatform") || platform.CompareTag("SpecialPlatform")))
