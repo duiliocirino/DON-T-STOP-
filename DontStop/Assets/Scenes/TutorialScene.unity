@@ -24381,10 +24381,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 9fe77601acfdc014aaab153a882f65ff, type: 3}
-  - {fileID: 8300000, guid: 091c3c417c7a1e84b8f777eccfbc0072, type: 3}
-  - {fileID: 8300000, guid: 780a278ef720b8947a37b968efb76658, type: 3}
-  - {fileID: 8300000, guid: 4e2f97a5b5d503d4b9388be7875605d0, type: 3}
+  - {fileID: 8300000, guid: 97b29a509fd18164e87555140425ca34, type: 3}
+  - {fileID: 8300000, guid: 462f25dcd4073484dade57fc1181d626, type: 3}
+  - {fileID: 8300000, guid: 1e9b4575702dd8e45adbd74f14f4e56d, type: 3}
+  - {fileID: 8300000, guid: 66b12e4a5b409494d9164bb51f0b0f8b, type: 3}
+  - {fileID: 8300000, guid: 8b096a00933d774499260fdf7bb33de7, type: 3}
   source: {fileID: 845812124}
 --- !u!114 &845812123
 MonoBehaviour:
@@ -37019,7 +37020,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2046002847810243917, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3474606aff0bf5c4ab08ce2b9c97c796, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 18a8fd2cde443cd4a805839884ecea08, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.669
   m_Pitch: 1
@@ -57731,6 +57732,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 76c718c08bda65342bda74ac3754c22f, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ec3a350c5e25d7c478e8ce7c090e3fa5, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d90cf23128c10a143ba1f1f41abd0ccc, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6efe7a96a03d37b418cbcf187a228cc7, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8376f867c8f21b47b697aea07af8f9b, type: 3}
+    - target: {fileID: 5970836095298117740, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
+      propertyPath: clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8376f867c8f21b47b697aea07af8f9b, type: 3}
     - target: {fileID: 5970836095298117742, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: camTransform
       value: 
