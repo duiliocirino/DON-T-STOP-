@@ -14425,7 +14425,7 @@ MonoBehaviour:
   timeSinceLastNote: 0
   noteTakenSound: {fileID: 1421868272}
   UI: {fileID: 179342994}
-  slope: 3500
+  slope: 3000
 --- !u!82 &1421868272
 AudioSource:
   m_ObjectHideFlags: 0
