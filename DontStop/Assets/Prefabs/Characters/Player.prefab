@@ -20931,7 +20931,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &5970836095298117738
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21450,6 +21450,7 @@ MonoBehaviour:
   childMaterial: {fileID: 1554488079516257399}
   particles: {fileID: 5970836094908891972}
   badParticles: {fileID: 3281110837675818641}
+  hitZoneParticles: {fileID: 0}
   shaker: {fileID: 5970836095298117742}
   goodJumpSound: {fileID: 5970836095298117740}
   badJumpSound: {fileID: 5970836095298117741}

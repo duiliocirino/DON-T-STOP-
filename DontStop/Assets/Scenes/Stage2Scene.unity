@@ -9018,7 +9018,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &802475975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9840,10 +9840,6 @@ PrefabInstance:
     - target: {fileID: 5970836095298117743, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_MoveSpeedMultiplier
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5970836095298117749, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6149122915304359822, guid: 3cde2bcf4454509429dfa21771509b02, type: 3}
       propertyPath: m_RootOrder
@@ -19933,7 +19929,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &1729795577
 BoxCollider:
   m_ObjectHideFlags: 0
