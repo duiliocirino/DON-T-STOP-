@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformSize: 1
   isPlayerOn: 0
-  planeLife: 6
+  planeLife: 10
   missPenalty: 0.5
   fallingPlatformParticles: {fileID: 8074843583967231609}
   initialPosition: {x: 0, y: 0, z: 0}

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformSize: 1
   isPlayerOn: 0
-  planeLife: 3
+  planeLife: 5
   missPenalty: 0.5
   fallingPlatformParticles: {fileID: 6461766864681805909}
   initialPosition: {x: 0, y: 0, z: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ySppedTreshold: 1
+  force: 2800
 --- !u!1 &8778907314946703811
 GameObject:
   m_ObjectHideFlags: 0
