@@ -9244,6 +9244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430601930}
     m_Modifications:
+    - target: {fileID: 545598162214096976, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_Text
+      value: Next stage unlocked!
+      objectReference: {fileID: 0}
     - target: {fileID: 1401861561550102297, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -13821,7 +13825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 0
+  notesForNextStage: 14
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
