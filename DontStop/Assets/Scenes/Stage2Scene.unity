@@ -20516,11 +20516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: perfectHitBonus
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: worstMissPenality
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: betterMissPenality
