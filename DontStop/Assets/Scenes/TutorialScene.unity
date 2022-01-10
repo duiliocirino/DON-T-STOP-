@@ -46376,6 +46376,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675970685}
     m_Modifications:
+    - target: {fileID: 545598162214096976, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_Text
+      value: Next stage unlocked!
+      objectReference: {fileID: 0}
     - target: {fileID: 1401861562152400543, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: TutorialScene
