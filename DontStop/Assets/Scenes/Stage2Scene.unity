@@ -11865,8 +11865,7 @@ MonoBehaviour:
   sound_goodPlatform: {fileID: 1154709027}
   sound_badPlatform: {fileID: 1154709028}
   obstaclePrefabs:
-  - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
-  - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
+  - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
 --- !u!4 &1154709032
 Transform:
