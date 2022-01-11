@@ -37,14 +37,6 @@ public class Creator : MonoBehaviour
                 //TutorialController.instance.disableDialogBox("TutorialCreator");
                 firstPlace = false;
             }
-
-            if (!RhythmControllerUI.instance.noteInHitArea) {
-                LifeBar.instance.WorstMiss();
-            }
-            else {
-                LifeBar.instance.PerfectHit();
-            } 
-
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
             //GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
             GameObject emptyTile = PlatformSelectionUI.instance.lastPreview;
@@ -64,6 +56,12 @@ public class Creator : MonoBehaviour
                 {
                     PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z),
                         newPlatform);
+                    if (!RhythmControllerUI.instance.noteInHitArea) {
+                        LifeBar.instance.WorstMiss();
+                    }
+                    else {
+                        LifeBar.instance.PerfectHit();
+                    } 
                 }
             }
         }

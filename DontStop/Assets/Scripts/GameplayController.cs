@@ -220,8 +220,7 @@ public class GameplayController : MonoBehaviour
                 yield return new WaitUntil(() =>
                     (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) ||
                      Input.GetKeyUp(KeyCode.RightArrow) || Input.GetMouseButtonDown(0)) && !Pause.paused);
-                if (Input.GetMouseButtonDown(0) && 
-                    PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform)
+                if (PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1] != lastPlatform)
                 {
                     platformCreated = true;
                 }
