@@ -34,14 +34,19 @@ public class PlaneLogic : MonoBehaviour
             timeOn += Time.deltaTime;
         }
 
-        if (timeOn < planeLife && timeOn >= planeLife * 0.78f && isPlayerOn)
+        if (timeOn < planeLife && timeOn >= planeLife * 0.48f && isPlayerOn)
         {
             TutorialController.instance.firstFall = true;
         }
-        if (timeOn < planeLife && timeOn >= planeLife * 0.8f && isPlayerOn)
+        if (timeOn < planeLife && timeOn >= planeLife * 0.5f && isPlayerOn)
+        {
+            //fallingPlatformParticles.Play();
+            ShakePlatform();
+        }
+        if (timeOn < planeLife && timeOn >= planeLife * 0.85f && isPlayerOn)
         {
             fallingPlatformParticles.Play();
-            ShakePlatform();
+            //ShakePlatform();
         }
         if (timeOn >= planeLife)
         {
@@ -60,7 +65,7 @@ public class PlaneLogic : MonoBehaviour
 
     void ShakePlatform()
     {
-        if(Time.timeScale!=0) gameObject.transform.position += new Vector3(Mathf.Sin(50 * (timeOn - planeLife * 0.8f)), 0, 0);
+        if(Time.timeScale!=0) gameObject.transform.position += new Vector3(Mathf.Sin(50 * (timeOn - planeLife * 0.5f))/7.5f, 0, 0);
     }
 
     private void OnCollisionEnter(Collision other)
