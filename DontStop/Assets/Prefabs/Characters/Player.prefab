@@ -21441,7 +21441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 39
+  m_JumpPower: 40
   m_GravityMultiplier: 10
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 11
