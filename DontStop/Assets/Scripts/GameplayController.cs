@@ -77,12 +77,12 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.disableAllDialogBoxes();
 
             TutorialController.instance.enableDialogBox(0);
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(2f);
             yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
             TutorialController.instance.disableDialogBox(0);
             
             TutorialController.instance.enableDialogBox(1);
-            yield return new WaitForSecondsRealtime(6f);
+            yield return new WaitForSecondsRealtime(4f);
             yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
             TutorialController.instance.disableDialogBox(1);
 
@@ -198,7 +198,7 @@ public class GameplayController : MonoBehaviour
             //CREATOR
             platformChoiceUI.SetActive(true);
             TutorialController.instance.enableDialogBox(8);
-            yield return new WaitForSecondsRealtime(6f);
+            yield return new WaitForSecondsRealtime(4f);
             yield return new WaitUntil((() => Input.anyKeyDown));
             TutorialController.instance.disableDialogBox(8);
 
@@ -287,7 +287,7 @@ public class GameplayController : MonoBehaviour
 
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(21);
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(4f);
             yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
             TutorialController.instance.disableDialogBox(21);
             screenBlurr.gameObject.SetActive(false);
