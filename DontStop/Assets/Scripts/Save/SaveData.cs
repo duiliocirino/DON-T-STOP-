@@ -14,7 +14,7 @@ public class SaveData
 
         for(int i=0; i<numberOfLevels; i++)
         {
-            levelDatas.Add(new LevelData(0, 0, i == 0));
+            levelDatas.Add(new LevelData(0, 0, i == 0, false));
         }
     }
 }
@@ -25,18 +25,21 @@ public class LevelData
     public int noteRecord;
     public int distancerecord;
     public bool unlocked;
+    public bool thingAlreadyExplained;
 
     public LevelData()
     {
         noteRecord = 0;
         distancerecord = 0;
         unlocked = false;
+        thingAlreadyExplained = false;
     }
 
-    public LevelData(int nR, int dR, bool u)
+    public LevelData(int nR, int dR, bool u, bool a_exp)
     {
         noteRecord = nR;
         distancerecord = dR;
         unlocked = u;
+        thingAlreadyExplained = a_exp;
     }
 }

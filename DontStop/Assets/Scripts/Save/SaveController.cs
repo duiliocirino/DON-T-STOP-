@@ -53,7 +53,7 @@ public class SaveController : MonoBehaviour
         int totStages = save.levelDatas.Count;
         if (stage < 0 || stage >= totStages) return;
 
-        save.levelDatas[stage] = new LevelData(notes, distance, save.levelDatas[stage].unlocked);
+        save.levelDatas[stage] = new LevelData(notes, distance, save.levelDatas[stage].unlocked, save.levelDatas[stage].thingAlreadyExplained);
         SaveGame();
     }
 
@@ -64,5 +64,20 @@ public class SaveController : MonoBehaviour
 
         save.levelDatas[stage].unlocked = true;
         SaveGame();
+    }
+
+    public bool ThingAlreadyExplained(int stage)
+    {
+        int totStages = save.levelDatas.Count;
+        if (stage < 0 || stage >= totStages) throw new System.IndexOutOfRangeException();
+
+        LevelData ld = save.levelDatas[stage];
+        if(!ld.thingAlreadyExplained)
+        {
+            ld.thingAlreadyExplained = true;
+            SaveGame();
+            return false;
+        }
+        return true;
     }
 }
