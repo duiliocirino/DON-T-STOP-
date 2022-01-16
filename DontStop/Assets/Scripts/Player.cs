@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] float m_JumpPower = 10f;
     [Range(1f, 10f)][SerializeField] float m_GravityMultiplier = 2f;
     [SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-    [SerializeField] float m_MoveSpeedMultiplier = 1f;
+    [SerializeField] internal float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
     [SerializeField] GameObject childMaterial;
@@ -31,13 +31,13 @@ public class Player : MonoBehaviour
     [SerializeField] SoundChooser applauseSound;
 
 
-    Rigidbody m_Rigidbody;
+    internal Rigidbody m_Rigidbody;
     Animator m_Animator;
     bool m_IsGrounded;
     float m_OrigGroundCheckDistance;
     const float k_Half = 0.5f;
     float m_TurnAmount;
-    float m_ForwardAmount;
+    internal float m_ForwardAmount;
     Vector3 m_GroundNormal;
     float m_CapsuleHeight;
     Vector3 m_CapsuleCenter;
@@ -65,11 +65,6 @@ public class Player : MonoBehaviour
         // convert the world relative moveInput vector into a local-relative
         // turn amount and forward amount required to head in the desired
         // direction.
-        if (move.magnitude > 1f) move.Normalize();
-        //gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, transform.position, ref velocity, m_MoveSpeedMultiplier * Time.deltaTime);
-        float turnMultiplier = 1;
-        if (m_ForwardAmount < 0) turnMultiplier = 1 + m_ForwardAmount;
-        m_Rigidbody.MovePosition(transform.position + turnMultiplier * m_MoveSpeedMultiplier * move * Time.deltaTime);
         move = transform.InverseTransformDirection(move);
         CheckGroundStatus();
         move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -188,23 +183,21 @@ public class Player : MonoBehaviour
             float jumpForce = m_JumpPower;
             if (RhythmControllerUI.instance.noteInHitArea || (Options.istance.tutorial && TutorialController.instance.hitAlwaysTrue)) 
             {
-                
+                goodJumpSound.PlayRand();
                 LifeBar.instance.PerfectHit();
                 hitZoneParticles.Stop();
                 hitZoneParticles.Play();
-     
+
                 particles.Play();
-                goodJumpSound.PlayRand();
                 applauseSound.PlayRandWithExclusion();
             }
             else 
             {
-         
+                badJumpSound.PlayRand();
                 LifeBar.instance.BetterMiss();
                 shaker.Enable();
                 jumpForce = jumpForce * Random.Range(maxMissPenalty, minMissPenalty);
                 badParticles.Play();
-                badJumpSound.PlayRand();
             } 
             // jump!
             m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpForce, m_Rigidbody.velocity.z);

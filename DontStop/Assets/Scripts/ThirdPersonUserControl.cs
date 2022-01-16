@@ -105,6 +105,11 @@ public class ThirdPersonUserControl : MonoBehaviour
 #endif
 
             // pass all parameters to the character control script
+            if (m_Move.magnitude > 1f) m_Move.Normalize();
+            //gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, transform.position, ref velocity, m_MoveSpeedMultiplier * Time.deltaTime);
+            float turnMultiplier = 1;
+            if (m_Character.m_ForwardAmount < 0) turnMultiplier = 1 + m_Character.m_ForwardAmount;
+            m_Character.m_Rigidbody.MovePosition(transform.position + turnMultiplier * m_Character.m_MoveSpeedMultiplier * m_Move * Time.deltaTime);
             m_Character.Move(m_Move, false, m_Jump);
             m_Jump = false;
         }
