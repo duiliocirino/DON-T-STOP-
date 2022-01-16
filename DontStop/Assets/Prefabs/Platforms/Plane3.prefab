@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3183255471744374126
 Transform:
@@ -4906,7 +4906,7 @@ GameObject:
   m_TagString: ObstaclePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5221072027451782055
 Transform:
@@ -5027,6 +5027,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7120903149665134051, guid: f511578de5244d24d8896f01bc37f583, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7703335909242342749, guid: f511578de5244d24d8896f01bc37f583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f511578de5244d24d8896f01bc37f583, type: 3}
@@ -5106,6 +5110,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3368766954826984658, guid: 760a160301010754c8406349710830ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 760a160301010754c8406349710830ce, type: 3}
 --- !u!4 &3572652849244925631 stripped
@@ -5127,6 +5135,10 @@ PrefabInstance:
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
@@ -5239,6 +5251,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 4026147361975875753, guid: b70e65c0a0ae25a4b979477e733863a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70e65c0a0ae25a4b979477e733863a5, type: 3}
 --- !u!4 &4684935308413705149 stripped
@@ -5263,7 +5279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991170482874974529, guid: c9136788b99468f4d896217e3b9c17a6, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7060381642040426190, guid: c9136788b99468f4d896217e3b9c17a6, type: 3}
       propertyPath: m_RootOrder
@@ -5343,6 +5359,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstaclePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 4501045251306008902, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8663544549165372022, guid: 2f40c419bd3e540408f5af549d78ea76, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -5409,6 +5429,10 @@ PrefabInstance:
     - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312683397505606994, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5011000548567438112, guid: 822eca22c3c604347af004b5bbdfc67a, type: 3}
       propertyPath: m_RootOrder
@@ -5479,7 +5503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 200459a926f45914ca36855e633befda, type: 3}
       propertyPath: m_RootOrder
@@ -5610,6 +5634,10 @@ PrefabInstance:
     - target: {fileID: 2602949622520178152, guid: 3c35546a5208df9409b96c23d4121d80, type: 3}
       propertyPath: m_TagString
       value: ObstaclePlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2602949622520178152, guid: 3c35546a5208df9409b96c23d4121d80, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c35546a5208df9409b96c23d4121d80, type: 3}

@@ -284,23 +284,13 @@ public class GameplayController : MonoBehaviour
             TutorialController.instance.enableDialogBox(15);
             yield return new WaitForSecondsRealtime(1.5f);
             TutorialController.instance.disableDialogBox(15);
-            
-            screenBlurr.gameObject.SetActive(true);
-            TutorialController.instance.enableDialogBox(18);
-            lifebar.SetActive(true);
-            lifebarScript.enabled = true;
-            yield return MakeTimeStop();
-            TutorialController.instance.disableDialogBox(18);
-            screenBlurr.gameObject.SetActive(false);
-            
+
             screenBlurr.gameObject.SetActive(true);
             TutorialController.instance.enableDialogBox(21);
             yield return new WaitForSecondsRealtime(5f);
             yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
             TutorialController.instance.disableDialogBox(21);
             screenBlurr.gameObject.SetActive(false);
-
-            StartCoroutine(CheckFirstFallingPlatform());
         }
         else
         {
@@ -315,6 +305,8 @@ public class GameplayController : MonoBehaviour
                 yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
                 TutorialController.instance.disableDialogBox(1);
                 screenBlurr.gameObject.SetActive(false);
+
+                StartCoroutine(ShowAudienceTutorial());
             }
             if (SceneManager.GetActiveScene().name == "Stage2Scene")
             {
@@ -323,6 +315,8 @@ public class GameplayController : MonoBehaviour
                 yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
                 TutorialController.instance.disableDialogBox(0);
                 screenBlurr.gameObject.SetActive(false);
+                
+                StartCoroutine(CheckFirstFallingPlatform());
             }
             //show countdown
             for (int i = 3; i > 0; i--)
@@ -335,6 +329,7 @@ public class GameplayController : MonoBehaviour
             }
 
             countdown.text = "GO!";
+            LifeBar.instance.StartDeplition();
             countdown.gameObject.SetActive(true);
             yield return new WaitForSecondsRealtime(1f);
             countdown.gameObject.SetActive(false);
@@ -343,9 +338,19 @@ public class GameplayController : MonoBehaviour
         TutorialController.instance.hitAlwaysTrue = false;
         screenBlurr.gameObject.SetActive(false);
         SetPlayerControlActive(true);
-        LifeBar.instance.StartDeplition();
     }
-    
+
+    private IEnumerator ShowAudienceTutorial()
+    {
+        int numPlatforms = PlaneHandler.instance.platformTiles.Count;
+        yield return new WaitUntil(() => numPlatforms < PlaneHandler.instance.platformTiles.Count);
+        screenBlurr.gameObject.SetActive(true);
+        TutorialController.instance.enableDialogBox(2);
+        yield return MakeTimeStop();
+        TutorialController.instance.disableDialogBox(2);
+        screenBlurr.gameObject.SetActive(false);
+    }
+
     private IEnumerator MakeTimeStop()
     {
         int ID = stopTime();
