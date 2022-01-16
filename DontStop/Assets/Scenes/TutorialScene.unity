@@ -24835,7 +24835,7 @@ MonoBehaviour:
   wrongRhythmParticles: {fileID: 669343818}
   hitZoneCreatorParticle: {fileID: 1305169813}
   shaker: {fileID: 845812125}
-  probabilityBadPlat: 0.2
+  probabilityBadPlat: 0
   spacing: 13.2
   laneNumbersRadius: 4
   numberOfEmptyTilesSide: 1
