@@ -406,13 +406,13 @@ public class GameplayController : MonoBehaviour
     {
         yield return new WaitUntil(() => TutorialController.instance.firstFall);
         screenBlurr.gameObject.SetActive(true);
-        TutorialController.instance.enableDialogBox(19);
+        TutorialController.instance.enableDialogBox(1);
         int ID = stopTime();
         yield return new WaitForSecondsRealtime(1.5f);
         yield return new WaitUntil((() => Input.anyKeyDown));
         resumeTime(ID);
         screenBlurr.gameObject.SetActive(false);
-        TutorialController.instance.disableDialogBox(19);
+        TutorialController.instance.disableDialogBox(1);
     }
 
     private void FirstGameOver()
