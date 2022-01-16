@@ -12402,7 +12402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial: 0
-  gameEnds: 0
+  gameEnds: 1
 --- !u!4 &1246922963
 Transform:
   m_ObjectHideFlags: 0
@@ -20380,7 +20380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110013711953792266, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.597046
+      value: -27.596924
       objectReference: {fileID: 0}
     - target: {fileID: 3634357421118593226, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21169,7 +21169,7 @@ AudioSource:
   m_GameObject: {fileID: 2022461526}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4024618913334074426, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
+  OutputAudioMixerGroup: {fileID: -4168354112733789247, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
   m_audioClip: {fileID: 8300000, guid: c54003eedc5df1c4bb15cef1aa204d9e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
