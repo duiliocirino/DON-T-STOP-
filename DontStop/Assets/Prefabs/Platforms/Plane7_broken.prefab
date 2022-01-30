@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8901597995381944009}
   - component: {fileID: 7279266526365003899}
   - component: {fileID: 6730993889965304024}
+  - component: {fileID: 4818031445805049793}
   m_Layer: 8
   m_Name: Plane7_broken
-  m_TagString: EmptyPlatform
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +147,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4008572, y: 0.49871516, z: 2.3967862}
   m_Center: {x: -0.0005024672, y: 0.8493128, z: -0.0007680654}
+--- !u!114 &4818031445805049793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826234445904105353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a2c83a27e91e54f913fd123b27dda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformSize: 1
+  isPlayerOn: 0
+  planeLife: 10
+  missPenalty: 0.5
+  fallingPlatformParticles: {fileID: 876651318194885875, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
+  initialPosition: {x: 0, y: 0, z: 0}
+  preview: {r: 1, g: 0, b: 1, a: 1}
+  imagePreview: {fileID: 21300000, guid: aab874b73e6844c4b9932d66fb69f4d8, type: 3}
 --- !u!1 &4006153594458911509
 GameObject:
   m_ObjectHideFlags: 0

@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: -8829388062242225462}
   m_Layer: 0
   m_Name: Plane8
-  m_TagString: ObstaclePlatform
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

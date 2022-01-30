@@ -131,6 +131,7 @@ MonoBehaviour:
   platformChoiceUI: {fileID: 0}
   lifebar: {fileID: 0}
   lifebarScript: {fileID: 0}
+  scoreCounter: {fileID: 0}
 --- !u!1 &4260750862961658877
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,10 +411,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1775225303165441535, guid: 5634cd8f8cc100d4b9a9c10cdc5d1969, type: 3}

@@ -63,7 +63,7 @@ namespace ECM.Examples.Components
             var t = Utils.EaseInOut(Mathf.PingPong(Time.time, _moveTime), _moveTime);
             var p = Vector3.Lerp(_startPosition, _targetPosition, t);
 
-            _rigidbody.MovePosition(p);
+            _rigidbody.transform.position = (p);
         }
 
         #endregion

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4386272119269898146}
   m_Layer: 0
   m_Name: Plane8_broken
-  m_TagString: ObstaclePlatform
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

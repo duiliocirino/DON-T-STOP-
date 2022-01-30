@@ -32,6 +32,12 @@ public class GameplayController : MonoBehaviour
     private int currentTimeStopper = 0;
     private const int MAX_TIME_STOPPERS = 100;
 
+    public Text scoreCounter;
+    private float initialPlayerPosition;
+    private float maxDistanceReached;
+    private int score;
+    
+
     private void Awake()
     {
         notesHandler.onEnoughNotesCollected.Add(SaveData);
@@ -55,6 +61,8 @@ public class GameplayController : MonoBehaviour
             LifeBar.instance.UnregisterLimitReachedBehaviour(GameOver);
             LifeBar.instance.RegisterLimitReachedBehaviour(FirstGameOver);
         }
+
+        initialPlayerPosition = playerPosition.position.z;
     }
 
     private IEnumerator OnGameStart()
@@ -480,16 +488,11 @@ public class GameplayController : MonoBehaviour
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
-        distanceText.text = "  DISTANCE REACHED: " + DistanceReached() + "m";
+        distanceText.text = ScoreReached() + " GP";
         SaveData();
         screenBlurr.gameObject.SetActive(true);
         gameOver.SetActive(true);
         //StartCoroutine(makeTimeStop());
-    }
-
-    private int DistanceReached()
-    {
-        return playerPosition.position.z < 0 ? 0 : (int)playerPosition.position.z;
     }
 
     public void SaveData()
@@ -541,6 +544,29 @@ public class GameplayController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateMaxDistance();
+        ComputeScore();
+        scoreCounter.text = score.ToString();
+        Debug.Log("Score:" + score);
+        Debug.Log("Max Distance:" + maxDistanceReached);
+    }
+    
+    private int ScoreReached()
+    {
+        return score;
+    }
+
+    private void UpdateMaxDistance()
+    {
+        float currentDistance = playerPosition.position.z - initialPlayerPosition;
+        if (currentDistance > maxDistanceReached)
+        {
+            maxDistanceReached = currentDistance;
+        }
+    }
+    
+    private void ComputeScore()
+    {
+        score = (int) (notesHandler.notesCollected * 1000 + maxDistanceReached * 8);
     }
 }

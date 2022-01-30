@@ -57,10 +57,12 @@ public class KinematicMove : MonoBehaviour
 
         public void FixedUpdate()
         {
-            var t = Mathf.PingPong(Time.time, 1);
-            var p = Vector3.Lerp(_startPosition, _targetPosition, t);
+            var t = -0.5f + Mathf.PingPong(Time.time, 1);
+            //var p = Vector3.Lerp(_startPosition, _targetPosition, t);
 
-            _rigidbody.MovePosition(p);
+            //_rigidbody.MovePosition(p);
+            
+            _rigidbody.AddForce(0, 0, t);
         }
 
         #endregion

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2613716044003066363}
   m_Layer: 0
   m_Name: Plane7
-  m_TagString: ObstaclePlatform
+  m_TagString: SpecialPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   fallingPlatformParticles: {fileID: 876651318194885875, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
   initialPosition: {x: 0, y: 0, z: 0}
   preview: {r: 1, g: 0, b: 1, a: 1}
-  imagePreview: {fileID: 21300000, guid: 62563449151fa39459cd667f2ca1b5f5, type: 3}
+  imagePreview: {fileID: 21300000, guid: aab874b73e6844c4b9932d66fb69f4d8, type: 3}
 --- !u!54 &2613716044003066363
 Rigidbody:
   m_ObjectHideFlags: 0
