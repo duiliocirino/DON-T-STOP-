@@ -17,6 +17,12 @@ public class NotesHandler : MonoBehaviour
     public float spawnProbability = 1f;
     public float baseSpawnProbability;
     public float timeSinceLastNote;
+    
+    public int difficultyStep = 3;
+    public float maximumDepletionRate = 0.12f;
+    public float difficultyMultiplier = 1.2f;
+
+    public LifeBar lifeBar;
     [SerializeField] AudioSource noteTakenSound;
 
     public List<Action> onEnoughNotesCollected = new List<Action>();
@@ -50,6 +56,8 @@ public class NotesHandler : MonoBehaviour
     {
         noteTakenSound.Play();
         notesCollected++;
+        
+        IncreaseDifficulty();
 
         string text = notesCollected.ToString();
         if (notesForNextStage!=0)
@@ -77,6 +85,27 @@ public class NotesHandler : MonoBehaviour
     {
         timeSinceLastNote += Time.deltaTime;
         spawnProbability = 1 - Mathf.Exp(-timeSinceLastNote / slope);
+    }
+
+    void IncreaseDifficulty()
+    {
+        //TODO: add graphical feedback to the audience
+        if (notesCollected >= notesForNextStage && (notesCollected - notesForNextStage) % difficultyStep == 0)
+        {
+            Debug.Log("Depletion rate pre: " + lifeBar.depletionRate);
+            float temp = lifeBar.depletionRate * difficultyMultiplier;
+            if (temp <= maximumDepletionRate)
+            {
+                lifeBar.depletionRate *= difficultyMultiplier;
+                lifeBar.CalculateDepletionSpeed();
+            }
+            else if (lifeBar.depletionRate < maximumDepletionRate)
+            {
+                lifeBar.depletionRate = maximumDepletionRate;
+                lifeBar.CalculateDepletionSpeed();
+            }
+            Debug.Log("Depletion rate post: " + lifeBar.depletionRate);
+        }
     }
 
     /**

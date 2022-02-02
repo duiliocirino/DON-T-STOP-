@@ -42,7 +42,7 @@ public class LifeBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        depletionSpeed = depletionRate * rectTransform.sizeDelta.x;
+        CalculateDepletionSpeed();
         perfectHitDistanceGained = perfectHitBonus * rectTransform.sizeDelta.x;
         barelyHitDistanceGained = barelyHitBonus * rectTransform.sizeDelta.x;
         worstMissDistanceLoss = worstMissPenality * rectTransform.sizeDelta.x;
@@ -67,6 +67,11 @@ public class LifeBar : MonoBehaviour
             rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
             CheckLimit();
         }
+    }
+
+    protected internal void CalculateDepletionSpeed()
+    {
+        depletionSpeed = depletionRate * rectTransform.sizeDelta.x;
     }
 
     private void CheckLimit()

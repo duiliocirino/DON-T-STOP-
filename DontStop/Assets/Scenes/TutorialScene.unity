@@ -37321,6 +37321,10 @@ MonoBehaviour:
   spawnProbability: 0
   baseSpawnProbability: 0
   timeSinceLastNote: 0
+  difficultyStep: 6
+  maximumDepletionRate: 0.15
+  difficultyMultiplier: 2.5
+  lifeBar: {fileID: 1649489993}
   noteTakenSound: {fileID: 1630794758}
   UI: {fileID: 1305169807}
   slope: 1000000

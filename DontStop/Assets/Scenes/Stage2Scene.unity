@@ -13928,6 +13928,10 @@ MonoBehaviour:
   spawnProbability: 1
   baseSpawnProbability: 0
   timeSinceLastNote: 0
+  difficultyStep: 3
+  maximumDepletionRate: 0.12
+  difficultyMultiplier: 1.2
+  lifeBar: {fileID: 2139850612}
   noteTakenSound: {fileID: 1554718771}
   UI: {fileID: 1903626117}
   slope: 3000
@@ -20397,6 +20401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430601930}
     m_Modifications:
+    - target: {fileID: 129360463968085518, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: notesHandler
+      value: 
+      objectReference: {fileID: 1554718770}
     - target: {fileID: 283677317757255843, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10
@@ -22293,3 +22301,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7989942272821915105, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
   m_PrefabInstance: {fileID: 2137044055}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2139850612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1903626116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3bc78743b2644a9e21eea89547c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

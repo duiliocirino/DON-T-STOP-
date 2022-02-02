@@ -1136,6 +1136,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &179343001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 179342993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3bc78743b2644a9e21eea89547c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &194631672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13781,6 +13792,10 @@ MonoBehaviour:
   spawnProbability: 1
   baseSpawnProbability: 0
   timeSinceLastNote: 0
+  difficultyStep: 3
+  maximumDepletionRate: 0.12
+  difficultyMultiplier: 1.2
+  lifeBar: {fileID: 179343001}
   noteTakenSound: {fileID: 1421868272}
   UI: {fileID: 179342994}
   slope: 3000
