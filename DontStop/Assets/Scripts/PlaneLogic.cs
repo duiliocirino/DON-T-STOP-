@@ -70,17 +70,22 @@ public class PlaneLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        isPlayerOn = true;
+        if(other.gameObject.CompareTag("Player"))
+            isPlayerOn = true;
     }
 
     private void OnCollisionStay(Collision other)
     {
-        isPlayerOn = true;
+        if(other.gameObject.CompareTag("Player"))
+            isPlayerOn = true;
     }
 
     private void OnCollisionExit(Collision other)
     {
-        isPlayerOn = false;
-        gameObject.transform.position = initialPosition;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isPlayerOn = false;
+            gameObject.transform.position = initialPosition;
+        }
     }
 }

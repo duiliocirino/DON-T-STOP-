@@ -498,7 +498,7 @@ public class GameplayController : MonoBehaviour
     public void SaveData()
     {
 #if !UNITY_EDITOR
-        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, DistanceReached());
+        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, notesHandler.notesCollected, ScoreReached());
 #endif
     }
 
@@ -547,8 +547,11 @@ public class GameplayController : MonoBehaviour
         UpdateMaxDistance();
         ComputeScore();
         scoreCounter.text = score.ToString();
-        Debug.Log("Score:" + score);
-        Debug.Log("Max Distance:" + maxDistanceReached);
+    }
+
+    private float DistanceReached()
+    {
+        return maxDistanceReached;
     }
     
     private int ScoreReached()
