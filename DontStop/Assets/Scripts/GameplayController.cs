@@ -36,7 +36,14 @@ public class GameplayController : MonoBehaviour
     private float initialPlayerPosition;
     private float maxDistanceReached;
     private int score;
-    
+
+    private int scoreMultiplier = 1;
+    private int hitsOnARow;
+    private int scoreMultiplierIncreaseStep = 4;
+    private int stepCounter;
+    private int maxNumStep = 4;
+    public Text scoreMultiplierText;
+    public List<Color> scoreMultiplierColors;
 
     private void Awake()
     {
@@ -49,6 +56,8 @@ public class GameplayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateScoreMultiplierUI();
+        
         StartCoroutine(OnGameStart());
 
         if (Options.istance.gameEnds)
@@ -567,9 +576,41 @@ public class GameplayController : MonoBehaviour
             maxDistanceReached = currentDistance;
         }
     }
-    
+
+    private int notesCollectedLastCall;
+    private float lastMaxDistanceReached;
     private void ComputeScore()
     {
-        score = (int) (notesHandler.notesCollected * 1000 + maxDistanceReached * 8);
+        score += (int) (scoreMultiplier * ((notesHandler.notesCollected - notesCollectedLastCall) * 1000 + 
+                                           (maxDistanceReached - lastMaxDistanceReached) * 8));
+        lastMaxDistanceReached = maxDistanceReached;
+        notesCollectedLastCall = notesHandler.notesCollected;
+    }
+
+    public void HitOnTime()
+    {
+        hitsOnARow++;
+        if (hitsOnARow % scoreMultiplierIncreaseStep == 0 && stepCounter < maxNumStep)
+        {
+            scoreMultiplier++;
+            stepCounter++;
+            UpdateScoreMultiplierUI();
+        }
+        Debug.Log("Score multiplier: " + scoreMultiplier);
+        Debug.Log("Hits on a row: " + hitsOnARow);
+    }
+
+    public void BadHit()
+    {
+        scoreMultiplier = 1;
+        hitsOnARow = 0;
+        stepCounter = 0;
+        UpdateScoreMultiplierUI();
+    }
+
+    private void UpdateScoreMultiplierUI()
+    {
+        scoreMultiplierText.text = scoreMultiplier + "x";
+        scoreMultiplierText.color = scoreMultiplierColors[stepCounter];
     }
 }

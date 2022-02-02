@@ -30751,6 +30751,10 @@ PrefabInstance:
       propertyPath: betterMissPenality
       value: 0.018
       objectReference: {fileID: 0}
+    - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: gameplayController
+      value: 
+      objectReference: {fileID: 1898485672}
     - target: {fileID: 8977123270992405284, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -30817,6 +30821,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3624202872765220022, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
   m_PrefabInstance: {fileID: 1305169806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1305169814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7132642171575721098, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1305169806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1306599825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46428,6 +46443,10 @@ PrefabInstance:
       propertyPath: platformChoiceUI
       value: 
       objectReference: {fileID: 1613466453}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: scoreMultiplierText
+      value: 
+      objectReference: {fileID: 1305169814}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: platformSelectionControls
       value: 

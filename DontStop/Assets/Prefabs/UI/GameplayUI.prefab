@@ -132,6 +132,13 @@ MonoBehaviour:
   lifebar: {fileID: 0}
   lifebarScript: {fileID: 0}
   scoreCounter: {fileID: 0}
+  scoreMultiplierText: {fileID: 0}
+  scoreMultiplierColors:
+  - {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  - {r: 1, g: 0.55638766, b: 0, a: 1}
+  - {r: 1, g: 0.2688679, b: 0.2688679, a: 1}
+  - {r: 0.37749815, g: 1, b: 0.18396229, a: 1}
+  - {r: 1, g: 0.16509432, b: 0.64431614, a: 1}
 --- !u!1 &4260750862961658877
 GameObject:
   m_ObjectHideFlags: 0

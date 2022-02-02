@@ -9305,6 +9305,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1336199546}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: scoreMultiplierText
+      value: 
+      objectReference: {fileID: 2015949950}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: platformSelectionControls
       value: 
       objectReference: {fileID: 2137044056}
@@ -20637,6 +20641,10 @@ PrefabInstance:
       propertyPath: betterMissPenality
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: gameplayController
+      value: 
+      objectReference: {fileID: 812486447}
     - target: {fileID: 8977123270992405284, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -21124,6 +21132,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4063541705819162, guid: 0761e9c9debdfd34fa20f5859c6f08ff, type: 3}
   m_PrefabInstance: {fileID: 2013176298}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015949950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7132642171575721098, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 1903626116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2021857554
 PrefabInstance:
   m_ObjectHideFlags: 0

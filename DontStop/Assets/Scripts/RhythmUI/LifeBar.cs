@@ -7,6 +7,7 @@ using UnityEngine.Android;
 public class LifeBar : MonoBehaviour
 {
     public static LifeBar instance { get; private set; }
+    public GameplayController gameplayController;
 
     public float depletionRate;
     private float depletionSpeed;
@@ -97,6 +98,8 @@ public class LifeBar : MonoBehaviour
     public void PerfectHit()
     {
         if (gameObject.activeInHierarchy == false) return;
+        
+        gameplayController.HitOnTime();
 
         float newWidth = rectTransform.sizeDelta.x + perfectHitDistanceGained;
         if (newWidth > startingWidth)
@@ -122,6 +125,8 @@ public class LifeBar : MonoBehaviour
     {
         if (gameObject.activeInHierarchy == false) return;
 
+        gameplayController.BadHit();
+
         float newWidth = rectTransform.sizeDelta.x - worstMissDistanceLoss;
         if (newWidth < widthLimit)
         {
@@ -134,6 +139,8 @@ public class LifeBar : MonoBehaviour
     public void BetterMiss()
     {
         if (gameObject.activeInHierarchy == false) return;
+        
+        gameplayController.BadHit();
 
         float newWidth = rectTransform.sizeDelta.x - betterMissDistanceLoss;
         if (newWidth < widthLimit)

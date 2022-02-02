@@ -1064,6 +1064,10 @@ PrefabInstance:
       propertyPath: betterMissPenality
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7856851300972928636, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: gameplayController
+      value: 
+      objectReference: {fileID: 1399215820}
     - target: {fileID: 8977123270992405284, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1145,6 +1149,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b3bc78743b2644a9e21eea89547c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &179343002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7132642171575721098, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+  m_PrefabInstance: {fileID: 179342993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &194631672
@@ -34251,6 +34266,10 @@ PrefabInstance:
       propertyPath: creatorControls
       value: 
       objectReference: {fileID: 493935183}
+    - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: scoreMultiplierText
+      value: 
+      objectReference: {fileID: 179343002}
     - target: {fileID: 4260750861543451627, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: platformSelectionControls
       value: 
