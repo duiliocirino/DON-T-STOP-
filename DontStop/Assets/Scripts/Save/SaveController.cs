@@ -57,6 +57,14 @@ public class SaveController : MonoBehaviour
         SaveGame();
     }
 
+    public List<LevelRecord> GetRecords(int stage)
+    {
+        int totStages = save.levelDatas.Count;
+        if (stage < 0 || stage >= totStages) return null;
+
+        return save.levelDatas[stage].records;
+    }
+
     public void UnlockStage(int stage)
     {
         int totStages = save.levelDatas.Count;

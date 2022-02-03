@@ -14,7 +14,7 @@ public class SaveData
 
         for(int i=0; i<numberOfLevels; i++)
         {
-            levelDatas.Add(new LevelData(0, 0, 0, i == 0, false));
+            levelDatas.Add(new LevelData(i == 0, false));
         }
     }
 }
@@ -25,7 +25,7 @@ public class LevelData
     //public int noteRecord;
     //public int distanceRecord;
 
-    private int maxNumRecordsSaved = 10;
+    public static readonly int maxNumRecordsSaved = 10;
     public List<LevelRecord> records;
 
     public bool unlocked;
@@ -55,7 +55,9 @@ public class LevelData
         {
             if(records.Count < maxNumRecordsSaved)
             {
-                records.Add(new LevelRecord(score, distance, notes));
+                records.Add(new LevelRecord(PlayerPrefs.HasKey(PlayerSelectionController.creatorNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.creatorNameKey) : "Creator",
+                    PlayerPrefs.HasKey(PlayerSelectionController.runnerNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.runnerNameKey) : "Runner",
+                    score, distance, notes));
                 return true;
             }
             else
@@ -65,7 +67,9 @@ public class LevelData
         }
         else
         {
-            records.Insert(index, new LevelRecord(score, distance, notes));
+            records.Insert(index, new LevelRecord(PlayerPrefs.HasKey(PlayerSelectionController.creatorNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.creatorNameKey) : "Creator",
+                    PlayerPrefs.HasKey(PlayerSelectionController.runnerNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.runnerNameKey) : "Runner", 
+                    score, distance, notes));
             while(records.Count > maxNumRecordsSaved)
             {
                 records.RemoveAt(records.Count - 1);
@@ -74,12 +78,11 @@ public class LevelData
         }
     }
 
-    public LevelData(int sR, int nR, int dR, bool u, bool a_exp)
+    public LevelData(bool u, bool a_exp)
     {
         //noteRecord = nR;
         //distanceRecord = dR;
         records = new List<LevelRecord>();
-        records.Add(new LevelRecord(sR, dR, nR));
         unlocked = u;
         thingAlreadyExplained = a_exp;
     }
@@ -95,17 +98,17 @@ public class LevelRecord
 
     public LevelRecord()
     {
-        creatorName = PlayerPrefs.HasKey(PlayerSelectionController.creatorNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.creatorNameKey) : "Creator";
-        runnerName = PlayerPrefs.HasKey(PlayerSelectionController.runnerNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.runnerNameKey) : "Runner";
+        creatorName = "Creator";
+        runnerName = "Runner";
         score = 0;
         distance = 0;
         notes = 0;
     }
 
-    public LevelRecord(int score, int distance, int notes)
+    public LevelRecord(string creatorName, string runnerName, int score, int distance, int notes)
     {
-        creatorName = PlayerPrefs.HasKey(PlayerSelectionController.creatorNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.creatorNameKey) : "Creator";
-        runnerName = PlayerPrefs.HasKey(PlayerSelectionController.runnerNameKey) ? PlayerPrefs.GetString(PlayerSelectionController.runnerNameKey) : "Runner";
+        this.creatorName = creatorName;
+        this.runnerName = runnerName;
         this.score = score;
         this.distance = distance;
         this.notes = notes;

@@ -9,8 +9,8 @@ public class PlayerSelectionController : MonoBehaviour
     public InputField creatorName;
     public InputField runnerName;
 
-    public static string creatorNameKey = "CreatorName";
-    public static string runnerNameKey = "RunnerName";
+    public static readonly string creatorNameKey = "CreatorName";
+    public static readonly string runnerNameKey = "RunnerName";
 
     public void Awake()
     {
