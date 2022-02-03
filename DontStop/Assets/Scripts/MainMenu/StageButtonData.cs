@@ -21,7 +21,7 @@ public class StageButtonData : MonoBehaviour
     void Start()
     {
         //lockBackground.SetActive(!clickable);
-        setInterractable(SaveController.istance.save.levelDatas[stageNumber].unlocked);
+        setInterractable(SaveController.istance.IsStageUnlocked(stageNumber));
     }
 
     // Update is called once per frame

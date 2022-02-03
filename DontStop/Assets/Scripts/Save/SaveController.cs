@@ -8,7 +8,7 @@ public class SaveController : MonoBehaviour
 {
     public static SaveController istance { private set; get; } = null;
 
-    public SaveData save;
+    private SaveData save;
 
     private string saveFilePath;
 
@@ -48,12 +48,12 @@ public class SaveController : MonoBehaviour
         Debug.Log("Game data saved!");
     }
 
-    public void SaveRecords(int stage, int notes, int distance)
+    public void SaveRecords(int stage, int score, int notes, int distance)
     {
         int totStages = save.levelDatas.Count;
         if (stage < 0 || stage >= totStages) return;
 
-        save.levelDatas[stage] = new LevelData(notes, distance, save.levelDatas[stage].unlocked, save.levelDatas[stage].thingAlreadyExplained);
+        save.levelDatas[stage].AddRecord(score, distance, notes);
         SaveGame();
     }
 
@@ -64,6 +64,11 @@ public class SaveController : MonoBehaviour
 
         save.levelDatas[stage].unlocked = true;
         SaveGame();
+    }
+
+    public bool IsStageUnlocked(int stage)
+    {
+        return save.levelDatas[stage].unlocked;
     }
 
     public bool ThingAlreadyExplained(int stage)
