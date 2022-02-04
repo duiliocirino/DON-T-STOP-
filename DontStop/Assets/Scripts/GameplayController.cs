@@ -51,7 +51,7 @@ public class GameplayController : MonoBehaviour
         notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
 
         //B-Side handle
-        Options.istance.bSide = SelectedStage.istance.bSide;
+        //Options.istance.bSide = SelectedStage.istance.bSide;
         
         oldTimeScale = Time.timeScale;
     }
