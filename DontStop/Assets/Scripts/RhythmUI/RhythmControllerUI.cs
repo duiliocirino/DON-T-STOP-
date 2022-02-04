@@ -10,6 +10,7 @@ public class RhythmControllerUI : MonoBehaviour
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
+    public TextAsset bSidePatternMapJSON;
     public BoxCollider2D hitZone;
     public Animator pulsatingKeyAnimator;
 
