@@ -50,6 +50,9 @@ public class GameplayController : MonoBehaviour
         notesHandler.onEnoughNotesCollected.Add(SaveData);
         notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
 
+        //B-Side handle
+        Options.istance.bSide = SelectedStage.istance.bSide;
+        
         oldTimeScale = Time.timeScale;
     }
 
@@ -70,8 +73,18 @@ public class GameplayController : MonoBehaviour
             LifeBar.instance.UnregisterLimitReachedBehaviour(GameOver);
             LifeBar.instance.RegisterLimitReachedBehaviour(FirstGameOver);
         }
+        else if (Options.istance.bSide)
+        {
+            playerPosition.position += new Vector3(0,10,145);
+            EndlessMode();
+        }
 
         initialPlayerPosition = playerPosition.position.z;
+    }
+
+    private void EndlessMode()
+    {
+        // Pattern map e music change
     }
 
     private IEnumerator OnGameStart()

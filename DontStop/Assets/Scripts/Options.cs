@@ -7,6 +7,7 @@ public class Options : MonoBehaviour
     public static Options istance { private set; get; }
 
     public bool tutorial;
+    public bool bSide;
     public bool gameEnds;
 
     private void Awake()
