@@ -507,7 +507,7 @@ public class GameplayController : MonoBehaviour
     public void SaveData()
     {
 #if !UNITY_EDITOR
-        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), DistanceReached(), notesHandler.notesCollected);
+        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), notesHandler.notesCollected, DistanceReached());
 #endif
     }
 
