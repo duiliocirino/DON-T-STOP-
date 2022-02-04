@@ -13,6 +13,10 @@ public class Options : MonoBehaviour
     private void Awake()
     {
         istance = this;
+        if (SelectedStage.istance != null)
+            bSide = SelectedStage.istance.bSide;
+
+        if (bSide) tutorial = false;
     }
 
     // Start is called before the first frame update
