@@ -51,7 +51,6 @@ public class GameplayController : MonoBehaviour
         notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
 
         //B-Side handle
-        //Options.istance.bSide = SelectedStage.istance.bSide;
         
         oldTimeScale = Time.timeScale;
     }
@@ -86,10 +85,11 @@ public class GameplayController : MonoBehaviour
         initialPlayerPosition = playerPosition.position.z;
     }
 
-    private void EndlessMode()
+    public void EndlessMode()
     {
         // Pattern map e music change
         RhythmControllerUI.instance.ChangePattern(RhythmControllerUI.instance.bSidePatternMapJSON);
+        RhythmControllerUI.instance.SwitchSong();
     }
 
     private IEnumerator OnGameStart()
