@@ -10,6 +10,7 @@ public class RhythmControllerUI : MonoBehaviour
     public GameObject notePrefab;
     public AudioSource musicPlayer;
     public TextAsset patternMapJSON;
+    public TextAsset bSidePatternMapJSON;
     public BoxCollider2D hitZone;
     public Animator pulsatingKeyAnimator;
 
@@ -46,6 +47,17 @@ public class RhythmControllerUI : MonoBehaviour
 
         pulsatingKeyAnimator = hitZone.GetComponent<Animator>();
 
+        LoadPattern();
+    }
+
+    private PatternMap GeneratePatternMap()
+    {
+        //return new PatternMap("default120");
+        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
+    }
+
+    private void LoadPattern()
+    {
         patternMap = GeneratePatternMap();
 
         speed = patternMap.noteSpeed;
@@ -58,10 +70,10 @@ public class RhythmControllerUI : MonoBehaviour
         GenerateHitZones();
     }
 
-    private PatternMap GeneratePatternMap()
+    public void ChangePattern(TextAsset newPatternMapJSON)
     {
-        //return new PatternMap("default120");
-        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
+        patternMapJSON = newPatternMapJSON;
+        LoadPattern();
     }
 
     private void GenerateTimeVector()

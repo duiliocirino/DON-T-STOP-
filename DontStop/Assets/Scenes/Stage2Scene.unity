@@ -12458,6 +12458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial: 0
+  bSide: 0
   gameEnds: 1
 --- !u!4 &1246922963
 Transform:
@@ -20508,6 +20509,10 @@ PrefabInstance:
       objectReference: {fileID: 2022461527}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: patternMapJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
+    - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: bSidePatternMapJSON
       value: 
       objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}

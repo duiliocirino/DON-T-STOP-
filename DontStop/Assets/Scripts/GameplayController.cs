@@ -89,6 +89,7 @@ public class GameplayController : MonoBehaviour
     private void EndlessMode()
     {
         // Pattern map e music change
+        RhythmControllerUI.instance.ChangePattern(RhythmControllerUI.instance.bSidePatternMapJSON);
     }
 
     private IEnumerator OnGameStart()
