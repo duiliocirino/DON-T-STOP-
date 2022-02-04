@@ -22261,7 +22261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4289144451127264249, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4289144451127264249, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22434,10 +22434,6 @@ PrefabInstance:
     - target: {fileID: 5965511264282130609, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983285535329326316, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
-      propertyPath: m_Text
-      value: PROCEED AS FAR AS YOU CAN AND  COLLECT MUSICAL NOTES
       objectReference: {fileID: 0}
     - target: {fileID: 6039089900054676970, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22778,10 +22774,6 @@ PrefabInstance:
     - target: {fileID: 8459864961673611860, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8488034208498694874, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8546619263832404671, guid: a9ba6b8383052c3418d5cbe909d948f2, type: 3}
       propertyPath: m_StaticEditorFlags

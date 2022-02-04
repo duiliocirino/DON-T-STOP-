@@ -80,7 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WELCOME TO THE
+  m_Text: "PROCEED AS FAR AS YOU CAN \nCOLLECT MUSICAL NOTES TO IMPROVE YOUR SCORE"
 --- !u!114 &5212244747734394887
 MonoBehaviour:
   m_ObjectHideFlags: 0
