@@ -48,6 +48,7 @@ public class SceneController : MonoBehaviour
         loadingScreen.SetActive(true);
         SelectedStage.istance.selectedStage = stageButtonData.scene;
         SelectedStage.istance.stageNumber = stageButtonData.stageNumber;
+        SelectedStage.istance.bSide = stageButtonData.bSide;
         SceneManager.LoadScene("PlayerSelectionScene");
     }
 

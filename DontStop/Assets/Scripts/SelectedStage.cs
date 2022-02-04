@@ -8,7 +8,7 @@ public class SelectedStage : MonoBehaviour
 
     public string selectedStage;
     public int stageNumber;
-    public bool bside;
+    public bool bSide;
 
     private void Awake()
     {

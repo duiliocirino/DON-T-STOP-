@@ -7,6 +7,7 @@ public class StageButtonData : MonoBehaviour
 {
     public int stageNumber = 0;
     public string scene = "MainScene";
+    public bool bSide = false;
 
     //private GameObject lockBackground;
     private Button button;
