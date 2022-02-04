@@ -506,9 +506,9 @@ public class GameplayController : MonoBehaviour
 
     public void SaveData()
     {
-//#if !UNITY_EDITOR
+#if !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), DistanceReached(), notesHandler.notesCollected);
-//#endif
+#endif
     }
 
     public void EnableRealGameOver()
@@ -520,9 +520,9 @@ public class GameplayController : MonoBehaviour
     public void UnlockNextStage()
     {
         StartCoroutine(ShowNextStageUnlocked());
-//#if !UNITY_EDITOR
+#if !UNITY_EDITOR
         SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
-//#endif
+#endif
     }
 
     private IEnumerator ShowNextStageUnlocked()

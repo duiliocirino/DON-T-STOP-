@@ -25,7 +25,7 @@ public class SaveController : MonoBehaviour
         }
 
         saveFilePath = Application.persistentDataPath + "/save.dat";
-        Debug.Log(saveFilePath);
+        //Debug.Log(saveFilePath);
 
         if (File.Exists(saveFilePath))
         {
