@@ -31,7 +31,7 @@ public class PlaneHandler : MonoBehaviour
     public float stagePlaneLifeModifier = 1;
 
     public float TOLERANCE = 10;
-
+    
     [SerializeField] internal List<GameObject> platformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
@@ -44,6 +44,16 @@ public class PlaneHandler : MonoBehaviour
     [SerializeField] private List<GameObject> obstaclePrefabs;
     [SerializeField] private GameObject emptyPrefab;
 
+    // Difficulty variables and references
+    public int difficultyStep = 3;
+    public float maximumDepletionRate = 0.12f;
+    public float difficultyMultiplier = 1.2f;
+    
+    public NotesHandler notesHandler;
+    public LifeBar lifeBar;
+
+    private int startingNumPlatforms;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -114,6 +124,8 @@ public class PlaneHandler : MonoBehaviour
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
         AddEmptyTiles(position);
+        
+        IncreaseDifficulty();
     }
 
     /**
@@ -249,6 +261,30 @@ public class PlaneHandler : MonoBehaviour
         return false;
     }
 
+    void IncreaseDifficulty()
+    {
+        //TODO: add graphical feedback to the audience
+        if (notesHandler.notesCollected >= notesHandler.notesForNextStage)
+        {
+            if (startingNumPlatforms == 0)
+                startingNumPlatforms = platformTiles.Count;
+            else if ((platformTiles.Count - startingNumPlatforms) % difficultyStep == 0)
+            {
+                float temp = lifeBar.depletionRate * difficultyMultiplier;
+                if (temp <= maximumDepletionRate)
+                {
+                    lifeBar.depletionRate *= difficultyMultiplier;
+                    lifeBar.CalculateDepletionSpeed();
+                }
+                else if (lifeBar.depletionRate < maximumDepletionRate)
+                {
+                    lifeBar.depletionRate = maximumDepletionRate;
+                    lifeBar.CalculateDepletionSpeed();
+                }
+            }
+        }
+    }
+    
     public GameObject GetPrefab(string name)
     {
         if (name.Length > 5)

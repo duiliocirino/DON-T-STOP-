@@ -11592,6 +11592,11 @@ MonoBehaviour:
   - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
   - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+  difficultyStep: 3
+  maximumDepletionRate: 0.14
+  difficultyMultiplier: 1.3
+  notesHandler: {fileID: 1421868271}
+  lifeBar: {fileID: 179343001}
 --- !u!4 &1060832289
 Transform:
   m_ObjectHideFlags: 0
@@ -13800,17 +13805,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 7
+  notesForNextStage: 1
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
   spawnProbability: 1
   baseSpawnProbability: 0
   timeSinceLastNote: 0
-  difficultyStep: 3
-  maximumDepletionRate: 0.12
-  difficultyMultiplier: 1.2
-  lifeBar: {fileID: 179343001}
   noteTakenSound: {fileID: 1421868272}
   UI: {fileID: 179342994}
   slope: 3000

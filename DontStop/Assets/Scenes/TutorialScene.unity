@@ -24870,6 +24870,11 @@ MonoBehaviour:
   - {fileID: 7883238246922965775, guid: 6c4461058264ed8459aa1b09d9ff1699, type: 3}
   - {fileID: 4687489372723083663, guid: 9eb4aaceb2f400b48b3277b2e7cfd2ca, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+  difficultyStep: 3
+  maximumDepletionRate: 0.15
+  difficultyMultiplier: 1.4
+  notesHandler: {fileID: 1630794757}
+  lifeBar: {fileID: 1649489993}
 --- !u!4 &845812127
 Transform:
   m_ObjectHideFlags: 0
@@ -37336,10 +37341,6 @@ MonoBehaviour:
   spawnProbability: 0
   baseSpawnProbability: 0
   timeSinceLastNote: 0
-  difficultyStep: 6
-  maximumDepletionRate: 0.15
-  difficultyMultiplier: 2.5
-  lifeBar: {fileID: 1649489993}
   noteTakenSound: {fileID: 1630794758}
   UI: {fileID: 1305169807}
   slope: 1000000
