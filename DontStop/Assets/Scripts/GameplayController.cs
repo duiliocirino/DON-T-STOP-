@@ -504,11 +504,21 @@ public class GameplayController : MonoBehaviour
         //StartCoroutine(makeTimeStop());
     }
 
+    private bool justSaved = false;
     public void SaveData()
     {
+        if (justSaved) return;
+        justSaved = true;
+        StartCoroutine(RestoreSaving(ScoreReached()));
 #if !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), notesHandler.notesCollected, DistanceReached());
 #endif
+    }
+
+    private IEnumerator RestoreSaving(int lastSavedScore)
+    {
+        yield return new WaitUntil(() => ScoreReached() - lastSavedScore >= 50);
+        justSaved = false;
     }
 
     public void EnableRealGameOver()
