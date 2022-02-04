@@ -9,6 +9,7 @@ public class RhythmControllerUI : MonoBehaviour
     public float hitTime; //in fraction of a note
     public GameObject notePrefab;
     public AudioSource musicPlayer;
+    public AudioClip secondaryMusic;
     public TextAsset patternMapJSON;
     public TextAsset bSidePatternMapJSON;
     public BoxCollider2D hitZone;
@@ -74,6 +75,15 @@ public class RhythmControllerUI : MonoBehaviour
     {
         patternMapJSON = newPatternMapJSON;
         LoadPattern();
+    }
+
+    public void SwitchSong()
+    {
+        musicPlayer.Stop();
+        AudioClip tmp = musicPlayer.clip;
+        musicPlayer.clip = secondaryMusic;
+        secondaryMusic = tmp;
+        musicPlayer.Play();
     }
 
     private void GenerateTimeVector()

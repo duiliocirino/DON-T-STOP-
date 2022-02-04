@@ -48,7 +48,7 @@ public class EndTutorial : MonoBehaviour
         endOfTutorialUI.SetActive(false);
         background.SetActive(false);
         endTutorialMusic.Stop();
-        RhythmControllerUI.instance.musicPlayer.Play();
+        gameplayController.EndlessMode();
         gameplayController.EnableRealGameOver();
         LifeBar.instance.StartDeplition();
         gameplayController.SetPlayerControlActive(true);

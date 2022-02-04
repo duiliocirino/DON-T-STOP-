@@ -933,6 +933,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4900000, guid: 9d21a7428fa8088408ae48c84a36f808, type: 3}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
+      propertyPath: secondaryMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e7cc4cc1e1bb464b85c4f0344637d8a, type: 3}
+    - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: bSidePatternMapJSON
       value: 
       objectReference: {fileID: 4900000, guid: 9d21a7428fa8088408ae48c84a36f808, type: 3}

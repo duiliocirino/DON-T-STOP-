@@ -82,10 +82,11 @@ public class GameplayController : MonoBehaviour
         initialPlayerPosition = playerPosition.position.z;
     }
 
-    private void EndlessMode()
+    public void EndlessMode()
     {
         // Pattern map e music change
         RhythmControllerUI.instance.ChangePattern(RhythmControllerUI.instance.bSidePatternMapJSON);
+        RhythmControllerUI.instance.SwitchSong();
     }
 
     private IEnumerator OnGameStart()
