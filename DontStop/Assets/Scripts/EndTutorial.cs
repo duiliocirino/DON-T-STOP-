@@ -18,7 +18,7 @@ public class EndTutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!Options.istance.tutorial) Destroy(gameObject);
     }
 
     // Update is called once per frame

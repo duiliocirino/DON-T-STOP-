@@ -51,7 +51,7 @@ public class GameplayController : MonoBehaviour
         notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
 
         //B-Side handle
-        Options.istance.bSide = SelectedStage.istance.bSide;
+        //Options.istance.bSide = SelectedStage.istance.bSide;
         
         oldTimeScale = Time.timeScale;
     }
@@ -76,6 +76,10 @@ public class GameplayController : MonoBehaviour
         else if (Options.istance.bSide)
         {
             playerPosition.position += new Vector3(0,10,145);
+            foreach (var emptyTile in PlaneHandler.instance.EmptyTiles)
+            {
+                emptyTile.transform.position += Vector3.forward * 161.5f;
+            }
             EndlessMode();
         }
 

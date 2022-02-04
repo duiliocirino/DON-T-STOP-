@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 0
   scene: 
+  bSide: 0
 --- !u!1 &7550161598816189080
 GameObject:
   m_ObjectHideFlags: 0
