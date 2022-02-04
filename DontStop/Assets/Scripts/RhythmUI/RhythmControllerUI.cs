@@ -46,6 +46,17 @@ public class RhythmControllerUI : MonoBehaviour
 
         pulsatingKeyAnimator = hitZone.GetComponent<Animator>();
 
+        LoadPattern();
+    }
+
+    private PatternMap GeneratePatternMap()
+    {
+        //return new PatternMap("default120");
+        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
+    }
+
+    private void LoadPattern()
+    {
         patternMap = GeneratePatternMap();
 
         speed = patternMap.noteSpeed;
@@ -58,10 +69,10 @@ public class RhythmControllerUI : MonoBehaviour
         GenerateHitZones();
     }
 
-    private PatternMap GeneratePatternMap()
+    public void ChangePattern(TextAsset newPatternMapJSON)
     {
-        //return new PatternMap("default120");
-        return JsonUtility.FromJson<PatternMap>(patternMapJSON.text);
+        patternMapJSON = newPatternMapJSON;
+        LoadPattern();
     }
 
     private void GenerateTimeVector()
