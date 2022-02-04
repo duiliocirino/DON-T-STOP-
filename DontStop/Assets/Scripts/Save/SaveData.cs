@@ -6,6 +6,8 @@ using System;
 public class SaveData
 {
     public List<LevelData> levelDatas;
+
+    [NonSerialized]
     private int numberOfLevels = 3;
 
     public SaveData()
@@ -25,8 +27,10 @@ public class LevelData
     //public int noteRecord;
     //public int distanceRecord;
 
+    [NonSerialized]
     public static readonly int maxNumRecordsSaved = 10;
-    public List<LevelRecord> records;
+
+    public List<LevelRecord> records = new List<LevelRecord>();
 
     public bool unlocked;
     public bool thingAlreadyExplained;
@@ -88,6 +92,7 @@ public class LevelData
     }
 }
 
+[Serializable]
 public class LevelRecord
 {
     public string creatorName;

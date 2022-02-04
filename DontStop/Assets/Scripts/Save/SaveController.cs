@@ -25,12 +25,20 @@ public class SaveController : MonoBehaviour
         }
 
         saveFilePath = Application.persistentDataPath + "/save.dat";
+        Debug.Log(saveFilePath);
 
         if (File.Exists(saveFilePath))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(saveFilePath, FileMode.Open);
             save = (SaveData)bf.Deserialize(file);
+
+            //necessary for backwards compatibility
+            foreach(LevelData levelData in save.levelDatas)
+            {
+                if (levelData.records == null) levelData.records = new List<LevelRecord>();
+            }
+
             file.Close();
         }
         else
