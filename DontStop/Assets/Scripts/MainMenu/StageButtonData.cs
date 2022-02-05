@@ -35,4 +35,9 @@ public class StageButtonData : MonoBehaviour
     {
         button.interactable = b;
     }
+
+    public void debug(string s)
+    {
+        Debug.Log(s);
+    }
 }
