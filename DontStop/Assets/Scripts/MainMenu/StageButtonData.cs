@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StageButtonData : MonoBehaviour
 {
     public int stageNumber = 0;
+    public int unlocksWithStage = 0;
     public string scene = "MainScene";
     public bool bSide = false;
 
@@ -22,7 +23,7 @@ public class StageButtonData : MonoBehaviour
     void Start()
     {
         //lockBackground.SetActive(!clickable);
-        setInterractable(SaveController.istance.IsStageUnlocked(stageNumber));
+        setInterractable(SaveController.istance.IsStageUnlocked(unlocksWithStage));
     }
 
     // Update is called once per frame

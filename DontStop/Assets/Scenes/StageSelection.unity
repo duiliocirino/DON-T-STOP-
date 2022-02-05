@@ -786,7 +786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dcc572e10216704da75b28be1d5d799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNumber: 1
+  stageNumber: 0
+  unlocksWithStage: 1
   scene: TutorialScene
   bSide: 1
 --- !u!114 &673776267
@@ -1528,6 +1529,10 @@ PrefabInstance:
       propertyPath: stageNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8509518270907060800, guid: c4fc7983f083aa84fa81374448758130, type: 3}
+      propertyPath: unlocksWithStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8639126376897516301, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_Text
       value: Rock Mountains
@@ -1835,6 +1840,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8509518270907060800, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: stageNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509518270907060800, guid: c4fc7983f083aa84fa81374448758130, type: 3}
+      propertyPath: unlocksWithStage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
