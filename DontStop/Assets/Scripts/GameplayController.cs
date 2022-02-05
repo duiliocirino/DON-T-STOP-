@@ -547,10 +547,13 @@ public class GameplayController : MonoBehaviour
 
     public void UnlockNextStage()
     {
-        StartCoroutine(ShowNextStageUnlocked());
+        if (SaveController.istance == null || !SaveController.istance.IsStageUnlocked(SelectedStage.istance.stageNumber + 1))
+        {
+            StartCoroutine(ShowNextStageUnlocked());
 #if !UNITY_EDITOR
-        SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
+            SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
 #endif
+        }
     }
 
     private IEnumerator ShowNextStageUnlocked()
