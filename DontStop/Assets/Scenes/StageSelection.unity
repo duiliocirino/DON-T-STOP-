@@ -1550,18 +1550,6 @@ PrefabInstance:
       value: Rock Mountains
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -1578,10 +1566,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadPlayerSelectionScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: debug
       objectReference: {fileID: 0}
@@ -1590,20 +1574,12 @@ PrefabInstance:
       value: StageButtonData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1424580413}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Stage2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: StageButtonData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1859,18 +1835,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -1887,10 +1851,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadPlayerSelectionScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: 
       objectReference: {fileID: 0}
@@ -1899,20 +1859,12 @@ PrefabInstance:
       value: StageButtonData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 979007714}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Stage1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: StageButtonData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
