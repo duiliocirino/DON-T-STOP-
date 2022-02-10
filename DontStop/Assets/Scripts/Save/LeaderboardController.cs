@@ -28,7 +28,7 @@ public class LeaderboardController : MonoBehaviour
         }
         else
         {
-            stage = 0;
+            stage = 1;
         }
 
         InitializeEntries();
@@ -53,7 +53,7 @@ public class LeaderboardController : MonoBehaviour
     {
         for (int i = 0; i < selectionButtons.Count; i++)
         {
-            selectionButtons[i].interactable = i != stage;
+            selectionButtons[i].interactable = i+1 != stage;
         }
         PlayerPrefs.SetInt(leaderboardStageSelectedKey, stage);
 
