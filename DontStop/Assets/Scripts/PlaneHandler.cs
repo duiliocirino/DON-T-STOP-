@@ -135,7 +135,7 @@ public class PlaneHandler : MonoBehaviour
     {
         float zspacing = spacing;
         if (tutorialPresent && Math.Abs(position.z - platformInTutorial*spacing) < TOLERANCE)
-            zspacing += platformSkippedAtTutorialEnd*spacing - 10;
+            zspacing += platformSkippedAtTutorialEnd*spacing - 15;
 
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)
         {

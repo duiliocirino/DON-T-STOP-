@@ -40,6 +40,10 @@ public class EndTutorial : MonoBehaviour
             gameplayController.SaveData();
             background.SetActive(true);
             endOfTutorialUI.SetActive(true);
+            GameObject notesHandler = GameObject.FindWithTag("NotesHandler");
+            if (notesHandler == null) return;
+            var nhScript = notesHandler.GetComponent<NotesHandler>();
+            nhScript.slope = 3000;
         }
     }
 
