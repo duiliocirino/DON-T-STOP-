@@ -611,17 +611,54 @@ public class PatternGen : MonoBehaviour
         }
 
         // pattern C
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 1; i++)
         {
             bp = new BeatPattern();
-            bp.numMeasures = 1;
-            bp.tempoNumerator = 16;
-            bp.tempoDenominator = 16;
+            bp.numMeasures = 8;
+            bp.tempoNumerator = 4;
+            bp.tempoDenominator = 4;
             bp.notePositions = new List<float>();
+
             bp.notePositions.Add((float)0 / 16);
             bp.notePositions.Add((float)3 / 16);
             bp.notePositions.Add((float)6 / 16);
             bp.notePositions.Add((float)8 / 16);
+
+            bp.notePositions.Add((float)16 / 16);
+            bp.notePositions.Add((float)19 / 16);
+            bp.notePositions.Add((float)22 / 16);
+            bp.notePositions.Add((float)24 / 16);
+
+            bp.notePositions.Add((float)32 / 16);
+            bp.notePositions.Add((float)35 / 16);
+            bp.notePositions.Add((float)38 / 16);
+            bp.notePositions.Add((float)40 / 16);
+
+            bp.notePositions.Add((float)48 / 16);
+            bp.notePositions.Add((float)51 / 16);
+            bp.notePositions.Add((float)54 / 16);
+            bp.notePositions.Add((float)56 / 16);
+
+            bp.notePositions.Add((float)64 / 16);
+            bp.notePositions.Add((float)67 / 16);
+            bp.notePositions.Add((float)70 / 16);
+            bp.notePositions.Add((float)72 / 16);
+
+            bp.notePositions.Add((float)80 / 16);
+            bp.notePositions.Add((float)83 / 16);
+            bp.notePositions.Add((float)86 / 16);
+            bp.notePositions.Add((float)88 / 16);
+
+            bp.notePositions.Add((float)96 / 16);
+            bp.notePositions.Add((float)99 / 16);
+            bp.notePositions.Add((float)102 / 16);
+            bp.notePositions.Add((float)104 / 16);
+
+            bp.notePositions.Add((float)112 / 16);
+            bp.notePositions.Add((float)115 / 16);
+            bp.notePositions.Add((float)118 / 16);
+            bp.notePositions.Add((float)120 / 16);
+
             pm.pattern.Add(bp);
         }
 
