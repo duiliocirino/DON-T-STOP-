@@ -14,20 +14,20 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.084905654, g: 0.084905654, b: 0.33962262, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
+  m_HaloStrength: 0.515
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44471207, g: 0.49424446, b: 0.57347184, a: 1}
+  m_Sun: {fileID: 535085954}
+  m_IndirectSpecularColor: {r: 0.0007200191, g: 0.0018433576, b: 0.05432608, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11507,9 +11507,9 @@ MonoBehaviour:
   levelSections:
   - {fileID: 4914458464752284304, guid: c1adeb01005fb3a4a8c49562c41c7d20, type: 3}
   - {fileID: 122251491954064961, guid: c31fc3c07ec91414697d27f313270034, type: 3}
-  - {fileID: 6416204772632808336, guid: 4504d6cc26544174290c08f33f322aad, type: 3}
-  - {fileID: 4914458464752284304, guid: c1adeb01005fb3a4a8c49562c41c7d20, type: 3}
   - {fileID: 122251491954064961, guid: c31fc3c07ec91414697d27f313270034, type: 3}
+  - {fileID: 6416204772632808336, guid: 4504d6cc26544174290c08f33f322aad, type: 3}
+  - {fileID: 6416204772632808336, guid: 4504d6cc26544174290c08f33f322aad, type: 3}
   isCreating: 0
   sectionSize: 200
   currentZ: 620
@@ -15264,15 +15264,15 @@ PrefabInstance:
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: patternMapJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
+      objectReference: {fileID: 4900000, guid: 93711e7b18bfe3b45a86abfbba9cd73a, type: 3}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: secondaryMusic
       value: 
-      objectReference: {fileID: 8300000, guid: c54003eedc5df1c4bb15cef1aa204d9e, type: 3}
+      objectReference: {fileID: 8300000, guid: ecd21849f5ec58a4abda22d188d3f811, type: 3}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: bSidePatternMapJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
+      objectReference: {fileID: 4900000, guid: 93711e7b18bfe3b45a86abfbba9cd73a, type: 3}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -20416,7 +20416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1401861562152400543, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage2Scene
+      value: Stage3Scene
       objectReference: {fileID: 0}
     - target: {fileID: 2453834567991721873, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_RootOrder
@@ -21359,7 +21359,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4168354112733789247, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
-  m_audioClip: {fileID: 8300000, guid: c54003eedc5df1c4bb15cef1aa204d9e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ecd21849f5ec58a4abda22d188d3f811, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
