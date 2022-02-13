@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTime: 3
-  _offset: {x: 0, y: 0, z: 7}
+  _offset: {x: 0, y: 0, z: 6}
 --- !u!114 &1213474806342805985
 MonoBehaviour:
   m_ObjectHideFlags: 0
