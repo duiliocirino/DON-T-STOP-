@@ -12,6 +12,9 @@ public class SaveController : MonoBehaviour
 
     private string saveFilePath;
 
+    [SerializeField]
+    private int numberOfStages = 4;
+
     private void Awake()
     {
         if (istance == null)
@@ -33,7 +36,10 @@ public class SaveController : MonoBehaviour
             FileStream file = File.Open(saveFilePath, FileMode.Open);
             save = (SaveData)bf.Deserialize(file);
 
-            
+            while(save.levelDatas.Count < numberOfStages)
+            {
+                save.levelDatas.Add(new LevelData());
+            }
             
             //necessary for backwards compatibility
             foreach(LevelData levelData in save.levelDatas)
@@ -45,7 +51,7 @@ public class SaveController : MonoBehaviour
         }
         else
         {
-            save = new SaveData();
+            save = new SaveData(numberOfStages);
         }
     }
 
@@ -102,5 +108,10 @@ public class SaveController : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public void Test()
+    {
+        Debug.Log(save.levelDatas.Count);
     }
 }

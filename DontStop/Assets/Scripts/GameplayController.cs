@@ -528,7 +528,7 @@ public class GameplayController : MonoBehaviour
         if (justSaved) return;
         justSaved = true;
         StartCoroutine(RestoreSaving(ScoreReached()));
-#if !UNITY_EDITOR
+#if true && !UNITY_EDITOR
         SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), notesHandler.notesCollected, DistanceReached());
 #endif
     }
@@ -550,7 +550,7 @@ public class GameplayController : MonoBehaviour
         if (SaveController.istance == null || !SaveController.istance.IsStageUnlocked(SelectedStage.istance.stageNumber + 1))
         {
             StartCoroutine(ShowNextStageUnlocked());
-#if !UNITY_EDITOR
+#if true && !UNITY_EDITOR
             SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
 #endif
         }

@@ -19,6 +19,16 @@ public class SaveData
             levelDatas.Add(new LevelData(i == 0, false));
         }
     }
+
+    public SaveData(int numberOfLevels)
+    {
+        levelDatas = new List<LevelData>();
+
+        for (int i = 0; i < numberOfLevels; i++)
+        {
+            levelDatas.Add(new LevelData(i == 0, false));
+        }
+    }
 }
 
 [Serializable]
