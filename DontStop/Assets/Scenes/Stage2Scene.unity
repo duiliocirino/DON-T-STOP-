@@ -11936,7 +11936,7 @@ MonoBehaviour:
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
   difficultyStep: 3
-  maximumDepletionRate: 0.14
+  maximumDepletionRate: 0.15
   difficultyMultiplier: 1.3
   notesHandler: {fileID: 1554718770}
   lifeBar: {fileID: 2139850612}
@@ -13943,7 +13943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 14
+  notesForNextStage: 12
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
