@@ -8,7 +8,7 @@ public class SaveData
     public List<LevelData> levelDatas;
 
     [NonSerialized]
-    private int numberOfLevels = 3;
+    private int numberOfLevels = 4;
 
     public SaveData()
     {

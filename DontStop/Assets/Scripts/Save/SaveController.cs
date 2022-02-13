@@ -11,9 +11,6 @@ public class SaveController : MonoBehaviour
     private SaveData save;
 
     private string saveFilePath;
-    
-    [SerializeField]
-    private int numberOfStages = 4; //Tutorial is not included
 
     private void Awake()
     {
