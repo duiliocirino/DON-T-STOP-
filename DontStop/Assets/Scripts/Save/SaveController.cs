@@ -109,9 +109,4 @@ public class SaveController : MonoBehaviour
         }
         return true;
     }
-
-    public void Test()
-    {
-        Debug.Log(save.levelDatas.Count);
-    }
 }
