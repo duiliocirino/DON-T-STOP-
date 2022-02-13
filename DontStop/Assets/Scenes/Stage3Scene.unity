@@ -21790,6 +21790,10 @@ MonoBehaviour:
   sound_goodPlatform: {fileID: 2086332396}
   sound_badPlatform: {fileID: 2086332397}
   obstaclePrefabs:
+  - {fileID: 7752103279097211623, guid: 96766e5fba5cb2d48ab1a23da2e3f2de, type: 3}
+  - {fileID: 2636100779835149649, guid: ef7d0ad01b29c644f8bdcfbaa2dc03d6, type: 3}
+  - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
+  - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
   difficultyStep: 3
