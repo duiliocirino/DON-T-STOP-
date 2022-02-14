@@ -21362,7 +21362,7 @@ AudioSource:
   m_GameObject: {fileID: 2032286276}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 6150519675040789657, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
+  OutputAudioMixerGroup: {fileID: -6100500376418638412, guid: 2b6dd6da8f453784a8b3833e7d835cb8, type: 2}
   m_audioClip: {fileID: 8300000, guid: ecd21849f5ec58a4abda22d188d3f811, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -21800,7 +21800,7 @@ MonoBehaviour:
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
   difficultyStep: 3
-  maximumDepletionRate: 0.14
+  maximumDepletionRate: 0.15
   difficultyMultiplier: 1.3
   notesHandler: {fileID: 1377917868}
   lifeBar: {fileID: 932578609}
