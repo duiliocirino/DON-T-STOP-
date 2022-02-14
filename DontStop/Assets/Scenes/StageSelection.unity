@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8639126376897516301, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_Text
-      value: Steij tri
+      value: Sigma city
       objectReference: {fileID: 0}
     - target: {fileID: 8761273238796317415, guid: c4fc7983f083aa84fa81374448758130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
