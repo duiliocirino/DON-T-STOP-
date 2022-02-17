@@ -17,7 +17,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     public static RhythmControllerUI instance { get; private set; }
     public bool hasStarted = false;
-    public Vector2 noteBufferPosition;
+    public Vector2 noteBufferPosition = new Vector2(0, -300);
     public bool noteInHitArea = false;
     public float noteDespawnDelay;
 
@@ -25,6 +25,7 @@ public class RhythmControllerUI : MonoBehaviour
 
     private float speed;
     private float BPM;
+    private float latencyOffset;
     private float firstNoteTime;
     private List<float> timeVector;
     private int timeVectorIndex = 0;
@@ -63,6 +64,12 @@ public class RhythmControllerUI : MonoBehaviour
 
         speed = patternMap.noteSpeed;
         BPM = patternMap.BPM;
+        latencyOffset = patternMap.initialDelay;
+        if (PlayerPrefs.HasKey(Settings.notesLatencyOffsetKey))
+        {
+            latencyOffset += PlayerPrefs.GetFloat(Settings.notesLatencyOffsetKey);
+        }
+        
         timeVectorIndex = patternMap.numberOfNotesSkippedOnFirstPlay;
         GenerateTimeVector();
 
@@ -84,6 +91,23 @@ public class RhythmControllerUI : MonoBehaviour
         musicPlayer.clip = secondaryMusic;
         secondaryMusic = tmp;
         musicPlayer.Play();
+    }
+
+    public void Restart()
+    {
+        StopNotes();
+        LoadPattern();
+        StartNotes();
+    }
+
+    public void StopNotes()
+    {
+        musicPlayer.Stop();
+        hasStarted = false;
+        foreach (GameObject note in noteBufer)
+        {
+            Destroy(note);
+        }
     }
 
     private void GenerateTimeVector()
@@ -109,7 +133,7 @@ public class RhythmControllerUI : MonoBehaviour
 
         timeVector.Sort();
 
-        firstNoteTime = timeVector[patternMap.numberOfNotesSkippedOnFirstPlay] + patternMap.initialDelay;
+        firstNoteTime = timeVector[patternMap.numberOfNotesSkippedOnFirstPlay] + latencyOffset;
 
         //print(timeVector.Count);
         //foreach (var a in timeVector)
@@ -143,9 +167,6 @@ public class RhythmControllerUI : MonoBehaviour
         noteBufer = new List<GameObject>(nNotes);
         noteScripts = new List<NoteUI>(nNotes);
         noteRectTransforms = new List<RectTransform>(nNotes);
-
-        noteBufferPosition = new Vector2(0, -300);
-
 
         for (int i = 0; i < nNotes; i++)
         {
@@ -200,7 +221,7 @@ public class RhythmControllerUI : MonoBehaviour
             }
             previousTime = musicTime;
 
-            if (timeVectorIndex < timeVector.Count && timeVector[timeVectorIndex] - (barWidth / 2) / speed + patternMap.initialDelay < musicTime)
+            if (timeVectorIndex < timeVector.Count && timeVector[timeVectorIndex] - (barWidth / 2) / speed + latencyOffset < musicTime)
             {
                 setNextNotes();
             }
@@ -233,12 +254,12 @@ public class RhythmControllerUI : MonoBehaviour
     {
         if (timeVectorIndex >= timeVector.Count) return;
 
-        //Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5) + " at time " + musicPlayer.time);
-        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5);
+        //Debug.Log("setting note " + timeVectorIndex + " in position " + new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + latencyOffset) * speed, -5) + " at time " + musicPlayer.time);
+        noteRectTransforms[nextNotes].anchoredPosition = new Vector2(-(timeVector[timeVectorIndex] - musicPlayer.time + latencyOffset) * speed, -5);
         noteScripts[nextNotes].speed = speed;
         noteScripts[nextNotes].timeToReachCenter = timeVector[timeVectorIndex];
 
-        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2((timeVector[timeVectorIndex] - musicPlayer.time + patternMap.initialDelay) * speed, -5);
+        noteRectTransforms[nextNotes + 1].anchoredPosition = new Vector2((timeVector[timeVectorIndex] - musicPlayer.time + latencyOffset) * speed, -5);
         noteScripts[nextNotes + 1].speed = -speed;
         noteScripts[nextNotes + 1].timeToReachCenter = timeVector[timeVectorIndex];
 

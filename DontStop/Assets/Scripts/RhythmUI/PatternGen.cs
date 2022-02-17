@@ -8,9 +8,42 @@ public class PatternGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string filename = "Stage3.json";
+        string filename = "Calibration.json";
 
-        File.WriteAllText("Assets/PatternMaps/" + filename, JsonUtility.ToJson(Level3()));
+        File.WriteAllText("Assets/PatternMaps/" + filename, JsonUtility.ToJson(calibrationPattern()));
+    }
+
+    private PatternMap calibrationPattern()
+    {
+        PatternMap pm = new PatternMap();
+
+        pm.BPM = 60;
+        pm.noteSpeed = 300;
+        pm.tempoNumerator = 4;
+        pm.tempoDenominator = 4;
+        pm.songName = "60BPM";
+        pm.initialDelay = 0;
+        pm.numberOfNotesSkippedOnFirstPlay = 2;
+        pm.pattern = new List<BeatPattern>();
+
+        BeatPattern bp;
+        float duration = 60 * 5;
+        float measureTime = (60 / pm.BPM) * pm.tempoDenominator;
+        int nMeasures = (int)(duration / measureTime) + 1;
+
+        for (int i = 0; i < nMeasures; i++)
+        {
+            bp = new BeatPattern();
+            bp.numMeasures = 1;
+            bp.notePositions = new List<float>();
+            bp.notePositions.Add((float)0 / 4);
+            bp.notePositions.Add((float)1 / 4);
+            bp.notePositions.Add((float)2 / 4);
+            bp.notePositions.Add((float)3 / 4);
+            pm.pattern.Add(bp);
+        }
+
+        return pm;
     }
 
     private PatternMap defaultPattern()

@@ -5761,7 +5761,7 @@ MonoBehaviour:
   hitZone: {fileID: 3634357421169773363}
   pulsatingKeyAnimator: {fileID: 0}
   hasStarted: 0
-  noteBufferPosition: {x: 0, y: 0}
+  noteBufferPosition: {x: 0, y: -300}
   noteInHitArea: 0
   noteDespawnDelay: 0
   patternMap:

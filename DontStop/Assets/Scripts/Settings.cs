@@ -18,6 +18,9 @@ public class Settings : MonoBehaviour
 
     public float volume { private set; get; }
 
+    public float notesLatencyOffset { private set; get; }
+    public static readonly string notesLatencyOffsetKey = "notesLatencyOffset";
+
     public AudioMixer mixer;
 
     private void Awake()
@@ -89,6 +92,15 @@ public class Settings : MonoBehaviour
         {
             volume = PlayerPrefs.GetFloat("volume");
             SetMixerVolume(volume);
+        }
+
+        if (!PlayerPrefs.HasKey(notesLatencyOffsetKey))
+        {
+            SetNotesLatencyOffset(0.225f);
+        }
+        else
+        {
+            notesLatencyOffset = PlayerPrefs.GetFloat(notesLatencyOffsetKey);
         }
 
         PlayerPrefs.Save();
@@ -171,5 +183,12 @@ public class Settings : MonoBehaviour
         {
             mixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
         }
+    }
+
+    public void SetNotesLatencyOffset(float notesLatencyOff)
+    {
+        notesLatencyOffset = notesLatencyOff;
+        PlayerPrefs.SetFloat(notesLatencyOffsetKey, notesLatencyOffset);
+        PlayerPrefs.Save();
     }
 }

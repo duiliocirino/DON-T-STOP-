@@ -7,16 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class SettingsChanger : MonoBehaviour
 {
+    public GameObject mainSettings;
+    public GameObject calibrationSettings;
+
     public Dropdown quality;
     public Dropdown resolution;
     public Toggle fullScreen;
     public Slider volume;
+
+    public Slider calibration;
+    public Text calibrationText;
+    public RhythmControllerUI notesUIScript;
+    private float lastAppliedCalibration;
+
+    private AudioSource menuMusic;
 
     private SceneController sceneController;
 
     private void Awake()
     {
         sceneController = GetComponent<SceneController>();
+        menuMusic = GameObject.FindGameObjectsWithTag("MenuMusic")[0].GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -44,6 +55,9 @@ public class SettingsChanger : MonoBehaviour
         volume.value = Settings.istance.volume;
 
         fullScreen.isOn = Settings.istance.fullScreen;
+
+        SetCalibration(Settings.istance.notesLatencyOffset * 1000);
+        lastAppliedCalibration = Settings.istance.notesLatencyOffset * 1000;
     }
 
     // Update is called once per frame
@@ -76,5 +90,44 @@ public class SettingsChanger : MonoBehaviour
     public void OnVolumeChange()
     {
         Settings.istance.SetVolume(volume.value);
+    }
+
+    private void SetCalibration(float calibration)
+    {
+        this.calibration.value = calibration;
+        UpdateCalibrationText();
+    }
+
+    public void UpdateCalibrationText()
+    {
+        calibrationText.text = (int)calibration.value + " ms";
+    }
+
+    public void OnApplyCalibration()
+    {
+        lastAppliedCalibration = calibration.value;
+        Settings.istance.SetNotesLatencyOffset(calibration.value/1000);
+        notesUIScript.Restart();
+    }
+
+    public void OnResetCalibration()
+    {
+        SetCalibration(lastAppliedCalibration);
+    }
+
+    public void OnSelectCalibration()
+    {
+        mainSettings.SetActive(false);
+        calibrationSettings.SetActive(true);
+        menuMusic.Pause();
+        notesUIScript.Restart();
+    }
+
+    public void OnQuitCalibration()
+    {
+        notesUIScript.StopNotes();
+        menuMusic.Play();
+        calibrationSettings.SetActive(false);
+        mainSettings.SetActive(true);
     }
 }
