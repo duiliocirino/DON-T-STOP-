@@ -67,7 +67,7 @@ public class ThirdPersonUserControl : MonoBehaviour
                     
                 }
 
-                Vector3 newPos = lastObjectPosition + Vector3.up;
+                Vector3 newPos = lastObjectPosition + 5 * Vector3.up;
                 newPos.x = lastPlatformPosition.x;
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
