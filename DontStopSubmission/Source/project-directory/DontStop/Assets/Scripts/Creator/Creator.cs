@@ -10,6 +10,7 @@ public class Creator : MonoBehaviour
 {
     // private int rayDistance = 1000;
     public Camera creatorCamera;
+    private CreatorRTE _creatorRte;
 
     private float spacing = 15f;
     
@@ -17,9 +18,10 @@ public class Creator : MonoBehaviour
     void Awake()
     {
         // controls = new PlayerControls();
+        _creatorRte = gameObject.AddComponent<CreatorRTE>();
     }
 
-    private bool firstPlace = true;
+    private bool _firstPlace = true;
     private double TOLERANCE = 5;
     public int maxDistance = 35;
 
@@ -32,10 +34,10 @@ public class Creator : MonoBehaviour
         //Debug.Log("OnClick called");
         if (PlatformSelectionUI.instance.isSlotSelected() && !Pause.paused)
         {
-            if (firstPlace)
+            if (_firstPlace)
             {
                 //TutorialController.instance.disableDialogBox("TutorialCreator");
-                firstPlace = false;
+                _firstPlace = false;
             }
             //Debug.Log("Left click on " + hit.collider.gameObject.name);
             //GameObject emptyTile = PlaneHandler.instance.GetNearestEmptyTile(hit.point);
@@ -66,6 +68,8 @@ public class Creator : MonoBehaviour
             }
         }
     }
+    
+    
 
     // Update is called once per frame
     void Update()

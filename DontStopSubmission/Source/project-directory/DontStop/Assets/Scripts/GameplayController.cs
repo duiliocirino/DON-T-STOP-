@@ -589,6 +589,11 @@ public class GameplayController : MonoBehaviour
         scoreCounter.text = score.ToString();
     }
 
+    #region Scoring
+    
+    private int _notesCollectedLastCall;
+    private float _lastMaxDistanceReached;
+    
     private int DistanceReached()
     {
         return (int) maxDistanceReached;
@@ -607,15 +612,12 @@ public class GameplayController : MonoBehaviour
             maxDistanceReached = currentDistance;
         }
     }
-
-    private int notesCollectedLastCall;
-    private float lastMaxDistanceReached;
     private void ComputeScore()
     {
-        score += (int) (scoreMultiplier * ((notesHandler.notesCollected - notesCollectedLastCall) * 1000 + 
-                                           (maxDistanceReached - lastMaxDistanceReached) * 8));
-        lastMaxDistanceReached = maxDistanceReached;
-        notesCollectedLastCall = notesHandler.notesCollected;
+        score += (int) (scoreMultiplier * ((notesHandler.notesCollected - _notesCollectedLastCall) * 1000 + 
+                                           (maxDistanceReached - _lastMaxDistanceReached) * 8));
+        _lastMaxDistanceReached = maxDistanceReached;
+        _notesCollectedLastCall = notesHandler.notesCollected;
     }
 
     public void HitOnTime()
@@ -644,4 +646,6 @@ public class GameplayController : MonoBehaviour
         scoreMultiplierText.text = scoreMultiplier + "x";
         scoreMultiplierText.color = scoreMultiplierColors[stepCounter];
     }
+    
+    #endregion
 }
