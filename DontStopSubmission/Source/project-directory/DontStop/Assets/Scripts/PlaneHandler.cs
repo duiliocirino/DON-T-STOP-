@@ -53,9 +53,14 @@ public class PlaneHandler : MonoBehaviour
     public LifeBar lifeBar;
 
     private int startingNumPlatforms;
-    
+
     // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    private void Awake()
     {
         instance = this;
     }
