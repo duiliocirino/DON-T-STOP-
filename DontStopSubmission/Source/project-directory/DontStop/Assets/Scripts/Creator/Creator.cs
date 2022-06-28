@@ -10,7 +10,7 @@ public class Creator : MonoBehaviour
 {
     // private int rayDistance = 1000;
     public Camera creatorCamera;
-    private CreatorRTE _creatorRte;
+    //private CreatorRTE _creatorRte;
 
     private float spacing = 15f;
     
@@ -18,7 +18,7 @@ public class Creator : MonoBehaviour
     void Awake()
     {
         // controls = new PlayerControls();
-        _creatorRte = gameObject.AddComponent<CreatorRTE>();
+        //_creatorRte = gameObject.AddComponent<CreatorRTE>();
     }
 
     private bool _firstPlace = true;
