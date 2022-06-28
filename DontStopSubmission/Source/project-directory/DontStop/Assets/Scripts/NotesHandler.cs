@@ -12,8 +12,8 @@ public class NotesHandler : MonoBehaviour
     
     public int notesForNextStage = 20;
     public int notesCollected = 0;
-    public float minSpawnRangeZ = 3;
-    public float maxSpawnRangeZ = 5;
+    public float minSpawnRangeZ = 2;
+    public float maxSpawnRangeZ = 4;
     public float spawnProbability = 1f;
     public float baseSpawnProbability;
     public float timeSinceLastNote;
@@ -28,6 +28,7 @@ public class NotesHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnNote();
         string text = "0";
         if (notesForNextStage != 0)
             text += "/" + notesForNextStage;
@@ -38,7 +39,7 @@ public class NotesHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnNote();
+        //SpawnNote();
         IncreaseSpawnProbability();
     }
 
@@ -47,11 +48,13 @@ public class NotesHandler : MonoBehaviour
         
     }
 
-    public void NoteTaken()
+    public void NoteTaken(int value)
     {
         noteTakenSound.Play();
-        notesCollected++;
-
+        notesCollected += value;
+        
+        if(value == 1) SpawnNote();
+            
         string text = notesCollected.ToString();
         if (notesForNextStage!=0)
             text += "/" + notesForNextStage;
@@ -59,6 +62,11 @@ public class NotesHandler : MonoBehaviour
         UI.text = text;
 
         if (notesCollected == notesForNextStage) OnEnoughNotesCollected();
+    }
+
+    public void NoteNotTaken(int value)
+    {
+        if(value == 1) SpawnNote();
     }
 
     private void OnEnoughNotesCollected()
@@ -85,7 +93,7 @@ public class NotesHandler : MonoBehaviour
      */
     void SpawnNote()
     {
-        if (Random.value < spawnProbability)
+        //if (Random.value < spawnProbability)
         {
             Vector3 lastPlatformPosition = PlaneHandler.instance.PlatformTiles.Last().transform.position;
             float rangeX = PlaneHandler.instance.laneNumbersRadius * PlaneHandler.instance.spacing;

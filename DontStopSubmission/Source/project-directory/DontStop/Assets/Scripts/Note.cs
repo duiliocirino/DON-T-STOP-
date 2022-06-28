@@ -9,6 +9,7 @@ public class Note : MonoBehaviour
     [SerializeField] protected float noteLife = 15f;
     protected float timeOn = 0f;
     public float firstBlink = 10;
+    public int value = 1;
     public float secondBlink = 20;
     private Material _material;
     private Outline _outline;
@@ -34,6 +35,7 @@ public class Note : MonoBehaviour
         if (timeOn > 0.9f * noteLife && timeOn <= noteLife) Flashing(secondBlink, 0.9f);
         if (timeOn >= noteLife)
         {
+            _notesHandler.NoteNotTaken(value);
             Destroy(gameObject);
         }
     }
@@ -59,7 +61,7 @@ public class Note : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _notesHandler.NoteTaken();
+            _notesHandler.NoteTaken(value);
             Destroy(gameObject);
         }
     }
