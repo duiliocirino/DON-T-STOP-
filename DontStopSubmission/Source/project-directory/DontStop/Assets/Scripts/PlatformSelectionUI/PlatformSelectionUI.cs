@@ -15,6 +15,7 @@ public class PlatformSelectionUI : MonoBehaviour
     public List<GameObject> slots;
     private RandomRotatingPool<GameObject> pool;
     private List<SlotUI> slotScripts = new List<SlotUI>();
+    public List<bool> isSlotLocked = new List<bool>();
 
     private int selectedSlotIndex = -1;
     public Camera camera;
@@ -40,10 +41,12 @@ public class PlatformSelectionUI : MonoBehaviour
     void Start()
     {
         slotScripts = new List<SlotUI>();
+        isSlotLocked = new List<bool>();
         foreach (GameObject slot in slots)
         {
             SlotUI script = slot.GetComponent<SlotUI>();
             slotScripts.Add(script);
+            isSlotLocked.Add(false);
             GameObject p = pool.GetNext();
             script.SetPlatform(p);
             script.setInactive();
@@ -56,9 +59,9 @@ public class PlatformSelectionUI : MonoBehaviour
         //TODO switch input system
         if(selectedSlotIndex < 0 || selectedSlotIndex >= slots.Count)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) selectedSlotIndex = 0;
-            if (Input.GetKeyDown(KeyCode.DownArrow)) selectedSlotIndex = 1;
-            if (Input.GetKeyDown(KeyCode.RightArrow)) selectedSlotIndex = 2;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !isSlotLocked[0]) selectedSlotIndex = 0;
+            if (Input.GetKeyDown(KeyCode.DownArrow) && !isSlotLocked[1]) selectedSlotIndex = 1;
+            if (Input.GetKeyDown(KeyCode.RightArrow) && !isSlotLocked[2]) selectedSlotIndex = 2;
 
             if(selectedSlotIndex >= 0 && selectedSlotIndex < slots.Count)
             {
@@ -250,6 +253,27 @@ public class PlatformSelectionUI : MonoBehaviour
     {
         if(isSlotSelected()) DisableOldSlot(selectedSlotIndex);
         selectedSlotIndex = -1;
+    }
+
+    public void LockSlot(int index)
+    {
+        if (index < 0 || index >= slots.Count) return;
+
+        if (!isSlotLocked[index])
+        {
+            isSlotLocked[index] = true;
+            if(selectedSlotIndex == index)
+            {
+                ForceSelectedSlotReset();
+            }
+        }
+    }
+
+    public void UnlockSlot(int index)
+    {
+        if (index < 0 || index >= slots.Count) return;
+
+        isSlotLocked[index] = false;
     }
 }
 
