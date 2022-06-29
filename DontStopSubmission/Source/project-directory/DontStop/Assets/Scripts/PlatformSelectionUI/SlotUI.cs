@@ -8,14 +8,17 @@ public class SlotUI : MonoBehaviour
 {
     public Image unselectedUI;
     public Image selectedUI;
+    public Image lockImage;
+
+    public bool isLocked { get; private set; } = false;
 
     private GameObject platform;
 
-    private Image image;
+    private Image platformImage;
 
     private void Awake()
     {
-        image = GetComponent<Image>();
+        platformImage = GetComponent<Image>();
     }
 
     // Start is called before the first frame update
@@ -26,7 +29,7 @@ public class SlotUI : MonoBehaviour
     public void SetPlatform(GameObject p)
     {
         platform = p;
-        image.sprite = PlatformSelectionUI.instance.platformScripts[platform].imagePreview;
+        platformImage.sprite = PlatformSelectionUI.instance.platformScripts[platform].imagePreview;
     }
 
     public GameObject GetPlatform()
@@ -49,5 +52,19 @@ public class SlotUI : MonoBehaviour
     {
         unselectedUI.enabled = true;
         selectedUI.enabled = false;
+    }
+
+    public void Lock()
+    {
+        isLocked = true;
+        platformImage.enabled = false;
+        lockImage.enabled = true;
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
+        lockImage.enabled = false;
+        platformImage.enabled = true;
     }
 }

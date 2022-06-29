@@ -6530,6 +6530,10 @@ PrefabInstance:
       propertyPath: platformPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 4874577582285161064, guid: aa2f529977b16ce41967f1aa6be846d3, type: 3}
+    - target: {fileID: 1889424401696503879, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2477840591677976987, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
       propertyPath: platformPrefabs.Array.size
       value: 6
@@ -6593,6 +6597,10 @@ PrefabInstance:
     - target: {fileID: 6163379609626737371, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615586509321419892, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
+      propertyPath: m_Name
+      value: Lock
       objectReference: {fileID: 0}
     - target: {fileID: 6807523742019181140, guid: 39be2aa9779f634449c471767721b6f6, type: 3}
       propertyPath: m_StaticEditorFlags
