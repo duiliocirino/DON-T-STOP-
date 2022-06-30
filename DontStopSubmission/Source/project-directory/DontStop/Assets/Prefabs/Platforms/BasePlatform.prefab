@@ -124,6 +124,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4160023955947115310}
     m_Modifications:
+    - target: {fileID: -3281812277924531262, guid: 3d3e1647da524af438765070d6d4fc6c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 3d3e1647da524af438765070d6d4fc6c, type: 3}
       propertyPath: m_Name
       value: Tile Top 1
