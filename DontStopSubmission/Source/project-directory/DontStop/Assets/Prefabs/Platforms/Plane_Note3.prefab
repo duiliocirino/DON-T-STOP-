@@ -65,10 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef53d208bd38b2a40ba5de98a280f71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteLife: 30
-  firstBlink: 10
-  value: 3
-  secondBlink: 20
+  noteLife: 15
+  firstBlink: 7
+  value: 2
+  secondBlink: 12
 --- !u!136 &3948117090169027141
 CapsuleCollider:
   m_ObjectHideFlags: 0
