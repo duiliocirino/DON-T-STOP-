@@ -53,6 +53,10 @@ public class PlaneLogic : MonoBehaviour
 
             //WaitForParticles();  
             PlaneHandler.instance.DisablePlatform(gameObject);
+
+            // penalty for destroying a platform, for now it applies to all platforms
+            LifeBar.instance.WorstMiss();
+            LifeBar.instance.WorstMiss();
         }
     }
     IEnumerator WaitForParticles()
