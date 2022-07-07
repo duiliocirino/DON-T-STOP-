@@ -47,7 +47,7 @@ public class EndTutorial : MonoBehaviour
         }
     }
 
-    public void ResumeTutorialStage()
+    /*public void ResumeTutorialStage()
     {
         endOfTutorialUI.SetActive(false);
         background.SetActive(false);
@@ -56,5 +56,5 @@ public class EndTutorial : MonoBehaviour
         gameplayController.EnableRealGameOver();
         LifeBar.instance.StartDeplition();
         gameplayController.SetPlayerControlActive(true);
-    }
+    }*/
 }
