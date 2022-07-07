@@ -1692,6 +1692,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7377195160953271662, guid: 3dccc5fd347f5eb458e4b5354c562390, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66bb6b9ac3939784a8a7d512c035479e, type: 3}
     - target: {fileID: 7377195161342470097, guid: 3dccc5fd347f5eb458e4b5354c562390, type: 3}
       propertyPath: sceneCamera
       value: 
