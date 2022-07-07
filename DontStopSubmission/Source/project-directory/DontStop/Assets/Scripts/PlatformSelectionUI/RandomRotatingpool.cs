@@ -26,6 +26,35 @@ public class RandomRotatingPool<T>
         return elem;
     }
 
+    public List<T> Peek(int n)
+    {
+        if (n <= 0) return new List<T>();
+        List<T> ret;
+
+        if (n <= elements.Count - index)
+        {
+            ret = elements.GetRange(index, n);
+        }
+        else if(n <= elements.Count - index + nextElements.Count)
+        {
+            ret = elements.GetRange(index, elements.Count - index);
+            ret.AddRange(nextElements.GetRange(0, n - elements.Count + index));
+        }
+        else
+        {
+            ret = elements.GetRange(index, elements.Count - index);
+            ret.AddRange(new List<T>(nextElements));
+        }
+            
+
+        return ret;
+    }
+
+    public T Peek()
+    {
+        return elements[index];
+    }
+
     private void shuffle()
     {
         List<T> tmp = elements;
