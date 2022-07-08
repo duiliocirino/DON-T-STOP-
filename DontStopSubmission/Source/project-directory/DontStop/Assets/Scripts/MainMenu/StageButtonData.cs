@@ -9,6 +9,7 @@ public class StageButtonData : MonoBehaviour
     public int unlocksWithStage = 0;
     public string scene = "MainScene";
     public bool bSide = false;
+    public Text scoreRecord;
 
     //private GameObject lockBackground;
     private Button button;
@@ -17,6 +18,7 @@ public class StageButtonData : MonoBehaviour
     {
         //lockBackground = transform.Find("LockBackground").gameObject;
         button = GetComponent<Button>();
+        scoreRecord.text = SaveController.istance.GetHighestScoreRecord(stageNumber).ToString();
     }
 
     // Start is called before the first frame update

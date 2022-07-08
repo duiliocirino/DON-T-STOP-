@@ -81,6 +81,16 @@ public class SaveController : MonoBehaviour
         return save.levelDatas[stage].records;
     }
 
+    public int GetHighestScoreRecord(int stage)
+    {
+        int totStages = save.levelDatas.Count;
+        if (stage < 0 || stage >= totStages) return 0;
+
+        if (save.levelDatas[stage].records.Count <= 0) return 0;
+
+        return save.levelDatas[stage].records[0].score;
+    }
+
     public void UnlockStage(int stage)
     {
         int totStages = save.levelDatas.Count;
