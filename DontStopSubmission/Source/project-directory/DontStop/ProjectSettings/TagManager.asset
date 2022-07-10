@@ -27,6 +27,7 @@ TagManager:
   - TempCameraUp
   - TempCameraFrontFollow
   - TempCameraFrontStill
+  - ControllerRTE
   layers:
   - Default
   - TransparentFX

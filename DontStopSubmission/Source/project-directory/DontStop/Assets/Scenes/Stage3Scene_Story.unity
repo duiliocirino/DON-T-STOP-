@@ -20465,7 +20465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1401861562152400543, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage3Scene
+      value: Stage3Scene_Story
       objectReference: {fileID: 0}
     - target: {fileID: 2453834567991721873, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_RootOrder
@@ -20603,9 +20603,25 @@ PrefabInstance:
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 257246447}
+    - target: {fileID: 4825622400145825884, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage3Scene_Story
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825622400145825959, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984946891918405231, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage3Scene_Story
+      objectReference: {fileID: 0}
     - target: {fileID: 6335964406193244656, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888975266746816990, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536755905151380498, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_EffectColor.a
