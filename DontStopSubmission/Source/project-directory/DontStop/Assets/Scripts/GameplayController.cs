@@ -629,8 +629,8 @@ public class GameplayController : MonoBehaviour
             stepCounter++;
             UpdateScoreMultiplierUI();
         }
-        Debug.Log("Score multiplier: " + scoreMultiplier);
-        Debug.Log("Hits on a row: " + hitsOnARow);
+        //Debug.Log("Score multiplier: " + scoreMultiplier);
+        //Debug.Log("Hits on a row: " + hitsOnARow);
     }
 
     public void BadHit()

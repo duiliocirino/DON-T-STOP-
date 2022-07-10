@@ -126,11 +126,18 @@ public class PlaneHandler : MonoBehaviour
         newPlatform.GetComponent<PlaneLogic>().planeLife *= stagePlaneLifeModifier;
 
         platformTiles.Add(newPlatform);
+        PlatformLocking();
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
         AddEmptyTiles(position);
         
         IncreaseDifficulty();
+    }
+
+    private void PlatformLocking()
+    {
+        CreatorRTE.instance.Unlocker();
+        CreatorRTE.instance.Locker();
     }
 
     /**

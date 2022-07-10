@@ -16363,6 +16363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1066050224}
   - component: {fileID: 1066050223}
+  - component: {fileID: 1066050225}
   - component: {fileID: 1066050222}
   m_Layer: 0
   m_Name: Creator
@@ -16429,6 +16430,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1066050225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066050221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41418b0262fabcb49bc548e5e42db5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked_index: 
+  probability: 0.75
 --- !u!1001 &1066711663
 PrefabInstance:
   m_ObjectHideFlags: 0

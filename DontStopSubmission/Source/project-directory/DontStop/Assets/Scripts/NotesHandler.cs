@@ -98,13 +98,13 @@ public class NotesHandler : MonoBehaviour
             Vector3 lastPlatformPosition = PlaneHandler.instance.PlatformTiles.Last().transform.position;
             float rangeX = PlaneHandler.instance.laneNumbersRadius * PlaneHandler.instance.spacing;
             float displacementZ = Random.Range(minSpawnRangeZ, maxSpawnRangeZ);
-            Debug.Log(displacementZ);
+            //Debug.Log(displacementZ);
             float leftX = Math.Max(-rangeX, lastPlatformPosition.x - (displacementZ * PlaneHandler.instance.spacing));
-            Debug.Log(leftX);
+            //Debug.Log(leftX);
             float rightX = Math.Min(rangeX, lastPlatformPosition.x + displacementZ * PlaneHandler.instance.spacing);
-            Debug.Log(rightX);
+            //Debug.Log(rightX);
             Vector3 newNotePosition = new Vector3(Random.Range(leftX, rightX), Random.value, lastPlatformPosition.z + displacementZ * PlaneHandler.instance.spacing);
-            Debug.Log(newNotePosition);
+            //Debug.Log(newNotePosition);
             //if (((PlaneHandler.instance.platformInTutorial + 1) * PlaneHandler.instance.spacing) >= newNotePosition.z || newNotePosition.z >= ((PlaneHandler.instance.platformInTutorial + PlaneHandler.instance.platformSkippedAtTutorialEnd + 1) * PlaneHandler.instance.spacing))
                 Instantiate(notePrefab, newNotePosition, Quaternion.identity);
             ResetProbability();
