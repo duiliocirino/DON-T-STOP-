@@ -136,6 +136,7 @@ public class PlaneHandler : MonoBehaviour
 
     private void PlatformLocking()
     {
+        if (GameObject.FindWithTag("ControllerRTE") == null) return;
         CreatorRTE.instance.Unlocker();
         CreatorRTE.instance.Locker();
     }
