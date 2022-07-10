@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7733783f3dbe9584da97d95fcf31fd49
   - enabled: 1
+    path: Assets/Scenes/StoryStageSelection.unity
+    guid: a421d1652dd6c044e9a60a358e327388
+  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 3312a3d0cc84548419a519fa45953f14
   - enabled: 1
