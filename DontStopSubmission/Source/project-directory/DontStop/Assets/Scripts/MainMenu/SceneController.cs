@@ -52,6 +52,15 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("PlayerSelectionScene");
     }
 
+    public void LoadStoryPlayerSelectionScreen(StoryStageButtonData storyStageButtonData)
+    {
+        loadingScreen.SetActive(true);
+        SelectedStage.istance.selectedStage = storyStageButtonData.sceneName;
+        SelectedStage.istance.stageNumber = storyStageButtonData.stageNumber;
+        SelectedStage.istance.bSide = false;
+        SceneManager.LoadScene("PlayerSelectionScene");
+    }
+
     public void ExitApplication()
     {
         Application.Quit();

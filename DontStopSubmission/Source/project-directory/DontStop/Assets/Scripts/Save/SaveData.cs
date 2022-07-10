@@ -160,8 +160,6 @@ public class StoryLevelData
 
     public StoryLevelData()
     {
-        //noteRecord = 0;
-        //distanceRecord = 0;
         records = new List<StoryLevelRecord>();
         unlocked = false;
     }

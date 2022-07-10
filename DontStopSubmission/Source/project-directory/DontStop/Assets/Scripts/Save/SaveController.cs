@@ -48,6 +48,7 @@ public class SaveController : MonoBehaviour
             {
                 save.storyLevelDatas.Add(new StoryLevelData());
             }
+            if(!IsStoryStageUnlocked(0)) UnlockStoryStage(0);
 
             //necessary for backwards compatibility
             foreach (LevelData levelData in save.levelDatas)
@@ -66,6 +67,7 @@ public class SaveController : MonoBehaviour
         {
             save = new SaveData(numberOfArcadeStages, numberOfStoryStages);
         }
+
     }
 
     public void SaveGame()
