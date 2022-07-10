@@ -13,7 +13,9 @@ public class SaveController : MonoBehaviour
     private string saveFilePath;
 
     [SerializeField]
-    private int numberOfStages = 4;
+    private int numberOfArcadeStages = 4;
+    [SerializeField]
+    private int numberOfStoryStages = 4;
 
     private void Awake()
     {
@@ -36,22 +38,33 @@ public class SaveController : MonoBehaviour
             FileStream file = File.Open(saveFilePath, FileMode.Open);
             save = (SaveData)bf.Deserialize(file);
 
-            while(save.levelDatas.Count < numberOfStages)
+            while(save.levelDatas.Count < numberOfArcadeStages)
             {
                 save.levelDatas.Add(new LevelData());
             }
-            
+
+            if (save.storyLevelDatas == null) save.storyLevelDatas = new List<StoryLevelData>();
+            while (save.storyLevelDatas.Count < numberOfStoryStages)
+            {
+                save.storyLevelDatas.Add(new StoryLevelData());
+            }
+
             //necessary for backwards compatibility
-            foreach(LevelData levelData in save.levelDatas)
+            foreach (LevelData levelData in save.levelDatas)
             {
                 if (levelData.records == null) levelData.records = new List<LevelRecord>();
+            }
+
+            foreach (StoryLevelData levelData in save.storyLevelDatas)
+            {
+                if (levelData.records == null) levelData.records = new List<StoryLevelRecord>();
             }
 
             file.Close();
         }
         else
         {
-            save = new SaveData(numberOfStages);
+            save = new SaveData(numberOfArcadeStages, numberOfStoryStages);
         }
     }
 
@@ -118,5 +131,37 @@ public class SaveController : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public List<StoryLevelRecord> GetStoryRecords(int stage)
+    {
+        int totStages = save.storyLevelDatas.Count;
+        if (stage < 0 || stage >= totStages) return null;
+
+        return save.storyLevelDatas[stage].records;
+    }
+
+    public int GetHighestStoryScoreRecord(int stage)
+    {
+        int totStages = save.storyLevelDatas.Count;
+        if (stage < 0 || stage >= totStages) return 0;
+
+        if (save.storyLevelDatas[stage].records.Count <= 0) return 0;
+
+        return save.storyLevelDatas[stage].records[0].score;
+    }
+
+    public void UnlockStoryStage(int stage)
+    {
+        int totStages = save.storyLevelDatas.Count;
+        if (stage < 0 || stage >= totStages) return;
+
+        save.storyLevelDatas[stage].unlocked = true;
+        SaveGame();
+    }
+
+    public bool IsStoryStageUnlocked(int stage)
+    {
+        return save.storyLevelDatas[stage].unlocked;
     }
 }

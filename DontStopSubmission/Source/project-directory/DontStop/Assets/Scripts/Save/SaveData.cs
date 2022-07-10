@@ -6,27 +6,45 @@ using System;
 public class SaveData
 {
     public List<LevelData> levelDatas;
+    public List<StoryLevelData> storyLevelDatas;
 
     [NonSerialized]
-    private int numberOfLevels = 4;
+    private int numberOfArcadeLevels = 4;
+
+    [NonSerialized]
+    private int numberOfStoryLevels = 4;
 
     public SaveData()
     {
         levelDatas = new List<LevelData>();
 
-        for(int i=0; i<numberOfLevels; i++)
+        for(int i=0; i<numberOfArcadeLevels; i++)
         {
             levelDatas.Add(new LevelData(i == 0, false));
         }
+
+        storyLevelDatas = new List<StoryLevelData>();
+
+        for (int i = 0; i < numberOfStoryLevels; i++)
+        {
+            storyLevelDatas.Add(new StoryLevelData(i == 0));
+        }
     }
 
-    public SaveData(int numberOfLevels)
+    public SaveData(int numberOfArcadeLevels, int numberOfStoryLevels)
     {
         levelDatas = new List<LevelData>();
 
-        for (int i = 0; i < numberOfLevels; i++)
+        for (int i = 0; i < numberOfArcadeLevels; i++)
         {
             levelDatas.Add(new LevelData(i == 0, false));
+        }
+
+        storyLevelDatas = new List<StoryLevelData>();
+
+        for (int i = 0; i < numberOfStoryLevels; i++)
+        {
+            storyLevelDatas.Add(new StoryLevelData(i == 0));
         }
     }
 }
@@ -127,5 +145,82 @@ public class LevelRecord
         this.score = score;
         this.distance = distance;
         this.notes = notes;
+    }
+}
+
+[Serializable]
+public class StoryLevelData
+{
+    [NonSerialized]
+    public static readonly int maxNumRecordsSaved = 1;
+
+    public List<StoryLevelRecord> records = new List<StoryLevelRecord>();
+
+    public bool unlocked;
+
+    public StoryLevelData()
+    {
+        //noteRecord = 0;
+        //distanceRecord = 0;
+        records = new List<StoryLevelRecord>();
+        unlocked = false;
+    }
+
+    public bool AddRecord(int score)
+    {
+        int index = -1;
+        for (int i = 0; i < records.Count; i++)
+        {
+            if (score > records[i].score)
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1)
+        {
+            if (records.Count < maxNumRecordsSaved)
+            {
+                records.Add(new StoryLevelRecord(score));
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            records.Insert(index, new StoryLevelRecord(score));
+            while (records.Count > maxNumRecordsSaved)
+            {
+                records.RemoveAt(records.Count - 1);
+            }
+            return true;
+        }
+    }
+
+    public StoryLevelData(bool u)
+    {
+        //noteRecord = nR;
+        //distanceRecord = dR;
+        records = new List<StoryLevelRecord>();
+        unlocked = u;
+    }
+}
+
+[Serializable]
+public class StoryLevelRecord
+{
+    public int score;
+
+    public StoryLevelRecord()
+    {
+        score = 0;
+    }
+
+    public StoryLevelRecord(int score)
+    {
+        this.score = score;
     }
 }

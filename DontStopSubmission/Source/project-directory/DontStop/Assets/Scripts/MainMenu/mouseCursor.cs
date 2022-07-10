@@ -19,7 +19,10 @@ public class mouseCursor : MonoBehaviour
     void Start()
     {
         if (sceneCamera == null) sceneCamera = Camera.main;
+
+#if !UNITY_EDITOR
         Cursor.visible = false;
+#endif
     }
 
     // Update is called once per frame
