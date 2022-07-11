@@ -126,12 +126,20 @@ public class PlaneHandler : MonoBehaviour
         newPlatform.GetComponent<PlaneLogic>().planeLife *= stagePlaneLifeModifier;
 
         platformTiles.Add(newPlatform);
-        PlatformLocking();
         RemoveSameLayerEmptyTiles(position);
         GenerateBadPlatform(position);
         AddEmptyTiles(position);
-        
         IncreaseDifficulty();
+        if(GameObject.FindWithTag("ControllerRTE") == null) return;
+        TriggerRTE(newPlatform);
+    }
+
+    private void TriggerRTE(GameObject newPlatform)
+    {
+        PlatformLocking();
+        
+        if(PlatformTiles.Count > 2)
+            StartCoroutine(GeneralRTE.instance.LightningEvent(newPlatform));
     }
 
     private void PlatformLocking()

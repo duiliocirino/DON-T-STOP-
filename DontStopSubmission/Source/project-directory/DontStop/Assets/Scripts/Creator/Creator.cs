@@ -11,6 +11,7 @@ public class Creator : MonoBehaviour
     // private int rayDistance = 1000;
     public Camera creatorCamera;
     //private CreatorRTE _creatorRte;
+    private float timeFromLastCreation;
 
     private float spacing = 15f;
     
@@ -32,7 +33,7 @@ public class Creator : MonoBehaviour
         var ray = creatorCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         int layerMask = 1 << 8;
         //Debug.Log("OnClick called");
-        if (PlatformSelectionUI.instance.isSlotSelected() && !Pause.paused)
+        if (PlatformSelectionUI.instance.isSlotSelected() && !Pause.paused && timeFromLastCreation > 0.25f)
         {
             if (_firstPlace)
             {
@@ -63,7 +64,9 @@ public class Creator : MonoBehaviour
                     }
                     else {
                         LifeBar.instance.PerfectHit();
-                    } 
+                    }
+
+                    timeFromLastCreation = 0;
                 }
             }
         }
@@ -74,6 +77,6 @@ public class Creator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timeFromLastCreation += Time.deltaTime;
     }
 }

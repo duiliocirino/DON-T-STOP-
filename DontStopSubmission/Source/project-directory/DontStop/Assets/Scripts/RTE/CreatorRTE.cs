@@ -7,7 +7,7 @@ public class CreatorRTE : MonoBehaviour
     public static CreatorRTE instance;
     private int _elapsedPlatforms;
     public List<int> locked_index; 
-    public float probability = 0.75f;
+    public float probability = 0.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class CreatorRTE : MonoBehaviour
     public void Locker()
     {
         float sample = Random.Range(0f, 1f);
-        if (sample > probability)
+        if (sample < probability)
         {
             for (int i = 0; i < 2; i++)
             {
@@ -39,14 +39,11 @@ public class CreatorRTE : MonoBehaviour
                     if (!locked_index.Contains(temp))
                     {
                         locked_index.Add(temp);
-                        Debug.Log("Temp Locked" + temp);
                         PlatformSelectionUI.instance.LockSlot(temp);
                     }
                 }
-                Debug.Log(locked_index);
             }
         }
-        Debug.Log(locked_index);
     }
 
     public void Unlocker()
