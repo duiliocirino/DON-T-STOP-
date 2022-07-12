@@ -9541,6 +9541,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7460509440925576914, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 441838585}
+    - target: {fileID: 7888975267525716505, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 441838585}
     - target: {fileID: 8536755905151380498, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_EffectColor.a
       value: 0.11372549

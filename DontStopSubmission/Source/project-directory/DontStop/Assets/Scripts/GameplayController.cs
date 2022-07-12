@@ -27,6 +27,10 @@ public class GameplayController : MonoBehaviour
     public GameObject platformChoiceUI;
     public GameObject lifebar;
     public LifeBar lifebarScript;
+    public GameObject[] stars;
+    public int firstStarThreshold;
+    public int secondStarThreshold;
+    public int thirdStarThreshold;
 
     private float oldTimeScale;
     private int lastTimeStopper = -1;
@@ -575,15 +579,34 @@ public class GameplayController : MonoBehaviour
 
     public void TriggerVictory()
     {
+        if (score < firstStarThreshold)
+        {
+            GameOver();
+            return;
+        }
+
         Options.istance.gameEnds = false;
-        Debug.Log("TRIGGER VICTORY");
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
-        
         SaveData();
         screenBlurr.gameObject.SetActive(true);
-        victoryMenu.SetActive(true);
+
+        StartCoroutine(EnableVictoryUI());
+    }
+
+    public IEnumerator EnableVictoryUI()
+    {
+       stars[0].SetActive(true);
+       victoryMenu.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.5f);
+       if (score > secondStarThreshold)
+            stars[1].SetActive(true);
+       yield return new WaitForSecondsRealtime(0.5f);
+       if (score > thirdStarThreshold)
+            stars[2].SetActive(true);
+
+        
     }
 
     public void GoToStageSelection()
