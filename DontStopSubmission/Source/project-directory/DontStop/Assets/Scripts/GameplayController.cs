@@ -579,8 +579,10 @@ public class GameplayController : MonoBehaviour
 
     public void TriggerVictory()
     {
-        if (score < firstStarThreshold)
-        {
+        if (gameOver)
+            return;
+
+        if (score < firstStarThreshold){
             GameOver();
             return;
         }
