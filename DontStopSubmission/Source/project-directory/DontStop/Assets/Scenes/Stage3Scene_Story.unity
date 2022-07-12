@@ -21508,6 +21508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032286278}
   - component: {fileID: 2032286277}
+  - component: {fileID: 2032286279}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -21529,7 +21530,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -21625,6 +21626,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032286279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032286276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1a33b876019fd45ae01091edb64419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayController: {fileID: 1870561932}
 --- !u!1001 &2062236707
 PrefabInstance:
   m_ObjectHideFlags: 0

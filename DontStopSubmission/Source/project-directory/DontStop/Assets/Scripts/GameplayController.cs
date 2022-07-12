@@ -15,6 +15,7 @@ public class GameplayController : MonoBehaviour
     public Text countdown;
     public GameObject nextStageUnlocked;
     public GameObject gameOver;
+    public GameObject victoryMenu;
     public ThirdPersonUserControl jumperControls;
     public PlayerInput creatorControls;
     public PlatformSelectionUI platformSelectionControls;
@@ -570,6 +571,18 @@ public class GameplayController : MonoBehaviour
         DontDestroy.created = false;
 
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void TriggerVictory()
+    {
+        Debug.Log("TRIGGER VICTORY");
+        Pause.canBePaused = false;
+        SetPlayerControlActive(false);
+        TutorialController.instance.disableAllDialogBoxes();
+        
+        SaveData();
+        screenBlurr.gameObject.SetActive(true);
+        victoryMenu.SetActive(true);
     }
 
     public void GoToStageSelection()

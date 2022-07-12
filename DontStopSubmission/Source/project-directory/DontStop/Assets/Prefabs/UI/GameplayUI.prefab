@@ -121,6 +121,7 @@ MonoBehaviour:
   countdown: {fileID: 3238123755277128869}
   nextStageUnlocked: {fileID: 4244477002070845079}
   gameOver: {fileID: 4260750861781467438}
+  victoryMenu: {fileID: 7888975266746816990}
   jumperControls: {fileID: 0}
   creatorControls: {fileID: 0}
   platformSelectionControls: {fileID: 0}
@@ -706,6 +707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0a16b35a324334bae91ca09476c29c, type: 3}
+--- !u!1 &7888975266746816990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4492928214316119912, guid: 2e0a16b35a324334bae91ca09476c29c, type: 3}
+  m_PrefabInstance: {fileID: 5990160638946389686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7888975266746816989 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4492928214316119915, guid: 2e0a16b35a324334bae91ca09476c29c, type: 3}
