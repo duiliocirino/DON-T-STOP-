@@ -575,6 +575,7 @@ public class GameplayController : MonoBehaviour
 
     public void TriggerVictory()
     {
+        Options.istance.gameEnds = false;
         Debug.Log("TRIGGER VICTORY");
         Pause.canBePaused = false;
         SetPlayerControlActive(false);

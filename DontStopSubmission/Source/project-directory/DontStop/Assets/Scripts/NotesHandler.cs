@@ -10,7 +10,7 @@ public class NotesHandler : MonoBehaviour
 {
     public GameObject notePrefab;
     
-    public int notesForNextStage = 20;
+    public int notesForNextStage = 200;
     public int notesCollected = 0;
     public float minSpawnRangeZ = 2;
     public float maxSpawnRangeZ = 4;

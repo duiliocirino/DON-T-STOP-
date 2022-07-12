@@ -14052,7 +14052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 10
+  notesForNextStage: 200
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
@@ -20611,7 +20611,7 @@ PrefabInstance:
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: patternMapJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
+      objectReference: {fileID: 4900000, guid: cd64f95298536434fa1d6861f33e5ff2, type: 3}
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: secondaryMusic
       value: 
@@ -20619,7 +20619,7 @@ PrefabInstance:
     - target: {fileID: 3634357421926565387, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: bSidePatternMapJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 5e0ef79b3efeeda4da7c21980450893a, type: 3}
+      objectReference: {fileID: 4900000, guid: cd64f95298536434fa1d6861f33e5ff2, type: 3}
     - target: {fileID: 3634357421926565391, guid: dd412686f975b1a4b9d52a641a1e2e45, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
