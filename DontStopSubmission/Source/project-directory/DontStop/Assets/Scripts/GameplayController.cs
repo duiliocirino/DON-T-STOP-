@@ -639,7 +639,14 @@ public class GameplayController : MonoBehaviour
 
         DontDestroy.created = false;
 
-        SceneManager.LoadScene("StageSelection");
+        if (SelectedStage.istance != null && SelectedStage.istance.story)
+        {
+            SceneManager.LoadScene("StoryStageSelection");
+        }
+        else
+        {
+            SceneManager.LoadScene("StageSelection");
+        }
     }
 
     // Update is called once per frame
