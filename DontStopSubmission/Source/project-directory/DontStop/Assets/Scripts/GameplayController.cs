@@ -579,7 +579,7 @@ public class GameplayController : MonoBehaviour
 
     public void TriggerVictory()
     {
-        if (gameOver)
+        if (gameOver.activeInHierarchy)
             return;
 
         if (score < firstStarThreshold){
