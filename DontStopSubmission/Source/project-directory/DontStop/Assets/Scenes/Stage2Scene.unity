@@ -14044,7 +14044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 100020, guid: c209967a5ce303246a9d2f8523cbd19a, type: 3}
-  notesForNextStage: 10
+  notesForNextStage: 0
   notesCollected: 0
   minSpawnRangeZ: 3
   maxSpawnRangeZ: 5
