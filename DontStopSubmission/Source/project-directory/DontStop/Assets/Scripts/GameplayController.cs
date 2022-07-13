@@ -649,6 +649,16 @@ public class GameplayController : MonoBehaviour
         }
     }
 
+    public void GoToStoryStageSelection()
+    {
+        SaveData();
+
+        DontDestroy.created = false;
+
+        SceneManager.LoadScene("StoryStageSelection");
+    }
+
+
     // Update is called once per frame
     void Update()
     {
