@@ -49,6 +49,7 @@ public class SceneController : MonoBehaviour
         SelectedStage.istance.selectedStage = stageButtonData.scene;
         SelectedStage.istance.stageNumber = stageButtonData.stageNumber;
         SelectedStage.istance.bSide = stageButtonData.bSide;
+        SelectedStage.istance.story = false;
         SceneManager.LoadScene("PlayerSelectionScene");
     }
 
@@ -58,6 +59,7 @@ public class SceneController : MonoBehaviour
         SelectedStage.istance.selectedStage = storyStageButtonData.sceneName;
         SelectedStage.istance.stageNumber = storyStageButtonData.stageNumber;
         SelectedStage.istance.bSide = false;
+        SelectedStage.istance.story = true;
         SceneManager.LoadScene("PlayerSelectionScene");
     }
 

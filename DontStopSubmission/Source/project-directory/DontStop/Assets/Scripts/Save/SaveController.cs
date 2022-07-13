@@ -135,6 +135,15 @@ public class SaveController : MonoBehaviour
         return true;
     }
 
+    public void SaveStoryRecords(int stage, int score)
+    {
+        int totStages = save.storyLevelDatas.Count;
+        if (stage < 0 || stage >= totStages) return;
+
+        save.storyLevelDatas[stage].AddRecord(score);
+        SaveGame();
+    }
+
     public List<StoryLevelRecord> GetStoryRecords(int stage)
     {
         int totStages = save.storyLevelDatas.Count;

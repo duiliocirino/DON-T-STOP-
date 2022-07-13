@@ -534,7 +534,14 @@ public class GameplayController : MonoBehaviour
         justSaved = true;
         StartCoroutine(RestoreSaving(ScoreReached()));
 #if !UNITY_EDITOR
-        SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), notesHandler.notesCollected, DistanceReached());
+        if (SelectedStage.istance.story)
+        {
+            SaveController.istance.SaveStoryRecords(SelectedStage.istance.stageNumber, ScoreReached());
+        }
+        else
+        {
+            SaveController.istance.SaveRecords(SelectedStage.istance.stageNumber, ScoreReached(), notesHandler.notesCollected, DistanceReached());
+        }
 #endif
     }
 
@@ -552,13 +559,27 @@ public class GameplayController : MonoBehaviour
 
     public void UnlockNextStage()
     {
-        if (SaveController.istance == null || !SaveController.istance.IsStageUnlocked(SelectedStage.istance.stageNumber + 1))
+        if (SelectedStage.istance.story)
         {
-            StartCoroutine(ShowNextStageUnlocked());
+            if (SaveController.istance == null || !SaveController.istance.IsStoryStageUnlocked(SelectedStage.istance.stageNumber + 1))
+            {
+                StartCoroutine(ShowNextStageUnlocked());
 #if !UNITY_EDITOR
-            SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
+                SaveController.istance.UnlockStoryStage(SelectedStage.istance.stageNumber + 1);
 #endif
+            }
         }
+        else
+        {
+            if (SaveController.istance == null || !SaveController.istance.IsStageUnlocked(SelectedStage.istance.stageNumber + 1))
+            {
+                StartCoroutine(ShowNextStageUnlocked());
+#if !UNITY_EDITOR
+                SaveController.istance.UnlockStage(SelectedStage.istance.stageNumber + 1);
+#endif
+            }
+        }
+        
     }
 
     private IEnumerator ShowNextStageUnlocked()
@@ -591,6 +612,7 @@ public class GameplayController : MonoBehaviour
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
+        UnlockNextStage();
         SaveData();
         screenBlurr.gameObject.SetActive(true);
 

@@ -8,6 +8,7 @@ public class SelectedStage : MonoBehaviour
 
     public string selectedStage;
     public int stageNumber;
+    public bool story;
     public bool bSide;
 
     private void Awake()
