@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreatorRTE : MonoBehaviour
 {
     public static CreatorRTE instance;
-    private int _elapsedPlatforms;
+    private int badPlatforms;
     public List<int> locked_index; 
     public float probability = 0.5f;
     
@@ -28,8 +28,10 @@ public class CreatorRTE : MonoBehaviour
 
     public void Locker()
     {
+        if (RhythmControllerUI.instance.noteInHitArea)
+            badPlatforms++;
         float sample = Random.Range(0f, 1f);
-        if (sample < probability)
+        if (badPlatforms > 2)
         {
             for (int i = 0; i < 2; i++)
             {
@@ -43,6 +45,7 @@ public class CreatorRTE : MonoBehaviour
                     }
                 }
             }
+            badPlatforms = 0;
         }
     }
 

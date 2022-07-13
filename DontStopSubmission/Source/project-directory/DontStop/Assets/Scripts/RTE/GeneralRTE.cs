@@ -32,6 +32,7 @@ public class GeneralRTE : MonoBehaviour
         float sample = Random.Range(0f, 1f);
         if (sample < lightningProb && lightningPrefab != null)
         {
+            yield return new WaitForSecondsRealtime(2f);
             lightning = Instantiate(lightningPrefab, newPlatform.transform.position, Quaternion.identity);
             PlaneHandler.instance.PopPlatform();
             yield return new WaitForSecondsRealtime(1.5f);
