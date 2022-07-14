@@ -8,10 +8,6 @@ public class StoryStageButtonData : MonoBehaviour
     public int stageNumber;
     public string sceneName;
 
-    public int firstStarScoreTreshold;
-    public int secondStarScoreTreshold;
-    public int thirdStarScoreTreshold;
-
     public GameObject starContainer;
     public Image firstStarImage;
     public Image secondStarImage;
@@ -30,15 +26,15 @@ public class StoryStageButtonData : MonoBehaviour
         if (unlocked)
         {
             int score = SaveController.istance.GetHighestStoryScoreRecord(stageNumber);
-            if(score >= firstStarScoreTreshold)
+            if(score >= StarThresholds.instance.getThreshold(stageNumber, 1))
             {
                 firstStarImage.color = starColor;
             }
-            if (score >= secondStarScoreTreshold)
+            if (score >= StarThresholds.instance.getThreshold(stageNumber, 2))
             {
                 secondStarImage.color = starColor;
             }
-            if (score >= thirdStarScoreTreshold)
+            if (score >= StarThresholds.instance.getThreshold(stageNumber, 3))
             {
                 thirdStarImage.color = starColor;
             }

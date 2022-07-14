@@ -28,9 +28,6 @@ public class GameplayController : MonoBehaviour
     public GameObject lifebar;
     public LifeBar lifebarScript;
     public GameObject[] stars;
-    public int firstStarThreshold;
-    public int secondStarThreshold;
-    public int thirdStarThreshold;
 
     private float oldTimeScale;
     private int lastTimeStopper = -1;
@@ -603,7 +600,7 @@ public class GameplayController : MonoBehaviour
         if (gameOver.activeInHierarchy)
             return;
 
-        if (score < firstStarThreshold){
+        if (score < StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 1)){
             GameOver();
             return;
         }
@@ -624,10 +621,10 @@ public class GameplayController : MonoBehaviour
        stars[0].SetActive(true);
        victoryMenu.SetActive(true);
         yield return new WaitForSecondsRealtime(0.5f);
-       if (score > secondStarThreshold)
+       if (score > StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 2))
             stars[1].SetActive(true);
        yield return new WaitForSecondsRealtime(0.5f);
-       if (score > thirdStarThreshold)
+       if (score > StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 3))
             stars[2].SetActive(true);
 
         
