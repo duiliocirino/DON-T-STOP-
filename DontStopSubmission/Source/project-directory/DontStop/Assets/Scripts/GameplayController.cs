@@ -691,7 +691,7 @@ public class GameplayController : MonoBehaviour
     }
     private void ComputeScore()
     {
-        score += (int) (scoreMultiplier * ((notesHandler.notesCollected - _notesCollectedLastCall) * 1000 + 
+        score += (int) (scoreMultiplier * ((notesHandler.notesCollected - _notesCollectedLastCall) * 300 + 
                                            (maxDistanceReached - _lastMaxDistanceReached) * 8));
         _lastMaxDistanceReached = maxDistanceReached;
         _notesCollectedLastCall = notesHandler.notesCollected;
