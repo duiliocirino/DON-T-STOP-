@@ -6,7 +6,7 @@ public class StarThresholds
     {
         new List<int>{1500, 3500, 5000}, //Tutorial
         new List<int>{2000, 5000, 10000}, //Stage 1
-        new List<int>{1, 2, 3}, //Stage 2
+        new List<int>{2000, 5000, 10000}, //Stage 2
         new List<int>{2000, 5000, 10000}, //Stage 3
     };
 

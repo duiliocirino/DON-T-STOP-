@@ -16,7 +16,7 @@ public class VictoryHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentSong.time >= currentSong.clip.length/8 && !victoryTriggered)
+        if (currentSong.time >= currentSong.clip.length && !victoryTriggered)
         {
             gameplayController.TriggerVictory();
             victoryTriggered = true;
