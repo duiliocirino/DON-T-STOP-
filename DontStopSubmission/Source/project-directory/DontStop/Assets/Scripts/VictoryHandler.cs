@@ -12,13 +12,13 @@ public class VictoryHandler : MonoBehaviour
     {
         currentSong = GetComponentInParent<AudioSource>();
 
-        // currentSong.time = currentSong.clip.length * 0.94f;
+        currentSong.time = currentSong.clip.length * 0.80f;
     }
   
     // Update is called once per frame
     void Update()
     {
-        if (currentSong.time >= (currentSong.clip.length - StoryStagesParamethers.instance.getSongEndingOffset(SelectedStage.istance.stageNumber)) && !victoryTriggered)
+        if (currentSong.time >= (currentSong.clip.length - StoryStagesParamethers.instance.getSongEndingOffset(SelectedStage.istance.stageNumber)) && !victoryTriggered && !GameplayController.gameHasEnded)
         {
             gameplayController.TriggerVictory();
             victoryTriggered = true;
