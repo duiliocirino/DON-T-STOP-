@@ -331,9 +331,9 @@ public class GameplayController : MonoBehaviour
         }
         else
         {
-            if (SceneManager.GetActiveScene().name == "Stage1Scene")
+            if (SelectedStage.istance.story && SelectedStage.istance.stageNumber == 1)
             {
-                /*screenBlurr.gameObject.SetActive(true);
+                screenBlurr.gameObject.SetActive(true);
                 TutorialController.instance.enableDialogBox(0);
                 yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
                 TutorialController.instance.disableDialogBox(0);
@@ -341,11 +341,12 @@ public class GameplayController : MonoBehaviour
                 TutorialController.instance.enableDialogBox(1);
                 yield return new WaitUntil((() => Input.anyKeyDown && !Pause.paused));
                 TutorialController.instance.disableDialogBox(1);
-                screenBlurr.gameObject.SetActive(false);*/
+                screenBlurr.gameObject.SetActive(false);
 
                 StartCoroutine(ShowAudienceTutorial());
             }
-            if (SceneManager.GetActiveScene().name == "Stage2Scene")
+            
+            if (SelectedStage.istance.story && SelectedStage.istance.stageNumber == 2)
             {
                 screenBlurr.gameObject.SetActive(true);
                 TutorialController.instance.enableDialogBox(0);
