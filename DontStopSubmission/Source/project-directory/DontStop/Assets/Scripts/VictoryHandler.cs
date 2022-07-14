@@ -12,7 +12,7 @@ public class VictoryHandler : MonoBehaviour
     {
         currentSong = GetComponentInParent<AudioSource>();
 
-        currentSong.time = currentSong.clip.length * 0.80f;
+        //currentSong.time = currentSong.clip.length * 0.80f;
     }
   
     // Update is called once per frame
