@@ -58,7 +58,7 @@ public class Creator : MonoBehaviour
                 if (newPlatform != null)
                 {
                     PlaneHandler.instance.AddPlatform(new Vector3(spawnPosition.x, 0, spawnPosition.z),
-                        newPlatform);
+                        newPlatform, PlaneHandler.instance.GetNearestEmptyTile(emptyTile.transform.position));
                     if (!RhythmControllerUI.instance.noteInHitArea) {
                         LifeBar.instance.WorstMiss();
                     }

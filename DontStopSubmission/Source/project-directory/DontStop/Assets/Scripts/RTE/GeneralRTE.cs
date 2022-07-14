@@ -29,13 +29,12 @@ public class GeneralRTE : MonoBehaviour
     public IEnumerator LightningEvent(GameObject newPlatform)
     {
         GameObject lightning;
-        float sample = Random.Range(0f, 1f);
-        if (sample < lightningProb && lightningPrefab != null)
+        if (lightningPrefab != null)
         {
-            //yield return new WaitForSecondsRealtime(2f);
             lightning = Instantiate(lightningPrefab, newPlatform.transform.position, Quaternion.identity);
+            yield return new WaitForSecondsRealtime(3f);
             PlaneHandler.instance.PopPlatform();
-            yield return new WaitForSecondsRealtime(1.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
             Destroy(lightning);
         }
     }

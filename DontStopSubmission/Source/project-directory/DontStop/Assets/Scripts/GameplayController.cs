@@ -144,7 +144,7 @@ public class GameplayController : MonoBehaviour
             RhythmControllerUI.instance.noteInHitArea = true;
             TutorialController.instance.hitAlwaysTrue = true;
             var platform = PlaneHandler.instance.PlatformPrefabs[0];
-            PlaneHandler.instance.AddPlatform(new Vector3(0,0,PlaneHandler.instance.spacing), platform);
+            PlaneHandler.instance.AddPlatform(new Vector3(0,0,PlaneHandler.instance.spacing), platform, null);
             PlaneHandler.instance.PlatformTiles.Last().GetComponent<PlaneLogic>().planeLife = 800;
             TutorialController.instance.enableDialogBox(3);
             yield return new WaitForSecondsRealtime(2f);
@@ -171,7 +171,7 @@ public class GameplayController : MonoBehaviour
             SetPlayerControlActive(false);
             RhythmControllerUI.instance.noteInHitArea = true;
             platform = PlaneHandler.instance.PlatformPrefabs[1];
-            PlaneHandler.instance.AddPlatform(new Vector3(0,0,2 * PlaneHandler.instance.spacing), platform);
+            PlaneHandler.instance.AddPlatform(new Vector3(0,0,2 * PlaneHandler.instance.spacing), platform, null);
             PlaneHandler.instance.PlatformTiles.Last().GetComponent<PlaneLogic>().planeLife = 800;
             TutorialController.instance.enableDialogBox(4);
             yield return new WaitForSecondsRealtime(3f);
