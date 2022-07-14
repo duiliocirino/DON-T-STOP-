@@ -515,6 +515,7 @@ public class GameplayController : MonoBehaviour
 
     private void GameOver()
     {
+        LifeBar.instance.StopDeplition();
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
@@ -602,12 +603,12 @@ public class GameplayController : MonoBehaviour
         if (gameOver.activeInHierarchy)
             return;
 
-        if (score < StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 1)){
+        if (score < StoryStagesParamethers.instance.getThreshold(SelectedStage.istance.stageNumber, 1)){
             GameOver();
             return;
         }
 
-        Options.istance.gameEnds = false;
+        LifeBar.instance.StopDeplition();
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
@@ -623,10 +624,10 @@ public class GameplayController : MonoBehaviour
        stars[0].SetActive(true);
        victoryMenu.SetActive(true);
         yield return new WaitForSecondsRealtime(0.5f);
-       if (score >= StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 2))
+       if (score >= StoryStagesParamethers.instance.getThreshold(SelectedStage.istance.stageNumber, 2))
             stars[1].SetActive(true);
        yield return new WaitForSecondsRealtime(0.5f);
-       if (score >= StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 3))
+       if (score >= StoryStagesParamethers.instance.getThreshold(SelectedStage.istance.stageNumber, 3))
             stars[2].SetActive(true);
 
         
