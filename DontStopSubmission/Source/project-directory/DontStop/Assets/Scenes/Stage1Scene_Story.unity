@@ -34779,18 +34779,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 6394740654488815510, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7460509440925576914, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 947451128}
-    - target: {fileID: 7888975266746816990, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7888975267525716505, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: loadingScreen
       value: 
@@ -34818,10 +34810,6 @@ PrefabInstance:
     - target: {fileID: 8536755905151380498, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_EffectDistance.y
       value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8907360588518566689, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8975573777249619205, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
       propertyPath: m_LocalScale.x
