@@ -142,7 +142,7 @@ public class PlaneHandler : MonoBehaviour
 
     private void TriggerRTE(GameObject newPlatform, GameObject emptyTile)
     {
-        PlatformLocking();
+        //PlatformLocking();
         
         if(emptyTile == null) return;
         
