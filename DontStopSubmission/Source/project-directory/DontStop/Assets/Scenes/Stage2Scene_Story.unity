@@ -455,6 +455,66 @@ Transform:
   m_Father: {fileID: 814106365}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 92.80301, y: 0, z: -8.641998}
+--- !u!1 &108101768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108101771}
+  - component: {fileID: 108101770}
+  - component: {fileID: 108101769}
+  m_Layer: 0
+  m_Name: ControllerRTE
+  m_TagString: ControllerRTE
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &108101769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108101768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19080ea5dd0f02e40aa5ed67a68db78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningProb: 0.5
+  lightningPrefab: {fileID: 178460, guid: 2736bbc2f2c78a949957b0719c2992bd, type: 3}
+--- !u!114 &108101770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108101768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41418b0262fabcb49bc548e5e42db5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked_index: 
+  probability: 0.5
+--- !u!4 &108101771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108101768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24950618, y: 9.842053, z: 151.8418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118743127
 GameObject:
   m_ObjectHideFlags: 0

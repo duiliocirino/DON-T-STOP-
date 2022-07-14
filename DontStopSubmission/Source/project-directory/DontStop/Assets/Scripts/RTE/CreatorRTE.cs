@@ -28,7 +28,7 @@ public class CreatorRTE : MonoBehaviour
 
     public void Locker()
     {
-        if (RhythmControllerUI.instance.noteInHitArea)
+        if (!RhythmControllerUI.instance.noteInHitArea)
             badPlatforms++;
         float sample = Random.Range(0f, 1f);
         if (badPlatforms > 2)

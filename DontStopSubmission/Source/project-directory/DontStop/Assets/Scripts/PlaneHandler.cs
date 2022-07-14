@@ -285,20 +285,20 @@ public class PlaneHandler : MonoBehaviour
     void IncreaseDifficulty()
     {
         //TODO: add graphical feedback to the audience
-        if (notesHandler.notesCollected >= notesHandler.notesForNextStage)
+        if (notesHandler.notesCollected >= notesHandler.notesForNextStage && !SelectedStage.istance.story)
         {
             if (startingNumPlatforms == 0)
                 startingNumPlatforms = platformTiles.Count;
             else if ((platformTiles.Count - startingNumPlatforms) % difficultyStep == 0)
             {
                 float temp = lifeBar.depletionRate * difficultyMultiplier;
-                if (temp <= maximumDepletionRate)
+                if (temp < maximumDepletionRate)
                 {
                     lifeBar.depletionRate *= difficultyMultiplier;
                     lifeBar.CalculateDepletionSpeed();
                 }
-                else if (lifeBar.depletionRate < maximumDepletionRate)
-                {
+                else
+                {   
                     lifeBar.depletionRate = maximumDepletionRate;
                     lifeBar.CalculateDepletionSpeed();
                 }
