@@ -6,8 +6,8 @@ public class StoryStagesParamethers
     {
         new List<int>{1500, 3500, 5000}, //Tutorial
         new List<int>{2000, 5000, 10000}, //Stage 1
-        new List<int>{2000, 5000, 10000}, //Stage 2
-        new List<int>{2000, 5000, 10000}, //Stage 3
+        new List<int>{2000, 7500, 15000}, //Stage 2
+        new List<int>{2000, 7500, 15000}, //Stage 3
     };
 
     private List<float> songEndingOffset = new List<float>
