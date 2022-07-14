@@ -33,6 +33,7 @@ public class PlaneHandler : MonoBehaviour
     public float TOLERANCE = 10;
     
     [SerializeField] internal List<GameObject> platformTiles = new List<GameObject>();
+    [SerializeField] internal List<GameObject> badPlatformTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> emptyTiles = new List<GameObject>();
     [SerializeField] private List<GameObject> platformPrefabs;
     [SerializeField] private List<GameObject> brokenPlatformPrefabs;
@@ -93,7 +94,7 @@ public class PlaneHandler : MonoBehaviour
 
             GameObject newPlatform = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count - 1)],
                 badPlatformPosition, Quaternion.identity);
-            platformTiles.Add(newPlatform);
+            badPlatformTiles.Add(newPlatform);
         }
     }
 
@@ -258,7 +259,11 @@ public class PlaneHandler : MonoBehaviour
 
     public bool IsPlatformPresent(float x, float z, bool checkEmpty)
     {
-        if ((PlatformTiles.Where(tile =>
+        if ((badPlatformTiles.Where(tile =>
+                Math.Abs(tile.transform.position.x - x) < TOLERANCE &&
+                Math.Abs(tile.transform.position.z - z) < TOLERANCE))
+            .Any() ||
+            (PlatformTiles.Where(tile =>
                     Math.Abs(tile.transform.position.x - x) < TOLERANCE &&
                     Math.Abs(tile.transform.position.z - z) < TOLERANCE))
                 .Any() ||
