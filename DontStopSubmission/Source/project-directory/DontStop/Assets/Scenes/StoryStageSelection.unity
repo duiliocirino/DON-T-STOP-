@@ -1715,6 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedStage: 
   stageNumber: 0
+  story: 0
   bSide: 0
 --- !u!4 &2140443004
 Transform:
@@ -1742,6 +1743,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 626260854}
     m_Modifications:
+    - target: {fileID: 3713118656116191385, guid: 5f2c1066f53e449449e83f51c95721f1, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3713118656116191385, guid: 5f2c1066f53e449449e83f51c95721f1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

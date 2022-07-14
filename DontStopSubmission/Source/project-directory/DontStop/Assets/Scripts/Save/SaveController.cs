@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,9 @@ using UnityEngine;
 
 public class SaveController : MonoBehaviour
 {
+    private static readonly string saveDataVersionKey = "SaveDataVersion";
+    private static readonly int saveDataVersion = 1;
+
     public static SaveController istance { private set; get; } = null;
 
     private SaveData save;
@@ -62,12 +66,34 @@ public class SaveController : MonoBehaviour
             }
 
             file.Close();
+
+            int oldSaveDataVersion = PlayerPrefs.HasKey(saveDataVersionKey) ? PlayerPrefs.GetInt(saveDataVersionKey) : 0;
+            if (oldSaveDataVersion != saveDataVersion)
+            {
+                UpdateSaveData(oldSaveDataVersion);
+            }
         }
         else
         {
             save = new SaveData(numberOfArcadeStages, numberOfStoryStages);
         }
 
+    }
+
+    private void UpdateSaveData(int oldSaveDataVersion)
+    {
+        if(oldSaveDataVersion < 1)
+        {
+            for(int i=0; i<save.storyLevelDatas.Count-1; i++)
+            {
+                save.storyLevelDatas[i].completed = save.storyLevelDatas[i + 1].unlocked;
+            }
+
+            print("Save Data brought to version 1");
+        }
+
+        SaveGame();
+        PlayerPrefs.SetInt(saveDataVersionKey, saveDataVersion);
     }
 
     public void SaveGame()
@@ -174,5 +200,19 @@ public class SaveController : MonoBehaviour
     public bool IsStoryStageUnlocked(int stage)
     {
         return save.storyLevelDatas[stage].unlocked;
+    }
+
+    public void CompleteStoryStage(int stage)
+    {
+        int totStages = save.storyLevelDatas.Count;
+        if (stage < 0 || stage >= totStages) return;
+
+        save.storyLevelDatas[stage].completed = true;
+        SaveGame();
+    }
+
+    public bool IsStoryStageCompleted(int stage)
+    {
+        return save.storyLevelDatas[stage].completed;
     }
 }

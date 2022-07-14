@@ -36,7 +36,7 @@ public class EndTutorial : MonoBehaviour
             LifeBar.instance.StopDeplition();
             RhythmControllerUI.instance.musicPlayer.Stop();
             endTutorialMusic.Play();
-            gameplayController.UnlockNextStage();
+            gameplayController.CompleteAndUnlockNextStage();
             gameplayController.SaveData();
             background.SetActive(true);
             endOfTutorialUI.SetActive(true);

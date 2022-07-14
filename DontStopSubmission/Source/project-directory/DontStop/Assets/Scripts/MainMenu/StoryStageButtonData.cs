@@ -23,8 +23,10 @@ public class StoryStageButtonData : MonoBehaviour
 
         bool unlocked = SaveController.istance.IsStoryStageUnlocked(stageNumber);
         thisButton.interactable = unlocked;
-        if (unlocked)
+        if (SaveController.istance.IsStoryStageCompleted(stageNumber))
         {
+            starContainer.SetActive(true);
+
             int score = SaveController.istance.GetHighestStoryScoreRecord(stageNumber);
             if(score >= StarThresholds.instance.getThreshold(stageNumber, 1))
             {

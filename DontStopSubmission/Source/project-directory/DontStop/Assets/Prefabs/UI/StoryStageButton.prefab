@@ -313,7 +313,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8348025188971385487}
   m_OnClick:
     m_PersistentCalls:
@@ -344,14 +344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 0
   sceneName: TutorialScene
-  firstStarScoreTreshold: 100
-  secondStarScoreTreshold: 200
-  thirdStarScoreTreshold: 300
   starContainer: {fileID: 6670709031548564298}
   firstStarImage: {fileID: 8155559092731329547}
   secondStarImage: {fileID: 8155559090944011826}
   thirdStarImage: {fileID: 8155559091305695909}
-  starColor: {r: 0.69411767, g: 0.70980394, b: 0.09411766, a: 1}
+  starColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6670709031548564298
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5309527253692673240
 RectTransform:
   m_ObjectHideFlags: 0

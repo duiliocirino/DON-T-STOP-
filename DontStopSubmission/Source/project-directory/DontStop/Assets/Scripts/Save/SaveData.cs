@@ -27,7 +27,7 @@ public class SaveData
 
         for (int i = 0; i < numberOfStoryLevels; i++)
         {
-            storyLevelDatas.Add(new StoryLevelData(i == 0));
+            storyLevelDatas.Add(new StoryLevelData(i == 0, false));
         }
     }
 
@@ -44,7 +44,7 @@ public class SaveData
 
         for (int i = 0; i < numberOfStoryLevels; i++)
         {
-            storyLevelDatas.Add(new StoryLevelData(i == 0));
+            storyLevelDatas.Add(new StoryLevelData(i == 0, false));
         }
     }
 }
@@ -157,11 +157,13 @@ public class StoryLevelData
     public List<StoryLevelRecord> records = new List<StoryLevelRecord>();
 
     public bool unlocked;
+    public bool completed;
 
     public StoryLevelData()
     {
         records = new List<StoryLevelRecord>();
         unlocked = false;
+        completed = false;
     }
 
     public bool AddRecord(int score)
@@ -198,12 +200,13 @@ public class StoryLevelData
         }
     }
 
-    public StoryLevelData(bool u)
+    public StoryLevelData(bool u, bool c)
     {
         //noteRecord = nR;
         //distanceRecord = dR;
         records = new List<StoryLevelRecord>();
         unlocked = u;
+        completed = c;
     }
 }
 

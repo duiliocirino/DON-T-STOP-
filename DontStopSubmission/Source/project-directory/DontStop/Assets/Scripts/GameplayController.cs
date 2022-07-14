@@ -50,7 +50,7 @@ public class GameplayController : MonoBehaviour
     private void Awake()
     {
         notesHandler.onEnoughNotesCollected.Add(SaveData);
-        notesHandler.onEnoughNotesCollected.Add(UnlockNextStage);
+        notesHandler.onEnoughNotesCollected.Add(CompleteAndUnlockNextStage);
 
         //B-Side handle
         
@@ -554,7 +554,7 @@ public class GameplayController : MonoBehaviour
         LifeBar.instance.UnregisterLimitReachedBehaviour(FirstGameOver);
     }
 
-    public void UnlockNextStage()
+    public void CompleteAndUnlockNextStage()
     {
         if (SelectedStage.istance.story)
         {
@@ -562,6 +562,7 @@ public class GameplayController : MonoBehaviour
             {
                 StartCoroutine(ShowNextStageUnlocked());
 #if !UNITY_EDITOR
+                SaveController.istance.CompleteStoryStage(SelectedStage.istance.stageNumber);
                 SaveController.istance.UnlockStoryStage(SelectedStage.istance.stageNumber + 1);
 #endif
             }
@@ -609,7 +610,7 @@ public class GameplayController : MonoBehaviour
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
         TutorialController.instance.disableAllDialogBoxes();
-        UnlockNextStage();
+        CompleteAndUnlockNextStage();
         SaveData();
         screenBlurr.gameObject.SetActive(true);
 
@@ -621,10 +622,10 @@ public class GameplayController : MonoBehaviour
        stars[0].SetActive(true);
        victoryMenu.SetActive(true);
         yield return new WaitForSecondsRealtime(0.5f);
-       if (score > StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 2))
+       if (score >= StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 2))
             stars[1].SetActive(true);
        yield return new WaitForSecondsRealtime(0.5f);
-       if (score > StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 3))
+       if (score >= StarThresholds.instance.getThreshold(SelectedStage.istance.stageNumber, 3))
             stars[2].SetActive(true);
 
         
