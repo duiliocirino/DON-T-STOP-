@@ -23,7 +23,7 @@ public class StoryStageButtonData : MonoBehaviour
 
         bool unlocked = SaveController.istance.IsStoryStageUnlocked(stageNumber);
         thisButton.interactable = unlocked;
-        if (SaveController.istance.IsStoryStageCompleted(stageNumber))
+        if (stageNumber!=0 && SaveController.istance.IsStoryStageCompleted(stageNumber))
         {
             starContainer.SetActive(true);
 
