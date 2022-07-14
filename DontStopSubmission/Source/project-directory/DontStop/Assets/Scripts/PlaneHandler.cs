@@ -42,7 +42,12 @@ public class PlaneHandler : MonoBehaviour
 
 
     [SerializeField] private List<GameObject> obstaclePrefabs;
+    
+    private int diffTiles = 2;
+    public float diffEmpProbability = 0.2f;
     [SerializeField] private GameObject emptyPrefab;
+    [SerializeField] private List<GameObject> diffEmptyTiles;
+    
 
     // Difficulty variables and references
     public int difficultyStep = 3;
@@ -95,7 +100,7 @@ public class PlaneHandler : MonoBehaviour
     /**
      * This method adds a platform on Creator command.
      */
-    public void AddPlatform(Vector3 position, GameObject prefab)
+    public void AddPlatform(Vector3 position, GameObject prefab, GameObject emptyTile)
     {
         GameObject newPlatform;
         if (PlatformSelectionUI.instance.lastPreview != null)
@@ -131,14 +136,16 @@ public class PlaneHandler : MonoBehaviour
         AddEmptyTiles(position);
         IncreaseDifficulty();
         if(GameObject.FindWithTag("ControllerRTE") == null) return;
-        TriggerRTE(newPlatform);
+        TriggerRTE(newPlatform, emptyTile);
     }
 
-    private void TriggerRTE(GameObject newPlatform)
+    private void TriggerRTE(GameObject newPlatform, GameObject emptyTile)
     {
         PlatformLocking();
         
-        if(PlatformTiles.Count > 2)
+        if(emptyTile == null) return;
+        
+        if(PlatformTiles.Count > 2 && emptyTile.name.Contains("Lightning"))
             StartCoroutine(GeneralRTE.instance.LightningEvent(newPlatform));
     }
 
@@ -157,7 +164,7 @@ public class PlaneHandler : MonoBehaviour
         float zspacing = spacing;
         if (tutorialPresent && Math.Abs(position.z - platformInTutorial*spacing) < TOLERANCE)
             zspacing += platformSkippedAtTutorialEnd*spacing - 15;
-
+        
         for (int i = -numberOfEmptyTilesSide; i <= numberOfEmptyTilesSide; i++)
         {
             Vector3 newEmptyPlatformPosition = new Vector3(position.x + (i * spacing), 0.0f, position.z + zspacing);
@@ -165,12 +172,23 @@ public class PlaneHandler : MonoBehaviour
             {
                 if (!IsPlatformPresent(newEmptyPlatformPosition.x, newEmptyPlatformPosition.z, true))
                 {
-                    GameObject empty = Instantiate(emptyPrefab, newEmptyPlatformPosition, Quaternion.identity);
+                    GameObject newEmp;
+                    if (Random.Range(0.0f, 1.0f) < diffEmpProbability && diffEmptyTiles.Count > 0 && diffTiles > 0)
+                    {
+                        newEmp = diffEmptyTiles[Random.Range(0, diffEmptyTiles.Count)];
+                        diffTiles--;
+                    }
+                    else
+                    {
+                        newEmp = emptyPrefab;
+                    }
+                    GameObject empty = Instantiate(newEmp, newEmptyPlatformPosition, Quaternion.identity);
                     emptyTiles.Add(empty);
                 }
             }
         }
 
+        diffTiles = 2;
         EnableEmptyTiles(PlatformSelectionUI.instance.GetSelectedPlatformSize());
     }
 

@@ -12158,7 +12158,10 @@ MonoBehaviour:
   sound_badPlatform: {fileID: 1154709028}
   obstaclePrefabs:
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
+  diffEmpProbability: 0.2
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+  diffEmptyTiles:
+  - {fileID: 6321708120972222902, guid: 274761a92c1d2284a800ec1785aa2dde, type: 3}
   difficultyStep: 3
   maximumDepletionRate: 0.15
   difficultyMultiplier: 1.3
