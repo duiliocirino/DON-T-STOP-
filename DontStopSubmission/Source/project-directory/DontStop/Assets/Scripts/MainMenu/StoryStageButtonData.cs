@@ -28,15 +28,15 @@ public class StoryStageButtonData : MonoBehaviour
             starContainer.SetActive(true);
 
             int score = SaveController.istance.GetHighestStoryScoreRecord(stageNumber);
-            if(score >= StarThresholds.instance.getThreshold(stageNumber, 1))
+            if(score >= StoryStagesParamethers.instance.getThreshold(stageNumber, 1))
             {
                 firstStarImage.color = starColor;
             }
-            if (score >= StarThresholds.instance.getThreshold(stageNumber, 2))
+            if (score >= StoryStagesParamethers.instance.getThreshold(stageNumber, 2))
             {
                 secondStarImage.color = starColor;
             }
-            if (score >= StarThresholds.instance.getThreshold(stageNumber, 3))
+            if (score >= StoryStagesParamethers.instance.getThreshold(stageNumber, 3))
             {
                 thirdStarImage.color = starColor;
             }
