@@ -13682,7 +13682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked_index: 
-  probability: 0.75
+  probability: 0.1
 --- !u!4 &609373795
 Transform:
   m_ObjectHideFlags: 0
@@ -13710,7 +13710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightningProb: 0.5
-  lightningPrefab: {fileID: 0}
+  lightningPrefab: {fileID: 178460, guid: 2736bbc2f2c78a949957b0719c2992bd, type: 3}
 --- !u!1001 &624528912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21980,6 +21980,7 @@ MonoBehaviour:
   TOLERANCE: 9
   platformTiles:
   - {fileID: 997485088}
+  badPlatformTiles: []
   emptyTiles:
   - {fileID: 191234177}
   - {fileID: 363430796}
@@ -22006,7 +22007,10 @@ MonoBehaviour:
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
+  diffEmpProbability: 0.2
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+  diffEmptyTiles:
+  - {fileID: 6321708120972222902, guid: 274761a92c1d2284a800ec1785aa2dde, type: 3}
   difficultyStep: 3
   maximumDepletionRate: 0.15
   difficultyMultiplier: 1.3

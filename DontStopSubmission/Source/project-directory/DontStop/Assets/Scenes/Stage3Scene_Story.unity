@@ -13719,6 +13719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 609373795}
   - component: {fileID: 609373794}
+  - component: {fileID: 609373796}
   m_Layer: 0
   m_Name: ControllerRTE
   m_TagString: ControllerRTE
@@ -13739,7 +13740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked_index: 
-  probability: 0.75
+  probability: 0.1
 --- !u!4 &609373795
 Transform:
   m_ObjectHideFlags: 0
@@ -13754,6 +13755,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609373796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609373793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19080ea5dd0f02e40aa5ed67a68db78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningProb: 0.5
+  lightningPrefab: {fileID: 178460, guid: 2736bbc2f2c78a949957b0719c2992bd, type: 3}
 --- !u!1001 &624528912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22108,6 +22123,7 @@ MonoBehaviour:
   TOLERANCE: 9
   platformTiles:
   - {fileID: 997485088}
+  badPlatformTiles: []
   emptyTiles:
   - {fileID: 191234177}
   - {fileID: 363430796}
@@ -22134,7 +22150,10 @@ MonoBehaviour:
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
   - {fileID: 4687489372723083663, guid: 8c916b834dcc53549a41ec79c1bfd0c0, type: 3}
+  diffEmpProbability: 0.2
   emptyPrefab: {fileID: 826234445904105353, guid: f0128d456b821e14fbb1c66b52ee9e39, type: 3}
+  diffEmptyTiles:
+  - {fileID: 6321708120972222902, guid: 274761a92c1d2284a800ec1785aa2dde, type: 3}
   difficultyStep: 3
   maximumDepletionRate: 0.15
   difficultyMultiplier: 1.3
