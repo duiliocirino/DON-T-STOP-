@@ -149,11 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062233847203673523, guid: 5759c9b3d9f465c47bd8ac50f2b6fb77, type: 3}
       propertyPath: m_Text
-      value: 'SONG:'
+      value: SONG
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062233847203673523, guid: 5759c9b3d9f465c47bd8ac50f2b6fb77, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9062233847203673523, guid: 5759c9b3d9f465c47bd8ac50f2b6fb77, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 60
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 9062233847203673523, guid: 5759c9b3d9f465c47bd8ac50f2b6fb77, type: 3}
       propertyPath: m_FontData.m_Alignment

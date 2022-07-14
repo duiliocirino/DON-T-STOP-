@@ -78,6 +78,40 @@ public class SaveController : MonoBehaviour
             save = new SaveData(numberOfArcadeStages, numberOfStoryStages);
         }
 
+        /* save = new SaveData(numberOfArcadeStages, numberOfStoryStages);
+        UnlockStage(0);
+        UnlockStage(1);
+        UnlockStage(2);
+        UnlockStage(3);
+
+        UnlockStoryStage(0);
+        UnlockStoryStage(1);
+        UnlockStoryStage(2);
+        UnlockStoryStage(3);
+
+        CompleteStoryStage(0);
+        CompleteStoryStage(1);
+        CompleteStoryStage(2);
+        CompleteStoryStage(3);
+
+        SaveStoryRecords(0, 5500);
+        SaveStoryRecords(1, 999999);
+        SaveStoryRecords(2, 2500);
+        SaveStoryRecords(3, 5500);
+
+        SaveRecords(1, 5 * 300 + 200, 5, 200);
+        SaveRecords(1, 7 * 300 + 800, 7, 800);
+        SaveRecords(1, 2 * 300 + 1500, 2, 1500);
+
+        SaveRecords(2, 4 * 300 + 300, 4, 300);
+        SaveRecords(2, 9 * 300 + 900, 9, 900);
+        SaveRecords(2, 7 * 300 + 1200, 7, 1200);
+        SaveRecords(2, 12 * 300 + 1400, 12, 1400);
+
+        SaveRecords(3, 7 * 300 + 250, 7, 250);
+        SaveRecords(3, 22 * 300 + 1700, 22, 1700);
+
+        SaveGame(); */
     }
 
     private void UpdateSaveData(int oldSaveDataVersion)
