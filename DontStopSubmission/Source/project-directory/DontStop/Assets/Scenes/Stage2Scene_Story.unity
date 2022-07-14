@@ -12125,7 +12125,7 @@ MonoBehaviour:
   wrongRhythmParticles: {fileID: 686782942}
   hitZoneCreatorParticle: {fileID: 1903626122}
   shaker: {fileID: 1154709030}
-  probabilityBadPlat: 0.2
+  probabilityBadPlat: 0.1
   spacing: 13.2
   laneNumbersRadius: 4
   numberOfEmptyTilesSide: 1
@@ -12136,6 +12136,7 @@ MonoBehaviour:
   TOLERANCE: 9
   platformTiles:
   - {fileID: 1757414688}
+  badPlatformTiles: []
   emptyTiles:
   - {fileID: 1193247611}
   - {fileID: 1554958969}

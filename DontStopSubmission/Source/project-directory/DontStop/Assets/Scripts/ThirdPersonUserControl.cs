@@ -72,6 +72,12 @@ public class ThirdPersonUserControl : MonoBehaviour
                 transform.position = newPos;
                 rb.velocity = 10 * Vector3.down;
             }
+            else
+            {
+                Vector3 newPos = PlaneHandler.instance.PlatformTiles[PlaneHandler.instance.PlatformTiles.Count - 1].transform.position + 5 * Vector3.up;
+                transform.position = newPos;
+                rb.velocity = 10 * Vector3.down;
+            }
             spawnSound.Play();
             respawnParticles1.Play();
             respawnParticles2.Play();

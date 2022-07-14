@@ -13734,7 +13734,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609373793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41418b0262fabcb49bc548e5e42db5d8, type: 3}
   m_Name: 
@@ -22112,7 +22112,7 @@ MonoBehaviour:
   wrongRhythmParticles: {fileID: 208704037}
   hitZoneCreatorParticle: {fileID: 932578606}
   shaker: {fileID: 2086332399}
-  probabilityBadPlat: 0.2
+  probabilityBadPlat: 0.1
   spacing: 13.2
   laneNumbersRadius: 4
   numberOfEmptyTilesSide: 1
