@@ -81,7 +81,7 @@ public class PatternGen : MonoBehaviour
         PatternMap pm = new PatternMap();
 
         pm.BPM = 95;
-        pm.noteSpeed = 400;
+        pm.noteSpeed = 500;
         pm.tempoNumerator = 4;
         pm.tempoDenominator = 4;
         pm.songName = "120BPMTestTrack";
@@ -718,7 +718,7 @@ public class PatternGen : MonoBehaviour
         PatternMap pm = new PatternMap();
 
         pm.BPM = 95;
-        pm.noteSpeed = 400;
+        pm.noteSpeed = 500;
         pm.tempoNumerator = 4;
         pm.tempoDenominator = 4;
         pm.songName = "120BPMTestTrack";
@@ -1145,10 +1145,10 @@ public class PatternGen : MonoBehaviour
         PatternMap pm = new PatternMap();
 
         pm.BPM = 103;
-        pm.noteSpeed = 400;
+        pm.noteSpeed = 600;
         pm.tempoNumerator = 4;
         pm.tempoDenominator = 4;
-        pm.songName = "120BPMTestTrack";
+        pm.songName = "aiuto1h";
         pm.initialDelay = 0;
         pm.pattern = new List<BeatPattern>();
 
@@ -1215,7 +1215,7 @@ public class PatternGen : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             bp = new BeatPattern();
-            bp.numMeasures = 8;
+            bp.numMeasures = 6;
             bp.tempoNumerator = 4;
             bp.tempoDenominator = 4;
             bp.notePositions = new List<float>();
@@ -1223,42 +1223,42 @@ public class PatternGen : MonoBehaviour
             bp.notePositions.Add((float)0 / 16);
             bp.notePositions.Add((float)3 / 16);
             bp.notePositions.Add((float)6 / 16);
-            bp.notePositions.Add((float)8 / 16);
+            bp.notePositions.Add((float)9 / 16);
 
-            bp.notePositions.Add((float)16 / 16);
-            bp.notePositions.Add((float)19 / 16);
-            bp.notePositions.Add((float)22 / 16);
+            bp.notePositions.Add((float)12 / 16);
+            bp.notePositions.Add((float)15 / 16);
+            bp.notePositions.Add((float)18 / 16);
+            bp.notePositions.Add((float)21 / 16);
+
             bp.notePositions.Add((float)24 / 16);
+            bp.notePositions.Add((float)27 / 16);
+            bp.notePositions.Add((float)30 / 16);
+            bp.notePositions.Add((float)33 / 16);
 
-            bp.notePositions.Add((float)32 / 16);
-            bp.notePositions.Add((float)35 / 16);
-            bp.notePositions.Add((float)38 / 16);
-            bp.notePositions.Add((float)40 / 16);
+            bp.notePositions.Add((float)36 / 16);
+            bp.notePositions.Add((float)39 / 16);
+            bp.notePositions.Add((float)42 / 16);
+            bp.notePositions.Add((float)45 / 16);
 
             bp.notePositions.Add((float)48 / 16);
             bp.notePositions.Add((float)51 / 16);
             bp.notePositions.Add((float)54 / 16);
-            bp.notePositions.Add((float)56 / 16);
+            bp.notePositions.Add((float)57 / 16);
 
-            bp.notePositions.Add((float)64 / 16);
-            bp.notePositions.Add((float)67 / 16);
-            bp.notePositions.Add((float)70 / 16);
+            bp.notePositions.Add((float)60 / 16);
+            bp.notePositions.Add((float)63 / 16);
+            bp.notePositions.Add((float)66 / 16);
+            bp.notePositions.Add((float)69 / 16);
+
             bp.notePositions.Add((float)72 / 16);
+            bp.notePositions.Add((float)75 / 16);
+            bp.notePositions.Add((float)78 / 16);
+            bp.notePositions.Add((float)81 / 16);
 
-            bp.notePositions.Add((float)80 / 16);
-            bp.notePositions.Add((float)83 / 16);
-            bp.notePositions.Add((float)86 / 16);
-            bp.notePositions.Add((float)88 / 16);
-
-            bp.notePositions.Add((float)96 / 16);
-            bp.notePositions.Add((float)99 / 16);
-            bp.notePositions.Add((float)102 / 16);
-            bp.notePositions.Add((float)104 / 16);
-
-            bp.notePositions.Add((float)112 / 16);
-            bp.notePositions.Add((float)115 / 16);
-            bp.notePositions.Add((float)118 / 16);
-            bp.notePositions.Add((float)120 / 16);
+            bp.notePositions.Add((float)84 / 16);
+            bp.notePositions.Add((float)87 / 16);
+            bp.notePositions.Add((float)90 / 16);
+            bp.notePositions.Add((float)93 / 16);
 
             pm.pattern.Add(bp);
         }
@@ -1280,7 +1280,7 @@ public class PatternGen : MonoBehaviour
         }
 
         // half pattern C (pre ending)
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             bp = new BeatPattern();
             bp.numMeasures = 1;
@@ -1301,7 +1301,7 @@ public class PatternGen : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             bp = new BeatPattern();
-            bp.numMeasures = 8;
+            bp.numMeasures = 6;
             bp.tempoNumerator = 4;
             bp.tempoDenominator = 4;
             bp.notePositions = new List<float>();
@@ -1309,48 +1309,49 @@ public class PatternGen : MonoBehaviour
             bp.notePositions.Add((float)0 / 16);
             bp.notePositions.Add((float)3 / 16);
             bp.notePositions.Add((float)6 / 16);
-            bp.notePositions.Add((float)8 / 16);
+            bp.notePositions.Add((float)9 / 16);
 
-            bp.notePositions.Add((float)16 / 16);
-            bp.notePositions.Add((float)19 / 16);
-            bp.notePositions.Add((float)22 / 16);
+            bp.notePositions.Add((float)12 / 16);
+            bp.notePositions.Add((float)15 / 16);
+            bp.notePositions.Add((float)18 / 16);
+            bp.notePositions.Add((float)21 / 16);
+
             bp.notePositions.Add((float)24 / 16);
+            bp.notePositions.Add((float)27 / 16);
+            bp.notePositions.Add((float)30 / 16);
+            bp.notePositions.Add((float)33 / 16);
 
-            bp.notePositions.Add((float)32 / 16);
-            bp.notePositions.Add((float)35 / 16);
-            bp.notePositions.Add((float)38 / 16);
-            bp.notePositions.Add((float)40 / 16);
+            bp.notePositions.Add((float)36 / 16);
+            bp.notePositions.Add((float)39 / 16);
+            bp.notePositions.Add((float)42 / 16);
+            bp.notePositions.Add((float)45 / 16);
 
             bp.notePositions.Add((float)48 / 16);
             bp.notePositions.Add((float)51 / 16);
             bp.notePositions.Add((float)54 / 16);
-            bp.notePositions.Add((float)56 / 16);
+            bp.notePositions.Add((float)57 / 16);
 
-            bp.notePositions.Add((float)64 / 16);
-            bp.notePositions.Add((float)67 / 16);
-            bp.notePositions.Add((float)70 / 16);
+            bp.notePositions.Add((float)60 / 16);
+            bp.notePositions.Add((float)63 / 16);
+            bp.notePositions.Add((float)66 / 16);
+            bp.notePositions.Add((float)69 / 16);
+
             bp.notePositions.Add((float)72 / 16);
+            bp.notePositions.Add((float)75 / 16);
+            bp.notePositions.Add((float)78 / 16);
+            bp.notePositions.Add((float)81 / 16);
 
-            bp.notePositions.Add((float)80 / 16);
-            bp.notePositions.Add((float)83 / 16);
-            bp.notePositions.Add((float)86 / 16);
-            bp.notePositions.Add((float)88 / 16);
-
-            bp.notePositions.Add((float)96 / 16);
-            bp.notePositions.Add((float)99 / 16);
-            bp.notePositions.Add((float)102 / 16);
-            bp.notePositions.Add((float)104 / 16);
-
-            bp.notePositions.Add((float)112 / 16);
-            bp.notePositions.Add((float)115 / 16);
-            bp.notePositions.Add((float)118 / 16);
-            bp.notePositions.Add((float)120 / 16);
+            bp.notePositions.Add((float)84 / 16);
+            bp.notePositions.Add((float)87 / 16);
+            bp.notePositions.Add((float)90 / 16);
+            bp.notePositions.Add((float)93 / 16);
+        
 
             pm.pattern.Add(bp);
         }
 
         // pattern C (ending)
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             bp = new BeatPattern();
             bp.numMeasures = 2;
