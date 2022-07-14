@@ -46653,6 +46653,10 @@ PrefabInstance:
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 858514167}
+    - target: {fileID: 6650893341948915068, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96c36ee69d0ce242aaf4cf4d182b5e6, type: 3}
 --- !u!224 &1898485671 stripped
@@ -58001,7 +58005,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1898485672}
         m_TargetAssemblyTypeName: GameplayController, Assembly-CSharp
-        m_MethodName: GoToStageSelection
+        m_MethodName: GoToStoryStageSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
