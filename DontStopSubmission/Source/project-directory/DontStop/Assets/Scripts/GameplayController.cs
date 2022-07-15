@@ -11,6 +11,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class GameplayController : MonoBehaviour
 {
+    public static bool gameHasEnded = false;
+
     public Image screenBlurr;
     public Text countdown;
     public GameObject nextStageUnlocked;
@@ -49,6 +51,8 @@ public class GameplayController : MonoBehaviour
 
     private void Awake()
     {
+        gameHasEnded = false;
+
         notesHandler.onEnoughNotesCollected.Add(SaveData);
         notesHandler.onEnoughNotesCollected.Add(CompleteAndUnlockNextStage);
 
@@ -515,6 +519,8 @@ public class GameplayController : MonoBehaviour
 
     private void GameOver()
     {
+        gameHasEnded = true;
+
         LifeBar.instance.StopDeplition();
         Pause.canBePaused = false;
         SetPlayerControlActive(false);
@@ -608,6 +614,7 @@ public class GameplayController : MonoBehaviour
             return;
         }
 
+        gameHasEnded = true;
         LifeBar.instance.StopDeplition();
         Pause.canBePaused = false;
         SetPlayerControlActive(false);

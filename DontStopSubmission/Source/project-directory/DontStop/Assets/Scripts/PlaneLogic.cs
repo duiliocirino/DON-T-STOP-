@@ -29,6 +29,8 @@ public class PlaneLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameplayController.gameHasEnded) return;
+
         if (isPlayerOn)
         {
             timeOn += Time.deltaTime;
