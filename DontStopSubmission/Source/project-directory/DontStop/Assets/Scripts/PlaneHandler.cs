@@ -195,7 +195,12 @@ public class PlaneHandler : MonoBehaviour
 
     public void RemovePlatform(GameObject obj)
     {
-        platformTiles.Remove(obj);
+        if(PlatformTiles.Contains(obj))
+            platformTiles.Remove(obj);
+        else if (badPlatformTiles.Contains(obj))
+        {
+            badPlatformTiles.Remove(obj);
+        }
         Destroy(obj);
     }
 
